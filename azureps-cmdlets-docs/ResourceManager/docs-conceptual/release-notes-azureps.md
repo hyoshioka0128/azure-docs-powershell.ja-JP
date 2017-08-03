@@ -10,18 +10,257 @@ ms.product: azure
 ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: 
-ms.date: 05/18/2017
-ms.openlocfilehash: 97a23180a1fc65d96fdc9dbdffcbe3501a4c4c2a
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.date: 07/26/2017
+ms.openlocfilehash: cc2fe75f498f9043e5a4b632c144877af0143173
+ms.sourcegitcommit: 20bcef86db4e4869125bb63085fcffd009c19280
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/27/2017
 ---
 # <a name="release-notes"></a>リリース ノート
 
 これは Azure PowerShell の今回のリリースで行われた変更の一覧です。
 
-## <a name="version-400"></a>バージョン 4.0.0
+## <a name="20170717---version-421"></a>2017.07.17 - バージョン 4.2.1
+* コンピューティング
+    - VM ディスクおよび VM ディスク スナップショットの作成および更新コマンドレットに関する問題が修正されます (リンク)[https://github.com/azure/azure-powershell/issues/4309]
+      - New-AzureRmDisk
+      - New-AzureRmSnapshot
+      - Update-AzureRmDisk
+      - Update-AzureRmSnapshot
+* プロファイル
+    - RDFE の非対話型ユーザー認証に関する問題が修正されます (リンク)[https://github.com/Azure/azure-powershell/issues/4299]
+* サービス管理
+    - 非対話型ユーザー認証に関する問題が修正されます (リンク)[https://github.com/Azure/azure-powershell/issues/4299]
+
+## <a name="2017711---version-420"></a>2017.7.11 - バージョン 4.2.0
+* AnalysisServices
+    * 新しいデータ プレーン API が追加されます。
+        - AS サーバー ログ、Export-AzureAnalysisServicesInstanceLog をフェッチする API を導入しました。
+* Automation
+    * New-AzureRmAutomationSchedule の週ごとおよび月ごとのスケジュールの TimeZone 値を適切に設定
+        - この問題について詳しくは、https://github.com/Azure/azure-powershell/issues/3043 をご覧ください。
+* AzureBatch
+    - 新しい Get-AzureBatchJobPreparationAndReleaseTaskStatus コマンドレットを追加しました。
+    - バイト範囲の開始と終了を Get-AzureBatchNodeFileContent パラメーターに追加しました。
+* CognitiveServices
+    * Cognitive Services Management SDK バージョン 1.0.0 と統合します。
+    * アカウント名の長さチェックのバグを修正します。
+* コンピューティング
+    * イメージ ディスクでのストレージ アカウントの種類のサポート:
+        - 'StorageAccountType' パラメーターが Set-AzureRmImageOsDisk および Add-AzureRmImageDataDisk に追加されました
+    * Vmss Ip 構成での PrivateIP および PublicIP 機能:
+        - 'PrivateIPAddressVersion'、'PublicIPAddressConfigurationName'、'PublicIPAddressConfigurationIdleTimeoutInMinutes'、および 'DnsSetting' 名が New-AzureRmVmssIpConfig に追加されました
+        - IPv4 または IPv6 を指定するための 'PrivateIPAddressVersion' パラメーターが New-AzureRmVmssIpConfig に追加されました
+    * パフォーマンス メンテナンス機能:
+        - 'PerformMaintenance' スイッチ パラメーターが Restart-AzureRmVM に追加されました。
+        - Get-AzureRmVM - 状態に、特定の VM のパフォーマンス メンテナンスの情報が示されます
+    * 仮想マシン ID 機能:
+        - 'IdentityType' パラメーターが New-AzureRmVMConfig および UpdateAzureRmVM に追加されました
+        - Get-AzureRmVM に特定の VM の ID 情報が表示されます
+    * Vmss ID 機能:
+        - 'IdentityType' パラメーターが New-AzureRmVmssConfig に追加されました
+        - Get-AzureRmVmss に特定の Vmss の ID 情報が表示されます
+    * Vmss ブート診断機能:
+        - Vmss オブジェクトのブート診断を設定するための新しいコマンドレット: Set-AzureRmVmssBootDiagnostics
+        - 'BootDiagnostic' パラメーターが New-AzureRmVmssConfig に追加されました
+    * Vmss LicenseType 機能:
+        - 'LicenseType' パラメーターが New-AzureRmVmssConfig に追加されました
+    * RecoveryPolicyMode サポート:
+        - 'RecoveryPolicyMode' パラメーターが New-AzureRmVmssConfig に追加されました
+    * Compute Resource SKU 機能:
+        - 新しいコマンドレット 'Get-AzureRmComputeResourceSku' により、すべてのコンピューティング リソース SKU が表示されます
+* DataFactories
+    * New-AzureRmDataFactoryGatewayKey が非推奨になりました
+    * New-AzureRmDataFactoryGatewayAuthKey および Get-AzureRmDataFactoryGatewayAuthKey の追加によりゲートウェイ認証キー機能を導入します
+* DataLakeAnalytics
+    * 次のコマンドによるコンピューティング ポリシー CRUD に対応しました。
+        - New-AzureRMDataLakeAnalyticsComputePolicy
+        - Get-AzureRMDataLakeAnalyticsComputePolicy
+        - Remove-AzureRMDataLakeAnalyticsComputePolicy
+        - Update-AzureRMDataLakeAnalyticsComputePolicy
+    * 繰り返し発生するジョブとジョブ パイプラインをサポートするジョブ リレーションシップ メタデータに対応しました。 次のコマンドを更新または追加しました。
+        - Submit-AzureRMDataLakeAnalyticsJob
+        - Get-AzureRMDataLakeAnalyticsJob
+        - Get-AzureRMDataLakeAnalyticsJobRecurrence
+        - Get-AzureRMDataLakeAnalyticsJobPipeline
+    * Azure Resource 対象ユーザーではなく、正しい Data Lake 固有の対象ユーザーを使用するようにジョブおよびカタログ API のトークン対象ユーザーを更新しました。
+* DataLakeStore
+    * Set-AzureRMDataLakeStoreAccount コマンドレットでユーザー管理型 KeyVault キーの交換のサポートを追加しました。
+    * ユーザー管理型 KeyVault が追加されたとき、またはキーが交換されたときに `enableKeyVault` 呼び出しを自動的にトリガーするよう QOL (生活の質) の更新を追加しました。
+    * Azure Resource 対象ユーザーではなく、正しい Data Lake 固有の対象ユーザーを使用するようにジョブおよびカタログ API のトークン対象ユーザーを更新しました。
+    * 次のコマンドレットを使用して作成または追加されるファイルのサイズを制限するバグを修正しました。
+        - New-AzureRmDataLakeStoreItem
+        - Add-AzureRmDataLakeStoreItemContent
+* DNS
+    * Get-AzureRmDnsZone のパイプ処理シナリオでのバグを修正します。
+        - 詳しくは、https://github.com/Azure/azure-powershell/issues/4203 をご覧ください。
+* HDInsight
+    * Operations Management Suite (OMS) の有効化/無効化のサポートを追加しました。
+    * 新しいコマンドレット
+        - Enable-AzureRmHDInsightOperationsManagementSuite
+        - Disable-AzureRmHDInsightOperationsManagementSuite
+        - Get-AzureRmHDInsightOperationsManagementSuite
+    * Spark カスタム構成を Add-AzureRmHDInsightConfigValues に設定する新しいパラメーターを追加します。
+        - Spark 1.6 向けのパラメーター SparkDefaults と SparkThriftConf
+        - Spark 2.0 向けのパラメーター Spark2Defaults と Spark2ThriftConf
+* 洞察
+    * 問題 #4215 (変更要求) により、Get-AzureRmLog コマンドレットの時間枠の 15 日間という制限が削除されます。 また、単体テスト名がわずかに変更されます。
+    * 問題 #3957: Get-AzureRmLog の問題が修正されました。
+        - 問題 #1: バックエンドが、継続トークンによって次ページにリンクされ、200 レコードごとのページでレコードを返す。 それ以上のレコードがあるはずのところ、コマンドレットで 200 レコードしか返されませんでした。 これは、MaxEvents に設定した値に関係なく発生していました (その値が 200 未満である場合を除く)。
+        - 問題 #2: ドキュメントにこのコマンドレットに関する正しくないデータが含まれていた (既定の時間枠が 1 時間など)。
+        - #1 の修正: コマンドレットは、MaxEvents またはセットの末尾に到達するまで、バックエンドによって返された継続トークンに続くようになりました。<br>MaxEvents の既定値は 1000 で、その最大値は 100000 です。 MaxEvents の 1 未満の値はすべて無視され、代わりに既定値が使用されます。 これらの値と動作は以前と同じですが、これらを正確に文書化しました。<br>MaxEvents の別名、MaxRecords が追加されました。コマンドレットの名前はイベントを示さなくなり、ログのみを示すようになりました。
+        - #2 の修正: ドキュメント内の情報が正確かつより詳細になりました (新しい別名、正確な時間枠、正確な既定値、最小値、および最大値)。
+* KeyVault
+    * -UserPrincipalName が Set-AzureRMKeyVaultAccessPolicy および Remove-AzureRMKeyVaultAccessPolicy コマンドレットに指定されているときにディレクトリ クエリからメール アドレスを削除します。
+      - いずれのコマンドレットも -EmailAddress パラメーターを指定するようになりました。このパラメーターは、メール アドレスのクエリ実行時に -UserPrincipalName パラメーターの代わりに使用できます。  ディレクトリに一致するメール アドレスが複数ある場合、コマンドレットは失敗します。
+* ネットワーク
+    * New-AzureRmIpsecPolicy: SALifeTimeSeconds および SADataSizeKilobytes は必須のパラメーターではなくなりました。
+        - SALifeTimeSeconds の既定値は 27000 秒です。
+        - SADataSizeKilobytes の既定値は 102400000 KB です。
+    * ssl ポリシーを使用し、Application Gateway のすべての ssl オプション api を一覧表示するカスタム暗号スイートの構成のサポートを追加しました。
+        - 省略可能なパラメーター -PolicyType、-PolicyName、-MinProtocolVersion、-Ciphersuite を追加しました。
+            - Add-AzureRmApplicationGatewaySslPolicy
+            - New-AzureRmApplicationGatewaySslPolicy
+            - Set-AzureRmApplicationGatewaySslPolicy
+        - Get-AzureRmApplicationGatewayAvailableSslOptions (別名: List-AzureRmApplicationGatewayAvailableSslOptions) を追加しました。
+        - Get-AzureRmApplicationGatewaySslPredefinedPolicy (別名: List-AzureRmApplicationGatewaySslPredefinedPolicy) を追加しました。
+    * Application Gateway でのリダイレクト サポートを追加しました。
+        - Add-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
+        - Get-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
+        - New-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
+        - Remove-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
+        - Set-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
+        - 省略可能なパラメーター、-RedirectConfiguration を追加しました。
+            - Add-AzureRmApplicationGatewayRequestRoutingRule
+            - New-AzureRmApplicationGatewayRequestRoutingRule
+            - Set-AzureRmApplicationGatewayRequestRoutingRule
+        - 省略可能なパラメーター、-DefaultRedirectConfiguration を追加しました。
+            - Add-AzureRmApplicationGatewayUrlPathMapConfig
+            - New-AzureRmApplicationGatewayUrlPathMapConfig
+            - Set-AzureRmApplicationGatewayUrlPathMapConfig
+        - 省略可能なパラメーター、-RedirectConfiguration を追加しました。
+            - Add-AzureRmApplicationGatewayPathRuleConfig
+            - New-AzureRmApplicationGatewayPathRuleConfig
+            - Set-AzureRmApplicationGatewayPathRuleConfig
+        - 省略可能なパラメーター、-RedirectConfigurations を追加しました。
+            - New-AzureRmApplicationGateway
+            - Set-AzureRmApplicationGateway
+    * Application Gateway での Azure Websites のサポートを追加しました。
+        - New-AzureRmApplicationGatewayProbeHealthResponseMatch を追加しました。
+        - 省略可能なパラメーター、-PickHostNameFromBackendHttpSettings、-MinServers、-Match を追加しました。
+            - Add-AzureRmApplicationGatewayProbeConfig
+            - New-AzureRmApplicationGatewayProbeConfig
+            - Set-AzureRmApplicationGatewayProbeConfig
+        - 省略可能なパラメーター、-PickHostNameFromBackendAddress、-AffinityCookieName、-ProbeEnabled、-Path を追加しました。
+            - Add-AzureRmApplicationGatewayBackendHttpSettings
+            - New-AzureRmApplicationGatewayBackendHttpSettings
+            - Set-AzureRmApplicationGatewayBackendHttpSettings
+    * VM スケール セットを使用して作成される publicipaddress リソースを取得するように Get-AzureRmPublicIPaddress を更新します。
+    * 仮想ネットワークの現在の使用量を取得するコマンドレットを追加しました。
+        - Get-AzureRmVirtualNetworkUsageList
+* プロファイル
+    * Import-AzureRmContext または Save-AzureRmContext 使用時のエラーを修正しました。
+        - この問題について詳しくは、https://github.com/Azure/azure-powershell/issues/3954 をご覧ください。
+* RecoveryServices.SiteRecovery
+    * Azure Site Recovery 操作用の新しいモジュールを導入します。
+        - すべてのコマンドレットが AzureRmRecoveryServicesAsr* で始まります。
+* SQL
+    * データ同期 PowerShell コマンドレットを AzureRM.Sql に追加します。
+    * サーバーの作成時にタイムアウトを回避する新しい REST API バージョンを使用するように AzureRmSqlServer コマンドレットを更新しました。
+    * サーバーの旧バージョン (2.0) がなくなったため、サーバーのアップグレード コマンドレットは非推奨になりました。
+    * 新しい省略可能なスイッチ パラメーター AssignIdentity を New-AzureRmSqlServer および Set-AzureRmSqlServer コマンドレットに追加して、SQL サーバー リソース用のリソース ID のプロビジョニングに対応します。
+    * パラメーター ResourceGroupName が Get-AzureRmSqlServer で省略できるようになりました。
+        - 詳しくは、https://github.com/Azure/azure-powershell/issues/635 をご覧ください。
+* ServiceManagement   ExpressRoute の場合:
+    * New-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
+        - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを作成できます。
+    * Set-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
+        - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを更新できます。
+    * Remove-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
+        - PeerAddressType: "IPv4"、"IPv6"、または "すべて" の値を指定して、対応するアドレス ファミリの種類またはこれらすべての BGP ピアリングを削除できます。
+
+## <a name="20170607---version-410"></a>2017.06.07 - バージョン 4.1.0
+* AnalysisServices
+    * 新しい SKU が追加されました: B1、B2、S0
+    * スケールアップ/スケールダウンのサポートが追加されました。
+* CognitiveServices
+    * Cognitive Services リソースの作成時のライセンス契約の詳細表示が更新されます。
+* コンピューティング
+    * 複数の管理ディスクを使用した仮想マシン用の Test-AzureRmVMAEMExtension が修正されます。
+    * Set-AzureRmVMAEMExtension を更新しました。Premium 管理ディスクのキャッシュ情報が追加されます。
+    * Add-AzureRmVhd: vhd のサイズ制限が 4TB に増えます。
+    * Stop-AzureRmVM: STayProvisioned パラメーターのドキュメントをわかりやすくします。
+    * New-AzureRmDiskUpdateConfig
+      * パラメーター CreateOption、StorageAccountId、ImageReference、SourceUri、SourceResourceId は非推奨になりました。
+    * Set-AzureRmDiskUpdateImageReference: コマンドレットが非推奨になりました。
+    * New-AzureRmSnapshotUpdateConfig
+      * パラメーター CreateOption、StorageAccountId、ImageReference、SourceUri、SourceResourceId は非推奨になりました。
+    * Set-AzureRmSnapshotUpdateImageReference: コマンドレットが非推奨になりました。
+* DataLakeStore
+    * Enable-AzureRmDataLakeStoreKeyVault (Enable-AdlStoreKeyVault)
+      * DataLake ストア用に KeyVault 管理型暗号化を有効にします。
+* DevTestLabs
+    * 現在の、または更新された DevTest Labs API バージョンを操作するようにコマンドレットを更新します。
+* IotHub
+    * IoTHub コマンドレットのルーティングのサポートを追加します。
+* KeyVault
+  * KeyVault 管理ストレージ アカウント キーをサポートする新しいコマンドレット
+    * Get-AzureKeyVaultManagedStorageAccount
+    * Add-AzureKeyVaultManagedStorageAccount
+    * Remove-AzureKeyVaultManagedStorageAccount
+    * Update-AzureKeyVaultManagedStorageAccount
+    * Update-AzureKeyVaultManagedStorageAccountKey
+    * Get-AzureKeyVaultManagedStorageSasDefinition
+    * Set-AzureKeyVaultManagedStorageSasDefinition
+    * Remove-AzureKeyVaultManagedStorageSasDefinition
+* ネットワーク
+    * Get-AzureRmNetworkUsage: ネットワークの使用量と容量の詳細を表示する新しいコマンドレット
+    * VirtualNetworkGateways 用の新しい GatewaySku オプションを追加しました。
+        * VpnGw1、VpnGw2、VpnGw3 は Vpn ゲートウェイ用に追加された新しい SKU です。
+    * Set-AzureRmNetworkWatcherConfigFlowLog
+      * ヘルプの例を修正しました。
+* NotificationHubs
+    * 新しい API 用の NotificationHubs コマンドレットの透過的な更新
+* プロファイル
+    * Resolve-AzureRmError
+      * サーバー要求/応答データを含む、コマンドレットによってスローされるエラーと例外の詳細を表示する新しいコマンドレット
+    * Send-Feedback
+      * ログインなしのフィードバックの送信を有効にしました。
+    * Get-AzureRmSubscription
+      * CSP サブスクリプションの取得のバグを修正します。
+* リソース
+    * roleassignments の数が 1000 を超えた場合に Get-AzureRMRoleAssignment が正しくない要求になる問題を修正しました。
+        * 返される roleassignments の数が 1000 を超えた場合でも Get-AzureRMRoleAssignment を使用できるようになりました。
+* SQL
+    * Restore-AzureRmSqlDatabase: ドキュメントの例を更新しました。
+* Storage
+    * リソース モード ストレージ アカウント コマンドレットに AssignIdentity 設定のサポートを追加します。
+        * New-AzureRmStorageAccount
+        * Set-AzureRmStorageAccount
+    * リソース モード ストレージ アカウント コマンドレットに顧客キーのサポートを追加します。
+        * Set-AzureRmStorageAccount
+        * New-AzureRmStorageAccountEncryptionKeySource
+* TrafficManager
+
+    * 新しいモニター設定 'MonitorIntervalInSeconds'、'MonitorTimeoutInSeconds'、'MonitorToleratedNumberOfFailures'
+    * 新しいモニター プロトコル 'TCP'
+* サービス管理
+    * Add-AzureVhd: vhd のサイズ制限が 4TB に増えます。
+    * New-AzureBGPPeering: LegacyMode に対応しました。
+* Azure.Storage
+    * ワイルドカード文字を許可し、種類 StorageContext を更新するパラメーターのヘルプを更新します。
+
+## <a name="20170523---version-402"></a>2017.05.23 - バージョン 4.0.2
+* プロファイル
+    * Add-AzureRmAccount
+      * AzureRM.profile の 2.x バージョンとの下位互換性のために `-EnvironmentName` パラメーター エイリアスを追加しました。
+
+## <a name="20170512---version-401"></a>2017.05.12 - バージョン 4.0.1
+ * オフライン シナリオの New-AzureStorageContext に関する問題を修正しました: https://github.com/Azure/azure-powershell/issues/3939
+
+## <a name="20170510---version-400"></a>2017.05.10 - バージョン 4.0.0
+
 
 * このリリースには、重大な変更が含まれています。 変更の詳細と既存のスクリプトへの影響については、[移行ガイド](https://aka.ms/azps-migration-guide)を参照してください。
 * ApiManagement
