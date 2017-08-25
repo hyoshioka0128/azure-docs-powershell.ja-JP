@@ -10,41 +10,36 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 03/30/2017
-ms.openlocfilehash: 4bfa14f4f139fa8c35d4bb51ae81baea819188ce
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: f1c13317f0b42b547166a8130dd8c29bed5759c9
+ms.sourcegitcommit: db5c50de90764a9bdc7c1f1dbca3aed5bfeb05fa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/22/2017
 ---
-<a id="getting-started-with-azure-powershell" class="xliff"></a>
-# Azure PowerShell を使ってみる
+# <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
 Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 この記事では、その基本的な使い方と核となる概念について説明します。
 
+## <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
 
-<a id="install-azure-powershell" class="xliff"></a>
-## Azure PowerShell をインストールする
-初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。  最新バージョンは 4.1.0 です。
+初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。 最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。
 
 1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
-
 2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM` を実行します。
 
-
-<a id="log-in-to-azure" class="xliff"></a>
-## Azure へのログイン
+## <a name="log-in-to-azure"></a>Azure へのログイン
 
 対話操作でサインオンするには:
 
-1. 「 `Login-AzureRmAccount`」と入力します。  Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 オプション '-EnvironmentName' により、Azure China または Azure Germany にログインできます。
+1. 「 `Login-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 オプション '-EnvironmentName' により、Azure China または Azure Germany にログインできます。
+
    例: Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 2. アカウントに関連付けられている電子メール アドレスとパスワードを入力します。 Azure により資格情報が認証および保存され、ウィンドウが閉じます。
 
 Azure アカウントへのサインイン後、Azure PowerShell のコマンドレットを使って自分のサブスクリプションのリソースにアクセスし、管理することができます。
 
-<a id="create-a-resource-group" class="xliff"></a>
-## リソース グループの作成
+## <a name="create-a-resource-group"></a>リソース グループの作成
 
 必要な設定がすべて整ったら、Azure PowerShell を使って Azure にリソースを作成してみましょう。
 
@@ -64,13 +59,11 @@ Tags              :
 ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup
 ```
 
-<a id="create-a-windows-virtual-machine" class="xliff"></a>
-## Windows 仮想マシンの作成
+## <a name="create-a-windows-virtual-machine"></a>Windows 仮想マシンの作成
 
 リソース グループが完成したら、そこに Windows VM を作成します。 新しい VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。 その構成を使って VM を作成することができます。
 
-<a id="create-the-required-network-resources" class="xliff"></a>
-### 必要なネットワーク リソースの作成
+### <a name="create-the-required-network-resources"></a>必要なネットワーク リソースの作成
 
 まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。 その VM に接続できるように、さらにパブリック IP アドレスも作成します。 そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。 最後に、前述のリソースをすべて使って仮想 NIC を作成します。
 
@@ -106,8 +99,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic1 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-<a id="create-the-virtual-machine" class="xliff"></a>
-### 仮想マシンの作成
+### <a name="create-the-virtual-machine"></a>仮想マシンの作成
 
 最初に、OS の一連の資格情報が必要です。
 
@@ -158,13 +150,11 @@ mstsc /v:xx.xxx.xx.xxx
 VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してログインしてください。
 
 
-<a id="create-a-linux-virtual-machine" class="xliff"></a>
-## Linux 仮想マシンを作成する
+## <a name="create-a-linux-virtual-machine"></a>Linux 仮想マシンを作成する
 
 新しい Linux VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。 その構成を使って VM を作成することができます。 ここでは、前述のリソース グループが既に作成済みであることを前提としています。 また、`id_rsa.pub` という名前の SSH 公開キーがユーザー プロファイルの .ssh ディレクトリに必要です。
 
-<a id="create-the-required-network-resources" class="xliff"></a>
-### 必要なネットワーク リソースの作成
+### <a name="create-the-required-network-resources"></a>必要なネットワーク リソースの作成
 
 まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。 その VM に接続できるように、さらにパブリック IP アドレスも作成します。 そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。 最後に、前述のリソースをすべて使って仮想 NIC を作成します。
 
@@ -204,8 +194,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic2 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-<a id="create-the-virtual-machine" class="xliff"></a>
-### 仮想マシンの作成
+### <a name="create-the-virtual-machine"></a>仮想マシンの作成
 
 これで必要なリソースが揃ったので、VM を作成することができます。 このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。
 
@@ -261,8 +250,7 @@ applicable law.
 my-login@MyLinuxVM:~$
 ```
 
-<a id="creating-other-resources-in-azure" class="xliff"></a>
-## その他の Azure リソースを作成する
+## <a name="creating-other-resources-in-azure"></a>その他の Azure リソースを作成する
 
 ここまでは、リソース グループ、Linux VM、Windows Server VM の作成方法を見てきました。 そのほかにも、さまざまな種類の Azure リソースを作成することができます。
 
@@ -293,8 +281,7 @@ New-AzureRmWebApp -Name MyWebApp43432 -AppServicePlan MyAppServicePlan -Resource
 New-AzureRmWebApp -Name MyWebApp43433 -AppServicePlan MyAppServicePlan -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-<a id="listing-deployed-resources" class="xliff"></a>
-## デプロイされているリソースの一覧表示
+## <a name="listing-deployed-resources"></a>デプロイされているリソースの一覧表示
 
 Azure 内で実行されているリソースは、`Get-AzureRmResource` コマンドレットを使って一覧表示することができます。 先ほど新しいリソース グループに作成したリソースを表示する例を次に示します。
 
@@ -323,8 +310,7 @@ MYvNET2                                               westeurope Microsoft.Netwo
 micromyresomywi032907510                              westeurope Microsoft.Storage/storageAccounts
 ```
 
-<a id="deleting-resources" class="xliff"></a>
-## リソースの削除
+## <a name="deleting-resources"></a>リソースの削除
 
 Azure アカウントをクリーンアップするために、この例で作成したリソースを削除しましょう。 不要になったリソースは、`Remove-AzureRm*` コマンドレットを使って削除できます。 作成した Windows VM を削除するには、次のコマンドを使います。
 
@@ -354,13 +340,11 @@ Are you sure you want to remove resource group 'myResourceGroup'
 
 このコマンドは、完了までに数分かかる場合があります。
 
-<a id="get-samples" class="xliff"></a>
-## サンプルを入手する
+## <a name="get-samples"></a>サンプルを入手する
 
 Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Windows VM](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) 用の一般的なスクリプトが用意されているので、そちらをご覧ください。
 
-<a id="next-steps" class="xliff"></a>
-## 次のステップ
+## <a name="next-steps"></a>次のステップ
 
 * [Azure PowerShell でのログイン](authenticate-azureps.md)
 * [Azure PowerShell による Azure サブスクリプションの管理](manage-subscriptions-azureps.md)
