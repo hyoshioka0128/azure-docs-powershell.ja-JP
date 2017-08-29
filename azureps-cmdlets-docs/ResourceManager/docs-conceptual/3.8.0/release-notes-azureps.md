@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="4d0dd-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="4d0dd-103">Release notes</span></span>
-<a id="release-notes" class="xliff"></a>
+# <a name="release-notes"></a><span data-ttu-id="4d0dd-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="4d0dd-103">Release notes</span></span>
 
 <span data-ttu-id="4d0dd-104">これは Azure PowerShell の今回のリリースで行われた変更の一覧です。</span><span class="sxs-lookup"><span data-stu-id="4d0dd-104">This is a list of changes made to Azure PowerShell in this release.</span></span>
 
-## <span data-ttu-id="4d0dd-105">バージョン 3.8.0</span><span class="sxs-lookup"><span data-stu-id="4d0dd-105">Version 3.8.0</span></span>
-<a id="version-380" class="xliff"></a>
+## <a name="version-380"></a><span data-ttu-id="4d0dd-105">バージョン 3.8.0</span><span class="sxs-lookup"><span data-stu-id="4d0dd-105">Version 3.8.0</span></span>
 * <span data-ttu-id="4d0dd-106">コンピューティング</span><span class="sxs-lookup"><span data-stu-id="4d0dd-106">Compute</span></span>
   - <span data-ttu-id="4d0dd-107">Get-* コマンドレットのバグを修正し、複数ページのデータ (120 項目超) を取得できるようにしました。</span><span class="sxs-lookup"><span data-stu-id="4d0dd-107">Fix bug in Get-* cmdlets, to allow retrieving multiple pages of data (more than 120 items)</span></span>
 * <span data-ttu-id="4d0dd-108">DataLakeAnalytics</span><span class="sxs-lookup"><span data-stu-id="4d0dd-108">DataLakeAnalytics</span></span>

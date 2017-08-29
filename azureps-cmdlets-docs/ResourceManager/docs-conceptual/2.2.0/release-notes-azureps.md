@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="93c5f-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="93c5f-103">Release notes</span></span>
-<a id="release-notes" class="xliff"></a>
+# <a name="release-notes"></a><span data-ttu-id="93c5f-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="93c5f-103">Release notes</span></span>
 
 <span data-ttu-id="93c5f-104">これは Azure PowerShell の今回のリリースで行われた変更の一覧です。</span><span class="sxs-lookup"><span data-stu-id="93c5f-104">This is a list of changes made to Azure PowerShell in this release.</span></span>
 
-## <span data-ttu-id="93c5f-105">バージョン 2.2.0</span><span class="sxs-lookup"><span data-stu-id="93c5f-105">Version 2.2.0</span></span>
-<a id="version-220" class="xliff"></a>
+## <a name="version-220"></a><span data-ttu-id="93c5f-105">バージョン 2.2.0</span><span class="sxs-lookup"><span data-stu-id="93c5f-105">Version 2.2.0</span></span>
 * <span data-ttu-id="93c5f-106">コンピューティング</span><span class="sxs-lookup"><span data-stu-id="93c5f-106">Compute</span></span>
   - <span data-ttu-id="93c5f-107">AzureDiskEncryptionForLinux 拡張機能の暗号化状態を照会できるようになりました。</span><span class="sxs-lookup"><span data-stu-id="93c5f-107">Add support for querying encryption status from the AzureDiskEncryptionForLinux extension</span></span>
 * <span data-ttu-id="93c5f-108">DataFactory</span><span class="sxs-lookup"><span data-stu-id="93c5f-108">DataFactory</span></span>

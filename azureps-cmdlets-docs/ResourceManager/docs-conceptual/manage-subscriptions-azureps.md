@@ -16,8 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="a8cfc-104">複数の Azure サブスクリプションの管理</span><span class="sxs-lookup"><span data-stu-id="a8cfc-104">Manage multiple Azure subscriptions</span></span>
-<a id="manage-multiple-azure-subscriptions" class="xliff"></a>
+# <a name="manage-multiple-azure-subscriptions"></a><span data-ttu-id="a8cfc-104">複数の Azure サブスクリプションの管理</span><span class="sxs-lookup"><span data-stu-id="a8cfc-104">Manage multiple Azure subscriptions</span></span>
 
 <span data-ttu-id="a8cfc-105">Azure を使い始めたばかりの場合、所有しているサブスクリプションは 1 つだけだと思われます。</span><span class="sxs-lookup"><span data-stu-id="a8cfc-105">If you are brand new to Azure, you probably only have a single subscription.</span></span> <span data-ttu-id="a8cfc-106">一方、しばらく前から Azure を使用している場合は、複数の Azure サブスクリプションを作成済みであることも考えられます。</span><span class="sxs-lookup"><span data-stu-id="a8cfc-106">But if you have been using Azure for a while, you may have created multiple Azure subscriptions.</span></span> <span data-ttu-id="a8cfc-107">その場合は、特定のサブスクリプションに対してコマンドを実行するように Azure PowerShell を構成することができます。</span><span class="sxs-lookup"><span data-stu-id="a8cfc-107">You can configure Azure PowerShell to execute commands against a particular subscription.</span></span>
 

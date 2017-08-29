@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="b7f6f-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="b7f6f-103">Release notes</span></span>
-<a id="release-notes" class="xliff"></a>
+# <a name="release-notes"></a><span data-ttu-id="b7f6f-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="b7f6f-103">Release notes</span></span>
 
 <span data-ttu-id="b7f6f-104">これは Azure PowerShell の今回のリリースで行われた変更の一覧です。</span><span class="sxs-lookup"><span data-stu-id="b7f6f-104">This is a list of changes made to Azure PowerShell in this release.</span></span>
 
-## <span data-ttu-id="b7f6f-105">バージョン 1.7.0</span><span class="sxs-lookup"><span data-stu-id="b7f6f-105">Version 1.7.0</span></span>
-<a id="version-170" class="xliff"></a>
+## <a name="version-170"></a><span data-ttu-id="b7f6f-105">バージョン 1.7.0</span><span class="sxs-lookup"><span data-stu-id="b7f6f-105">Version 1.7.0</span></span>
 
 * <span data-ttu-id="b7f6f-106">**全コマンドレットを対象に、-Force、-Confirm、$ConfirmPreference の各パラメーターの動作を変更しました。Microsoft では、PowerShell のガイドラインに合わせてこの実装変更を進めています。これにより、ほとんどのコマンドレットで、Force パラメーターが削除されることになります。ShouldProcess プロンプトをスキップするためには、ユーザーがその PowerShell スクリプトでパラメーター "-Confirm:$false" を追加する必要があります。**</span><span class="sxs-lookup"><span data-stu-id="b7f6f-106">**Behavioral change for -Force, –Confirm and $ConfirmPreference parameters for all cmdlets. We are changing this implementation to be in line with PowerShell guidelines. For most cmdlets, this means removing the Force parameter and to skip the ShouldProcess prompt, users will need to include the parameter: ‘-Confirm:$false’ in their PowerShell scripts.**</span></span> <span data-ttu-id="b7f6f-107">この変更によって次の問題が解決されます。</span><span class="sxs-lookup"><span data-stu-id="b7f6f-107">This changes are addressing following issues:</span></span>
   - <span data-ttu-id="b7f6f-108">-WhatIf 機能を正しく実装する。ユーザーは、実際に変更を加えずにコマンドレットまたはスクリプトの影響を確認できます。</span><span class="sxs-lookup"><span data-stu-id="b7f6f-108">Correct implementation of –WhatIf functionality, allowing a user to determine the effects of a cmdlet or script without making any actual changes</span></span>

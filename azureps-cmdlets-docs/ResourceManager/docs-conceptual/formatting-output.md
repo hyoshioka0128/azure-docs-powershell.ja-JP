@@ -1,6 +1,6 @@
 ---
-title: "<span data-ttu-id=\"7ed70-101\">クエリの結果の書式設定 | Microsoft Docs</span><span class=\"sxs-lookup\"><span data-stu-id=\"7ed70-101\">Formatting query results | Microsoft Docs</span></span>"
-description: "<span data-ttu-id=\"7ed70-102\">Azure のリソースに対してクエリを実行し、その結果の書式を設定する方法について説明します。</span><span class=\"sxs-lookup\"><span data-stu-id=\"7ed70-102\">How to query for resources in Azure and format the results.</span></span>"
+title: "クエリの結果の書式設定 | Microsoft Docs"
+description: "Azure のリソースに対してクエリを実行し、その結果の書式を設定する方法について説明します。"
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -16,8 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="7ed70-103">クエリの結果の書式設定</span><span class="sxs-lookup"><span data-stu-id="7ed70-103">Formatting query results</span></span>
-<a id="formatting-query-results" class="xliff"></a>
+# <a name="formatting-query-results"></a><span data-ttu-id="7ed70-103">クエリの結果の書式設定</span><span class="sxs-lookup"><span data-stu-id="7ed70-103">Formatting query results</span></span>
 
 <span data-ttu-id="7ed70-104">PowerShell コマンドレットにはそれぞれ、出力結果が読みやすいように既定の書式があらかじめ定義されています。</span><span class="sxs-lookup"><span data-stu-id="7ed70-104">By default each PowerShell cmdlet has predefined formatting of output making it easy to read.</span></span>  <span data-ttu-id="7ed70-105">次の PowerShell コマンドレットを使って、必要に応じて出力の書式を調整したり、コマンドレットの出力形式を変換したりすることもできます。</span><span class="sxs-lookup"><span data-stu-id="7ed70-105">PowerShell also provides the flexibility to adjust the output or convert the cmdlet output to a different format with the following cmdlets:</span></span>
 
@@ -28,8 +27,7 @@ ms.lasthandoff: 06/29/2017
 | `Format-Table`  | `ConvertTo-Json` |
 | `Format-Wide`   | `ConvertTo-Xml`  |
 
-## <span data-ttu-id="7ed70-108">書式設定の例</span><span class="sxs-lookup"><span data-stu-id="7ed70-108">Formatting examples</span></span>
-<a id="formatting-examples" class="xliff"></a>
+## <a name="formatting-examples"></a><span data-ttu-id="7ed70-108">書式設定の例</span><span class="sxs-lookup"><span data-stu-id="7ed70-108">Formatting examples</span></span>
 
 <span data-ttu-id="7ed70-109">この例では、既定のサブスクリプションに含まれる一連の Azure VM を取得しています。</span><span class="sxs-lookup"><span data-stu-id="7ed70-109">In this example we get a list of Azure VMs in our default subscription.</span></span>  <span data-ttu-id="7ed70-110">Get-AzureRmVM コマンドの既定の出力は表形式です。</span><span class="sxs-lookup"><span data-stu-id="7ed70-110">The Get-AzureRmVM command defaults output into a table format.</span></span>
 
@@ -75,8 +73,7 @@ Location          : westeurope
 ResourceGroupName : MYWESTEURG
 ```
 
-## <span data-ttu-id="7ed70-116">他のデータ形式への変換</span><span class="sxs-lookup"><span data-stu-id="7ed70-116">Converting to other data types</span></span>
-<a id="converting-to-other-data-types" class="xliff"></a>
+## <a name="converting-to-other-data-types"></a><span data-ttu-id="7ed70-116">他のデータ形式への変換</span><span class="sxs-lookup"><span data-stu-id="7ed70-116">Converting to other data types</span></span>
 
 <span data-ttu-id="7ed70-117">さまざまなニーズに応えるために、PowerShell には複数の出力形式が用意されています。</span><span class="sxs-lookup"><span data-stu-id="7ed70-117">PowerShell also offers multiple output format you can use to meet your needs.</span></span>  <span data-ttu-id="7ed70-118">次の例では、サブスクリプションに含まれる仮想マシンの属性を `Select-Object` コマンドレットで取得し、データベースやスプレッドシートにインポートしやすいよう、その出力形式を CSV に変換しています。</span><span class="sxs-lookup"><span data-stu-id="7ed70-118">In the following example we use the `Select-Object` cmdlet to get attributes of the virtual machines in our subscription and and convert the output to CSV format for easy import into a database or spreadsheet.</span></span>
 
