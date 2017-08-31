@@ -10,15 +10,41 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 368404bcb5218814b4965bb1bcda1e2876441d2a
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: 9cee582f74b7f3260c6ae167a8ac358d360ad8ab
+ms.sourcegitcommit: 45587b5091293288e16cfae8ac412e0d42f8f450
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="other-installation-methods"></a>その他のインストール方法
 
 Azure PowerShell には、複数のインストール方法があります。 その中でも、PowerShell ギャラリーに対して PowerShellGet を使う方法をお勧めします。 それ以外にも、Web Platform Installer (WebPI) を使うか、[GitHub](https://github.com/Azure/azure-powershell/releases/latest) から入手した MSI ファイルを使って Azure PowerShell をインストールすることができます。
+
+## <a name="docker"></a>Docker
+
+Microsoft では、Azure PowerShell が事前構成されている Docker イメージを保持しています。
+
+`docker run` でコンテナーを実行します。
+
+```powershell
+docker run azuresdk/azure-powershell
+```
+
+また Microsoft では、PowerShell Core コンテナーとしてコマンドレットのサブセットを保持しています。
+
+Mac/Linux の場合、`latest` イメージを使用します。
+
+```bash
+docker run azuresdk/azure-powershell-core:latest
+```
+
+Windows の場合、`nanoserver` イメージを使用します。
+
+```powershell
+docker run azuresdk/azure-powershell-core:nanoserver
+```
+
+Azure PowerShell が [PowerShell ギャラリー](https://www.powershellgallery.com/)から `Install-Module` によってイメージにインストールされます。
 
 ## <a name="install-using-the-web-platform-installer"></a>Web Platform Installer を使ってインストールする
 

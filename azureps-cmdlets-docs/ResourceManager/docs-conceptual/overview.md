@@ -10,11 +10,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 07/26/2017
-ms.openlocfilehash: 3772b68949dc9dba110e6015c8d2a8b944b26528
-ms.sourcegitcommit: 20bcef86db4e4869125bb63085fcffd009c19280
+ms.openlocfilehash: 02bfc15fec83ed4078d9a054b450c5a3cd66b8e2
+ms.sourcegitcommit: db5c50de90764a9bdc7c1f1dbca3aed5bfeb05fa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/22/2017
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
 
@@ -29,13 +29,14 @@ Azure PowerShell の基本的な使い方については、次のサンプルが
 * [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
 * [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
 
-
 > [!NOTE] > 変換できないクラシック デプロイ モデルを現在の環境で使っている場合は、Service Management 版の Azure PowerShell をインストールできます。 詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。
-
 
 ### <a name="need-help-with-powershell"></a>PowerShell について不明点がある場合
 
-PowerShell についてまだよく知らない方は、PowerShell の概要に関するページからご覧ください。 PowerShell の基本操作については、「[Scripting with PowerShell (PowerShell でのスクリプト作成)](https://technet.microsoft.com/library/bb978526.aspx)」をご覧ください。
+PowerShell についてまだよく知らない方は、PowerShell の概要に関するページからご覧ください。
+
+* [PowerShell のインストール](/powershell/scripting/installing-windows-powershell)
+* [PowerShell を使用したスクリプト](/powershell/scripting/scripting-with-windows-powershell)
 
 また、「[PowerShell Basics: (Part 1) Getting Started with PowerShell (PowerShell の基礎: (パート 1) PowerShell の基本)](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)」のビデオもご覧ください。
 
