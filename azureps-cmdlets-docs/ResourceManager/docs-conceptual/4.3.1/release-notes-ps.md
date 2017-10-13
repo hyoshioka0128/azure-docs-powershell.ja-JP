@@ -15,7 +15,7 @@ Service Management (RDFE) のレガシ コマンドレット用のギャラリ�
         - 管理者が指定されなかった場合、管理者は削除されます。
     * New-AzureRmAnalysisServicesServer と Set-AzureRmAnalysisServicesServer で BackupBlobContainerUri を追加
         - Azure Analysis Services サーバーのバックアップ/復元のためのバックアップ BLOB コンテナーの設定/無効化が可能になります。
-    * New-AzureRmAnalysisServicesServer と Set-AzureRmAnalysisServicesServer で SKU ルックアップを更新
+    * New-AzureRmAnalysisServicesServer および Set-AzureRmAnalysisServicesServer で SKU ルックアップを更新
         - ハードコードされた SKU を動的ルックアップに変更しました。
     * Add-AzureAnalysisServicesAccount でサービス プリンシパルを使ったログインをサポート
 * Automation
@@ -58,7 +58,7 @@ Service Management (RDFE) のレガシ コマンドレット用のギャラリ�
         - PeerAddressType
     * Remove-AzureRmExpressRouteCircuitPeeringConfig: IPv6 サポートを追加しました。 新しい省略可能なパラメーターを追加しました。
         - PeerAddressType
-    * パラメーター -ProbeEnabled を非推奨としてマークしました。
+    * パラメーター -ProbeEnabled を非推奨としてマーク
         - Add-AzureRmApplicationGatewayBackendHttpSettings
         - New-AzureRmApplicationGatewayBackendHttpSettings
         - Set-AzureRmApplicationGatewayBackendHttpSettings
@@ -89,7 +89,7 @@ Service Management (RDFE) のレガシ コマンドレット用のギャラリ�
        - 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRule のプライマリ/セカンダリ キーを取得します。
      - Remove-AzureRmServiceBusNamespaceAuthorizationRule
        - ServiceBus NameSpace/Queue/Topic の既存の AuthorizationRule を削除します。
-    * NamespceAttributes にリソース グループのプロパティを追加しました。
+    * NamespceAttributes にリソース グループのプロパティを追加しました
 * SQL
     * 暗号化の保護の種類が AzureKeyVault に設定されている場合に警告を表示して確認を要求するよう、Set-AzureRmSqlServerTransparentDataEncryptionProtector を更新
     * 監査設定に対する新しい更新コマンドレットを追加
@@ -106,7 +106,7 @@ Service Management (RDFE) のレガシ コマンドレット用のギャラリ�
         - Remove-AzureRmSqlDatabaseAuditing を非推奨化
         - Remove-AzureRmSqlServerAuditing を非推奨化
     * Update-AzureRmSqlSyncGroup のスキーマ ファイルの解析で大文字と小文字が区別されなくなりました。
-* Storage
+* ストレージ
     * リソース モード ストレージ アカウント コマンドレットに NeworkRule のサポートを追加
         - New-AzureRmStorageAccount
         - Set-AzureRmStorageAccount
