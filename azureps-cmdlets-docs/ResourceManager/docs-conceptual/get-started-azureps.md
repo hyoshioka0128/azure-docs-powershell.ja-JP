@@ -9,22 +9,41 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.openlocfilehash: f1c13317f0b42b547166a8130dd8c29bed5759c9
-ms.sourcegitcommit: db5c50de90764a9bdc7c1f1dbca3aed5bfeb05fa
+ms.date: 08/31/2017
+ms.openlocfilehash: 2cd3fc8e955ae826471dceee79d5e6b70070d416
+ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
-Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 この記事では、その基本的な使い方と核となる概念について説明します。
+Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。 この記事では、その基本的な使い方と核となる概念について説明します。
+
+## <a name="connect"></a>接続
+
+最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。
+
+1. Cloud Shell は、Azure Portal の上部のナビゲーションから起動します。
+
+   ![Shell アイコン](~/media/get-started-azureps/shell-icon.png)
+
+2. 使用するサブスクリプションを選択し、ストレージ アカウントを作成します。
+
+   ![ストレージ アカウントの作成](~/media/get-started-azureps/storage-prompt.png)
+
+ストレージが作成されたら、Cloud Shell によってブラウザーで PowerShell セッションが開きます。
+
+![Cloud Shell for PowerShell](~/media/get-started-azureps/cloud-powershell.png)
+
+Azure PowerShell をインストールし、ローカルの PowerShell セッションで使用することもできます。
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
 
 初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。 最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。
 
 1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
+
 2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM` を実行します。
 
 ## <a name="log-in-to-azure"></a>Azure へのログイン
@@ -51,7 +70,7 @@ Azure アカウントへのサインイン後、Azure PowerShell のコマンド
 New-AzureRmResourceGroup -Name 'myResourceGroup' -Location 'westeurope'
 ```
 
-```
+```Output
 ResourceGroupName : myResourceGroup
 Location          : westeurope
 ProvisioningState : Succeeded
@@ -123,7 +142,7 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 
 VM の作成が完了し、使用する準備ができると、`New-AzureRmVM` コマンドから結果が出力されます。
 
-```
+```Output
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK
@@ -135,7 +154,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 $publicIp | Select-Object Name,IpAddress
 ```
 
-```
+```Output
 Name                  IpAddress
 ----                  ---------
 mypublicdns1400512543 xx.xx.xx.xx
@@ -143,12 +162,11 @@ mypublicdns1400512543 xx.xx.xx.xx
 
 Windows ベースのシステムでは、コマンド ラインで mstsc コマンドを使って同じ操作を実行できます。
 
-```
+```powershell
 mstsc /v:xx.xxx.xx.xxx
 ```
 
 VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してログインしてください。
-
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux 仮想マシンを作成する
 
@@ -219,7 +237,7 @@ VM が作成されたら、その VM のパブリック IP アドレスを SSH �
 ssh xx.xxx.xxx.xxx
 ```
 
-```
+```Output
 Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
@@ -247,7 +265,7 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-my-login@MyLinuxVM:~$
+my-login@MyLinuxVM:../../..$
 ```
 
 ## <a name="creating-other-resources-in-azure"></a>その他の Azure リソースを作成する
@@ -291,7 +309,7 @@ Get-AzureRmResource |
     Select-Object Name,Location,ResourceType
 ```
 
-```
+```Output
 Name                                                  Location   ResourceType
 ----                                                  --------   ------------
 myLinuxVM_OsDisk_1_36ca038791f642ba91270879088c249a   westeurope Microsoft.Compute/disks
@@ -320,7 +338,7 @@ Remove-AzureRmVM -Name myWindowsVM -ResourceGroupName myResourceGroup
 
 リソースを削除してよいか確認するメッセージが表示されます。
 
-```
+```Output
 Confirm
 Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -332,7 +350,7 @@ Are you sure you want to remove resource group 'myResourceGroup'
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-```
+```Output
 Confirm
 Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -351,5 +369,5 @@ Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/vir
 * [Azure PowerShell を使って Azure にサービス プリンシパルを作成する](create-azure-service-principal-azureps.md)
 * 以前のリリースからの移行についてはリリース ノート ([https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) をご覧ください。
 * コミュニティに質問する:
-  + [MSDN の Azure フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=320212)
-  + [stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+  * [MSDN の Azure フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=320212)
+  * [stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)

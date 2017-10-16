@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f6d249ca5bb09c4fe8445ba5b339ffa6012815ed
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: 1af5aeffb8e87e916df3e2440a84805935136c0f
+ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="log-in-with-azure-powershell"></a>Azure PowerShell でのログイン
 
@@ -52,6 +52,12 @@ Azure PowerShell は、複数のログイン方法をサポートしています
     SubscriptionName      : My Production Subscription
     CurrentStorageAccount :
     ```
+
+### <a name="log-in-using-an-azure-vm-managed-service-identity"></a>Azure VM の管理対象サービス ID を使用したログイン
+
+管理対象サービス ID (MSI) は、Azure Active Directory のプレビュー機能です。 サインインに MSI サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。
+
+MSI の詳細については、「[How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition (サインインとトークン取得に Azure VM の管理対象サービス ID (MSI) を使用する方法)](/azure/active-directory/msi-how-to-get-access-token-using-msi)」を参照してください。
 
 ## <a name="log-in-to-another-cloud"></a>別のクラウドにログインする
 
