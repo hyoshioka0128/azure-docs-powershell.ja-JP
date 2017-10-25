@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 4a8a74977440fa89b89843bbc95e43d622a58474
-ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
+ms.openlocfilehash: 7a01957040be7c0498ef4f0e9b8f7297119221a5
+ms.sourcegitcommit: 9d2d35944106bdb6758853b050089bc804e6b9d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
@@ -35,7 +35,20 @@ Microsoft では、試験を円滑に進めるため、既存の Azure SDK の�
 
 ## <a name="how-to-install-an-experimental-module"></a>試験版モジュールをインストールする方法
 
-試験版モジュールは、既存の Azure PowerShell モジュールと同じように PowerShell ギャラリーに公開されています。 試験版モジュールをインストールするには、管理者特権の PowerShell セッションから次のコマンドを実行します。
+試験版モジュールは、既存の Azure PowerShell モジュールと同じように PowerShell ギャラリーに公開されています。 試験版モジュールの一覧を表示するには、次のコマンドを実行します。
+
+```powershell
+Find-Module AzureRM.*.Experiments
+```
+
+```Output
+Version    Name                                Repository           Description
+-------    ----                                ----------           -----------
+1.0.0      AzureRM.Websites.Experiments        PSGallery            Create and deploy web applications using Azure Ap...
+1.0.25     AzureRM.Compute.Experiments         PSGallery            Azure Compute experiments for VM creation
+```
+
+試験版モジュールをインストールするには、管理者特権の PowerShell セッションから次のコマンドを実行します。
 
 ```powershell
 Install-Module AzureRM.Compute.Experiments
@@ -104,8 +117,14 @@ $job = New-AzVm -Name MyVm -AsJob
 Receive-Job $job
 ```
 
-### <a name="send-us-feedback"></a>フィードバックを送信する
+### <a name="send-us-feedback"></a>フィードバックの送信
 
 ```powershell
 Send-Feedback
+```
+
+### <a name="uninstall-the-experimental-modules"></a>試験版モジュールのアンインストール
+
+```powershell
+Uninstall-Module AzureRM.Compute.Experiments
 ```
