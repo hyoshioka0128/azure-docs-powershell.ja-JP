@@ -1,0 +1,43 @@
+- name: Azure PowerShell
+  href: overview.md
+  items:
+    - name: インストール
+      href: install-azurerm-ps.md
+      items:
+        - name: その他のインストール方法
+          href: other-install.md
+    - name: 作業開始
+      href: get-started-azureps.md
+    - name: ログイン
+      href: authenticate-azureps.md
+      items:
+        - name: サービス プリンシパルの作成
+          href: create-azure-service-principal-azureps.md
+    - name: クエリ
+      href: queries-azureps.md
+    - name: 書式設定
+      href: formatting-output.md
+    - name: サブスクリプション
+      href: manage-subscriptions-azureps.md
+    - name: デプロイ
+      items:
+        - name: Resource Manager テンプレートを使用したデプロイ
+          href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy'
+        - name: Resource Manager テンプレートのエクスポート
+          href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-export-template-powershell'
+        - name: SAS トークンを使用したプライベート Resource Manager テンプレートのデプロイ
+          href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-powershell-sas-token'
+    - name: リリース ノート
+      href: release-notes-azureps.md
+- name: サンプル スクリプト
+  items:
+    - name: Linux 仮想マシン
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: Windows 仮想マシン
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: Web Apps
+      href: 'https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: '[SQL データベース]'
+      href: 'https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: Cosmos DB
+      href: 'https://docs.microsoft.com/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json'
