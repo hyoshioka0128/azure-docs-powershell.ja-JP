@@ -1,20 +1,4 @@
----
-title: "Azure PowerShell を使ってみる | Microsoft Docs"
-description: 
-services: azure
-author: sdwheeler
-ms.author: sewhee
-manager: carmonm
-ms.product: azure
-ms.service: azure-powershell
-ms.devlang: powershell
-ms.topic: get-started-article
-ms.date: 08/31/2017
-ms.openlocfilehash: 2cd3fc8e955ae826471dceee79d5e6b70070d416
-ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2017
+-- タイトル: Azure PowerShell を使ってみる | Microsoft Docs description: services: azure author: sdwheeler ms.author: sewhee manager: carmonm ms.product: azure ms.service: azure-powershell ms.devlang: powershell ms.topic: get-started-article ms.date: 08/31/2017
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -26,15 +10,15 @@ Azure PowerShell は、コマンド ラインから Azure リソースを管理�
 
 1. Cloud Shell は、Azure Portal の上部のナビゲーションから起動します。
 
-   ![Shell アイコン](~/media/get-started-azureps/shell-icon.png)
+   ![Shell アイコン](/media/get-started-azureps/shell-icon.png)
 
 2. 使用するサブスクリプションを選択し、ストレージ アカウントを作成します。
 
-   ![ストレージ アカウントの作成](~/media/get-started-azureps/storage-prompt.png)
+   ![ストレージ アカウントの作成](/media/get-started-azureps/storage-prompt.png)
 
 ストレージが作成されたら、Cloud Shell によってブラウザーで PowerShell セッションが開きます。
 
-![Cloud Shell for PowerShell](~/media/get-started-azureps/cloud-powershell.png)
+![Cloud Shell for PowerShell](/media/get-started-azureps/cloud-powershell.png)
 
 Azure PowerShell をインストールし、ローカルの PowerShell セッションで使用することもできます。
 
