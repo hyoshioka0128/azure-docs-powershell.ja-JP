@@ -1,4 +1,4 @@
--- タイトル: Azure PowerShell を使ってみる | Microsoft Docs description: services: azure author: sdwheeler ms.author: sewhee manager: carmonm ms.product: azure ms.service: azure-powershell ms.devlang: powershell ms.topic: get-started-article ms.date: 08/31/2017
+-- タイトル: Azure PowerShell を使ってみる | Microsoft Docs description: services: azure author: sdwheeler ms.author: sewhee manager: carmonm ms.product: azure ms.service: azure-powershell ms.devlang: powershell ms.topic: get-started-article ms.date: 11/15/2017
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -28,7 +28,7 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
 
-2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM` を実行します。
+2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
 
 ## <a name="log-in-to-azure"></a>Azure へのログイン
 
