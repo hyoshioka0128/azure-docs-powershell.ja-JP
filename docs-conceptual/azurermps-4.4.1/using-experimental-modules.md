@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 7a01957040be7c0498ef4f0e9b8f7297119221a5
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.openlocfilehash: c11e4503c07b0a0c4a71021bc511da723098188e
+ms.sourcegitcommit: 42bfd513fe646494d3d9eb0cfc35b049f7e1fbb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
@@ -26,12 +26,7 @@ Microsoft では、試験を円滑に進めるため、既存の Azure SDK の�
 
 試験版モジュールは、既存の Azure PowerShell モジュールと共存させることができます。 コマンドレット名が短くなっているため、既存の (試験段階ではない) コマンドレットとの間に名前の競合が発生することはありません。
 
-試験版モジュールで使用している名前付け規則は次のとおりです。
-
-- AzureRM.Compute.Experiments
-- AzureRM.Websites.Experiments
-
-この名前付け規則は、プレビュー版モジュールの名前の付け方によく似ています (プレビュー版では、`AzureRM.*.Preview` のようになっています)。 プレビュー版モジュールと試験版モジュールは異なるものです。 プレビュー版モジュールには、Azure サービスの新機能のうち、プレビュー版限定で利用できるものが実装されています。 プレビュー版モジュールは、既存の Azure PowerShell モジュールに代わるものであるため、採用しているコマンドレット名やパラメーター名が同じになっています。
+試験版モジュールでは、名前付け規則 `AzureRM.*.Experiments` を使用しています。 この名前付け規則は、プレビュー版モジュールの名前の付け方によく似ています (プレビュー版では、`AzureRM.*.Preview` のようになっています)。 プレビュー版モジュールと試験版モジュールは異なるものです。 プレビュー版モジュールには、Azure サービスの新機能のうち、プレビュー版限定で利用できるものが実装されています。 プレビュー版モジュールは、既存の Azure PowerShell モジュールに代わるものであるため、採用しているコマンドレット名やパラメーター名が同じになっています。
 
 ## <a name="how-to-install-an-experimental-module"></a>試験版モジュールをインストールする方法
 
@@ -42,10 +37,10 @@ Find-Module AzureRM.*.Experiments
 ```
 
 ```Output
-Version    Name                                Repository           Description
--------    ----                                ----------           -----------
-1.0.0      AzureRM.Websites.Experiments        PSGallery            Create and deploy web applications using Azure Ap...
-1.0.25     AzureRM.Compute.Experiments         PSGallery            Azure Compute experiments for VM creation
+Version Name                         Repository Description
+------- ----                         ---------- -----------
+1.0.25  AzureRM.Compute.Experiments  PSGallery  Azure Compute experiments for VM creation
+1.0.0   AzureRM.Websites.Experiments PSGallery  Create and deploy web applications using Azure App Services.
 ```
 
 試験版モジュールをインストールするには、管理者特権の PowerShell セッションから次のコマンドを実行します。
@@ -74,7 +69,7 @@ Install-Module AzureRM.Websites.Experiments
 
 - 名前の短縮 - コマンドレット名 (例: `New-AzureRmVM` => `New-AzVm`) とパラメーター名 (例: `-ResourceGroupName` => `-Rg`) が対象です。 "以前の" コマンドレットとの互換性を確保するには、エイリアスを使用します。 "_下位互換性を備えた_" パラメーター セットを提供します。
 
-- スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 For example:
+- スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 例: 
   - リソース グループ
   - 場所
   - 依存リソース
@@ -101,30 +96,3 @@ Install-Module AzureRM.Websites.Experiments
 - サイズの既定値 - リソースの "サイズ" は、("Standard\_DS1\_v2"、"S1" などのように) 多数のリソース プロバイダーがさまざまな名称を使用しているため、ユーザーにとってはわかりにくいものです。 もっとも、ほとんどのユーザーがこれよりも気にするのはコストです。 このため、価格体系に基づいて "汎用の" サイズを定めておくと効果的です。 これにより、ユーザー自身が特定のサイズを選択することも、リソースと予算に基づいて Azure PowerShell に "_最適な選択肢_" を選択してもらうこともできるようになります。
 
 - 出力形式 - 現在、Azure PowerShell から返されるのは `PSObject` であり、コンソールに出力される情報はわずかしかありません。 Azure PowerShell では、使用している "スマートな既定値" に関する情報を表示する必要が出てくることも考えられます。
-
-## <a name="try-using-the-experiments"></a>試験版モジュールを試してみる
-
-### <a name="install"></a>インストール
-
-```powershell
-Install-Module AzureRM.Compute.Experiments
-```
-
-### <a name="create-a-vm"></a>VM の作成
-
-```powershell
-$job = New-AzVm -Name MyVm -AsJob
-Receive-Job $job
-```
-
-### <a name="send-us-feedback"></a>フィードバックの送信
-
-```powershell
-Send-Feedback
-```
-
-### <a name="uninstall-the-experimental-modules"></a>試験版モジュールのアンインストール
-
-```powershell
-Uninstall-Module AzureRM.Compute.Experiments
-```
