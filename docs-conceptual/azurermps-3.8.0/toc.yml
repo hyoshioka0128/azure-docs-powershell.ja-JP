@@ -1,7 +1,7 @@
 - name: Azure PowerShell
   href: overview.md
   items:
-    - name: インストール
+    - name: '[インストール]'
       href: install-azurerm-ps.md
       items:
         - name: その他のインストール方法
@@ -29,6 +29,9 @@
           href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-powershell-sas-token'
     - name: リリース ノート
       href: release-notes-azureps.md
+      items:
+        - name: Azure PowerShell 3.x の重大な変更
+          href: migration-guide.3.0.0.md
 - name: サンプル スクリプト
   items:
     - name: Linux 仮想マシン
