@@ -12,10 +12,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 6eda2d2a729331b212938aa2681d0188a25b734a
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.sourcegitcommit: 72f56597f0329d35779a3ea4ccea6293f0fd2502
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -112,7 +112,7 @@ SubscriptionName      :
 CurrentStorageAccount :
 ```
 
-ご利用ありがとうございます。 これらの資格情報を使ってアプリを実行することができます。 次に、サービス プリンシパルのアクセス許可を調整する必要があります。
+お疲れさまでした。 これらの資格情報を使ってアプリを実行することができます。 次に、サービス プリンシパルのアクセス許可を調整する必要があります。
 
 ## <a name="managing-roles"></a>ロールの管理
 

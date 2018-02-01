@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 64a86dfd4af7f3f0a91501e9a096ff190f7100cb
-ms.sourcegitcommit: d320fd5a2f468445c9e5aaa8d28dc363ece12ffc
+ms.sourcegitcommit: 72f56597f0329d35779a3ea4ccea6293f0fd2502
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-and-configure-azure-powershell-on-macos-and-linux"></a>macOS および Linux での Azure PowerShell のインストールおよび構成
 
@@ -78,7 +78,7 @@ Login-AzureRMAccount
   - 仮想マシン
   - App Service (Websites)
   - SQL Database
-  - Storage
+  - ストレージ
   - ネットワーク
 
 ## <a name="next-steps"></a>次の手順
