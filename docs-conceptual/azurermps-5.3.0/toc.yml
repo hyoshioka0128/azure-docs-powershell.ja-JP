@@ -1,7 +1,7 @@
 - name: Azure PowerShell
   href: overview.md
   items:
-    - name: '[インストール]'
+    - name: Install
       href: install-azurerm-ps.md
       items:
         - name: macOS および Linux へのインストール
@@ -37,6 +37,8 @@
       items:
         - name: 試験版モジュールの使用
           href: using-experimental-modules.md
+        - name: PowerShell ジョブ
+          href: using-psjobs.md
     - name: リリース ノート
       href: release-notes-azureps.md
       items:
