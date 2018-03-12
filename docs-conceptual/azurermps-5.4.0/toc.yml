@@ -37,13 +37,17 @@
       items:
         - name: 試験版モジュールの使用
           href: using-experimental-modules.md
-        - name: PowerShell ジョブ
+        - name: PowerShell ジョブの使用
           href: using-psjobs.md
     - name: リリース ノート
       href: release-notes-azureps.md
       items:
         - name: Azure PowerShell 5.x の重大な変更
           href: migration-guide.5.0.0.md
+- name: チュートリアル
+  items:
+    - name: 仮想マシンを作成する
+      href: azureps-vm-tutorial.yml
 - name: サンプル スクリプト
   items:
     - name: Linux 仮想マシン

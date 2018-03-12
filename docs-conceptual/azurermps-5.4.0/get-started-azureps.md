@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: cbe8507a89c048351dab64e28552596ed802bf21
-ms.sourcegitcommit: 5fe9a579d2e0d1cb5a05aadaeba5db784f1b18fa
+ms.openlocfilehash: af1eccfffed551e6025014e2fd9287f3e6ebf425
+ms.sourcegitcommit: 3842efd1eb2d16f7c6d9ae87d6d7916b770658c1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -58,11 +58,101 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 Azure アカウントへのサインイン後、Azure PowerShell のコマンドレットを使って自分のサブスクリプションのリソースにアクセスし、管理することができます。
 
-## <a name="create-a-resource-group"></a>リソース グループの作成
+## <a name="create-a-windows-virtual-machine-using-simple-defaults"></a>単純な既定値を使用して Windows 仮想マシンを作成する
 
-必要な設定がすべて整ったら、Azure PowerShell を使って Azure にリソースを作成してみましょう。
+`New-AzureRmVM` コマンドレットは、簡略化された構文を提供しているため、新しい仮想マシンを簡単に作成できます。 指定する必要があるパラメーター値は、VM の名前と、VM のローカル管理者アカウントの一連の資格情報の 2 つのみです。
 
-まずリソース グループを作成します。 Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。 たとえばアプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシンやデータベース、CDN サービスをそこに追加することができます。
+最初に、資格情報オブジェクトを作成します。
+
+```powershell
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+```
+
+```Output
+Windows PowerShell credential request.
+Enter a username and password for the virtual machine.
+User: localAdmin
+Password for user localAdmin: *********
+```
+次に、VM を作成します。
+
+```powershell
+New-AzureRmVM -Name SampleVM -Credential $cred
+```
+
+```Output
+ResourceGroupName        : SampleVM
+Id                       : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/SampleVM/providers/Microsoft.Compute/virtualMachines/SampleVM
+VmId                     : 43f6275d-ce50-49c8-a831-5d5974006e63
+Name                     : SampleVM
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : eastus
+Tags                     : {}
+HardwareProfile          : {VmSize}
+NetworkProfile           : {NetworkInterfaces}
+OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
+ProvisioningState        : Succeeded
+StorageProfile           : {ImageReference, OsDisk, DataDisks}
+FullyQualifiedDomainName : samplevm-2c0867.eastus.cloudapp.azure.com
+```
+
+ここまでは簡単でした。 ただし、他に何が作成され、VM がどのように構成されているのかと疑問にお感じのことでしょう。 まず、リソース グループを確認しましょう。
+
+```powershell
+Get-AzureRmResourceGroup | Select-Object ResourceGroupName,Location
+```
+
+```Output
+ResourceGroupName          Location
+-----------------          --------
+cloud-shell-storage-westus westus
+SampleVM                   eastus
+```
+
+**cloud-shell-storage-westus** リソース グループは、Cloud Shell を初めて使用するときに作成されます。 **SampleVM** リソース グループは、`New-AzureRmVM` コマンドレットによって作成されました。
+
+では、この新しいリソース グループには、他にどのようなリソースが作成されているでしょうか。
+
+```powershell
+Get-AzureRmResource |
+  Where ResourceGroupName -eq SampleVM |
+    Select-Object ResourceGroupName,Location,ResourceType,Name
+```
+
+```Output
+ResourceGroupName          Location ResourceType                            Name
+-----------------          -------- ------------                            ----
+SAMPLEVM                   eastus   Microsoft.Compute/disks                 SampleVM_OsDisk_1_9b286c54b168457fa1f8c47...
+SampleVM                   eastus   Microsoft.Compute/virtualMachines       SampleVM
+SampleVM                   eastus   Microsoft.Network/networkInterfaces     SampleVM
+SampleVM                   eastus   Microsoft.Network/networkSecurityGroups SampleVM
+SampleVM                   eastus   Microsoft.Network/publicIPAddresses     SampleVM
+SampleVM                   eastus   Microsoft.Network/virtualNetworks       SampleVM
+```
+
+VM についての詳細情報を取得してみましょう。 次の例は、VM の作成に使用した OS イメージに関する情報を取得する方法を示しています。
+
+```powershell
+Get-AzureRmVM -Name SampleVM -ResourceGroupName SampleVM |
+  Select-Object -ExpandProperty StorageProfile |
+    Select-Object -ExpandProperty ImageReference
+```
+
+```Output
+Publisher : MicrosoftWindowsServer
+Offer     : WindowsServer
+Sku       : 2016-Datacenter
+Version   : latest
+Id        :
+```
+
+## <a name="create-a-fully-configured-linux-virtual-machine"></a>完全に構成された Linux 仮想マシンの作成
+
+前の例では、簡略化された構文と既定のパラメーター値を使用して、Windows 仮想マシンを作成しました。 この例では、仮想マシンのすべてのオプションの値を指定します。
+
+### <a name="create-a-resource-group"></a>リソース グループの作成
+
+この例では、リソース グループを作成します。 Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。 たとえばアプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシンやデータベース、CDN サービスをそこに追加することができます。
 
 "MyResourceGroup" という名前のリソース グループを Azure の westeurope リージョンに作成しましょう。 そのためには次のコマンドを入力します。
 
@@ -78,101 +168,9 @@ Tags              :
 ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup
 ```
 
-## <a name="create-a-windows-virtual-machine"></a>Windows 仮想マシンの作成
+この新しいリソース グループは、作成する新しい VM に必要なすべてのリソースを格納するために使用されます。 新しい Linux VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。 その構成を使って VM を作成することができます。 また、`id_rsa.pub` という名前の SSH 公開キーがユーザー プロファイルの .ssh ディレクトリに必要です。
 
-リソース グループが完成したら、そこに Windows VM を作成します。 新しい VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。 その構成を使って VM を作成することができます。
-
-### <a name="create-the-required-network-resources"></a>必要なネットワーク リソースの作成
-
-まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。 その VM に接続できるように、さらにパブリック IP アドレスも作成します。 そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。 最後に、前述のリソースをすべて使って仮想 NIC を作成します。
-
-```powershell
-# Variables for common values
-$resourceGroup = "myResourceGroup"
-$location = "westeurope"
-$vmName = "myWindowsVM"
-
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet1 -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
-  -Name MYvNET1 -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIp = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-$publicIp | Select-Object Name,IpAddress
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-  -Name myNetworkSecurityGroup1 -SecurityRules $nsgRuleRDP
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic1 -ResourceGroupName $resourceGroup -Location $location `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
-```
-
-### <a name="create-the-virtual-machine"></a>仮想マシンの作成
-
-最初に、OS の一連の資格情報が必要です。
-
-```powershell
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-```
-
-これで必要なリソースが揃ったので、VM を作成することができます。 このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。
-
-```powershell
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
-  Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred |
-  Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest |
-  Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
-```
-
-VM の作成が完了し、使用する準備ができると、`New-AzureRmVM` コマンドから結果が出力されます。
-
-```Output
-RequestId IsSuccessStatusCode StatusCode ReasonPhrase
---------- ------------------- ---------- ------------
-                         True         OK OK
-```
-
-新しく作成した Windows Server VM のパブリック IP アドレスとリモート デスクトップを使って VM にログオンします。 次のコマンドを実行すると、前述のスクリプトで作成したパブリック IP アドレスが表示されます。
-
-```powershell
-$publicIp | Select-Object Name,IpAddress
-```
-
-```Output
-Name                  IpAddress
-----                  ---------
-mypublicdns1400512543 xx.xx.xx.xx
-```
-
-Windows ベースのシステムでは、コマンド ラインで mstsc コマンドを使って同じ操作を実行できます。
-
-```powershell
-mstsc /v:xx.xxx.xx.xxx
-```
-
-VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してログインしてください。
-
-## <a name="create-a-linux-virtual-machine"></a>Linux 仮想マシンを作成する
-
-新しい Linux VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。 その構成を使って VM を作成することができます。 ここでは、前述のリソース グループが既に作成済みであることを前提としています。 また、`id_rsa.pub` という名前の SSH 公開キーがユーザー プロファイルの .ssh ディレクトリに必要です。
-
-### <a name="create-the-required-network-resources"></a>必要なネットワーク リソースの作成
+#### <a name="create-the-required-network-resources"></a>必要なネットワーク リソースの作成
 
 まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。 その VM に接続できるように、さらにパブリック IP アドレスも作成します。 そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。 最後に、前述のリソースをすべて使って仮想 NIC を作成します。
 
@@ -212,9 +210,9 @@ $nic = New-AzureRmNetworkInterface -Name myNic2 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-### <a name="create-the-virtual-machine"></a>仮想マシンの作成
+### <a name="create-the-vm-configuration"></a>VM 構成の作成
 
-これで必要なリソースが揃ったので、VM を作成することができます。 このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。
+必要なリソースが揃ったので、VM 構成オブジェクトを作成することができます。
 
 ```powershell
 # Create a virtual machine configuration
@@ -226,8 +224,13 @@ $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+```
 
-# Create a virtual machine
+### <a name="create-the-virtual-machine"></a>仮想マシンの作成
+
+これで、VM 構成オブジェクトを使用して VM を作成できるようになりました。
+
+```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
