@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
 ms.openlocfilehash: af1eccfffed551e6025014e2fd9287f3e6ebf425
-ms.sourcegitcommit: 3842efd1eb2d16f7c6d9ae87d6d7916b770658c1
+ms.sourcegitcommit: 20af779cd523c758d40e23d60eb989a4ef982d5c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -370,7 +370,7 @@ Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/vir
 * [Azure PowerShell でのログイン](authenticate-azureps.md)
 * [Azure PowerShell による Azure サブスクリプションの管理](manage-subscriptions-azureps.md)
 * [Azure PowerShell を使って Azure にサービス プリンシパルを作成する](create-azure-service-principal-azureps.md)
-* 以前のリリースからの移行についてはリリース ノート ([https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) をご覧ください。
+* 以前のリリースからの移行については、リリース ノート ([ https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。
 * コミュニティに質問する:
   * [MSDN の Azure フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=320212)
   * [stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
