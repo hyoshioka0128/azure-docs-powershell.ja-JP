@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ジョブを使用したコマンドレットの並列実行"
-description: "-AsJob パラメーターを使用してコマンドレットを並列して実行する方法。"
+title: PowerShell ジョブを使用したコマンドレットの並列実行
+description: -AsJob パラメーターを使用してコマンドレットを並列して実行する方法。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.openlocfilehash: 0a445a7db84c8deb6518b826b4096983669c5961
-ms.sourcegitcommit: 20af779cd523c758d40e23d60eb989a4ef982d5c
+ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>PowerShell ジョブを使用したコマンドレットの並列実行
 
