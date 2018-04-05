@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 8ef20796b64b16c78a653e293a57d5e752d89710
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: 4b2b3b690a8c5d6951b24d49091154c6fb479fe3
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>PowerShell セッション間でのユーザー ログインの保持
 
@@ -73,7 +73,7 @@ Azure コンテキストを管理できるコマンドレットを使用する�
 
 ## <a name="creating-selecting-renaming-and-removing-contexts"></a>コンテキストの作成、選択、名前変更、削除
 
-コンテキストを作成するには、Azure にログインしている必要があります。 `Add-AzureRmAccount` コマンドレット (またはそのエイリアス `Login-AzureRmAccount`) は、後続の Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、ログイン資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
+コンテキストを作成するには、Azure にログインしている必要があります。 `Connect-AzureRmAccount` コマンドレット (またはそのエイリアス `Login-AzureRmAccount`) は、後続の Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、ログイン資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
 
 ログイン後に新しいコンテキストを追加するには、`Set-AzureRmContext` (またはそのエイリアス `Select-AzureRmSubscription`) を使用します。
 

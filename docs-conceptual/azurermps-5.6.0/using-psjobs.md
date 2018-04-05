@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 0a445a7db84c8deb6518b826b4096983669c5961
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: dfc1efa752c9c9fa42ad5904adacd83c2dc333b8
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>PowerShell ジョブを使用したコマンドレットの並列実行
 
@@ -23,7 +23,7 @@ Azure PowerShell は、Azure に対するネットワーク呼び出し (およ�
 
 ## <a name="context-persistence-and-psjobs"></a>コンテキストの永続化と PSJob
 
-PSJob は個別のプロセスで実行されます。つまり、Azure 接続に関する情報は、作成するジョブと適切に共有されている必要があります。 `Login-AzureRmAccount` で Azure アカウントを PowerShell セッションに接続するとき、コンテキストをジョブに渡すことができます。
+PSJob は個別のプロセスで実行されます。つまり、Azure 接続に関する情報は、作成するジョブと適切に共有されている必要があります。 `Connect-AzureRmAccount` で Azure アカウントを PowerShell セッションに接続するとき、コンテキストをジョブに渡すことができます。
 
 ```powershell
 $creds = Get-Credential
