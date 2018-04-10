@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 24eb3cf1a58ac87d437d3471639cd9c8cec4070e
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: 12446697e57cc0a76b94309c2338239c16c7f580
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -50,9 +50,9 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 対話操作でサインオンするには:
 
-1. 「 `Login-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 オプション '-EnvironmentName' により、Azure China または Azure Germany にログインできます。
+1. 「 `Connect-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-EnvironmentName" オプションを使用すると、Azure China または Azure Germany にログインできます。
 
-   例: Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   例: Connect-AzureRmAccount -Environment AzureChinaCloud
 
 2. アカウントに関連付けられている電子メール アドレスとパスワードを入力します。 Azure により資格情報が認証および保存され、ウィンドウが閉じます。
 

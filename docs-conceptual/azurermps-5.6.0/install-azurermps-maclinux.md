@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 64a86dfd4af7f3f0a91501e9a096ff190f7100cb
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: eed7a35fcf20a17c83d9e5e3272be4b77fa12c34
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-and-configure-azure-powershell-on-macos-and-linux"></a>macOS および Linux での Azure PowerShell のインストールおよび構成
 
@@ -31,7 +31,7 @@ Azure PowerShell を macOS や Linux にインストールするプロセスは 
 
 ## <a name="step-1-install-powershell-core-v6"></a>手順 1: PowerShell Core v6 をインストールする
 
-PowerShell Core v6 をインストールするプロセスは、インストール先のオペレーティング システムによって異なります。
+PowerShell Core v6 のインストール プロセスは、インストール先のオペレーティング システムによって異なります。
 PowerShell Core v6 は Windows にインストールすることもできますが、この記事では、macOS および Linux へのインストールについて説明します。 Azure PowerShell を Windows で使用する場合は、Windows 向けの[インストール](./install-azurerm-ps.md) ガイドをご覧ください。
 
 Linux または macOS への **PowerShell Core v6** のインストールは、Linux ディストリビューションまたは OS バージョンによって異なります。
@@ -59,7 +59,7 @@ Import-Module AzureRM.Profile.Netcore
 インポートが完了したら、次のコマンドを使って Azure へのサインインを試みることで、新しくインストールしたモジュールをテストすることができます。
 
 ```powershell
-Login-AzureRMAccount
+Connect-AzureRmAccount
 ```
 
 上記のコマンドを実行すると、`https://aka.ms/devicelogin` に移動して指定されたコードを入力するよう求められます。
