@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell のインストールおよび構成 | Microsoft Docs"
-description: "初めて使う Azure PowerShell をインストールして構成する方法について説明します。"
+title: Azure PowerShell のインストールおよび構成 | Microsoft Docs
+description: 初めて使う Azure PowerShell をインストールして構成する方法について説明します。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -9,12 +9,12 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/17/2017
-ms.openlocfilehash: 0c1500a8748a3aa4546c6ce1e8d16a635b056edb
-ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
+ms.date: 03/27/2018
+ms.openlocfilehash: 993c9570b7fe81e5be68b8d82943f2135aed2337
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell のインストールおよび構成
 
@@ -25,21 +25,30 @@ Azure PowerShell は、PowerShell ギャラリーからインストールする�
 PowerShell ギャラリーからソフトウェアをインストールするには、PowerShellGet モジュールが必要です。 PowerShellGet のバージョンが適切であるかなど、システム要件を満たしていることを確認してください。 ご使用のシステムに PowerShellGet がインストールされているかどうかを確認するには、次のコマンドを実行します。
 
 ```powershell
-Get-Module PowerShellGet -list | Select-Object Name,Version,Path
+Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
 次のような出力結果が表示されます。
 
-```
+```Output
 Name          Version Path
 ----          ------- ----
+Name          Version Path
+----          ------- ----
+PowerShellGet 1.6.0   C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.6.0\PowerShellGet.psd1
 PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
+```
+
+PowerShellGet バージョン 1.1.2.0 以降が必要です。 PowerShellGet を更新するには、次のコマンドを使用します。
+
+```powershell
+Install-Module PowerShellGet -Force
 ```
 
 PowerShellGet がインストールされていない場合は、この記事の「[PowerShellGet の入手方法](#how-to-get-powershellget)」のセクションをご覧ください。
 
 > [!NOTE]
-> PowerShellGet を使用するには、実行ポリシーでスクリプトの実行が許可されている必要があります。 PowerShell の実行ポリシーについて詳しくは、「[About Execution Policies (実行ポリシーについて)](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_execution_policies)」をご覧ください。
+> PowerShellGet を使用するには、実行ポリシーでスクリプトの実行が許可されている必要があります。 PowerShell の実行ポリシーについて詳しくは、「[About Execution Policies (実行ポリシーについて)](/powershell/module/microsoft.powershell.core/about/about_execution_policies)」をご覧ください。
 
 ## <a name="step-2-install-azure-powershell"></a>手順 2: Azure PowerShell をインストールする
 
@@ -47,12 +56,12 @@ Azure PowerShell を PowerShell ギャラリーからインストールするた
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery
-Install-Module AzureRM
+Install-Module -Name AzureRM -AllowClobber
 ```
 
 既定では、PowerShell ギャラリーは PowerShellGet の信頼できるリポジトリとして構成されていません。 PSGallery の初回使用時には、次のプロンプトが表示されます。
 
-```
+```Output
 Untrusted repository
 
 You are installing the modules from an untrusted repository. If you trust this repository, change
@@ -75,10 +84,10 @@ AzureRM モジュールは、Azure Resource Manager コマンドレットのロ�
 モジュールは、インストール後、PowerShell セッションに読み込む必要があります。 これは通常の (管理者特権ではない) PowerShell セッションで実行する必要があります。 モジュールを読み込むには、次のように `Import-Module` コマンドレットを使います。
 
 ```powershell
-Import-Module AzureRM
+Import-Module -Name AzureRM
 ```
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 Azure PowerShell の使用について詳しくは、次の記事をご覧ください。
 
@@ -100,7 +109,7 @@ Azure PowerShell の使用について詳しくは、次の記事をご覧くだ
 Azure PowerShell は、できるだけ早く最新バージョンにアップグレードすることをお勧めしますが、いくつかのバージョンがサポートされています。 インストールされている Azure PowerShell のバージョンを確認するには、コマンド ラインから `Get-Module AzureRM` を実行します。
 
 ```powershell
-Get-Module AzureRM -list | Select-Object Name,Version,Path
+Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
 ### <a name="support-for-classic-deployment-methods"></a>クラシック デプロイ方法のサポート
@@ -111,7 +120,7 @@ Get-Module AzureRM -list | Select-Object Name,Version,Path
 
 Service Management モジュールを含む、以前のバージョンの Azure PowerShell がインストールされている場合は、次のエラーが発生する可能性があります。
 
-```
+```Output
 PackageManagement\Install-Package : A command with name 'Get-AzureStorageContainerAcl' is already
 available on this system. This module 'Azure.Storage' may override the existing commands. If you
 still want to install this module 'Azure.Storage', use -AllowClobber parameter.
@@ -127,7 +136,7 @@ At C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery
-Install-Module AzureRM -AllowClobber
+Install-Module -Name AzureRM -AllowClobber
 ```
 
 詳細については、[Install-Module](https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/install-module) に関するヘルプ トピックをご覧ください。
@@ -144,7 +153,7 @@ Install-Module -Name AzureRM -RequiredVersion 1.2.9
 PowerShell セッションに読み込むことができるモジュールのバージョンは 1 つだけです。 特定のバージョンの AzureRM コマンドレットをインポートするには、新たに PowerShell ウィンドウを開いて `Import-Module` を実行する必要があります。
 
 ```powershell
-Import-Module AzureRM -RequiredVersion 1.2.9
+Import-Module -Name AzureRM -RequiredVersion 1.2.9
 ```
 
 > [!NOTE]
