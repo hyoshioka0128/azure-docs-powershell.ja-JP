@@ -1,7 +1,7 @@
 - name: Azure PowerShell
   href: overview.md
   items:
-    - name: '[インストール]'
+    - name: Install
       href: install-azurerm-ps.md
       items:
         - name: その他のインストール方法
@@ -42,7 +42,5 @@
       href: 'https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
     - name: '[SQL データベース]'
       href: 'https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
-    - name: Cosmos DB
-      href: 'https://docs.microsoft.com/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json'
     - name: Cosmos DB
       href: 'https://docs.microsoft.com/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json'
