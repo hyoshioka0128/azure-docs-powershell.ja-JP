@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell を使ってみる | Microsoft Docs"
-description: 
+title: Azure PowerShell を使ってみる | Microsoft Docs
+description: ''
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -9,12 +9,12 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
-ms.date: 08/31/2017
-ms.openlocfilehash: 2cd3fc8e955ae826471dceee79d5e6b70070d416
-ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
+ms.date: 11/15/2017
+ms.openlocfilehash: 5f1bd0c780b027b2b5779c70fa3145c5dfdc3bb4
+ms.sourcegitcommit: 4ebdeea3c472d94c1aedb10b9d85bf2e76826e83
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -44,9 +44,9 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
 
-2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM` を実行します。
+2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
 
-## <a name="log-in-to-azure"></a>Azure へのログイン
+## <a name="log-in-to-azure"></a>Azure にログインする
 
 対話操作でサインオンするには:
 
@@ -362,7 +362,7 @@ Are you sure you want to remove resource group 'myResourceGroup'
 
 Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Windows VM](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) 用の一般的なスクリプトが用意されているので、そちらをご覧ください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 * [Azure PowerShell でのログイン](authenticate-azureps.md)
 * [Azure PowerShell による Azure サブスクリプションの管理](manage-subscriptions-azureps.md)
