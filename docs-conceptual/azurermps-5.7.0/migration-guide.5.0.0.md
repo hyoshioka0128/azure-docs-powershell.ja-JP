@@ -387,14 +387,16 @@ $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
 ## <a name="breaking-changes-to-insights-cmdlets"></a>Insights コマンドレットの重大な変更
 
 ### <a name="add-azurermlogalertrule"></a>**Add-AzureRMLogAlertRule**
-- **Add-AzureRMLogAlertRule** コマンドレットは使用されなくなりました。
+- 
+  **Add-AzureRMLogAlertRule** コマンドレットは非推奨となりました。
 - 10 月 1 日以降、この機能はアクティビティ ログ アラートに移行するため、このコマンドレットを使用しても効果はなくなります。 詳細については、https://aka.ms/migratemealerts を参照してください。
 
 ### <a name="get-azurermusage"></a>**Get-AzureRMUsage**
-- **Get-AzureRMUsage** コマンドレットは使用されなくなりました。
+- 
+  **Get-AzureRMUsage** コマンドレットは非推奨となりました。
 
 ### <a name="get-azurermalerthistory--get-azurermautoscalehistory--get-azurermlogs"></a>**Get-AzureRmAlertHistory** / **Get-AzureRmAutoscaleHistory** / **Get-AzureRmLogs**
-- 出力の変更: (これらのコマンドレットから返される) EventData オブジェクトの EventChannels フィールドは、定数値 (Admin,Operation) を返すようになったため、使用されなくなります。
+- 出力の変更: (これらのコマンドレットから返される) EventData オブジェクトの EventChannels フィールドは、定数値 (Admin,Operation) を返すようになったため、非推奨となります。
 
 ### <a name="get-azurermalertrule"></a>**Get-AzureRmAlertRule**
 - 出力の変更: ユーザー エクスペリエンスを向上させるために、このコマンドレットの出力はフラット化されます (プロパティ フィールドが排除されます)。
@@ -427,7 +429,7 @@ if ($rules -and $rules.count -ge 1)
 ```
 
 ### <a name="get-azurermautoscalesetting"></a>**Get-AzureRmAutoscaleSetting**
-- 出力の変更: AutoscaleSettingResourceName フィールドは Name フィールドと常に等しいため、使用されなくなります。
+- 出力の変更: AutoscaleSettingResourceName フィールドは Name フィールドと常に等しいため、非推奨となります。
 
 ```powershell
 # Old

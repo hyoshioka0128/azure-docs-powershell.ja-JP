@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell の変更履歴 | Microsoft Docs"
-description: "Azure PowerShell の最新リリースで行われた変更の履歴です。"
+title: Azure PowerShell の変更履歴 | Microsoft Docs
+description: Azure PowerShell の最新リリースで行われた変更の履歴です。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -9,20 +9,20 @@ ms.service: azure-powershell
 ms.product: azure
 ms.devlang: powershell
 ms.topic: conceptual
-ms.workload: 
+ms.workload: ''
 ms.date: 05/18/2017
 ms.openlocfilehash: 143d92384fd270711378f6741ba59e88c12833d1
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
 これは Azure PowerShell の今回のリリースで行われた変更の一覧です。
 
 ## <a name="version-220"></a>バージョン 2.2.0
-* コンピューティング
+* Compute
   - AzureDiskEncryptionForLinux 拡張機能の暗号化状態を照会できるようになりました。
 * DataFactory
   - アクティビティ ウィンドウを列挙するための新しいコマンドレットを追加しました。

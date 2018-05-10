@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell のその他のインストール方法 | Microsoft Docs"
-description: "MSI パッケージまたは Web Platform Installer を使って Azure PowerShell をインストールする方法について説明します。"
+title: Azure PowerShell のその他のインストール方法 | Microsoft Docs
+description: MSI パッケージまたは Web Platform Installer を使って Azure PowerShell をインストールする方法について説明します。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
 ms.openlocfilehash: 73c099375cecc8abdd5d6179109513946e7e793b
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="other-installation-methods"></a>その他のインストール方法
 
@@ -56,7 +56,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-このエラーは、コンピューターを再起動するか、完全修飾パスを使ってモジュールをインポートすることで修正できます。 For example:
+このエラーは、コンピューターを再起動するか、完全修飾パスを使ってモジュールをインポートすることで修正できます。 例: 
 
 ```powershell
 Import-Module "$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\AzureRM.psd1"

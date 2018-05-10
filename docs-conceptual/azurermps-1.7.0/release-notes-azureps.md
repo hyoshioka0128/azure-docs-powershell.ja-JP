@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell の変更履歴 | Microsoft Docs"
-description: "Azure PowerShell の最新リリースで行われた変更の履歴です。"
+title: Azure PowerShell の変更履歴 | Microsoft Docs
+description: Azure PowerShell の最新リリースで行われた変更の履歴です。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -9,13 +9,13 @@ ms.service: azure-powershell
 ms.product: azure
 ms.devlang: powershell
 ms.topic: conceptual
-ms.workload: 
+ms.workload: ''
 ms.date: 05/18/2017
 ms.openlocfilehash: 0a3f152751fee569d3ac5fba6bcff8c1737f7b8c
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -41,7 +41,7 @@ My-CmdletWithConfirmation –Confirm:$false -Force
   - Move-AzureService、Move-AzureStorageAccount、Move-AzureVirtualNetwork の -Validate パラメーター
   - 従来と同様、拡張機能のコマンドレットに対する名前とバージョンのパラメーターは省略可能です。
   - New-AzureVM で VM オブジェクトのライセンス タイプを取得できます。
-* Azure Storage (Azure Storage)
+* Azure Storage
   - Tags パラメーターを Tag に変更し、パラメーター エイリアスとして Tags を追加しました。
     + New-AzureRmStorageAccount
     + Set-AzureRmStorageAccount

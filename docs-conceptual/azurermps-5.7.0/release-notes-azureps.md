@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
 ms.openlocfilehash: 2e80d314991539cb630a0f2a96048bb2e70a05b6
-ms.sourcegitcommit: 5f0013981fcea1d689649b9a2b2ffe84ae842e56
+ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -621,7 +621,7 @@ Update-Module -Name AzureRM
     - Python2 Runbook がサポートされるようになりました
 * Batch
   - リソース グループがないアカウント操作がリソース グループの自動検出に失敗するというバグを修正しました
-* コンピューティング
+* Compute
   - Get-AzureRmComputeResourceSku によってゾーン情報が表示されます。
   - 問題 https://github.com/Azure/azure-powershell/issues/5038 を修正するために Disable-AzureRmVmssDiskEncryption を更新しました
   - 実行時間が長い Compute コマンドレット用の -AsJob サポートを追加しました。 選択したコマンドレットをバック グラウンドで実行し、進行状況を追跡および制御するジョブを返すことができます。
@@ -784,7 +784,7 @@ Update-Module -Name AzureRM
   * Azure Active Directory ベースの認証のサポートを追加しました。
     - Azure Active Directory 認証を使用するには、`Get-AzureRmBatchAccount` コマンドレットを使用して `BatchAccountContext` オブジェクトを取得し、この `BatchAccountContext` を Batch サービス コマンドレットの `-BatchContext` パラメーターに指定します。 Azure Active Directory 認証は、`PoolAllocationMode = UserSubscription` のアカウントには必須です。
     - 既存のアカウント、または `PoolAllocationMode = BatchService` で作成された新しいアカウントの場合、`Get-AzureRmBatchAccoutKeys` コマンドレットを使用して `BatchAccountContext` オブジェクトを取得することにより、共有キー認証の使用を継続できます。
-* コンピューティング
+* Compute
   * Azure Disk Encryption 拡張コマンド
     - "Set-AzureRmVmDiskEncryptionExtension" の新しいパラメーター: "-EncryptFormatAll" はデータ ディスクを暗号化フォーマットします
     - "Set-AzureRmVmDiskEncryptionExtension" の新しいパラメーター: "-ExtensionPublisherName" および "-ExtensionType" は拡張機能の他のバージョンに切り替えることができます

@@ -70,7 +70,7 @@ $virtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location <String> -Sub
 ```
 
 **Deprecating Cmdlet Set-AzureRmApiManagementVirtualNetworks**
-- ApiManagement のデプロイに関連する仮想ネットワークの設定方法が複数あったため、このコマンドレットは使用されなくなります。
+- ApiManagement のデプロイに関連する仮想ネットワークの設定方法が複数あったため、このコマンドレットは非推奨となります。
 
 ```powershell
 # Old
