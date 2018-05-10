@@ -51,7 +51,7 @@ $vm.NetworkProfile.NetworkInterfaces | Select -Property Id
 このリリースで影響を受けたコマンドレットは次のとおりです。
     
 ### <a name="get-azurermusage"></a>Get-AzureRmUsage
-- このコマンドレットは使用されなくなりました。
+- このコマンドレットは非推奨になりました。
 
 ### <a name="remove-azurermalertrule"></a>Remove-AzureRmAlertRule
 - このコマンドレットの出力が、単一のオブジェクトを含むリストから単一のオブジェクトに変更されました。このオブジェクトには、requestId と状態コードが含まれます。
@@ -72,7 +72,7 @@ $s = $s1.StatusCode
 ```
     
 ### <a name="add-azurermlogalertrule"></a>Add-AzureRmLogAlertRule
-- このコマンドレットは使用されなくなりました。
+- このコマンドレットは非推奨になりました。
     
 ### <a name="get-azurermalertrule"></a>Get-AzureRmAlertRule
 - このコマンドレットの出力 (オブジェクトのリスト) の各要素がフラット化されます。つまり、構造体 `{ Id, Location, Name, Tags, Properties }` を持つオブジェクトを返す代わりに、構造体 `{ Id, Location, Name, Tags, Type, Description, IsEnabled, Condition, Actions, LastUpdatedTime, ...}` を持つオブジェクトを返します。この構造体は、Azure リソースのすべての属性と、最上位レベルの AlertRuleResource のすべての属性です。
@@ -107,7 +107,7 @@ if ($rules -and $rules.count -ge 1)
 ```
     
 ### <a name="get-azurermautoscalesetting"></a>Get-AzureRmAutoscaleSetting
-- `AutoscaleSettingResourceName` フィールドには `Name` フィールドと常に同じ値が含まれるため、使用されなくなりました。
+- `AutoscaleSettingResourceName`&gt; フィールドには `Name` フィールドと常に同じ値が含まれるため、非推奨となりました。
 
 ```powershell
 # Old  
