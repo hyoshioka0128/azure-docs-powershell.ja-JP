@@ -1,7 +1,7 @@
 - name: Azure PowerShell
   href: overview.md
   items:
-    - name: '[インストール]'
+    - name: Install
       href: install-azurerm-ps.md
       items:
         - name: その他のインストール方法
@@ -34,7 +34,7 @@
           href: migration-guide.2.0.0.md
 - name: サンプル スクリプト
   items:
-    - name: Linux 仮想マシン
+    - name: Linux Virtual Machines
       href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
     - name: Windows 仮想マシン
       href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
