@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell の変更履歴 | Microsoft Docs"
-description: "Azure PowerShell の最新リリースで行われた変更の履歴です。"
+title: Azure PowerShell の変更履歴 | Microsoft Docs
+description: Azure PowerShell の最新リリースで行われた変更の履歴です。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -9,13 +9,13 @@ ms.service: azure-powershell
 ms.product: azure
 ms.devlang: powershell
 ms.topic: conceptual
-ms.workload: 
+ms.workload: ''
 ms.date: 07/26/2017
 ms.openlocfilehash: d8a891673df343551cbd805016c2d25ee4e31c8c
-ms.sourcegitcommit: 9d2d35944106bdb6758853b050089bc804e6b9d2
+ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/17/2017
 * CognitiveServices
   * Cognitive Services Management SDK バージョン 2.0.0 と統合します。
   * Get-AzureRmCognitiveServicesAccount がページングを正しくサポートできるようになりました。
-* コンピューティング
+* Compute
   * run コマンドの機能:
     - 新しいコマンドレット 'Invoke-AzureRmVMRunCommand' では、VM で run コマンドを呼び出すことができます
     - 新しいコマンドレット 'Get-AzureRmVMRunCommandDocument' では、run コマンドに関して利用可能なドキュメントを表示できます
@@ -220,7 +220,7 @@ ms.lasthandoff: 10/17/2017
   * いくつかの Automation コマンドレット (Get-AzureRmAutomationVariable、Get-AzureRmAutomationJob など) を呼び出した後に詳細ストリームが動作しなくなる問題を解決しました。
   * NodeConfiguration Build のバージョン管理のサポートを StartAzureAutomationDscCompilationJob と ImportAzureAutomationDscNodeConfiguration に追加
   * 既存の問題のバグ修正 - エイリアスの問題 #3775 について、runOn エイリアスと HybridWorkers のサポートを修正。
-* コンピューティング
+* Compute
   * Set-AzureRmVMAEMExtension: 新しい Premium ディスク サイズのサポートを追加
   * Set-AzureRmVMAEMExtension: M シリーズのサポートを追加
   * Add-AzureRmVmssExtension に ForceUpdateTag パラメーターを追加
@@ -288,7 +288,7 @@ ms.lasthandoff: 10/17/2017
       - Remove-AzureRmSqlDatabaseAuditing
       - Remove-AzureRmSqlServerAuditing
     * Update-AzureRmSqlSyncGroup のスキーマ ファイルの解析で大文字と小文字が区別されなくなりました。
-* ストレージ
+* Storage
     * リソース モード ストレージ アカウント コマンドレットに NeworkRule のサポートを追加
       - New-AzureRmStorageAccount
       - Set-AzureRmStorageAccount
@@ -298,16 +298,16 @@ ms.lasthandoff: 10/17/2017
       - Remove-AzureRmStorageAccountNetworkRule
 
 ## <a name="20170717---version-421"></a>2017.07.17 - バージョン 4.2.1
-* コンピューティング
-    - VM ディスクおよび VM ディスク スナップショットの作成および更新コマンドレットに関する問題が修正されます (リンク)[https://github.com/azure/azure-powershell/issues/4309]
+* Compute
+    - VM ディスクおよび VM ディスク スナップショットの作成および更新コマンドレットに関する問題を修正しました (リンク)[https://github.com/azure/azure-powershell/issues/4309]。
       - New-AzureRmDisk
       - New-AzureRmSnapshot
       - Update-AzureRmDisk
       - Update-AzureRmSnapshot
 * プロファイル
-    - RDFE の非対話型ユーザー認証に関する問題が修正されます (リンク)[https://github.com/Azure/azure-powershell/issues/4299]
+    - RDFE での非対話型ユーザー認証に関する問題を修正しました (リンク)[https://github.com/Azure/azure-powershell/issues/4299]。
 * サービス管理
-    - 非対話型ユーザー認証に関する問題が修正されます (リンク)[https://github.com/Azure/azure-powershell/issues/4299]
+    - 非対話型ユーザー認証に関する問題を修正しました (リンク)[https://github.com/Azure/azure-powershell/issues/4299]。
 
 ## <a name="2017711---version-420"></a>2017.7.11 - バージョン 4.2.0
 * AnalysisServices
@@ -315,7 +315,7 @@ ms.lasthandoff: 10/17/2017
         - AS サーバー ログ、Export-AzureAnalysisServicesInstanceLog をフェッチする API を導入しました。
 * Automation
     * New-AzureRmAutomationSchedule の週ごとおよび月ごとのスケジュールの TimeZone 値を適切に設定
-        - この問題について詳しくは、https://github.com/Azure/azure-powershell/issues/3043 をご覧ください。
+        - 詳細については、https://github.com/Azure/azure-powershell/issues/3043 をご覧ください。
 * AzureBatch
     - 新しい Get-AzureBatchJobPreparationAndReleaseTaskStatus コマンドレットを追加しました。
     - バイト範囲の開始と終了を Get-AzureBatchNodeFileContent パラメーターに追加しました。
@@ -370,7 +370,7 @@ ms.lasthandoff: 10/17/2017
         - Add-AzureRmDataLakeStoreItemContent
 * DNS
     * Get-AzureRmDnsZone のパイプ処理シナリオでのバグを修正します。
-        - 詳しくは、https://github.com/Azure/azure-powershell/issues/4203 をご覧ください。
+        - 詳細については、こちら https://github.com/Azure/azure-powershell/issues/4203 をご覧ください。
 * HDInsight
     * Operations Management Suite (OMS) の有効化/無効化のサポートを追加しました。
     * 新しいコマンドレット
@@ -437,7 +437,7 @@ ms.lasthandoff: 10/17/2017
         - Get-AzureRmVirtualNetworkUsageList
 * プロファイル
     * Import-AzureRmContext または Save-AzureRmContext 使用時のエラーを修正しました。
-        - この問題について詳しくは、https://github.com/Azure/azure-powershell/issues/3954 をご覧ください。
+        - 詳細については、https://github.com/Azure/azure-powershell/issues/3954 をご覧ください。
 * RecoveryServices.SiteRecovery
     * Azure Site Recovery 操作用の新しいモジュールを導入します。
         - すべてのコマンドレットが AzureRmRecoveryServicesAsr* で始まります。
@@ -447,7 +447,7 @@ ms.lasthandoff: 10/17/2017
     * サーバーの旧バージョン (2.0) がなくなったため、サーバーのアップグレード コマンドレットは非推奨になりました。
     * 新しい省略可能なスイッチ パラメーター AssignIdentity を New-AzureRmSqlServer および Set-AzureRmSqlServer コマンドレットに追加して、SQL サーバー リソース用のリソース ID のプロビジョニングに対応します。
     * パラメーター ResourceGroupName が Get-AzureRmSqlServer で省略できるようになりました。
-        - 詳しくは、https://github.com/Azure/azure-powershell/issues/635 をご覧ください。
+        - 詳細については、https://github.com/Azure/azure-powershell/issues/635 をご覧ください。
 * ServiceManagement   ExpressRoute の場合:
     * New-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
         - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを作成できます。
@@ -533,7 +533,7 @@ ms.lasthandoff: 10/17/2017
       * AzureRM.profile の 2.x バージョンとの下位互換性のために `-EnvironmentName` パラメーター エイリアスを追加しました。
 
 ## <a name="20170512---version-401"></a>2017.05.12 - バージョン 4.0.1
- * オフライン シナリオの New-AzureStorageContext に関する問題を修正しました: https://github.com/Azure/azure-powershell/issues/3939
+ * オフライン シナリオでの New-AzureStorageContext に関する問題を修正しました (https://github.com/Azure/azure-powershell/issues/3939)。
 
 ## <a name="20170510---version-400"></a>2017.05.10 - バージョン 4.0.0
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 10/17/2017
   - 重複している DataDiskNames および NetworkInterfaceIDs の各プロパティが PS VM オブジェクトから削除されます。
   - DataDiskNames および NetworkInterfaceIDs パラメーターは、それぞれ Remove-AzureRmVMDataDisk および Remove-AzureRmVMNetworkInterface で省略可能になります。
   - Get コマンドレットがリスト オブジェクトを返すときの Get コマンドレットのパイプ処理の問題が解決されます。
-  - RDFE コマンドレットと競合しているコマンドレットの名前は変更されました。 詳細については、https://github.com/Azure/azure-powershell/issues/2917 で問題を参照してください。
+  - RDFE コマンドレットと競合しているコマンドレットの名前は変更されました。 詳細については、https://github.com/Azure/azure-powershell/issues/2917 をご覧ください。
     + `New-AzureVMSqlServerAutoBackupConfig` の名前が `New-AzureRmVMSqlServerAutoBackupConfig` に変更されました
     + `New-AzureVMSqlServerAutoPatchingConfig` の名前が `New-AzureRmVMSqlServerAutoPatchingConfig` に変更されました
     + `New-AzureVMSqlServerKeyVaultCredentialConfig` の名前が `New-AzureRmVMSqlServerKeyVaultCredentialConfig` に変更されました

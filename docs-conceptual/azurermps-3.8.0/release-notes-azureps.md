@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell の変更履歴 | Microsoft Docs"
-description: "Azure PowerShell の最新リリースで行われた変更の履歴です。"
+title: Azure PowerShell の変更履歴 | Microsoft Docs
+description: Azure PowerShell の最新リリースで行われた変更の履歴です。
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -9,20 +9,20 @@ ms.service: azure-powershell
 ms.product: azure
 ms.devlang: powershell
 ms.topic: conceptual
-ms.workload: 
+ms.workload: ''
 ms.date: 05/18/2017
 ms.openlocfilehash: 04f89e8d47d0825d46cb1b8817efbcc0cafa0acd
-ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
+ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
 これは Azure PowerShell の今回のリリースで行われた変更の一覧です。
 
 ## <a name="version-380"></a>バージョン 3.8.0
-* コンピューティング
+* Compute
   - Get-* コマンドレットのバグを修正し、複数ページのデータ (120 項目超) を取得できるようにしました。
 * DataLakeAnalytics
   - 適切な表現や例を使うように、いくつかのコマンドのヘルプを修正しました。
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/03/2017
   - "*廃止*": Select-AzureRmProfile は Import-AzureRmContext という名前に変更されました。変更前のコマンドレット名がエイリアスとして残されますが、そのエイリアスも次のリリースで削除されます。
   - プロファイル コマンドレットの出力タイプ PSAzureContext と PSAzureProfile は、次のリリースで変更される予定です。
   - Save-AzureRmContext コマンドレットの OutputType は次のリリースで削除されます。
-  - コマンドレットに共通のコードのバグを修正しました。データ ハッシュに FIPS 準拠のアルゴリズムが使用されます (https://github.com/Azure/azure-powershell/issues/3651)。
+  - データ ハッシュに FIPS 準拠アルゴリズムを使用するコマンドレット共通コードのバグを修正しました (https://github.com/Azure/azure-powershell/issues/3651)。
 * SQL
   - Azure のフェールオーバー グループのコマンドレットにあるバグを修正しました。
   - オペレーションのポーリングのための修正を行いました。
