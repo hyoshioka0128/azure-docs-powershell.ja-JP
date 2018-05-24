@@ -2,8 +2,8 @@
 title: Azure PowerShell の変更履歴 | Microsoft Docs
 description: Azure PowerShell の最新リリースで行われた変更の履歴です。
 services: azure
-author: sdwheeler
-ms.author: sewhee
+author: sptramer
+ms.author: sttramer
 manager: carmonm
 ms.service: azure-powershell
 ms.product: azure
@@ -11,11 +11,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 07/26/2017
-ms.openlocfilehash: d8a891673df343551cbd805016c2d25ee4e31c8c
-ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
+ms.openlocfilehash: bf53fd9f3a4417fb8cdefbdcce57aa6da270edbf
+ms.sourcegitcommit: 5971c92cb023bdd1d71fa2ad0a3b378abfbd092a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/23/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/08/2018
 * CognitiveServices
   * Cognitive Services Management SDK バージョン 2.0.0 と統合します。
   * Get-AzureRmCognitiveServicesAccount がページングを正しくサポートできるようになりました。
-* Compute
+* コンピューティング
   * run コマンドの機能:
     - 新しいコマンドレット 'Invoke-AzureRmVMRunCommand' では、VM で run コマンドを呼び出すことができます
     - 新しいコマンドレット 'Get-AzureRmVMRunCommandDocument' では、run コマンドに関して利用可能なドキュメントを表示できます
@@ -220,7 +220,7 @@ ms.lasthandoff: 05/08/2018
   * いくつかの Automation コマンドレット (Get-AzureRmAutomationVariable、Get-AzureRmAutomationJob など) を呼び出した後に詳細ストリームが動作しなくなる問題を解決しました。
   * NodeConfiguration Build のバージョン管理のサポートを StartAzureAutomationDscCompilationJob と ImportAzureAutomationDscNodeConfiguration に追加
   * 既存の問題のバグ修正 - エイリアスの問題 #3775 について、runOn エイリアスと HybridWorkers のサポートを修正。
-* Compute
+* コンピューティング
   * Set-AzureRmVMAEMExtension: 新しい Premium ディスク サイズのサポートを追加
   * Set-AzureRmVMAEMExtension: M シリーズのサポートを追加
   * Add-AzureRmVmssExtension に ForceUpdateTag パラメーターを追加
@@ -298,7 +298,7 @@ ms.lasthandoff: 05/08/2018
       - Remove-AzureRmStorageAccountNetworkRule
 
 ## <a name="20170717---version-421"></a>2017.07.17 - バージョン 4.2.1
-* Compute
+* コンピューティング
     - VM ディスクおよび VM ディスク スナップショットの作成および更新コマンドレットに関する問題を修正しました (リンク)[https://github.com/azure/azure-powershell/issues/4309]。
       - New-AzureRmDisk
       - New-AzureRmSnapshot

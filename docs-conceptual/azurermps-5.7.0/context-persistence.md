@@ -2,19 +2,19 @@
 title: PowerShell セッション間でのユーザー ログインの保持
 description: この記事では、複数の PowerShell セッション間で資格情報やその他のユーザー情報を再利用できるようにする、Azure PowerShell の新機能について説明します。
 services: azure
-author: sdwheeler
-ms.author: sewhee
+author: sptramer
+ms.author: sttramer
 manager: carmonm
 ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 15e1c9ca770c9fcd72513c4f53f7726edd9c2469
-ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
+ms.openlocfilehash: e086ce919b4cdd14a8cc7527aa62bfd9ce09628a
+ms.sourcegitcommit: 5971c92cb023bdd1d71fa2ad0a3b378abfbd092a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/23/2018
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>PowerShell セッション間でのユーザー ログインの保持
 

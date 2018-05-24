@@ -2,8 +2,8 @@
 title: Azure PowerShell の変更履歴 | Microsoft Docs
 description: Azure PowerShell の最新リリースで行われた変更の履歴です。
 services: azure
-author: sdwheeler
-ms.author: sewhee
+author: sptramer
+ms.author: sttramer
 manager: carmonm
 ms.service: azure-powershell
 ms.product: azure
@@ -11,18 +11,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 05/18/2017
-ms.openlocfilehash: 04f89e8d47d0825d46cb1b8817efbcc0cafa0acd
-ms.sourcegitcommit: 37bfbf11fd0967a8e7977c692ab829d286baf88a
+ms.openlocfilehash: ec01bca961bbeebf089b4da5951f4b810ccd7a11
+ms.sourcegitcommit: 5971c92cb023bdd1d71fa2ad0a3b378abfbd092a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/23/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 
 これは Azure PowerShell の今回のリリースで行われた変更の一覧です。
 
 ## <a name="version-380"></a>バージョン 3.8.0
-* Compute
+* コンピューティング
   - Get-* コマンドレットのバグを修正し、複数ページのデータ (120 項目超) を取得できるようにしました。
 * DataLakeAnalytics
   - 適切な表現や例を使うように、いくつかのコマンドのヘルプを修正しました。
