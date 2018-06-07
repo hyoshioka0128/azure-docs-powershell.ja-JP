@@ -5,16 +5,15 @@ services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.product: azure
-ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: e086ce919b4cdd14a8cc7527aa62bfd9ce09628a
-ms.sourcegitcommit: 5971c92cb023bdd1d71fa2ad0a3b378abfbd092a
+ms.openlocfilehash: 678d08c24cf254cd904850071872eea18c6bf6cf
+ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34821600"
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>PowerShell セッション間でのユーザー ログインの保持
 
@@ -109,7 +108,7 @@ Disconnect-AzureRmAccount user1@contoso.org
 
 ## <a name="using-context-scopes"></a>コンテキスト スコープの使用
 
-場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process` スコープは、現在のセッションのみに適用されるようにすることで、既定の動作を無視します。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
+場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process` スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
 
 たとえば、他のウィンドウに影響を与えることなく現在の PowerShell セッションの既定のコンテキストを変更したり、次にセッションを開いたときに使用されるコンテキストを変更したりするには、次を使用します。
 
