@@ -1,19 +1,18 @@
 ---
-title: Azure PowerShell による Azure サブスクリプションの管理 | Microsoft Docs
+title: Azure PowerShell による Azure サブスクリプションの管理
 description: Azure PowerShell による Azure サブスクリプションの管理
-keywords: Azure PowerShell, サブスクリプション
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
-ms.openlocfilehash: d28da700efbc2927cb3f73ae696759fb1e0c0cd6
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: fbd2fe315efbdfb2147218229d51e983e2b61361
+ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34821957"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323358"
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>複数の Azure サブスクリプションの管理
 
@@ -21,11 +20,11 @@ Azure を使い始めたばかりの場合、所有しているサブスクリ�
 
 1. アカウント内のすべてのサブスクリプションの一覧を取得します。
 
-    ```powershell
+    ```azurepowershell-interactive
     Get-AzureRmSubscription
     ```
 
-    ```
+    ```output
     Environment           : AzureCloud
     Account               : username@contoso.com
     TenantId              : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -50,17 +49,17 @@ Azure を使い始めたばかりの場合、所有しているサブスクリ�
 
 2. 既定のサブスクリプションを設定します。
 
-    ```powershell
+    ```azurepowershell-interactive
     Select-AzureRmSubscription -SubscriptionName "My Demos"
     ```
 
 3. `Get-AzureRmContext` コマンドレットを実行して変更内容を確認します。
 
-    ```powershell
+    ```azurepowershell-interactive
     Get-AzureRmContext
     ```
 
-    ```
+    ```output
     Environment           : AzureCloud
     Account               : username@contoso.com
     TenantId              : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX

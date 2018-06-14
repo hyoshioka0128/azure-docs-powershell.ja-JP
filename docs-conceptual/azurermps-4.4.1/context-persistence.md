@@ -1,19 +1,18 @@
 ---
 title: PowerShell セッション間でのユーザー ログインの保持
 description: この記事では、複数の PowerShell セッション間で資格情報やその他のユーザー情報を再利用できるようにする、Azure PowerShell の新機能について説明します。
-services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 75eaa1f04e4274e1028e950ad9a98520db2b94de
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: d650cfaae580acd10b3ddb06edec9883f1a32844
+ms.sourcegitcommit: c98e3a21037ebd82936828bcb544eed902b24212
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34822042"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34853969"
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>PowerShell セッション間でのユーザー ログインの保持
 
@@ -108,7 +107,7 @@ Remove-AzureRmAccount user1@contoso.org
 
 ## <a name="using-context-scopes"></a>コンテキスト スコープの使用
 
-場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 ph x="1" /&gt; スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
+場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process`スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
 
 たとえば、他のウィンドウに影響を与えることなく現在の PowerShell セッションの既定のコンテキストを変更したり、次にセッションを開いたときに使用されるコンテキストを変更したりするには、次を使用します。
 

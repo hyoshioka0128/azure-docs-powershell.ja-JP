@@ -1,19 +1,18 @@
 ---
 title: Azure PowerShell のインストールおよび構成 | Microsoft Docs
 description: 初めて使う Azure PowerShell をインストールして構成する方法について説明します。
-services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: a3db97a2c0a8e4c62c32018dcad15cf09eb41440
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: 8819a0ba2dfb6bc3f88e80581257180aa1558ba4
+ms.sourcegitcommit: c98e3a21037ebd82936828bcb544eed902b24212
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34822076"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34853816"
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell のインストールおよび構成
 

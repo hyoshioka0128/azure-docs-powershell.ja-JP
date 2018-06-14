@@ -1,19 +1,18 @@
 ---
 title: PowerShell ジョブを使用したコマンドレットの並列実行
 description: -AsJob パラメーターを使用してコマンドレットを並列して実行する方法。
-services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: df64fabe95b927551c10196d7b6b26a8f400335d
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: a986824d952ccf6cd52dc86418899f3805a38973
+ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34820274"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323494"
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>PowerShell ジョブを使用したコマンドレットの並列実行
 
@@ -24,14 +23,14 @@ Azure PowerShell は、Azure に対するネットワーク呼び出し (およ�
 
 PSJob は個別のプロセスで実行されます。つまり、Azure 接続に関する情報は、作成するジョブと適切に共有されている必要があります。 `Connect-AzureRmAccount` で Azure アカウントを PowerShell セッションに接続するとき、コンテキストをジョブに渡すことができます。
 
-```powershell
+```azurepowershell-interactive
 $creds = Get-Credential
 $job = Start-Job { param($context,$vmadmin) New-AzureRmVM -Name MyVm -AzureRmContext $context -Credential $vmadmin} -Arguments (Get-AzureRmContext),$creds
 ```
 
 ただし、コンテキストが `Enable-AzureRmContextAutosave` で自動的に保存されるように選択した場合、そのコンテキストは、作成するすべてのジョブと自動的に共有されます。
 
-```powershell
+```azurepowershell-interactive
 Enable-AzureRmContextAutosave
 $creds = Get-Credential
 $job = Start-Job { param($vmadmin) New-AzureRmVM -Name MyVm -Credential $vmadmin} -Arguments $creds
@@ -42,19 +41,19 @@ $job = Start-Job { param($vmadmin) New-AzureRmVM -Name MyVm -Credential $vmadmin
 必要に応じて、Azure PowerShell は実行時間の長い一部のコマンドレットで `-AsJob` スイッチを提供します。
 `-AsJob` スイッチにより、PSJob の作成がさらに簡単になります。
 
-```powershell
+```azurepowershell-interactive
 $creds = Get-Credential
 $job = New-AzureRmVM -Name MyVm -Credential $creds -AsJob
 ```
 
 ジョブと進行状況は、`Get-Job` および `Get-AzureRmVM` を使用していつでも確認できます。
 
-```powershell
+```azurepowershell-interactive
 Get-Job $job
 Get-AzureRmVM MyVm
 ```
 
-```Output
+```output
 Id Name                                       PSJobTypeName         State   HasMoreData Location  Command
 -- ----                                       -------------         -----   ----------- --------  -------
 1  Long Running Operation for 'New-AzureRmVM' AzureLongRunningJob`1 Running True        localhost New-AzureRmVM
@@ -70,12 +69,12 @@ MyVm                 MyVm   eastus Standard_DS1_v2 Windows    MyVm          Crea
 > `Receive-Job` は、`-AsJob` フラグが存在しないように、コマンドレットから結果を返します。
 > たとえば、`Do-Action -AsJob` の `Receive-Job` 結果の種類は、`Do-Action` の結果と同じです。
 
-```powershell
+```azurepowershell-interactive
 $vm = Receive-Job $job
 $vm
 ```
 
-```Output
+```output
 ResourceGroupName        : MyVm
 Id                       : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyVm/providers/Microsoft.Compute/virtualMachines/MyVm
 VmId                     : dff1f79e-a8f7-4664-ab72-0ec28b9fbb5b
@@ -95,7 +94,7 @@ FullyQualifiedDomainName : myvmmyvm.eastus.cloudapp.azure.com
 
 複数の VM を一度に作成します。
 
-```powershell
+```azurepowershell-interactive
 $creds = Get-Credential
 # Create 10 jobs.
 for($k = 0; $k -lt 10; $k++) {
@@ -110,7 +109,7 @@ Get-AzureRmVM
 
 この例では、`Wait-Job` コマンドレットは、ジョブの実行中にスクリプトを一時停止します。 スクリプトは、すべてのジョブが完了した後に実行を続けます。 これにより、並列実行される複数のジョブを作成し、完了するのを待ってから、続行することができます。
 
-```Output
+```output
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 --     ----            -------------   -----         -----------     --------             -------
 2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM

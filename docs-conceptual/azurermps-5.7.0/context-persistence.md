@@ -1,19 +1,18 @@
 ---
 title: PowerShell セッション間でのユーザー ログインの保持
 description: この記事では、複数の PowerShell セッション間で資格情報やその他のユーザー情報を再利用できるようにする、Azure PowerShell の新機能について説明します。
-services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 678d08c24cf254cd904850071872eea18c6bf6cf
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: 5ae4f03207b74df06a2cb81ea1cd0516a4abd2dd
+ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34821600"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323120"
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>PowerShell セッション間でのユーザー ログインの保持
 
@@ -76,7 +75,7 @@ Azure コンテキストを管理できるコマンドレットを使用する�
 
 ログイン後に新しいコンテキストを追加するには、`Set-AzureRmContext` (またはそのエイリアス `Select-AzureRmSubscription`) を使用します。
 
-```powershell
+```azurepowershell-interactive
 PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso1"
 ```
 
@@ -84,7 +83,7 @@ PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso
 
 既存のコンテキストの名前を変更するには、`Rename-AzureRmContext` コマンドレットを使用します。 例: 
 
-```powershell
+```azurepowershell-interactive
 PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso2'
 ```
 
@@ -92,7 +91,7 @@ PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Co
 
 最後に、コンテキストを削除するには、`Remove-AzureRmContext` コマンドレットを使用します。  例: 
 
-```powershell
+```azurepowershell-interactive
 PS C:\> Remove-AzureRmContext Contoso2
 ```
 
@@ -102,17 +101,17 @@ PS C:\> Remove-AzureRmContext Contoso2
 
 `Disconnect-AzureRmAccount` (別名 `Logout-AzureRmAccount`) を使用して、ユーザーまたはサービス プリンシパルの資格情報と関連付けられたコンテキストをすべて削除できます。 `Disconnect-AzureRmAccount` コマンドレットをパラメーターを指定せずに実行すると、現在のコンテキストのユーザーまたはサービス プリンシパルに関連付けられた資格情報とコンテキストがすべて削除されます。 特定のプリンシパルを対象とするために、ユーザー名、サービス プリンシパル名、またはコンテキストを渡すこともできます。
 
-```powershell
+```azurepowershell-interactive
 Disconnect-AzureRmAccount user1@contoso.org
 ```
 
 ## <a name="using-context-scopes"></a>コンテキスト スコープの使用
 
-場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process` スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
+場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process`スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
 
 たとえば、他のウィンドウに影響を与えることなく現在の PowerShell セッションの既定のコンテキストを変更したり、次にセッションを開いたときに使用されるコンテキストを変更したりするには、次を使用します。
 
-```powershell
+```azurepowershell-interactive
 PS C:\> Select-AzureRmContext Contoso1 -Scope Process
 ```
 
@@ -120,7 +119,7 @@ PS C:\> Select-AzureRmContext Contoso1 -Scope Process
 
 コンテキストの自動保存設定は、ユーザーの Azure PowerShell ディレクトリ (`%AppData%\Roaming\Windows Azure PowerShell`) に保存されます。 コンピューター アカウントの中には、このディレクトリにアクセスできないものがあります。 このようなシナリオでは、環境変数を使用できます。
 
-```powershell
+```azurepowershell-interactive
 $env:AzureRmContextAutoSave="true" | "false"
 ```
 
