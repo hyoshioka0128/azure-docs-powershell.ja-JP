@@ -1,25 +1,32 @@
 ---
-title: Azure PowerShell を使ってみる | Microsoft Docs
+title: Azure PowerShell の使用に関するページ
 description: ''
-services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: fa9be1722b8260c4737c180eec79ae836235654c
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: cfb7ff30b442bb345931728dab131e1b80e58989
+ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34821889"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323137"
 ---
-# <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
+# <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
-Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。 この記事では、その基本的な使い方と核となる概念について説明します。
+Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで使用することも、ローカル コンピューターにインストールすることもできます。 この記事では、Azure PowerShell の基本的な使い方と、主要な概念について説明します。
 
-## <a name="connect"></a>接続
+## <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
+
+初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。 最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。
+
+1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
+
+2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
+
+## <a name="azure-cloud-shell"></a>Azure Cloud Shell 
 
 最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。
 
@@ -37,15 +44,7 @@ Azure PowerShell は、コマンド ラインから Azure リソースを管理�
 
 Azure PowerShell をインストールし、ローカルの PowerShell セッションで使用することもできます。
 
-## <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
-
-初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。 最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。
-
-1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
-
-2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
-
-## <a name="log-in-to-azure"></a>Azure にログインする
+## <a name="sign-in-to-azure"></a>Azure へのサインイン
 
 対話操作でサインオンするには:
 

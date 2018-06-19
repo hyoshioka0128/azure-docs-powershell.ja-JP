@@ -1,91 +1,74 @@
 ---
-title: Azure PowerShell でのログイン
-description: Azure PowerShell でのログイン
-services: azure
+title: Azure PowerShell を使用してサインインする
+description: Azure PowerShell で、ユーザーとして、サービス プリンシパルまたは MSI を使用してサインインする方法。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 7ed9d53e905b5ac16432700b39a70fd07c4f16da
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: e2eb6767d16dd15529b35b7a4134f4dcdd257d60
+ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34822127"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323341"
 ---
-# <a name="log-in-with-azure-powershell"></a>Azure PowerShell でのログイン
+# <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
 Azure PowerShell は、複数のログイン方法をサポートしています。 最も簡単に始められるのは、コマンド ラインから対話形式でログインする方法です。
 
-## <a name="interactive-log-in"></a>対話形式でのログイン
+## <a name="sign-in-interactively"></a>対話操作でサインインする
 
-1. 「 `Connect-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。
+対話操作でサインインするには、[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) コマンドレットを使用します。
 
-2. アカウントに関連付けられている電子メール アドレスとパスワードを入力します。 Azure により資格情報が認証および保存され、ウィンドウが閉じます。
+```azurepowershell
+Connect-AzureRmAccount
+```
 
-## <a name="log-in-with-a-service-principal"></a>サービス プリンシパルによるログイン
+このコマンドレットを実行すると、ダイアログ ボックスが表示され、Azure アカウントに関連付けられている電子メール アドレスとパスワードを入力するように求められます。 認証すると、現在の PowerShell セッションに対してこの情報が保存され、ダイアログは閉じます。これで、すべての Azure PowerShell コマンドレットにアクセスできます。
+
+> [!IMPORTANT]
+> このサインインは、現在の PowerShell セッション "_のみ_" を対象としています。 複数のセッションにわたってログイン情報を保持する場合は、[永続的な資格情報](context-persistence.md)に関する記事をご覧ください。
+
+## <a name="sign-in-with-a-service-principal"></a>サービス プリンシパルを使ってサインインする
 
 サービス プリンシパルは、リソースの操作に使用できる非対話型のアカウントを作成する方法を提供します。 サービス プリンシパルは、Azure Active Directory を使用してルールを適用できるユーザー アカウントに似ています。 サービス プリンシパルに最低限必要なアクセス許可だけを付与することによって、自動化スクリプトをより安全にすることができます。
 
-1. まだサービス プリンシパルがない場合は、サービス プリンシパルを[作成](create-azure-service-principal-azureps.md)します。
+Azure PowerShell で使用するサービス プリンシパルを作成する必要がある場合は、「[Azure PowerShell で Azure サービス プリンシパルを作成する](create-azure-service-principal-azureps.md)」を参照してください。
 
-2. サービス プリンシパルを使用してログインします。
+サービス プリンシパルを使用してサインインするには、`Connect-AzureRmAccount` コマンドレットで `-ServicePrincipal` 引数を使用します。 サービス プリンシパルのアプリケーション ID、サインイン資格情報、およびサービス プリンシパルに関連付けられたテナント ID も必要です。 サービス プリンシパルの資格情報を適切なオブジェクトとして取得するには、[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) コマンドレットを使用します。 このコマンドレットにより、サービス プリンシパル ユーザー ID とパスワードを入力するダイアログ ボックスが表示されます。
 
-    ```powershell
-    Connect-AzureRmAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
-    ```
+```azurepowershell-interactive
+$pscredential = Get-Credential
+Connect-AzureRmAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
+```
 
-    テナント ID を取得するには、対話形式でログインし、サブスクリプションから TenantId を取得します。
+## <a name="sign-in-using-an-azure-vm-managed-service-identity"></a>Azure VM マネージド サービス ID を使用してサインインする
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-
-    ```
-    Environment           : AzureCloud
-    Account               : username@contoso.com
-    TenantId              : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    SubscriptionId        : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    SubscriptionName      : My Production Subscription
-    CurrentStorageAccount :
-    ```
-
-### <a name="log-in-using-an-azure-vm-managed-service-identity"></a>Azure VM の管理対象サービス ID を使用したログイン
-
-管理対象サービス ID (MSI) は、Azure Active Directory のプレビュー機能です。 サインインに MSI サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。
+管理対象サービス ID (MSI) は、Azure Active Directory のプレビュー機能です。 サインインに MSI サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 MSI は、Azure クラウドで実行されている仮想マシンでのみ使用できます。
 
 MSI の詳細については、「[How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition (サインインとトークン取得に Azure VM の管理対象サービス ID (MSI) を使用する方法)](/azure/active-directory/msi-how-to-get-access-token-using-msi)」を参照してください。
 
-## <a name="log-in-to-another-cloud"></a>別のクラウドにログインする
+## <a name="sign-in-to-another-cloud"></a>別のクラウドにサインインする
 
-Azure Cloud Services では、さまざまな政府機関から発せられるデータ処理規制に準拠したさまざまな環境を提供します。 Azure アカウントが政府機関のクラウド内にある場合は、サインイン時に環境を指定する必要があります。 たとえば、アカウントが中国のクラウド内にある場合、次のコマンドを使用してサインインします。
+Azure クラウド サービスでは、さまざまなリージョンのデータ処理規制に準拠したさまざまな環境を提供します。 Azure アカウントがこれらのリージョンのいずれかに関連付けられたクラウド内にある場合は、サインイン時に環境を指定する必要があります。 たとえば、アカウントが中国のクラウド内にある場合、次のコマンドを使用してサインインします。
 
-```powershell
+```azurepowershell-interactive
 Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 使用可能な環境の一覧を取得するには、次のコマンドを使用します。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmEnvironment | Select-Object Name
-```
-
-```
-Name
-----
-AzureCloud
-AzureChinaCloud
-AzureUSGovernment
-AzureGermanCloud
 ```
 
 ## <a name="learn-more-about-managing-azure-role-based-access"></a>Azure ロールベース アクセスの管理についての詳細情報
 
 Azure での認証とサブスクリプション管理の詳細については、[アカウント、サブスクリプション、管理者ロールの管理](/azure/active-directory/role-based-access-control-configure)に関するページを参照してください。
 
-ロール管理を目的とした Azure PowerShell のコマンドレット
+ロール管理を目的とした Azure PowerShell のコマンドレット:
 
 * [Get-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)
 * [Get-AzureRmRoleDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmRoleDefinition)

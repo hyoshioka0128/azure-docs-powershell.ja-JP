@@ -1,25 +1,32 @@
 ---
-title: Azure PowerShell を使ってみる | Microsoft Docs
+title: Azure PowerShell の使用に関するページ
 description: ''
-services: azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: d43323ca696ed115a86e7502a3bac829118028e4
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: cfb7ff30b442bb345931728dab131e1b80e58989
+ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34821039"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323375"
 ---
-# <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
+# <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
-Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。 この記事では、その基本的な使い方と核となる概念について説明します。
+Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで使用することも、ローカル コンピューターにインストールすることもできます。 この記事では、Azure PowerShell の基本的な使い方と、主要な概念について説明します。
 
-## <a name="connect"></a>接続
+## <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
+
+初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。 最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。
+
+1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
+
+2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
+
+## <a name="azure-cloud-shell"></a>Azure Cloud Shell 
 
 最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。
 
@@ -37,15 +44,7 @@ Azure PowerShell は、コマンド ラインから Azure リソースを管理�
 
 Azure PowerShell をインストールし、ローカルの PowerShell セッションで使用することもできます。
 
-## <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
-
-初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。 最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。
-
-1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
-
-2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
-
-## <a name="log-in-to-azure"></a>Azure にログインする
+## <a name="sign-in-to-azure"></a>Azure へのサインイン
 
 対話操作でサインオンするには:
 
@@ -63,11 +62,11 @@ Azure アカウントへのサインイン後、Azure PowerShell のコマンド
 
 最初に、資格情報オブジェクトを作成します。
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 ```
 
-```Output
+```output
 Windows PowerShell credential request.
 Enter a username and password for the virtual machine.
 User: localAdmin
@@ -75,11 +74,11 @@ Password for user localAdmin: *********
 ```
 次に、VM を作成します。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -Name SampleVM -Credential $cred
 ```
 
-```Output
+```output
 ResourceGroupName        : SampleVM
 Id                       : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/SampleVM/providers/Microsoft.Compute/virtualMachines/SampleVM
 VmId                     : 43f6275d-ce50-49c8-a831-5d5974006e63
@@ -97,11 +96,11 @@ FullyQualifiedDomainName : samplevm-2c0867.eastus.cloudapp.azure.com
 
 ここまでは簡単でした。 ただし、他に何が作成され、VM がどのように構成されているのかと疑問にお感じのことでしょう。 まず、リソース グループを確認しましょう。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceGroup | Select-Object ResourceGroupName,Location
 ```
 
-```Output
+```output
 ResourceGroupName          Location
 -----------------          --------
 cloud-shell-storage-westus westus
@@ -112,13 +111,13 @@ SampleVM                   eastus
 
 では、この新しいリソース グループには、他にどのようなリソースが作成されているでしょうか。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResource |
   Where ResourceGroupName -eq SampleVM |
     Select-Object ResourceGroupName,Location,ResourceType,Name
 ```
 
-```Output
+```output
 ResourceGroupName          Location ResourceType                            Name
 -----------------          -------- ------------                            ----
 SAMPLEVM                   eastus   Microsoft.Compute/disks                 SampleVM_OsDisk_1_9b286c54b168457fa1f8c47...
@@ -131,13 +130,13 @@ SampleVM                   eastus   Microsoft.Network/virtualNetworks       Samp
 
 VM についての詳細情報を取得してみましょう。 次の例は、VM の作成に使用した OS イメージに関する情報を取得する方法を示しています。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVM -Name SampleVM -ResourceGroupName SampleVM |
   Select-Object -ExpandProperty StorageProfile |
     Select-Object -ExpandProperty ImageReference
 ```
 
-```Output
+```output
 Publisher : MicrosoftWindowsServer
 Offer     : WindowsServer
 Sku       : 2016-Datacenter
@@ -155,11 +154,11 @@ Id        :
 
 "MyResourceGroup" という名前のリソース グループを Azure の westeurope リージョンに作成しましょう。 そのためには次のコマンドを入力します。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name 'myResourceGroup' -Location 'westeurope'
 ```
 
-```Output
+```output
 ResourceGroupName : myResourceGroup
 Location          : westeurope
 ProvisioningState : Succeeded
@@ -173,7 +172,7 @@ ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resource
 
 まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。 その VM に接続できるように、さらにパブリック IP アドレスも作成します。 そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。 最後に、前述のリソースをすべて使って仮想 NIC を作成します。
 
-```powershell
+```azurepowershell-interactive
 # Variables for common values
 $resourceGroup = "myResourceGroup"
 $location = "westeurope"
@@ -213,7 +212,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic2 -ResourceGroupName $resourceGrou
 
 必要なリソースが揃ったので、VM 構成オブジェクトを作成することができます。
 
-```powershell
+```azurepowershell-interactive
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
   Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication |
@@ -221,7 +220,7 @@ $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+$sshPublicKey = Get-Content -Raw "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
@@ -229,7 +228,7 @@ Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azur
 
 これで、VM 構成オブジェクトを使用して VM を作成できるようになりました。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
@@ -239,7 +238,7 @@ VM が作成されたら、その VM のパブリック IP アドレスを SSH �
 ssh xx.xxx.xxx.xxx
 ```
 
-```Output
+```output
 Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
@@ -276,13 +275,13 @@ my-login@MyLinuxVM:../../..$
 
 たとえば、新しく作成した VM に関連付けるための Azure ネットワーク ロード バランサーを作成するには、次のコマンドを使います。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmLoadBalancer -Name MyLoadBalancer -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
 また、次のコマンドを使って、インフラストラクチャ用に新しいプライベート仮想ネットワーク (Azure では通常 "VNet" と呼ばれます) を作成することもできます。
 
-```powershell
+```azurepowershell-interactive
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet2 -AddressPrefix 10.0.0.0/16
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
   -Name MYvNET3 -AddressPrefix 10.0.0.0/16 -Subnet $subnetConfig
@@ -292,7 +291,7 @@ Azure と Azure PowerShell の優れている点は、それらを使ってク�
 
 たとえば Azure PowerShell を使って Azure AppService を作成することができます。 Azure AppService は、管理されたプラットフォーム サービスであり、インフラストラクチャには一切気を遣わずに Web アプリをホストできるのが特徴です。 Azure AppService の作成後、次のコマンドを使って AppService 内に 2 つの新しい Azure Web アプリを作成することができます。
 
-```powershell
+```azurepowershell-interactive
 # Create an Azure AppService that we can host any number of web apps within
 New-AzureRmAppServicePlan -Name MyAppServicePlan -Tier Basic -NumberofWorkers 2 -WorkerSize Small -ResourceGroupName myResourceGroup -Location westeurope
 
@@ -305,13 +304,13 @@ New-AzureRmWebApp -Name MyWebApp43433 -AppServicePlan MyAppServicePlan -Resource
 
 Azure 内で実行されているリソースは、`Get-AzureRmResource` コマンドレットを使って一覧表示することができます。 先ほど新しいリソース グループに作成したリソースを表示する例を次に示します。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResource |
   Where-Object ResourceGroupName -eq myResourceGroup |
     Select-Object Name,Location,ResourceType
 ```
 
-```Output
+```output
 Name                                                  Location   ResourceType
 ----                                                  --------   ------------
 myLinuxVM_OsDisk_1_36ca038791f642ba91270879088c249a   westeurope Microsoft.Compute/disks
@@ -334,13 +333,13 @@ micromyresomywi032907510                              westeurope Microsoft.Stora
 
 Azure アカウントをクリーンアップするために、この例で作成したリソースを削除しましょう。 不要になったリソースは、`Remove-AzureRm*` コマンドレットを使って削除できます。 作成した Windows VM を削除するには、次のコマンドを使います。
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmVM -Name myWindowsVM -ResourceGroupName myResourceGroup
 ```
 
 リソースを削除してよいか確認するメッセージが表示されます。
 
-```Output
+```output
 Confirm
 Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -348,11 +347,11 @@ Are you sure you want to remove resource group 'myResourceGroup'
 
 多数のリソースを一度に削除することもできます。 たとえば次のコマンドを実行すると、この概要チュートリアルのすべてのサンプルで使ってきたリソース グループ ("MyResourceGroup") が完全に削除されます。 リソース グループだけでなく、そこに含まれるリソースもすべて削除されます。
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-```Output
+```output
 Confirm
 Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y

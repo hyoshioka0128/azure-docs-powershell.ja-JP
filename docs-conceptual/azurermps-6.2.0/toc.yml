@@ -17,27 +17,27 @@
       items:
         - name: サービス プリンシパルの作成
           href: create-azure-service-principal-azureps.md
-        - name: 永続的な資格情報の使用
+        - name: 永続的な資格情報
           href: context-persistence.md
     - name: クエリ
       href: queries-azureps.md
-    - name: 書式設定
+    - name: 出力の書式設定
       href: formatting-output.md
-    - name: サブスクリプション
+    - name: '[サブスクリプションの管理]'
       href: manage-subscriptions-azureps.md
     - name: デプロイ
       items:
-        - name: Resource Manager テンプレートを使用したデプロイ
+        - name: Resource Manager テンプレートのデプロイ
           href: /azure/azure-resource-manager/resource-group-template-deploy
         - name: Resource Manager テンプレートのエクスポート
           href: /azure/azure-resource-manager/resource-manager-export-template-powershell
-        - name: SAS トークンを使用したプライベート Resource Manager テンプレートのデプロイ
+        - name: プライベート Resource Manager テンプレートのデプロイ
           href: /azure/azure-resource-manager/resource-manager-powershell-sas-token
     - name: 概念
       items:
-        - name: 試験版モジュールの使用
+        - name: 試験版モジュール
           href: using-experimental-modules.md
-        - name: PowerShell ジョブの使用
+        - name: PowerShell ジョブ
           href: using-psjobs.md
     - name: リリース ノート
       href: release-notes-azureps.md
