@@ -6,7 +6,7 @@
       items:
         - name: macOS または Linux へのインストール
           href: install-azurermps-maclinux.md
-        - name: MSI または WebPI を使用したインストール
+        - name: MSI を使用したインストール
           href: other-install.md
         - name: Docker での実行
           href: azurerm-ps-in-docker.md
@@ -46,8 +46,8 @@
     - name: リリース ノート
       href: release-notes-azureps.md
       items:
-        - name: Azure PowerShell 5.x の重大な変更
-          href: migration-guide.5.0.0.md
+        - name: Azure PowerShell 6.x の重大な変更
+          href: migration-guide.6.0.0.md
 - name: チュートリアル
   items:
     - name: 仮想マシンを作成する
