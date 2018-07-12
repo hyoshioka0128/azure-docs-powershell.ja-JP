@@ -16,7 +16,7 @@
       href: get-started-azureps.md
     - name: Cloud Shell
       href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
-    - name: ログイン
+    - name: '[サインイン]'
       href: authenticate-azureps.md
       items:
         - name: サービス プリンシパルの作成
