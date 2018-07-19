@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: c9a2f7b87654de5a50d8e0f06fefc6d362532aaf
-ms.sourcegitcommit: c98e3a21037ebd82936828bcb544eed902b24212
+ms.openlocfilehash: a5ad1ce6001c9326a5dad135fe5aeea512f70675
+ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34852898"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39025159"
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell のインストールおよび構成
 
@@ -79,6 +79,7 @@ AzureRM モジュールは、Azure Resource Manager コマンドレットのロ�
 以前のバージョンの Azure PowerShell がインストールされている場合、エラーが発生する可能性があります。 この問題を解決するには、この記事の「[新しいバージョンの Azure PowerShell に更新する](#update-azps)」を参照してください。
 
 ## <a name="step-3-load-the-azurerm-module"></a>手順 3: AzureRM モジュールを読み込む
+
 モジュールは、インストール後、PowerShell セッションに読み込む必要があります。 これは通常の (管理者特権ではない) PowerShell セッションで実行する必要があります。 モジュールを読み込むには、次のように `Import-Module` コマンドレットを使います。
 
 ```powershell
@@ -101,8 +102,7 @@ Azure PowerShell の使用について詳しくは、次の記事をご覧くだ
 |PowerShell 5 にアップグレードしたい|[最新バージョンの WMF をインストール](https://www.microsoft.com/en-us/download/details.aspx?id=54616)します。|
 |PowerShell 3 または PowerShell 4 が付属するバージョンの Windows を使っている|[PackageManagement モジュールを入手](http://go.microsoft.com/fwlink/?LinkID=746217)します。|
 
-<a id="helpmechoose"></a>
-### <a name="checking-the-version-of-azure-powershell"></a>Azure PowerShell のバージョン確認
+### <a name="div-idhelpmechoosechecking-the-version-of-azure-powershell"></a><div id="helpmechoose"/>Azure PowerShell のバージョン確認
 
 Azure PowerShell は、できるだけ早く最新バージョンにアップグレードすることをお勧めしますが、いくつかのバージョンがサポートされています。 インストールされている Azure PowerShell のバージョンを確認するには、コマンド ラインから `Get-Module AzureRM` を実行します。
 
@@ -114,7 +114,7 @@ Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
 
 クラシック デプロイ モデルを現在の環境で使っている場合は、Service Management 版の Azure PowerShell をインストールできます。 詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。 Azure と AzureRM のモジュールは、依存するコンポーネントが共通しています。 Azure と AzureRM の両方のモジュールを使用する場合は、各パッケージの同じバージョンをインストールする必要があります。
 
-### <a id="update-azps"></a>新しいバージョンの Azure PowerShell への更新
+### <a name="div-idupdate-azpsupdating-to-a-new-version-of-azure-powershell"></a><div id="update-azps"/>新しいバージョンの Azure PowerShell に更新する
 
 Service Management モジュールを含む、以前のバージョンの Azure PowerShell がインストールされている場合は、次のエラーが発生する可能性があります。
 

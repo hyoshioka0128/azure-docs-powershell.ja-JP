@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: c0bb020fc8cc77b96dc7fe6839911a4d80974d9e
-ms.sourcegitcommit: f08f501b75a97ceef59c21f42158bf135a354eaa
+ms.openlocfilehash: 2809d8265af85a786b1b72ab9be3135f166a20e8
+ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37926248"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39025329"
 ---
 # <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet を使用した Windows への Azure PowerShell のインストール
 
@@ -57,9 +57,9 @@ PowerShellGet がインストールされていない場合は、お使いのシ
 
 > [!NOTE]
 > PowerShellGet を使用するには、実行ポリシーでスクリプトの実行が許可されている必要があります。 PowerShell の実行ポリシーについて詳しくは、「[About Execution Policies (実行ポリシーについて)](/powershell/module/microsoft.powershell.core/about/about_execution_policies)」をご覧ください。
-
+>
 > [!IMPORTANT]
-> このドキュメントで説明するモジュール AzureRM では、.NET Framework を使用します。 そのため、.NET Core を使用する PowerShell 6.0 とは互換性がなくなります。 PowerShell 6.0 を使用している場合は、[macOS および Linux のインストール手順](install-azurermps-maclinux.md)に従います。 
+> このドキュメントで説明するモジュール AzureRM では、.NET Framework を使用します。 そのため、.NET Core を使用する PowerShell 6.0 とは互換性がなくなります。 PowerShell 6.0 を使用している場合は、[macOS および Linux のインストール手順](install-azurermps-maclinux.md)に従います。
 
 ## <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 

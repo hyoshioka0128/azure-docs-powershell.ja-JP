@@ -8,12 +8,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 1a4d24b6c772da7b5846c72cf26b457e8ce3d90b
+ms.openlocfilehash: 76d690f3a7206857861e1ee26d8284de419dc70a
 ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39025091"
+ms.locfileid: "39025176"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -43,7 +43,7 @@ Azure サービス プリンシパルは、ユーザーによって作成され�
 
 アプリケーションに関する情報は、`Get-AzureRmADApplication` コマンドレットを使って検出できます。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmADApplication -DisplayNameStartWith MyDemoWebApp
 ```
 
@@ -63,10 +63,11 @@ ReplyUrls               : {}
 
 サービス プリンシパルは、`New-AzureRmADServicePrincipal` コマンドレットを使って作成します。
 
-```powershell
+```azurepowershell-interactive
 Add-Type -Assembly System.Web
 $password = [System.Web.Security.Membership]::GeneratePassword(16,3)
-New-AzureRmADServicePrincipal -ApplicationId 00c01aaa-1603-49fc-b6df-b78c4e5138b4 -Password $password
+$securePassword = ConvertTo-SecureString -Force -AsPlainText -String $password
+New-AzureRmADServicePrincipal -ApplicationId 00c01aaa-1603-49fc-b6df-b78c4e5138b4 -Password $securePassword
 ```
 
 ```output
@@ -77,7 +78,7 @@ MyDemoWebApp                   ServicePrincipal               698138e7-d7b6-4738
 
 ### <a name="get-information-about-the-service-principal"></a>サービス プリンシパルに関する情報を取得する
 
-```powershell
+```azurepowershell-interactive
 $svcprincipal = Get-AzureRmADServicePrincipal -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
 $svcprincipal | Select-Object *
 ```
@@ -94,9 +95,9 @@ Type                  : ServicePrincipal
 
 指定した "*アプリ ID*" と "*パスワード*" を使って、アプリの新しいサービス プリンシパルとしてサインインする準備が整いました。 アカウントのテナント ID を指定する必要があります。 テナント ID は、個人用の資格情報で Azure にサインインすると表示されます。
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential -UserName $svcprincipal.ApplicationId -Message "Enter Password"
-Login-AzureRmAccount -Credential $cred -ServicePrincipal -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+Connect-AzureRmAccount -Credential $cred -ServicePrincipal -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
 
 新しい PowerShell セッションから次のコマンドを実行します。 サインオンに成功すると、次のような出力が表示されます。
@@ -128,7 +129,7 @@ Azure PowerShell には、ロールの割り当て管理を目的とした次の
 
 この例では、先ほどの例に**閲覧者**ロールを追加し、**共同作成者**ロールを削除しています。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Reader
 ```
 
@@ -143,13 +144,13 @@ ObjectId           : 698138e7-d7b6-4738-a866-b4e3081a69e4
 ObjectType         : ServicePrincipal
 ```
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Contributor
 ```
 
 現在割り当てられているロールを表示するには、次のコマンドレットを使用します。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
 ```
 
@@ -177,7 +178,7 @@ ObjectType         : ServicePrincipal
 
 ### <a name="add-a-new-password-for-the-service-principal"></a>サービス プリンシパルの新しいパスワードを追加する
 
-```powershell
+```azurepowershell-interactive
 $password = [System.Web.Security.Membership]::GeneratePassword(16,3)
 New-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp -Password $password
 ```
@@ -190,7 +191,7 @@ StartDate           EndDate             KeyId                                Typ
 
 ### <a name="get-a-list-of-credentials-for-the-service-principal"></a>サービス プリンシパルの一連の資格情報を取得する
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
 ```
 
@@ -203,7 +204,7 @@ StartDate           EndDate             KeyId                                Typ
 
 ### <a name="remove-the-old-password-from-the-service-principal"></a>サービス プリンシパルから古いパスワードを削除する
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp -KeyId ca9d4846-4972-4c70-b6f5-a4effa60b9bc
 ```
 
@@ -216,7 +217,7 @@ service principal objectId '698138e7-d7b6-4738-a866-b4e3081a69e4'.
 
 ### <a name="verify-the-list-of-credentials-for-the-service-principal"></a>サービス プリンシパルの一連の資格情報を確認する
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
 ```
 

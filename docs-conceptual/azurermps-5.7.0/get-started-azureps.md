@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: a036bb78ddb084dceb3668ab5751951dedd85e15
-ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
+ms.openlocfilehash: 0228db32c313626029d1a54b8d5c2c8ddbfae7a8
+ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38100472"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39025040"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
@@ -26,7 +26,7 @@ Azure PowerShell は、コマンド ラインから Azure リソースを管理�
 
 2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
 
-## <a name="azure-cloud-shell"></a>Azure Cloud Shell 
+## <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
 最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。
 
@@ -72,6 +72,7 @@ Enter a username and password for the virtual machine.
 User: localAdmin
 Password for user localAdmin: *********
 ```
+
 次に、VM を作成します。
 
 ```azurepowershell-interactive

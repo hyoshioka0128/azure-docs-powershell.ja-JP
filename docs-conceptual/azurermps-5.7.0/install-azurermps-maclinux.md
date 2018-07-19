@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/06/2018
-ms.openlocfilehash: a779f402fb2b3fccc8269aa30a6fe98a949251d6
-ms.sourcegitcommit: 4c775721461210431bd913f28d1f1e6f1976880a
+ms.openlocfilehash: 6e7d447ea9672c174e3f1d103bc56c11a7f37192
+ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37091505"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39024921"
 ---
 # <a name="install-azure-powershell-on-macos-or-linux"></a>macOS または Linux で Azure PowerShell をインストールする
 
@@ -30,8 +30,8 @@ Windows 以外のプラットフォームについては、PowerShell Core v6 �
 PowerShell Core のインストール手順は、macOS とほとんどの Linux ディストリビューションで異なります。
 詳細な手順については、次の記事をご覧ください。
 
-- [macOS で PowerShell Core をインストールする](/powershell/scripting/setup/installing-powershell-core-on-macos)
-- [Linux で PowerShell Core をインストールする](/powershell/scripting/setup/installing-powershell-core-on-linux)
+* [macOS で PowerShell Core をインストールする](/powershell/scripting/setup/installing-powershell-core-on-macos)
+* [Linux で PowerShell Core をインストールする](/powershell/scripting/setup/installing-powershell-core-on-linux)
 
 ## <a name="install-azure-powershell-for-net-core"></a>Azure PowerShell for .NET Core をインストールする
 
@@ -50,7 +50,7 @@ Install-Module AzureRM.NetCore
 > [!IMPORTANT]
 > 他の記事で詳述されている `AzureRM` モジュールは、.NET Core 用に構築されておらず、PowerShell Core では動作しません。 `AzureRM` と `AzureRM.NetCore` では、同じコマンドレット名を使用します。唯一の違いは、ロールアップ モジュールの名前と対象とする .NET バージョンです。
 
-既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとして構成されていません。 PSGallery の初回使用時には、次のプロンプトが表示されます。
+既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとしては構成されません。 PSGallery の初回使用時には、次のプロンプトが表示されます。
 
 ```output
 Untrusted repository
@@ -59,7 +59,7 @@ You are installing the modules from an untrusted repository. If you trust this r
 its InstallationPolicy value by running the Set-PSRepository cmdlet.
 
 Are you sure you want to install the modules from 'PSGallery'?
-[Y] Yes� [A] Yes to All� [N] No� [L] No to All� [S] Suspend� [?] Help (default is "N"):
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 ```
 
 インストールを続行するには、`Yes` または `Yes to All` を選択します。
@@ -83,17 +83,17 @@ macOS と Linux では、`$Profile` 環境変数を使用してプロファイ�
 .NET Core 向けの Azure PowerShell モジュールはまだ開発途中です。 これらのモジュールでは、Windows 版で利用可能なコマンドレットの一部が提供されません。 AzureRM.Netcore モジュールには次の関数が実装されています。
 
 * アカウント管理
-  - Microsoft Azure Active Directory を通じて、Microsoft アカウント、組織のアカウント、またはサービス プリンシパルでサインインする
-  - Save-AzureRmContext を使って資格情報をディスクに保存し、Import-AzureRmContext を使って保存した資格情報を読み込む
+  * Microsoft Azure Active Directory を通じて、Microsoft アカウント、組織のアカウント、またはサービス プリンシパルでサインインする
+  * Save-AzureRmContext を使って資格情報をディスクに保存し、Import-AzureRmContext を使って保存した資格情報を読み込む
 * 環境
-  - すぐに使えるさまざまな Microsoft Azure 環境を取得する
-  - カスタマイズした環境 (Azure Stack や Windows Azure Pack 環境など) を追加、設定、削除する
+  * すぐに使えるさまざまな Microsoft Azure 環境を取得する
+  * カスタマイズした環境 (Azure Stack や Windows Azure Pack 環境など) を追加、設定、削除する
 * Resource Manager と Service Management のインターフェイスを使用する Azure サービスの管理プレーン コマンドレット
-  - 仮想マシン
-  - App Service (Websites)
-  - SQL Database
-  - Storage
-  - ネットワーク
+  * 仮想マシン
+  * App Service (Websites)
+  * SQL Database
+  * Storage
+  * ネットワーク
 
 ## <a name="next-steps"></a>次の手順
 

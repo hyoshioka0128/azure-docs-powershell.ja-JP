@@ -7,21 +7,21 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: f19f9fc9fb9afabdddcbfc98864c63762753e6f0
-ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
+ms.openlocfilehash: 92af0fdd8db451e2f0f092d66a3e296ad8d6a09e
+ms.sourcegitcommit: 8b882d1c27d9e323447ff85f56d11bbf5e244d7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39024666"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39110349"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
 この記事では、古いバージョンの Azure PowerShell をアンインストールする (システムから完全に削除する) 方法について説明します。 Azure PowerShell を完全にアンインストールすることにした場合は、[Send-Feedback](/powershell/module/azurerm.profile/send-feedback) コマンドレットを使用してフィードバックをお送りください。
 バグが見つかった場合は、[GitHub で問題を報告](https://github.com/azure/azure-powershell/issues)していただきますよう、よろしくお願いいたします。
 
-## <a name="uninstall-msi-or-web-platform-installer"></a>MSI または Web Platform Installer のアンインストール
+## <a name="uninstall-msi"></a>MSI のアンインストール
 
-MSI パッケージまたは Web Platform Installer を使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
+MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
 
 | プラットフォーム | このサンプルについての指示 |
 |----------|--------------|
@@ -34,7 +34,7 @@ MSI パッケージまたは Web Platform Installer を使用して Azure PowerS
 
 PowerShellGet を使用して Azure PowerShell をインストールした場合は、[Uninstall-Module](/powershell/module/powershellget/uninstall-module) コマンドレットを使用します。 ただし、`Uninstall-Module` でアンインストールされるモジュールは 1 つだけです。 Azure PowerShell を完全に削除するには、各モジュールを個別にアンインストールする必要があります。 複数のバージョンの Azure PowerShell がインストールされている場合、アンインストールが複雑になることがあります。
 
-次のスクリプトを使用して、1 つのバージョンの Azure PowerShell を完全に削除できます。 このスクリプトでは、PowerShell ギャラリーに照会して依存サブモジュールの一覧を取得します。 次に、各サブモジュールの適切なバージョンがアンインストールされます。
+次のスクリプトは、1 つのバージョンの Azure PowerShell を完全に削除するときに使用できます。 このスクリプトでは、PowerShell ギャラリーに照会して依存サブモジュールの一覧を取得します。 次に、各サブモジュールの適切なバージョンがアンインストールされます。
 
 ```powershell
 function Uninstall-AllModules {
