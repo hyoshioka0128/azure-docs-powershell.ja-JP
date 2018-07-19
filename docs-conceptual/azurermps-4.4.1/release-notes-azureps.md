@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 07/26/2017
-ms.openlocfilehash: 5c8d9fd2e79dd18ee26493343e038c2a5ed24b26
-ms.sourcegitcommit: c98e3a21037ebd82936828bcb544eed902b24212
+ms.openlocfilehash: 6f0e304c499fc8bf4909e2825d52cd63b1fcbf5d
+ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34854428"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38100493"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -150,9 +150,9 @@ ms.locfileid: "34854428"
     * すべての AzureRm コマンドレットに、コンテキスト (Context コマンドレットの出力) を受け取ることができる -AzureRmContext パラメーターを追加しました。
       - コンテキストの永続化が無効になっているジョブに共通のパターン: `Start-Job {param ($context) New-AzureRmVM -AzureRmContext $context [... other parameters]} -ArgumentList (Get-AzureRmContext)`
       - コンテキストの永続化が有効になっているジョブに共通のパターン: `Start-Job {New-AzureRmVM [... other parameters]}`
-  * セッション間のログイン情報の保持に関するコマンドレットを追加しました。
-    - Enable-AzureRmContextAutosave - セッション間のログイン情報の保持を有効にします。
-    - Disable-AzureRmContextAutosave - セッション間のログイン情報の保持を無効にします。
+  * セッション間のサインイン情報の保持に関するコマンドレットを追加しました。
+    - Enable-AzureRmContextAutosave - セッション間の資格情報の保持を有効にします。
+    - Disable-AzureRmContextAutosave - セッション間の資格情報の保持を無効にします。
   * コンテキスト情報の管理に関するコマンドレットを追加しました
     - Select-AzureRmContext - アクティブな名前付きコンテキストを選択します。
     - Rename-AzureRmContext - 既存のコンテキストの名前を参照しやすいものに変更します。
@@ -212,7 +212,7 @@ ms.locfileid: "34854428"
     - Azure Analysis Services サーバーのバックアップ/復元のためのバックアップ BLOB コンテナーの設定/無効化が可能になります。
   * New-AzureRmAnalysisServicesServer および Set-AzureRmAnalysisServicesServer で SKU ルックアップを更新
     - ハードコードされた SKU を動的ルックアップに変更しました。
-  * Add-AzureAnalysisServicesAccount でサービス プリンシパルを使ったログインをサポート
+  * Add-AzureAnalysisServicesAccount でサービス プリンシパルを使ったサインインをサポート
 * Automation
   * 100 を超えるレコードを取得するよう AutomationDSC* コマンドレットを変更
   * いくつかの Automation コマンドレット (Get-AzureRmAutomationVariable、Get-AzureRmAutomationJob など) を呼び出した後に詳細ストリームが動作しなくなる問題を解決しました。
@@ -500,7 +500,7 @@ ms.locfileid: "34854428"
     * Resolve-AzureRmError
       * サーバー要求/応答データを含む、コマンドレットによってスローされるエラーと例外の詳細を表示する新しいコマンドレット
     * Send-Feedback
-      * ログインなしのフィードバックの送信を有効にしました。
+      * サインインなしのフィードバックの送信を有効にしました。
     * Get-AzureRmSubscription
       * CSP サブスクリプションの取得のバグを修正します。
 * リソース
