@@ -1,5 +1,5 @@
 ### YamlMime:Tutorial
-title: <span data-ttu-id="5a77e-101">Azure PowerShell で仮想マシンを作成する</span><span class="sxs-lookup"><span data-stu-id="5a77e-101">Create virtual machines with the Azure PowerShell</span></span>
+title: <span data-ttu-id="4492b-101">Azure PowerShell で仮想マシンを作成する</span><span class="sxs-lookup"><span data-stu-id="4492b-101">Create virtual machines with the Azure PowerShell</span></span>
 metadata:
   title: Azure PowerShell で仮想マシンを作成する
   description: 仮想マシンを作成して Azure PowerShell を開始します。
@@ -16,26 +16,26 @@ metadata:
   ms.technology: azure-powershell
   ms.service: virtual-machines
   clicktale: true
-  ms.openlocfilehash: ac5f3747da30cf42c96f8a11d4e986dabb43d25d
-  ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+  ms.openlocfilehash: e6d585d76f507a7959e6e6227aff1effad8fa336
+  ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 06/06/2018
-  ms.locfileid: "34821617"
+  ms.lasthandoff: 07/11/2018
+  ms.locfileid: "38100071"
 items:
 - durationInMinutes: 1
   content: >-
-    <span data-ttu-id="5a77e-104">このチュートリアルでは、Azure PowerShell を使用した仮想マシンの設定に関連するすべての手順について学習します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-104">In this tutorial, you learn all of the steps involved in setting up a virtual machine with Azure PowerShell.</span></span> <span data-ttu-id="5a77e-105">チュートリアルでは、出力クエリ、Azure リソースの再利用、およびリソースのクリーンアップについても説明します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-105">The tutorial also covers output queries, Azure resource reuse, and resource cleanup.</span></span>
+    <span data-ttu-id="4492b-104">このチュートリアルでは、Azure PowerShell を使用した仮想マシンの設定に関連するすべての手順について学習します。</span><span class="sxs-lookup"><span data-stu-id="4492b-104">In this tutorial, you learn all of the steps involved in setting up a virtual machine with Azure PowerShell.</span></span> <span data-ttu-id="4492b-105">チュートリアルでは、出力クエリ、Azure リソースの再利用、およびリソースのクリーンアップについても説明します。</span><span class="sxs-lookup"><span data-stu-id="4492b-105">The tutorial also covers output queries, Azure resource reuse, and resource cleanup.</span></span>
 
 
-    <span data-ttu-id="5a77e-106">これは、Azure Cloud Shell によって提供される対話型チュートリアルです。また、ローカルに [Azure PowerShell をインストール](install-azurerm-ps.md)することもできます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-106">This tutorial can be completed with the interactive experience offered through Azure Cloud Shell, or you may [install Azure PowerShell](install-azurerm-ps.md) locally.</span></span>
+    <span data-ttu-id="4492b-106">これは、Azure Cloud Shell によって提供される対話型チュートリアルです。また、ローカルに [Azure PowerShell をインストール](install-azurerm-ps.md)することもできます。</span><span class="sxs-lookup"><span data-stu-id="4492b-106">This tutorial can be completed with the interactive experience offered through Azure Cloud Shell, or you may [install Azure PowerShell](install-azurerm-ps.md) locally.</span></span>
 
 
-    <span data-ttu-id="5a77e-107">チュートリアルのテキストを Azure Cloud Shell に貼り付けるには、__Ctrl + Shift + V__ キー (macOS の場合は __cmd-v shift__) を使用します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-107">Use __ctrl-shift-v__ (__cmd-shift-v__ on macOS) to paste tutorial text into Azure Cloud Shell.</span></span>
+    <span data-ttu-id="4492b-107">チュートリアルのテキストを Azure Cloud Shell に貼り付けるには、__Ctrl + Shift + V__ キー (macOS の場合は __cmd-v shift__) を使用します。</span><span class="sxs-lookup"><span data-stu-id="4492b-107">Use __ctrl-shift-v__ (__cmd-shift-v__ on macOS) to paste tutorial text into Azure Cloud Shell.</span></span>
 - durationInMinutes: 1
-  title: <span data-ttu-id="5a77e-108">ログイン</span><span class="sxs-lookup"><span data-stu-id="5a77e-108">Log in</span></span>
+  title: <span data-ttu-id="4492b-108">[サインイン]</span><span class="sxs-lookup"><span data-stu-id="4492b-108">Sign in</span></span>
   content: >-
-    <span data-ttu-id="5a77e-109">Azure PowerShell のローカル インストールを使用している場合は、最初にログインしてから、他の手順を実行します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-109">If you're using a local install of the Azure PowerShell, you need to log in before performing any other steps.</span></span>
+    <span data-ttu-id="4492b-109">Azure PowerShell のローカル インストールを使用している場合は、最初にサインインしてから、他の手順を実行します。</span><span class="sxs-lookup"><span data-stu-id="4492b-109">If you're using a local install of the Azure PowerShell, you need to sign in before performing any other steps.</span></span>
 
 
     ```powershell
@@ -45,13 +45,13 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-110">ご使用の端末に表示される手順に従って、ログイン プロセスを完了してください。</span><span class="sxs-lookup"><span data-stu-id="5a77e-110">Complete the login process by following the steps displayed in your terminal.</span></span>
+    <span data-ttu-id="4492b-110">ご使用の端末に表示される手順に従って、サインイン プロセスを完了してください。</span><span class="sxs-lookup"><span data-stu-id="4492b-110">Complete the sign in process by following the steps displayed in your terminal.</span></span>
 - durationInMinutes: 1
-  title: <span data-ttu-id="5a77e-111">リソース グループの作成</span><span class="sxs-lookup"><span data-stu-id="5a77e-111">Create a resource group</span></span>
+  title: <span data-ttu-id="4492b-111">リソース グループの作成</span><span class="sxs-lookup"><span data-stu-id="4492b-111">Create a resource group</span></span>
   content: >-
-    <span data-ttu-id="5a77e-112">Azure では、すべてのリソースがリソース管理グループに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-112">In Azure, all resources are allocated in a resource management group.</span></span> <span data-ttu-id="5a77e-113">リソース グループではリソースを論理グループに分類できるため、コレクションとして操作しやすくなります。</span><span class="sxs-lookup"><span data-stu-id="5a77e-113">Resource groups provide logical groupings of resources that make them easier to work with as a collection.</span></span>
+    <span data-ttu-id="4492b-112">Azure では、すべてのリソースがリソース管理グループに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="4492b-112">In Azure, all resources are allocated in a resource management group.</span></span> <span data-ttu-id="4492b-113">リソース グループではリソースを論理グループに分類できるため、コレクションとして操作しやすくなります。</span><span class="sxs-lookup"><span data-stu-id="4492b-113">Resource groups provide logical groupings of resources that make them easier to work with as a collection.</span></span>
 
-    <span data-ttu-id="5a77e-114">このチュートリアルでは、作成されたすべてのリソースが、`TutorialResources` という名前の 1 つのグループに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-114">For this tutorial, all of the created resources go into a single group named `TutorialResources`.</span></span>
+    <span data-ttu-id="4492b-114">このチュートリアルでは、作成されたすべてのリソースが、`TutorialResources` という名前の 1 つのグループに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="4492b-114">For this tutorial, all of the created resources go into a single group named `TutorialResources`.</span></span>
 
 
     ```powershell
@@ -75,9 +75,9 @@ items:
 
     ```
 - durationInMinutes: 1
-  title: <span data-ttu-id="5a77e-115">VM の管理者資格情報の作成</span><span class="sxs-lookup"><span data-stu-id="5a77e-115">Create admin credentials for the VM</span></span>
+  title: <span data-ttu-id="4492b-115">VM の管理者資格情報の作成</span><span class="sxs-lookup"><span data-stu-id="4492b-115">Create admin credentials for the VM</span></span>
   content: >-
-    <span data-ttu-id="5a77e-116">新しい仮想マシンを作成する前に、Windows VM の管理者アカウントのユーザー名とパスワードを含む資格情報オブジェクトを作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="5a77e-116">Before you can create a new virtual machine, you must create a credential object containing the username and password for the administrator account of the Windows VM.</span></span>
+    <span data-ttu-id="4492b-116">新しい仮想マシンを作成する前に、Windows VM の管理者アカウントのユーザー名とパスワードを含む資格情報オブジェクトを作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="4492b-116">Before you can create a new virtual machine, you must create a credential object containing the username and password for the administrator account of the Windows VM.</span></span>
 
 
     ```powershell
@@ -87,7 +87,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-117">メッセージが表示されたら、ユーザー名とパスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-117">Enter the username and password when prompted.</span></span> <span data-ttu-id="5a77e-118">結果として得られる資格情報オブジェクトは、次の手順でパラメーターとして渡されます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-118">The resulting credential object is passed as a parameter in the next step.</span></span>
+    <span data-ttu-id="4492b-117">メッセージが表示されたら、ユーザー名とパスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="4492b-117">Enter the username and password when prompted.</span></span> <span data-ttu-id="4492b-118">結果として得られる資格情報オブジェクトは、次の手順でパラメーターとして渡されます。</span><span class="sxs-lookup"><span data-stu-id="4492b-118">The resulting credential object is passed as a parameter in the next step.</span></span>
 
 
     ```Output
@@ -102,12 +102,12 @@ items:
 
     ```
 - durationInMinutes: 4
-  title: <span data-ttu-id="5a77e-119">仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="5a77e-119">Create a virtual machine</span></span>
+  title: <span data-ttu-id="4492b-119">仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="4492b-119">Create a virtual machine</span></span>
   content: >-
-    <span data-ttu-id="5a77e-120">Azure の仮想マシンには依存関係が多数含まれます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-120">Virtual machines in Azure have a large number of dependencies.</span></span> <span data-ttu-id="5a77e-121">Azure PowerShell では、指定したコマンドライン引数に基づいてこのようなリソースが自動的に作成されます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-121">The Azure PowerShell creates these resources for you based on the command-line arguments you specify.</span></span> <span data-ttu-id="5a77e-122">読みやすくするために、[PowerShell スプラッティング](/powershell/module/microsoft.powershell.core/about/about_splatting)を使用して Azure PowerShell コマンドレットにパラメーターを渡します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-122">For readability, we are using [PowerShell splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to pass parameters to the Azure PowerShell cmdlets.</span></span>
+    <span data-ttu-id="4492b-120">Azure の仮想マシンには依存関係が多数含まれます。</span><span class="sxs-lookup"><span data-stu-id="4492b-120">Virtual machines in Azure have a large number of dependencies.</span></span> <span data-ttu-id="4492b-121">Azure PowerShell では、指定したコマンドライン引数に基づいてこのようなリソースが自動的に作成されます。</span><span class="sxs-lookup"><span data-stu-id="4492b-121">The Azure PowerShell creates these resources for you based on the command-line arguments you specify.</span></span> <span data-ttu-id="4492b-122">読みやすくするために、[PowerShell スプラッティング](/powershell/module/microsoft.powershell.core/about/about_splatting)を使用して Azure PowerShell コマンドレットにパラメーターを渡します。</span><span class="sxs-lookup"><span data-stu-id="4492b-122">For readability, we are using [PowerShell splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to pass parameters to the Azure PowerShell cmdlets.</span></span>
 
 
-    <span data-ttu-id="5a77e-123">Windows を実行する新しい仮想マシンを作成します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-123">Create a new virtual machine running Windows.</span></span>
+    <span data-ttu-id="4492b-123">Windows を実行する新しい仮想マシンを作成します。</span><span class="sxs-lookup"><span data-stu-id="4492b-123">Create a new virtual machine running Windows.</span></span>
 
 
     ```powershell
@@ -126,9 +126,9 @@ items:
 
     ```
 
-    <span data-ttu-id="5a77e-124">VM が作成されるとき、使用されているパラメーター値と、作成中の Azure リソースが表示されます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-124">As the VM is created, you see the parameter values used and Azure resources being created.</span></span>
+    <span data-ttu-id="4492b-124">VM が作成されるとき、使用されているパラメーター値と、作成中の Azure リソースが表示されます。</span><span class="sxs-lookup"><span data-stu-id="4492b-124">As the VM is created, you see the parameter values used and Azure resources being created.</span></span>
 
-    <span data-ttu-id="5a77e-125">PowerShell では、次のように進行状況バーが置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-125">PowerShell will displace a progress bar as shown below.</span></span>
+    <span data-ttu-id="4492b-125">PowerShell では、次のように進行状況バーが置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="4492b-125">PowerShell will displace a progress bar as shown below.</span></span>
 
 
     ```Output
@@ -140,7 +140,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-126">VM の準備ができたら、Azure Portal で、または \$newVM1 変数を調べることによって、結果を表示できます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-126">Once the VM is ready, we can view the results in the Azure Portal or by inspecting the \$newVM1 variable.</span></span>
+    <span data-ttu-id="4492b-126">VM の準備ができたら、Azure Portal で、または \$newVM1 変数を調べることによって、結果を表示できます。</span><span class="sxs-lookup"><span data-stu-id="4492b-126">Once the VM is ready, we can view the results in the Azure Portal or by inspecting the \$newVM1 variable.</span></span>
 
 
     ```powershell
@@ -179,11 +179,11 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-127">中かっこ内に表示されているプロパティ値は、入れ子になったオブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="5a77e-127">Property values listed inside of braces are nested objects.</span></span> <span data-ttu-id="5a77e-128">次の手順で、これらの入れ子になったオブジェクトの特定の値を表示する方法を説明します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-128">In the next step we will show you how to view specific values in these nested objects.</span></span>
+    <span data-ttu-id="4492b-127">中かっこ内に表示されているプロパティ値は、入れ子になったオブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="4492b-127">Property values listed inside of braces are nested objects.</span></span> <span data-ttu-id="4492b-128">次の手順で、これらの入れ子になったオブジェクトの特定の値を表示する方法を説明します。</span><span class="sxs-lookup"><span data-stu-id="4492b-128">In the next step we will show you how to view specific values in these nested objects.</span></span>
 - durationInMinutes: 5
-  title: <span data-ttu-id="5a77e-129">クエリでの VM 情報の取得</span><span class="sxs-lookup"><span data-stu-id="5a77e-129">Get VM information with queries</span></span>
+  title: <span data-ttu-id="4492b-129">クエリでの VM 情報の取得</span><span class="sxs-lookup"><span data-stu-id="4492b-129">Get VM information with queries</span></span>
   content: >-
-    <span data-ttu-id="5a77e-130">先ほど作成した VM から、より詳細な情報をいくつか取得してみましょう。</span><span class="sxs-lookup"><span data-stu-id="5a77e-130">Let's get some more detailed information from the VM we just created.</span></span> <span data-ttu-id="5a77e-131">この例では、VM の名前と、作成した管理者アカウントを確認します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-131">In this example, we verify the Name of the VM and the admin account we created.</span></span>
+    <span data-ttu-id="4492b-130">先ほど作成した VM から、より詳細な情報をいくつか取得してみましょう。</span><span class="sxs-lookup"><span data-stu-id="4492b-130">Let's get some more detailed information from the VM we just created.</span></span> <span data-ttu-id="4492b-131">この例では、VM の名前と、作成した管理者アカウントを確認します。</span><span class="sxs-lookup"><span data-stu-id="4492b-131">In this example, we verify the Name of the VM and the admin account we created.</span></span>
 
 
     ```powershell
@@ -204,7 +204,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-132">他の Azure PowerShell コマンドを使用して、ネットワーク構成に関する個別の情報を取得することができます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-132">We can use other Azure PowerShell commands to get specific information about the network configuration.</span></span>
+    <span data-ttu-id="4492b-132">他の Azure PowerShell コマンドを使用して、ネットワーク構成に関する個別の情報を取得することができます。</span><span class="sxs-lookup"><span data-stu-id="4492b-132">We can use other Azure PowerShell commands to get specific information about the network configuration.</span></span>
 
 
     ```powershell
@@ -215,7 +215,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-133">この例では、PowerShell のパイプラインを使用して、\$newVM1 オブジェクトを `Get-AzureRmNetworkInterface` コマンドレットに送信しています。</span><span class="sxs-lookup"><span data-stu-id="5a77e-133">In this example we are using the PowerShell pipeline to send the \$newVM1 object to the `Get-AzureRmNetworkInterface` cmdlet.</span></span> <span data-ttu-id="5a77e-134">結果として得られるネットワーク インターフェイス オブジェクトから、入れ子になった IpConfigurations オブジェクトを選択しています。</span><span class="sxs-lookup"><span data-stu-id="5a77e-134">From the resulting network interface object we are selecting the nested IpConfigurations object.</span></span> <span data-ttu-id="5a77e-135">IpConfigurations オブジェクトから Name プロパティと PrivateIpAddress プロパティを選択しています。</span><span class="sxs-lookup"><span data-stu-id="5a77e-135">From the IpConfigurations object we are selecting the Name and PrivateIpAddress properties.</span></span>
+    <span data-ttu-id="4492b-133">この例では、PowerShell のパイプラインを使用して、\$newVM1 オブジェクトを `Get-AzureRmNetworkInterface` コマンドレットに送信しています。</span><span class="sxs-lookup"><span data-stu-id="4492b-133">In this example we are using the PowerShell pipeline to send the \$newVM1 object to the `Get-AzureRmNetworkInterface` cmdlet.</span></span> <span data-ttu-id="4492b-134">結果として得られるネットワーク インターフェイス オブジェクトから、入れ子になった IpConfigurations オブジェクトを選択しています。</span><span class="sxs-lookup"><span data-stu-id="4492b-134">From the resulting network interface object we are selecting the nested IpConfigurations object.</span></span> <span data-ttu-id="4492b-135">IpConfigurations オブジェクトから Name プロパティと PrivateIpAddress プロパティを選択しています。</span><span class="sxs-lookup"><span data-stu-id="4492b-135">From the IpConfigurations object we are selecting the Name and PrivateIpAddress properties.</span></span>
 
 
     ```Output
@@ -229,7 +229,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-136">VM が実行されていることを確認するには、リモート デスクトップ経由で接続する必要があります。</span><span class="sxs-lookup"><span data-stu-id="5a77e-136">To confirm that the VM is running, we need to connect via Remote Desktop.</span></span> <span data-ttu-id="5a77e-137">そのために、パブリック IP アドレスを知っている必要があります。</span><span class="sxs-lookup"><span data-stu-id="5a77e-137">For that, we need to know the Public IP address.</span></span>
+    <span data-ttu-id="4492b-136">VM が実行されていることを確認するには、リモート デスクトップ経由で接続する必要があります。</span><span class="sxs-lookup"><span data-stu-id="4492b-136">To confirm that the VM is running, we need to connect via Remote Desktop.</span></span> <span data-ttu-id="4492b-137">そのために、パブリック IP アドレスを知っている必要があります。</span><span class="sxs-lookup"><span data-stu-id="4492b-137">For that, we need to know the Public IP address.</span></span>
 
 
     ```powershell
@@ -242,7 +242,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-138">この例では、`Get-AzureRmPublicIpAddress` を使用して、\$publicIp 変数に結果を格納しています。</span><span class="sxs-lookup"><span data-stu-id="5a77e-138">In this example, we use the `Get-AzureRmPublicIpAddress` and store the results in the \$publicIp variable.</span></span> <span data-ttu-id="5a77e-139">この変数からプロパティを選択し、式を使用して、入れ子になった Fqdn プロパティを取得しています。</span><span class="sxs-lookup"><span data-stu-id="5a77e-139">From this variable we are selecting properties and using an expression to retrieve the nested Fqdn property.</span></span>
+    <span data-ttu-id="4492b-138">この例では、`Get-AzureRmPublicIpAddress` を使用して、\$publicIp 変数に結果を格納しています。</span><span class="sxs-lookup"><span data-stu-id="4492b-138">In this example, we use the `Get-AzureRmPublicIpAddress` and store the results in the \$publicIp variable.</span></span> <span data-ttu-id="4492b-139">この変数からプロパティを選択し、式を使用して、入れ子になった Fqdn プロパティを取得しています。</span><span class="sxs-lookup"><span data-stu-id="4492b-139">From this variable we are selecting properties and using an expression to retrieve the nested Fqdn property.</span></span>
 
 
     ```Output
@@ -256,7 +256,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-140">ローカル コンピューターからリモート デスクトップ経由で次のコマンドを実行して、VM に接続できます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-140">From your local machine you can run the following command to connect to the VM over Remote Desktop.</span></span>
+    <span data-ttu-id="4492b-140">ローカル コンピューターからリモート デスクトップ経由で次のコマンドを実行して、VM に接続できます。</span><span class="sxs-lookup"><span data-stu-id="4492b-140">From your local machine you can run the following command to connect to the VM over Remote Desktop.</span></span>
 
 
     ```powershell
@@ -266,11 +266,11 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-141">オブジェクトのプロパティに対するクエリ実行の詳細については、「[Azure リソースに対するクエリ](./queries-azureps.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="5a77e-141">For more information about querying for object properties, see [Querying for Azure resources](./queries-azureps.md).</span></span>
+    <span data-ttu-id="4492b-141">オブジェクトのプロパティに対するクエリ実行の詳細については、「[Azure リソースに対するクエリ](./queries-azureps.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4492b-141">For more information about querying for object properties, see [Querying for Azure resources](./queries-azureps.md).</span></span>
 - durationInMinutes: 4
-  title: <span data-ttu-id="5a77e-142">既存のサブネットでの新しい VM の作成</span><span class="sxs-lookup"><span data-stu-id="5a77e-142">Creating a new VM on the existing subnet</span></span>
+  title: <span data-ttu-id="4492b-142">既存のサブネットでの新しい VM の作成</span><span class="sxs-lookup"><span data-stu-id="4492b-142">Creating a new VM on the existing subnet</span></span>
   content: >-
-    <span data-ttu-id="5a77e-143">2 番目の VM では既存のサブネットを使用します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-143">The second VM uses the existing subnet.</span></span>
+    <span data-ttu-id="4492b-143">2 番目の VM では既存のサブネットを使用します。</span><span class="sxs-lookup"><span data-stu-id="4492b-143">The second VM uses the existing subnet.</span></span>
 
 
     ```powershell
@@ -325,7 +325,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-144">新しい VM のパブリック IP アドレスは、\$newVM2 オブジェクトの FullyQualifiedDomainName プロパティで返されるので、取得するいくつかの手順をスキップできます。</span><span class="sxs-lookup"><span data-stu-id="5a77e-144">You can skip a few steps to get the public IP address of the new VM since it's returned in the FullyQualifiedDomainName property of the \$newVM2 object.</span></span> <span data-ttu-id="5a77e-145">リモート デスクトップで次のコマンドを使用して接続します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-145">Use the following command to connect using Remote Desktop.</span></span>
+    <span data-ttu-id="4492b-144">新しい VM のパブリック IP アドレスは、\$newVM2 オブジェクトの FullyQualifiedDomainName プロパティで返されるので、取得するいくつかの手順をスキップできます。</span><span class="sxs-lookup"><span data-stu-id="4492b-144">You can skip a few steps to get the public IP address of the new VM since it's returned in the FullyQualifiedDomainName property of the \$newVM2 object.</span></span> <span data-ttu-id="4492b-145">リモート デスクトップで次のコマンドを使用して接続します。</span><span class="sxs-lookup"><span data-stu-id="4492b-145">Use the following command to connect using Remote Desktop.</span></span>
 
 
     ```powershell
@@ -334,9 +334,9 @@ items:
 
     ```
 - durationInMinutes: 4
-  title: <span data-ttu-id="5a77e-146">クリーンアップ</span><span class="sxs-lookup"><span data-stu-id="5a77e-146">Cleanup</span></span>
+  title: <span data-ttu-id="4492b-146">クリーンアップ</span><span class="sxs-lookup"><span data-stu-id="4492b-146">Cleanup</span></span>
   content: >-
-    <span data-ttu-id="5a77e-147">これでチュートリアルは終了です。次は、作成したリソースをクリーンアップします。</span><span class="sxs-lookup"><span data-stu-id="5a77e-147">Now that the tutorial is complete, it's time to clean up the created resources.</span></span> <span data-ttu-id="5a77e-148">`Remove-AzureRmResource` コマンドを使用すると個別のリソースを削除できますが、リソース グループ内のすべてのリソースを削除する最も安全な方法は、`Remove-AzureRmResourceGroup` コマンドを使用してグループを削除することです。</span><span class="sxs-lookup"><span data-stu-id="5a77e-148">You can delete individual resources with the `Remove-AzureRmResource` command, but the safest way to remove all resources in a resource group is delete the group using the `Remove-AzureRmResourceGroup` command.</span></span>
+    <span data-ttu-id="4492b-147">これでチュートリアルは終了です。次は、作成したリソースをクリーンアップします。</span><span class="sxs-lookup"><span data-stu-id="4492b-147">Now that the tutorial is complete, it's time to clean up the created resources.</span></span> <span data-ttu-id="4492b-148">`Remove-AzureRmResource` コマンドを使用すると個別のリソースを削除できますが、リソース グループ内のすべてのリソースを削除する最も安全な方法は、`Remove-AzureRmResourceGroup` コマンドを使用してグループを削除することです。</span><span class="sxs-lookup"><span data-stu-id="4492b-148">You can delete individual resources with the `Remove-AzureRmResource` command, but the safest way to remove all resources in a resource group is delete the group using the `Remove-AzureRmResourceGroup` command.</span></span>
 
 
     ```powershell
@@ -360,7 +360,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-149">このコマンドは、チュートリアルで作成したリソースを削除し、必ず正しい順序でその割り当てを解除します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-149">This command deletes the resources created during the tutorial, and is guaranteed to deallocate them in the correct order.</span></span> <span data-ttu-id="5a77e-150">`-AsJob` パラメーターは、削除の実行中に PowerShell がブロックされないようにします。</span><span class="sxs-lookup"><span data-stu-id="5a77e-150">The `-AsJob` parameter keeps PowerShell from blocking while the deletion takes place.</span></span> <span data-ttu-id="5a77e-151">削除が完了するまで待機するには、次のコマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-151">To wait until the deletion is complete, use the following command:</span></span>
+    <span data-ttu-id="4492b-149">このコマンドは、チュートリアルで作成したリソースを削除し、必ず正しい順序でその割り当てを解除します。</span><span class="sxs-lookup"><span data-stu-id="4492b-149">This command deletes the resources created during the tutorial, and is guaranteed to deallocate them in the correct order.</span></span> <span data-ttu-id="4492b-150">`-AsJob` パラメーターは、削除の実行中に PowerShell がブロックされないようにします。</span><span class="sxs-lookup"><span data-stu-id="4492b-150">The `-AsJob` parameter keeps PowerShell from blocking while the deletion takes place.</span></span> <span data-ttu-id="4492b-151">削除が完了するまで待機するには、次のコマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="4492b-151">To wait until the deletion is complete, use the following command:</span></span>
 
 
     ```powershell
@@ -370,7 +370,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5a77e-152">クリーンアップが完了したら、チュートリアルは終了です。</span><span class="sxs-lookup"><span data-stu-id="5a77e-152">With cleanup completed, the tutorial is finished.</span></span> <span data-ttu-id="5a77e-153">引き続き、ここで学習した内容を簡単に確認し、次のステップで役立つリソースへのリンクを紹介します。</span><span class="sxs-lookup"><span data-stu-id="5a77e-153">Continue on for a summary of everything you learned and links to resources that will help you with your next steps.</span></span>
+    <span data-ttu-id="4492b-152">クリーンアップが完了したら、チュートリアルは終了です。</span><span class="sxs-lookup"><span data-stu-id="4492b-152">With cleanup completed, the tutorial is finished.</span></span> <span data-ttu-id="4492b-153">引き続き、ここで学習した内容を簡単に確認し、次のステップで役立つリソースへのリンクを紹介します。</span><span class="sxs-lookup"><span data-stu-id="4492b-153">Continue on for a summary of everything you learned and links to resources that will help you with your next steps.</span></span>
 - durationInMinutes: 1
-  title: <span data-ttu-id="5a77e-154">まとめ</span><span class="sxs-lookup"><span data-stu-id="5a77e-154">Summary</span></span>
-  content: "\n<span data-ttu-id=\"5a77e-155\">お疲れさまでした。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-155\">Congratulations!</span></span> <span data-ttu-id=\"5a77e-156\">ここでは、新規または既存のリソースを使用して VM を作成する方法を学習し、式とその他の Azure PowerShell コマンドを使用してデータを取得してシェル変数に格納しました。また、Azure VM 用に作成されたリソースをいくつか確認しました。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-156\">You learned how to create VMs with new or existing resources, used expressions and other Azure PowerShell commands to to capture data to be stored in shell variables, and looked at some of the resources that get created for Azure VMs.</span></span>\n\n<span data-ttu-id=\"5a77e-157\">次の作業は、Azure PowerShell の使用方法によって異なります。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-157\">Where you go from here depends on how you plan to use Azure PowerShell.</span></span> <span data-ttu-id=\"5a77e-158\">このチュートリアルで説明した機能の詳細を説明した資料には、さまざまなものがあります。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-158\">There are a variety of materials that go further in depth on the features covered in this tutorial.</span></span>\n\n### <a name=\"in-depth-azure-powershell-documentation\"></a><span data-ttu-id=\"5a77e-159\">詳細な Azure PowerShell のドキュメント</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-159\">In-depth Azure PowerShell documentation</span></span>\n\n<span data-ttu-id=\"5a77e-160\">時間をとって、一連の完全な [Azure PowerShell のドキュメント](overview.md)を確認できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-160\">You might want to take time to explore the complete [Azure PowerShell documentation](overview.md) set.</span></span>\n\n<span data-ttu-id=\"5a77e-161\">このチュートリアルで使用されているコマンドの詳細については、次の記事をご覧ください。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-161\">For more information about the commands used in this tutorial, see the following articles.</span></span>\n\n- [<span data-ttu-id=\"5a77e-162\">New-AzureRmResourceGroup</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-162\">New-AzureRmResourceGroup</span></span>](/powershell/module/azurerm.resources/new-azurermresourcegroup)\n- [<span data-ttu-id=\"5a77e-163\">Get-Credential</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-163\">Get-Credential</span></span>](/powershell/module/microsoft.powershell.security/get-credential)\n- [<span data-ttu-id=\"5a77e-164\">New-AzureRmVM</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-164\">New-AzureRmVM</span></span>](/powershell/module/azurerm.compute/new-azurermvm)\n- [<span data-ttu-id=\"5a77e-165\">Select-Object</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-165\">Select-Object</span></span>](/powershell/module/microsoft.powershell.utility/select-object)\n- [<span data-ttu-id=\"5a77e-166\">Get-AzureRmPublicIpAddress</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-166\">Get-AzureRmPublicIpAddress</span></span>](/powershell/module/azurerm.network/get-AzureRmPublicIpAddress)\n- [<span data-ttu-id=\"5a77e-167\">Remove-AzureRmResourceGroup</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-167\">Remove-AzureRmResourceGroup</span></span>](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)\n- [<span data-ttu-id=\"5a77e-168\">Wait-Job</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-168\">Wait-Job</span></span>](/powershell/module/microsoft.powershell.core/wait-job)\n\n<span data-ttu-id=\"5a77e-169\">次の記事では、このチュートリアルで示した機能について詳しく説明します。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-169\">There are also articles that go deeper into the features that were shown in the tutorial.</span></span>\n\n- [<span data-ttu-id=\"5a77e-170\">PowerShell スプラッティング</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-170\">PowerShell splatting</span></span>](/powershell/module/microsoft.powershell.core/about/about_splatting)\n- [<span data-ttu-id=\"5a77e-171\">クエリ</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-171\">Queries</span></span>](queries-azureps.md)\n- [<span data-ttu-id=\"5a77e-172\">書式設定</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-172\">Formatting</span></span>](formatting-output.md)\n- [<span data-ttu-id=\"5a77e-173\">PowerShell ジョブの使用</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-173\">Using PowerShell jobs</span></span>](using-psjobs.md)\n\n### <a name=\"sample-scripts\"></a><span data-ttu-id=\"5a77e-174\">サンプルのスクリプト</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-174\">Sample scripts</span></span>\n\n<span data-ttu-id=\"5a77e-175\">特定のタスクをすぐに開始する必要がある場合は、サンプル スクリプトを確認してください。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-175\">If you want to get started right away with specific tasks, look at some sample scripts.</span></span>\n\n- [<span data-ttu-id=\"5a77e-176\">Linux virtual machines</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-176\">Linux Virtual Machines</span></span>](/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"5a77e-177\">Windows Virtual Machines</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-177\">Windows Virtual Machines</span></span>](/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"5a77e-178\">Web Apps</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-178\">Web Apps</span></span>](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"5a77e-179\">SQL Database</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-179\">SQL Databases</span></span>](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"5a77e-180\">Cosmos DB</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-180\">Cosmos DB</span></span>](/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json)\n\n### <a name=\"feedback\"></a><span data-ttu-id=\"5a77e-181\">フィードバック</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-181\">Feedback</span></span>\n\n<span data-ttu-id=\"5a77e-182\">フィードバック、ご提案、ご質問はさまざまな方法で送信できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-182\">If you'd like to give feedback, suggestions, or ask questions, there are a number of ways for you to get in touch.</span></span>\n\n* <span data-ttu-id=\"5a77e-183\">`Send-Feedback` は Azure PowerShell の組み込みコマンドで、自由形式のフィードバックをチームに提供できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-183\">`Send-Feedback` is a built-in command for Azure PowerShell that allows you to provide free-form feedback to the team.</span></span>\n* <span data-ttu-id=\"5a77e-184\">[Azure PowerShell リポジトリ](https://github.com/Azure/azure-powershell/issues)で、機能要求またはバグ レポートを提出できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-184\">File a feature request or a bug report in the [Azure PowerShell repository](https://github.com/Azure/azure-powershell/issues).</span></span>\n* <span data-ttu-id=\"5a77e-185\">[Azure PowerShell ドキュメント リポジトリ](https://github.com/Azure/azure-docs-powershell/issues)で問題を報告することで、ご質問や内容確認を行うことができます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-185\">Ask a question or get clarification by filing an issue in the [Azure PowerShell documentation repository](https://github.com/Azure/azure-docs-powershell/issues).</span></span>\n\n<span data-ttu-id=\"5a77e-186\">Azure PowerShell をご利用いただけましたら幸いです。</span><span class=\"sxs-lookup\"><span data-stu-id=\"5a77e-186\">We hope that you enjoy using the Azure PowerShell!</span></span>"
+  title: <span data-ttu-id="4492b-154">まとめ</span><span class="sxs-lookup"><span data-stu-id="4492b-154">Summary</span></span>
+  content: "\n<span data-ttu-id=\"4492b-155\">お疲れさまでした。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-155\">Congratulations!</span></span> <span data-ttu-id=\"4492b-156\">ここでは、新規または既存のリソースを使用して VM を作成する方法を学習し、式とその他の Azure PowerShell コマンドを使用してデータを取得してシェル変数に格納しました。また、Azure VM 用に作成されたリソースをいくつか確認しました。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-156\">You learned how to create VMs with new or existing resources, used expressions and other Azure PowerShell commands to to capture data to be stored in shell variables, and looked at some of the resources that get created for Azure VMs.</span></span>\n\n<span data-ttu-id=\"4492b-157\">次の作業は、Azure PowerShell の使用方法によって異なります。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-157\">Where you go from here depends on how you plan to use Azure PowerShell.</span></span> <span data-ttu-id=\"4492b-158\">このチュートリアルで説明した機能の詳細を説明した資料には、さまざまなものがあります。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-158\">There are a variety of materials that go further in depth on the features covered in this tutorial.</span></span>\n\n### <a name=\"in-depth-azure-powershell-documentation\"></a><span data-ttu-id=\"4492b-159\">詳細な Azure PowerShell のドキュメント</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-159\">In-depth Azure PowerShell documentation</span></span>\n\n<span data-ttu-id=\"4492b-160\">時間をとって、一連の完全な [Azure PowerShell のドキュメント](overview.md)を確認できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-160\">You might want to take time to explore the complete [Azure PowerShell documentation](overview.md) set.</span></span>\n\n<span data-ttu-id=\"4492b-161\">このチュートリアルで使用されているコマンドの詳細については、次の記事をご覧ください。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-161\">For more information about the commands used in this tutorial, see the following articles.</span></span>\n\n- [<span data-ttu-id=\"4492b-162\">New-AzureRmResourceGroup</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-162\">New-AzureRmResourceGroup</span></span>](/powershell/module/azurerm.resources/new-azurermresourcegroup)\n- [<span data-ttu-id=\"4492b-163\">Get-Credential</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-163\">Get-Credential</span></span>](/powershell/module/microsoft.powershell.security/get-credential)\n- [<span data-ttu-id=\"4492b-164\">New-AzureRmVM</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-164\">New-AzureRmVM</span></span>](/powershell/module/azurerm.compute/new-azurermvm)\n- [<span data-ttu-id=\"4492b-165\">Select-Object</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-165\">Select-Object</span></span>](/powershell/module/microsoft.powershell.utility/select-object)\n- [<span data-ttu-id=\"4492b-166\">Get-AzureRmPublicIpAddress</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-166\">Get-AzureRmPublicIpAddress</span></span>](/powershell/module/azurerm.network/get-AzureRmPublicIpAddress)\n- [<span data-ttu-id=\"4492b-167\">Remove-AzureRmResourceGroup</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-167\">Remove-AzureRmResourceGroup</span></span>](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)\n- [<span data-ttu-id=\"4492b-168\">Wait-Job</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-168\">Wait-Job</span></span>](/powershell/module/microsoft.powershell.core/wait-job)\n\n<span data-ttu-id=\"4492b-169\">次の記事では、このチュートリアルで示した機能について詳しく説明します。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-169\">There are also articles that go deeper into the features that were shown in the tutorial.</span></span>\n\n- [<span data-ttu-id=\"4492b-170\">PowerShell スプラッティング</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-170\">PowerShell splatting</span></span>](/powershell/module/microsoft.powershell.core/about/about_splatting)\n- [<span data-ttu-id=\"4492b-171\">クエリ</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-171\">Queries</span></span>](queries-azureps.md)\n- [<span data-ttu-id=\"4492b-172\">書式設定</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-172\">Formatting</span></span>](formatting-output.md)\n- [<span data-ttu-id=\"4492b-173\">PowerShell ジョブの使用</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-173\">Using PowerShell jobs</span></span>](using-psjobs.md)\n\n### <a name=\"sample-scripts\"></a><span data-ttu-id=\"4492b-174\">サンプルのスクリプト</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-174\">Sample scripts</span></span>\n\n<span data-ttu-id=\"4492b-175\">特定のタスクをすぐに開始する必要がある場合は、サンプル スクリプトを確認してください。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-175\">If you want to get started right away with specific tasks, look at some sample scripts.</span></span>\n\n- [<span data-ttu-id=\"4492b-176\">Linux virtual machines</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-176\">Linux Virtual Machines</span></span>](/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"4492b-177\">Windows Virtual Machines</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-177\">Windows Virtual Machines</span></span>](/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"4492b-178\">Web Apps</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-178\">Web Apps</span></span>](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"4492b-179\">SQL Database</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-179\">SQL Databases</span></span>](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [<span data-ttu-id=\"4492b-180\">Cosmos DB</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-180\">Cosmos DB</span></span>](/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json)\n\n### <a name=\"feedback\"></a><span data-ttu-id=\"4492b-181\">フィードバック</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-181\">Feedback</span></span>\n\n<span data-ttu-id=\"4492b-182\">フィードバック、ご提案、ご質問はさまざまな方法で送信できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-182\">If you'd like to give feedback, suggestions, or ask questions, there are a number of ways for you to get in touch.</span></span>\n\n* <span data-ttu-id=\"4492b-183\">`Send-Feedback` は Azure PowerShell の組み込みコマンドで、自由形式のフィードバックをチームに提供できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-183\">`Send-Feedback` is a built-in command for Azure PowerShell that allows you to provide free-form feedback to the team.</span></span>\n* <span data-ttu-id=\"4492b-184\">[Azure PowerShell リポジトリ](https://github.com/Azure/azure-powershell/issues)で、機能要求またはバグ レポートを提出できます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-184\">File a feature request or a bug report in the [Azure PowerShell repository](https://github.com/Azure/azure-powershell/issues).</span></span>\n* <span data-ttu-id=\"4492b-185\">[Azure PowerShell ドキュメント リポジトリ](https://github.com/Azure/azure-docs-powershell/issues)で問題を報告することで、ご質問や内容確認を行うことができます。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-185\">Ask a question or get clarification by filing an issue in the [Azure PowerShell documentation repository](https://github.com/Azure/azure-docs-powershell/issues).</span></span>\n\n<span data-ttu-id=\"4492b-186\">Azure PowerShell をご利用いただけましたら幸いです。</span><span class=\"sxs-lookup\"><span data-stu-id=\"4492b-186\">We hope that you enjoy using the Azure PowerShell!</span></span>"
