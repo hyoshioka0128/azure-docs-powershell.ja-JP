@@ -1,26 +1,26 @@
 ---
-title: PowerShell セッション間でのユーザー ログインの保持
-description: この記事では、複数の PowerShell セッション間で資格情報やその他のユーザー情報を再利用できるようにする、Azure PowerShell の新機能について説明します。
+title: PowerShell セッション間でユーザーの資格情報を保持する
+description: 複数の PowerShell セッション間で Azure の資格情報や他の情報を再利用する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 5ae4f03207b74df06a2cb81ea1cd0516a4abd2dd
-ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
+ms.openlocfilehash: 3107f77987745faa7ec57ea4811c62a38a7b2aa2
+ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323120"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38100258"
 ---
-# <a name="persisting-user-logins-across-powershell-sessions"></a>PowerShell セッション間でのユーザー ログインの保持
+# <a name="persisting-user-credentials-across-powershell-sessions"></a>PowerShell セッション間でのユーザーの資格情報の保持
 
-Azure PowerShell の 2017 年 9 月のリリースでは、Azure Resource Manager のコマンドレットに新機能として **Azure Context Autosave** が導入されました。 この機能により、次のように、いくつかの新しいユーザー シナリオが可能になります。
+Azure PowerShell では、**Azure Context Autosave** と呼ばれる機能を提供しています。その機能は以下のとおりです。
 
-- 新しい PowerShell セッションで再利用するためにログイン情報を保持する。
+- 新しい PowerShell セッションで再利用するためにサインイン情報を保持する。
 - 実行時間の長いコマンドレットを実行する場合にバックグラウンド タスクを使いやすくする。
-- 個別のログインを使用せずにアカウント、サブスクリプション、環境を切り替える。
+- 個別のサインインを使用せずにアカウント、サブスクリプション、環境を切り替える。
 - 同一の PowerShell セッションから、異なる資格情報やサブスクリプションを同時に使用してタスクを実行する。
 
 ## <a name="azure-contexts-defined"></a>Azure コンテキストの定義
@@ -36,14 +36,14 @@ Azure PowerShell の 2017 年 9 月のリリースでは、Azure Resource Manage
 
 以前のリリースでは、新しい PowerShell セッションを開くたびに Azure コンテキストを作成する必要がありました。 Azure PowerShell v4.4.0 以降では、新しい PowerShell セッションを開くとすぐに Azure コンテキストの自動保存と再利用を有効にすることができます。
 
-## <a name="automatically-saving-the-context-for-the-next-login"></a>次回ログインのためのコンテキストの自動保存
+## <a name="automatically-saving-the-context-for-the-next-sign-in"></a>次回サインインのためのコンテキストの自動保存
 
 既定では、Azure PowerShell は PowerShell セッションを終了するたびにコンテキスト情報を破棄します。
 
 PowerShell セッションが終了した後に Azure PowerShell がコンテキストを記憶できるようにするには、`Enable-AzureRmContextAutosave` を使用します。 コンテキストと資格情報は、ユーザー ディレクトリの特殊な隠しフォルダー (`%AppData%\Roaming\Windows Azure PowerShell`) に自動的に保存されます。
 その後、新しい PowerShell セッションそれぞれで、最後のセッションで使用されたコンテキストが対象となります。
 
-コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzureRmContextAutoSave` を使用します。 PowerShell セッションを開くたびに Azure へのログインが必要になります。
+コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzureRmContextAutoSave` を使用します。 PowerShell セッションを開くたびに Azure へのサインインが必要になります。
 
 Azure コンテキストを管理できるコマンドレットを使用すると、きめ細かな制御も可能になります。 変更を現在の PowerShell セッションのみ (`Process` スコープ) とすべての PowerShell セッション (`CurrentUser` スコープ) のどちらに適用するかを制御できます。 これらのオプションについては、「[コンテキスト スコープの使用](#Using-Context-Scopes)」で詳しく説明します。
 
@@ -71,9 +71,9 @@ Azure コンテキストを管理できるコマンドレットを使用する�
 
 ## <a name="creating-selecting-renaming-and-removing-contexts"></a>コンテキストの作成、選択、名前変更、削除
 
-コンテキストを作成するには、Azure にログインしている必要があります。 `Connect-AzureRmAccount` コマンドレット (またはそのエイリアス `Login-AzureRmAccount`) は、後続の Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、ログイン資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
+コンテキストを作成するには、Azure にサインインしている必要があります。 `Connect-AzureRmAccount` コマンドレット (またはそのエイリアス `Login-AzureRmAccount`) は、後続の Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
 
-ログイン後に新しいコンテキストを追加するには、`Set-AzureRmContext` (またはそのエイリアス `Select-AzureRmSubscription`) を使用します。
+サインイン後に新しいコンテキストを追加するには、`Set-AzureRmContext` (またはそのエイリアス `Select-AzureRmSubscription`) を使用します。
 
 ```azurepowershell-interactive
 PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso1"
@@ -107,7 +107,7 @@ Disconnect-AzureRmAccount user1@contoso.org
 
 ## <a name="using-context-scopes"></a>コンテキスト スコープの使用
 
-場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process`スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
+場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process` スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
 
 たとえば、他のウィンドウに影響を与えることなく現在の PowerShell セッションの既定のコンテキストを変更したり、次にセッションを開いたときに使用されるコンテキストを変更したりするには、次を使用します。
 
@@ -131,7 +131,7 @@ $env:AzureRmContextAutoSave="true" | "false"
 
 - [Enable-AzureRmContextAutosave][enable] - PowerShell セッション間でのコンテキストの保存を許可します。
   変更するとグローバル コンテキストが変更されます。
-- [Disable-AzureRmContextAutosave][disable] - コンテキストの自動保存をオフにします。 新しい PowerShell セッションごとに再度ログインが必要になります。
+- [Disable-AzureRmContextAutosave][disable] - コンテキストの自動保存をオフにします。 新しい PowerShell セッションごとに再度サインインが必要になります。
 - [Select-AzureRmContext][select] - コンテキストを既定値として選択します。 後続のすべてのコマンドレットでは、認証にこのコンテキストの資格情報が使用されます。
 - [Disconnect-AzureRmAccount][remove-cred] - アカウントに関連付けられた資格情報とコンテキストをすべて削除します。
 - [Remove-AzureRmContext][remove-context] - 名前付きコンテキストを削除します。
@@ -139,9 +139,9 @@ $env:AzureRmContextAutoSave="true" | "false"
 
 既存のプロファイル コマンドレットの変更
 
-- [Add-AzureRmAccount][login] - ログインのスコープをプロセスまたは現在のユーザーにすることを許可します。
-  ログイン後に既定のコンテキストに名前を付けることができます。
-- [Import-AzureRmContext][import] - ログインのスコープをプロセスまたは現在のユーザーにすることを許可します。
+- [Add-AzureRmAccount][login] - サインインのスコープをプロセスまたは現在のユーザーにすることを許可します。
+  認証後に既定のコンテキストに名前を付けることができます。
+- [Import-AzureRmContext][import] - サインインのスコープをプロセスまたは現在のユーザーにすることを許可します。
 - [Set-AzureRmContext][set-context] - 既存の名前付きコンテキストの選択と、プロセスまたは現在のユーザーへのスコープの変更を許可します。
 
 <!-- Hyperlinks -->
