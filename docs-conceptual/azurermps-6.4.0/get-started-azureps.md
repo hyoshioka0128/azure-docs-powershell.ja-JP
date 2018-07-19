@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: a036bb78ddb084dceb3668ab5751951dedd85e15
+ms.openlocfilehash: 5aa3b3fdeff20ea4c6f830f834e61f37d81da07d
 ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/11/2018
-ms.locfileid: "38100472"
+ms.locfileid: "38100377"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
@@ -48,13 +48,13 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 対話操作でサインオンするには:
 
-1. 「 `Connect-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-EnvironmentName" オプションを使用すると、Azure China または Azure Germany にログインできます。
+1. 「 `Connect-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-Environment" オプションを使用すると、Azure China または Azure Germany を認証できます。
 
    例: Connect-AzureRmAccount -Environment AzureChinaCloud
 
 2. アカウントに関連付けられている電子メール アドレスとパスワードを入力します。 Azure により資格情報が認証および保存され、ウィンドウが閉じます。
 
-Azure アカウントへのサインイン後、Azure PowerShell のコマンドレットを使って自分のサブスクリプションのリソースにアクセスし、管理することができます。
+Azure アカウントにサインインしたら、Azure PowerShell コマンドレットを使ってサブスクリプションのリソースにアクセスし、管理できます。
 
 ## <a name="create-a-windows-virtual-machine-using-simple-defaults"></a>単純な既定値を使用して Windows 仮想マシンを作成する
 

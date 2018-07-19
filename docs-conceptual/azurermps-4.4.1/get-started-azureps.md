@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 2f37df114b620566a663eb12c7e739975bc1f8bf
-ms.sourcegitcommit: c98e3a21037ebd82936828bcb544eed902b24212
+ms.openlocfilehash: 0897e8fc3a50a58ac8945bd95722736526f63e19
+ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34854581"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38100156"
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -44,11 +44,11 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
 
-## <a name="log-in-to-azure"></a>Azure にログインする
+## <a name="sign-in-to-azure"></a>Azure へのサインイン
 
 対話操作でサインオンするには:
 
-1. 「 `Login-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 オプション '-EnvironmentName' により、Azure China または Azure Germany にログインできます。
+1. 「 `Login-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-EnvironmentName" オプションを使用すると、Azure China または Azure Germany を認証できます。
 
    例: Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
@@ -146,7 +146,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK
 ```
 
-新しく作成した Windows Server VM のパブリック IP アドレスとリモート デスクトップを使って VM にログオンします。 次のコマンドを実行すると、前述のスクリプトで作成したパブリック IP アドレスが表示されます。
+新しく作成した Windows Server VM のパブリック IP アドレスとリモート デスクトップを使って VM にサインインします。 次のコマンドを実行すると、前述のスクリプトで作成したパブリック IP アドレスが表示されます。
 
 ```powershell
 $publicIp | Select-Object Name,IpAddress
@@ -164,7 +164,7 @@ Windows ベースのシステムでは、コマンド ラインで mstsc コマ�
 mstsc /v:xx.xxx.xx.xxx
 ```
 
-VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してログインしてください。
+VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してサインインしてください。
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux 仮想マシンを作成する
 
@@ -362,7 +362,7 @@ Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/vir
 
 ## <a name="next-steps"></a>次の手順
 
-* [Azure PowerShell でのログイン](authenticate-azureps.md)
+* [Azure PowerShell を使用してサインインする](authenticate-azureps.md)
 * [Azure PowerShell による Azure サブスクリプションの管理](manage-subscriptions-azureps.md)
 * [Azure PowerShell を使って Azure にサービス プリンシパルを作成する](create-azure-service-principal-azureps.md)
 * 以前のリリースからの移行については、リリース ノート ([ https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。

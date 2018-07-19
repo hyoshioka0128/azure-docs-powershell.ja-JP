@@ -7,16 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: e2eb6767d16dd15529b35b7a4134f4dcdd257d60
-ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
+ms.openlocfilehash: af39fec226492c9ccf251c996b57e274de783178
+ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323341"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38100275"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
-Azure PowerShell は、複数のログイン方法をサポートしています。 最も簡単に始められるのは、コマンド ラインから対話形式でログインする方法です。
+Azure PowerShell は、複数の認証方法をサポートしています。 最も簡単に始められるのは、コマンド ラインから対話形式でサインインする方法です。
 
 ## <a name="sign-in-interactively"></a>対話操作でサインインする
 
@@ -29,7 +29,7 @@ Connect-AzureRmAccount
 このコマンドレットを実行すると、ダイアログ ボックスが表示され、Azure アカウントに関連付けられている電子メール アドレスとパスワードを入力するように求められます。 認証すると、現在の PowerShell セッションに対してこの情報が保存され、ダイアログは閉じます。これで、すべての Azure PowerShell コマンドレットにアクセスできます。
 
 > [!IMPORTANT]
-> このサインインは、現在の PowerShell セッション "_のみ_" を対象としています。 複数のセッションにわたってログイン情報を保持する場合は、[永続的な資格情報](context-persistence.md)に関する記事をご覧ください。
+> このサインインは、現在の PowerShell セッション "_のみ_" を対象としています。 複数のセッションにわたって認証情報を保持する場合は、[永続的な資格情報](context-persistence.md)に関する記事をご覧ください。
 
 ## <a name="sign-in-with-a-service-principal"></a>サービス プリンシパルを使ってサインインする
 
