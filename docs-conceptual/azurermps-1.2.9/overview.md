@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 08/31/2017
-ms.openlocfilehash: d36952b38a36a5196ee5b38ed048366da5416f0b
-ms.sourcegitcommit: 2eea03b7ac19ad6d7c8097743d33c7ddb9c4df77
+ms.openlocfilehash: ff5ee02b11b6f0649e20b056c14fc8a9b3ba6276
+ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819985"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39025023"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
 
@@ -31,8 +31,7 @@ Azure PowerShell の基本的な使い方については、次のサンプルが
 > [!NOTE]
 > 変換できないクラシック デプロイ モデルを現在の環境で使っている場合は、Service Management 版の Azure PowerShell をインストールできます。 詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。
 
-
-### <a name="need-help-with-powershell"></a>PowerShell について不明点がある場合
+## <a name="learn-powershell-basics"></a>PowerShell の基礎を学ぶ
 
 PowerShell についてまだよく知らない方は、PowerShell の概要に関するページからご覧ください。
 
