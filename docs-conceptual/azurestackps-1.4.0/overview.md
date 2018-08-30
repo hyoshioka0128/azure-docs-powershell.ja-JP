@@ -16,11 +16,11 @@
 
 ## <a name="install"></a>Install
 ```
-# 1.4.0 can be installed side by side with 1.3.0
-# Remove previous version 1.2.11
+# Remove previous versions of AzureStack modules
+Uninstall-Module -Name AzureStack -Force 
 Uninstall-Module AzureRM.AzureStackAdmin -Force
 Uninstall-Module AzureRM.AzureStackStorage -Force
-Uninstall-Module -Name AzureStack -Force 
+Get-Module Azs.* -ListAvailable | Uninstall-Module -Force
 
 
 # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -122,7 +122,7 @@ Azure Stack Subscription 管理者モジュールのプレビュー リリース
 Azure Stack Subscription モジュールのプレビュー リリース。  このモジュールは、ユーザー向けの次の機能を提供します。
 - サブスクリプションの作成、削除、更新
 
-### <a name="update"></a>アップデート
+### <a name="update"></a>更新プログラム
 Azure Stack Update 管理者モジュールのプレビュー リリース。  このモジュールでは、管理者は以下を行うことができます。
 - 使用可能な更新プログラムの表示とインストール
 - 中断された更新の再開
