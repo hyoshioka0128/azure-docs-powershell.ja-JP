@@ -6,13 +6,13 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 5/1/2018
-ms.openlocfilehash: 4f9c99152fd6ddc23aec005c8e8957e545e65246
-ms.sourcegitcommit: dca906e73e943aac207cee23b79915773419c673
+ms.date: 05/01/2018
+ms.openlocfilehash: 72a0e9ca8562dc06a1fe2718658172ce9ee20f0e
+ms.sourcegitcommit: 971f19181b2cd68b7845bbebdb22858c06541c8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43250408"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43383942"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-600"></a>Microsoft Azure PowerShell 6.0.0 の重大な変更
 
@@ -22,7 +22,7 @@ ms.locfileid: "43250408"
 
 - [重大な変更 - 全般](#general-breaking-changes)
     - [5.0 に引き上げられた PowerShell の必要最小バージョン](#minimum-powershell-version-required-bumped-to-50)
-    - [既定で有効になっているコンテキスト自動保存](#context-autosaved-enabled-by-default)
+    - [既定で有効になっているコンテキスト自動保存](#context-autosave-enabled-by-default)
     - [Tags エイリアスの削除](#removal-of-tags-alias)
 - [AzureRM.Compute コマンドレットの重大な変更](#breaking-changes-to-azurermcompute-cmdlets)
 - [AzureRM.DataLakeStore コマンドレットの重大な変更](#breaking-changes-to-azurermdatalakestore-cmdlets)
