@@ -7,19 +7,68 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
-ms.date: 5/1/2018
-ms.openlocfilehash: 6043d17df1b5e91521bad31e65372c10ee6a5c6a
-ms.sourcegitcommit: dca906e73e943aac207cee23b79915773419c673
+ms.date: 08/28/2018
+ms.openlocfilehash: f4f3141998be14f0b5b223aed1af283534bf061d
+ms.sourcegitcommit: 971f19181b2cd68b7845bbebdb22858c06541c8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43250628"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43383840"
 ---
 # <a name="release-notes"></a>リリース ノート
 
 これは Azure PowerShell の今回のリリースで行われた変更の一覧です。
 
 ---
+## <a name="681---august-2018"></a>6.8.1 - 2018 年 8 月
+#### <a name="general"></a>全般
+* 既定のリソース グループが設定されていないという問題を修正しました。
+* 共通ランタイム アセンブリを更新しました
+
+#### <a name="azurermapimanagement"></a>AzureRM.ApiManagement
+* 既定のリソース グループが設定されていないという問題を修正しました。
+* 修正された問題 https://github.com/Azure/azure-powershell/issues/6603
+    - Import-AzureRmApiManagementApi コマンドレットおよび *-AzureRmApiManagementCertificate コマンドレットで、相対パスを処理できるようになりました
+* 修正された問題 https://github.com/Azure/azure-powershell/issues/6879
+    - CertificateInformation は、Set-AzureRmApiManagement コマンドレットが適切に動作できるようにする設定可能なプロパティです。 4.0.4-preview NuGet へのアップグレードによって修正しました
+* 修正された問題 https://github.com/Azure/azure-powershell/issues/6853
+    - 製品を名前で検索するための Odata フィルターを修正しました
+* 修正された問題 https://github.com/Azure/azure-powershell/issues/6814
+    - API を名前で検索するための Odata フィルターを修正しました
+* AzureMonitor ロガーのサポートを追加しました
+
+
+#### <a name="azurermcompute"></a>AzureRM.Compute
+* エラー出力にターゲットが見つからない問題を修正しました。
+* マネージド ディスクを含む VM 用ストレージ アカウントの種類に関する問題を修正しました
+* 既定のリソース グループが設定されていないという問題を修正しました。
+* Azure 中国など、他の環境における AEM 拡張機能コマンドレットを修正しました
+
+#### <a name="azurermnetwork"></a>AzureRM.Network
+* コマンドレット出力の既定の表示をテーブル ビューに変更しました
+
+#### <a name="azurermpowerbiembedded"></a>AzureRM.PowerBIEmbedded
+* 一時停止された容量をスケーリングしようとしたときに発生していた Update-AzureRmPowerBIEmbeddedCapacity のエラーを修正しました
+
+
+#### <a name="azurermresources"></a>AzureRM.Resources
+* Marketplace からのマネージド アプリケーション作成に関する問題を修正しました。
+
+#### <a name="azurermservicebus"></a>AzureRM.ServiceBus
+* 修正された問題
+    - https://github.com/Azure/azure-powershell/issues/5058
+    - https://github.com/Azure/azure-powershell/issues/5055
+    - https://github.com/Azure/azure-powershell/issues/6891
+
+#### <a name="azurermtrafficmanager"></a>AzureRM.TrafficManager
+* 複数値ルーティング方式のサポートを追加しました
+    - 複数値ルーティング用の新しい "MaxReturn" パラメーター
+* サブネット ルーティング方式のサポートを追加しました
+    - エンドポイントでの IP アドレス範囲 (サブネット) のサポート
+* プロファイルでのカスタム ヘッダーのサポートを追加しました
+* プロファイルでの予期される状態コード範囲のサポートを追加しました
+* エンドポイントでのカスタム ヘッダーのサポートを追加しました
+
 ## <a name="680---august-2018"></a>6.8.0 - 2018 年 8 月
 #### <a name="general"></a>全般
 * 既定のリソース グループが設定されていないという問題を修正しました。
