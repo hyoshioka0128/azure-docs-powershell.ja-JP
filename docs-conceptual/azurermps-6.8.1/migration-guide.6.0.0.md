@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 72a0e9ca8562dc06a1fe2718658172ce9ee20f0e
-ms.sourcegitcommit: 971f19181b2cd68b7845bbebdb22858c06541c8c
+ms.openlocfilehash: 227bec0f7eb24b0941e9e21d37524b290c4b83a5
+ms.sourcegitcommit: bc88e64c494337821274d6a66c1edad656c119c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43383942"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46304167"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-600"></a>Microsoft Azure PowerShell 6.0.0 の重大な変更
 
@@ -41,11 +41,11 @@ ms.locfileid: "43383942"
 
 ### <a name="minimum-powershell-version-required-bumped-to-50"></a>5.0 に引き上げられた PowerShell の必要最小バージョン
 
-以前は、Azure PowerShell でコマンドレットを実行するには、PowerShell のバージョン 3.0 "_以上_" が必要でした。 今後、この要件は PowerShell のバージョン 5.0 に引き上げられます。 PowerShell 5.0 へのアップグレードについては、[こちらの表](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)をご覧ください。
+以前は、Azure PowerShell でコマンドレットを実行するには、PowerShell のバージョン 3.0 "_以上_" が必要でした。 今後、この要件は PowerShell のバージョン 5.0 に引き上げられます。 PowerShell 5.0 へのアップグレードについては、[こちらの表](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)をご覧ください。
 
 ### <a name="context-autosave-enabled-by-default"></a>既定で有効になっているコンテキスト自動保存
 
-コンテキスト自動保存は、新しい PowerShell セッションと別の PowerShell セッション間で使用できる Azure サインイン情報のストレージです。 コンテキスト自動保存の詳細については、[こちらのドキュメント](https://docs.microsoft.com/en-us/powershell/azure/context-persistence)をご覧ください。
+コンテキスト自動保存は、新しい PowerShell セッションと別の PowerShell セッション間で使用できる Azure サインイン情報のストレージです。 コンテキスト自動保存の詳細については、[こちらのドキュメント](https://docs.microsoft.com/powershell/azure/context-persistence)をご覧ください。
 
 以前は、既定でコンテキスト自動保存は無効になっていました。つまり、`Enable-AzureRmContextAutosave` コマンドレットを実行してコンテキストの永続化を有効にするまで、ユーザーの Azure 認証情報はセッション間で保存されませんでした。 今後は、コンテキスト自動保存が既定で有効になります。つまり、"_コンテキスト自動保存設定を保存していない_" ユーザーも、次回サインインしたときにコンテキストが保存されています。 ユーザーは `Disable-AzureRmContextAutosave` コマンドレットを使用して、この機能を無効にすることができます。
 
@@ -255,8 +255,8 @@ Remove-AzureRmDataLakeStoreItem -Account "ContosoADL" -path /myFolder -Recurse
 - このコマンドレットは、アクセス トークンを構成する個々のパラメーターを受け入れなくなりました。代わりに、`Service` や `Permissions` などの明示的なトークン パラメーターが、他の場所で定義されたサンプル アクセス トークン (Storage PowerShell コマンドレットを使用するか、Storage ドキュメントに従って手動で構成) に対応する汎用の `TemplateUri` パラメーターに置き換えられます。`ValidityPeriod` パラメーターは保持されます。
 
 Azure Storage の共有アクセス トークンの構成の詳細については、それぞれのドキュメント ページをご覧ください。
-- [サービス SAS の作成] (https://docs.microsoft.com/en-us/rest/api/storageservices/Constructing-a-Service-SAS)
-- [アカウント SAS の作成] (https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
+- [サービス SAS の作成] (https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS)
+- [アカウント SAS の作成] (https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
 
 ```powershell
 # Old
