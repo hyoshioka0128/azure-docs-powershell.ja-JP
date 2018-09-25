@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell を使用してサインインする
-description: Azure PowerShell で、ユーザーとして、サービス プリンシパルまたは MSI を使用してサインインする方法。
+description: Azure PowerShell で、ユーザーとして、サービス プリンシパルまたは Azure リソースのマネージド ID を使用してサインインする方法。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 6525e41be54c3f6b97812504c436e0ff3f5edf8e
-ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
+ms.openlocfilehash: c3131d3516e50123c48b13dc9e04c0b507a63a58
+ms.sourcegitcommit: bc88e64c494337821274d6a66c1edad656c119c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38100088"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46300869"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
@@ -44,11 +44,11 @@ $pscredential = Get-Credential
 Connect-AzureRmAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
 ```
 
-## <a name="sign-in-using-an-azure-vm-managed-service-identity"></a>Azure VM マネージド サービス ID を使用してサインインする
+## <a name="sign-in-using-managed-identities-for-azure-resources"></a>Azure リソースのマネージド ID を使用してサインインする
 
-管理対象サービス ID (MSI) は、Azure Active Directory のプレビュー機能です。 サインインに MSI サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 MSI は、Azure クラウドで実行されている仮想マシンでのみ使用できます。
+Azure リソースのマネージドID は、Azure Active Directory の機能です。 サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 マネージド ID は、Azure クラウドで実行されている仮想マシンでのみ使用できます。
 
-MSI の詳細については、「[How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition (サインインとトークン取得に Azure VM の管理対象サービス ID (MSI) を使用する方法)](/azure/active-directory/msi-how-to-get-access-token-using-msi)」を参照してください。
+Azure リソースのマネージド ID の詳細については、「[How to use managed identities for Azure resources on an Azure VM to acquire an access token (Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法)](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)」を参照してください。
 
 ## <a name="sign-in-to-another-cloud"></a>別のクラウドにサインインする
 
