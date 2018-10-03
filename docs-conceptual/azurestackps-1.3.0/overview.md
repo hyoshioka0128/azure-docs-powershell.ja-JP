@@ -1,3 +1,20 @@
+---
+title: Azure Stack 管理の PowerShell の概要 | Microsoft Docs
+description: Azure Stack 管理の PowerShell の概要と、インストールおよび構成の手順。
+author: bganapa
+ms.author: bganapa
+manager: knithinc
+ms.devlang: powershell
+ms.topic: conceptual
+ms.manager: knithinc
+ms.date: 09/21/2018
+ms.openlocfilehash: fb892daeafb1365ea62324392ac806cf9f3d39cf
+ms.sourcegitcommit: 19dffee617477001f98d43e39a50ce1fad087b74
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47179141"
+---
 # <a name="azure-stack-module-130"></a>Azure Stack Module 1.3.0
 
 ## <a name="requirements"></a>要件:
@@ -37,7 +54,6 @@ Install-Module -Name AzureStack -RequiredVersion 1.3.0
 Azure Stack AzureBridge 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure からイメージを配信できます。
 
 ### <a name="backup"></a>Backup
-
 Backup 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。
 - バックアップの保存先の構成
 - バックアップの実行
@@ -91,7 +107,7 @@ Azure Stack Subscription 管理者モジュールのプレビュー リリース
 - 使用状況とパフォーマンスの情報の表示
 - RBAC の管理
 
-### <a name="subscription"></a>[サブスクリプション]
+### <a name="subscription"></a>サブスクリプション
 Azure Stack Subscription モジュールのプレビュー リリース。  このモジュールは、ユーザー向けの次の機能を提供します。
 - サブスクリプションの作成、削除、更新
 

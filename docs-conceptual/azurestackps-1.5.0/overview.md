@@ -8,28 +8,24 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
-ms.openlocfilehash: 72d147f5bc9c882083dda6b33b1c89663fd2eb34
+ms.openlocfilehash: 18861f0e5232e0b505767aa9609099afe88f9477
 ms.sourcegitcommit: 19dffee617477001f98d43e39a50ce1fad087b74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47178801"
+ms.locfileid: "47178631"
 ---
-# <a name="azure-stack-module-140"></a>Azure Stack Module 1.4.0
+# <a name="azure-stack-module-150"></a>Azure Stack Module 1.5.0
 
 ## <a name="requirements"></a>要件:
-サポートされている Azure Stack の最小バージョンは 1804 です。
+サポートされている Azure Stack の最小バージョンは 1808 です。
 
-注: 以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください。
+注: 以前のバージョンを使用している場合は、バージョン 1.4.0 をインストールしてください
 
 ## <a name="known-issues"></a>既知の問題:
 
-- アラートを閉じるには、Azure Stack バージョン 1803 が必要です。
 - New-AzsOffer では、状態が "パブリック" のオファーを作成することはできません。 状態を変更するには、後で Set-AzsOffer コマンドレットを呼び出す必要があります。
 - 再デプロイせずに IP プールを削除することはできません。
-
-## <a name="breaking-changes"></a>重大な変更
-バージョン 1.3.0 からの重大な変更はありません。 1.2.11 からの移行に関する重大な変更はすべて https://aka.ms/azspowershellmigration に記載されています。
 
 ## <a name="install"></a>Install
 ```
@@ -44,39 +40,30 @@ Get-Module Azs.* -ListAvailable | Uninstall-Module -Force
 Install-Module -Name AzureRm.BootStrapper
 
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
 # Install Azure Stack Admin Module
-Install-Module -Name AzureStack -RequiredVersion 1.4.0
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 ```
-## <a name="release-notes"></a>リリース ノート
-    * Azure Stack 1.4.0 バージョンには、以前のリリース 1.3.0 からの重大な変更はありません
-    * Azs.AzureBridge.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Backup.Admin
-        - Set-AzsBackupShare コマンドレットに、BackupFrequencyInHours、IsBackupSchedulerEnabled、BackupRetentionPeriodInDays の各パラメーターを追加しました
-        - 暗号化キーの作成を容易にするために、New-EncyptionKeyBase64 コマンドレットを追加しました
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Commerce.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Fabric.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-        - 管理者が Azure Stack スタンプに新しいスケール ユニット ノードを追加できるように、Add-AzsScaleUnitNode コマンドレットを追加しました
-        - スケール ユニット パラメーター オブジェクトの作成を容易にするために、New-AzsScaleUnitNodeObject コマンドレットを追加しました
-    * Azs.Gallery.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.InfrastructureInsights.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Network.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Update.Admin
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Subscriptions
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
-    * Azs.Subscriptions.Admin
-        - 委任されたプロバイダーのプラン間でサブスクリプションを移動するために、Move-AzsSubscription コマンドレットを追加しました
-        - 委任されたプロバイダーのプラン間でユーザー サブスクリプションを移動できることを検証するために、Test-AzsMoveSubscription コマンドレットを追加しました
-        - 改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム
+
+##<a name="release-notes"></a>リリース ノート
+* AzureRm.Profile モジュールへの同等以上の依存関係が確立されるように、すべての Azure Stack 管理モジュールが更新されました
+* すべてのモジュール内の入れ子になったリソース名を処理するためのサポート
+* ErrorActionPreference が上書きされて Stop になる、すべてのモジュールでのバグ修正
+* Azs.Compute.Admin モジュール
+    * マネージド ディスクをサポートするために新しいクォータ プロパティが追加されました
+    * ディスク移行関連のコマンドレットの追加
+    * プラットフォーム イメージと VM 拡張機能オブジェクトでの追加のプロパティ
+* Azs.Fabric.Admin 
+    * スケール ユニット ノードを追加するための新しいコマンドレット
+* Azs.Backup.Admin
+    * Set-AzsBackupShare が cmdlet Set-AzsBackupConfiguration コマンドレットのエイリアスになりました
+    * Get-AzsBackupLocation が Get-AzsBackupConfiguration コマンドレットのエイリアスになりました
+    * Set-AzsBackupConfiguration、BackupShare パラメーターがパラメーター パスのエイリアスになりました
+* Azs.Subscriptions
+    * Get-AzsDelegatedProviderOffer、OfferName パラメーターが Offer のエイリアスになりました
+* Azs.Subscriptions.Admin
+    * Get-AzsDelegatedProviderOffer、OfferName パラメーターが Offer のエイリアスになりました
 
 ## <a name="content"></a>内容:
 ### <a name="azure-bridge"></a>Azure Bridge
@@ -92,7 +79,7 @@ Backup 管理者モジュールのプレビュー リリース。管理者は、
 Azure Stack Commerce 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure Stack システム全体の集計データの使用状況を表示できます。
 
 ### <a name="compute"></a>コンピューティング
-Azure Stack Compute 管理者モジュールのプレビュー リリース。このモジュールは、コンピューティング クォータ、プラットフォーム イメージ、仮想マシン拡張機能を管理する機能を提供します。
+Azure Stack Compute 管理者モジュールのプレビュー リリース。このモジュールは、コンピューティング クォータ、プラットフォーム イメージ、マネージド ディスク、および仮想マシン拡張機能を管理する機能を提供します。
 
 ### <a name="fabric"></a>Fabric
 Azure Stack Fabric 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用してインフラストラクチャ コンポーネントを表示および管理できます。
@@ -102,6 +89,7 @@ Azure Stack Fabric 管理者モジュールのプレビュー リリース。管
 - インフラストラクチャ ロールの再起動
 - インフラストラクチャ ロール インスタンスの停止、起動、シャットダウン
 - 新しい IP プールの作成
+
 
 ### <a name="gallery"></a>[ギャラリー]
 Azure Stack Gallery 管理者モジュールのプレビュー リリース。このモジュールは、Azure Stack Marketplace のギャラリー項目を管理する機能を提供します。
