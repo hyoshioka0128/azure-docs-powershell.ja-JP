@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
 ms.openlocfilehash: d514e43d82bcb51f65831dc506e58e8747db0381
-ms.sourcegitcommit: 6c38e86e16da99f65cd183c63e34f7176b121ab8
+ms.sourcegitcommit: a749eb729f583c9d0dd86141bbd04984d77ae9ab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "47425467"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "48882675"
 ---
 # <a name="azurerm-module-230"></a>AzureRM モジュール 2.3.0
 
@@ -59,7 +59,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 ### <a name="azure-bridge"></a>Azure Bridge
 Azure Stack AzureBridge 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure からイメージを配信できます。
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>バックアップ
 Backup 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。
 - バックアップの保存先の構成
 - バックアップの実行

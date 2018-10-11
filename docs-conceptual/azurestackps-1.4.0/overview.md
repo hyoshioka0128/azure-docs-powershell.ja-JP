@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
 ms.openlocfilehash: 72d147f5bc9c882083dda6b33b1c89663fd2eb34
-ms.sourcegitcommit: 6c38e86e16da99f65cd183c63e34f7176b121ab8
+ms.sourcegitcommit: a749eb729f583c9d0dd86141bbd04984d77ae9ab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "47424855"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "48882369"
 ---
 # <a name="azure-stack-module-140"></a>Azure Stack Module 1.4.0
 
@@ -82,7 +82,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.4.0
 ### <a name="azure-bridge"></a>Azure Bridge
 Azure Stack AzureBridge 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure からイメージを配信できます。
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>バックアップ
 Backup 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。
 - バックアップの保存先の構成
 - バックアップの実行
