@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: ''
 ms.date: 09/26/2018
 ms.openlocfilehash: 7e384fdf66fce1102b7723018175ba6cc276ccc5
-ms.sourcegitcommit: a749eb729f583c9d0dd86141bbd04984d77ae9ab
+ms.sourcegitcommit: f6f5e256143aa6c097de3e57e930d8badea49f30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "48882029"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49399401"
 ---
-# <a name="release-notes"></a><span data-ttu-id="a79b7-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="a79b7-103">Release notes</span></span>
+# <a name="release-notes"></a><span data-ttu-id="d0610-103">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="d0610-103">Release notes</span></span>
 
-<span data-ttu-id="a79b7-104">Azure Deployment Manager の今回のリリースで行われた変更の一覧です。</span><span class="sxs-lookup"><span data-stu-id="a79b7-104">This is a list of changes made to Azure Deployment Manager in this release.</span></span>
+<span data-ttu-id="d0610-104">Azure Deployment Manager の今回のリリースで行われた変更の一覧です。</span><span class="sxs-lookup"><span data-stu-id="d0610-104">This is a list of changes made to Azure Deployment Manager in this release.</span></span>
 
 ---
-## <a name="090---september-2018"></a><span data-ttu-id="a79b7-105">0.9.0 - 2018 年 9 月</span><span class="sxs-lookup"><span data-stu-id="a79b7-105">0.9.0 - September 2018</span></span>
-* <span data-ttu-id="a79b7-106">最初のリリース - ロールアウトと関連リソースを管理するためのサポートを追加しました。</span><span class="sxs-lookup"><span data-stu-id="a79b7-106">First release - add support to manage rollouts and associated resources.</span></span>
+## <a name="090---september-2018"></a><span data-ttu-id="d0610-105">0.9.0 - 2018 年 9 月</span><span class="sxs-lookup"><span data-stu-id="d0610-105">0.9.0 - September 2018</span></span>
+* <span data-ttu-id="d0610-106">最初のリリース - ロールアウトと関連リソースを管理するためのサポートを追加しました。</span><span class="sxs-lookup"><span data-stu-id="d0610-106">First release - add support to manage rollouts and associated resources.</span></span>
