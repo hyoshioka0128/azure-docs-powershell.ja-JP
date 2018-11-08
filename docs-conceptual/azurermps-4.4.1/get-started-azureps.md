@@ -7,64 +7,64 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 0897e8fc3a50a58ac8945bd95722736526f63e19
-ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
+ms.openlocfilehash: 7eb5e3fad31b5a92be1cfb36aefdaa7b920bae5f
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38100156"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51211028"
 ---
-# <a name="getting-started-with-azure-powershell"></a><span data-ttu-id="dfe8b-102">Azure PowerShell を使ってみる</span><span class="sxs-lookup"><span data-stu-id="dfe8b-102">Getting started with Azure PowerShell</span></span>
+# <a name="getting-started-with-azure-powershell"></a><span data-ttu-id="39c69-102">Azure PowerShell を使ってみる</span><span class="sxs-lookup"><span data-stu-id="39c69-102">Getting started with Azure PowerShell</span></span>
 
-<span data-ttu-id="dfe8b-103">Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-103">Azure PowerShell is designed for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.</span></span> <span data-ttu-id="dfe8b-104">これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-104">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can install it on your local machine and use it in any PowerShell session.</span></span> <span data-ttu-id="dfe8b-105">この記事では、その基本的な使い方と核となる概念について説明します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-105">This article helps get you started using it, and teaches you the core concepts behind it.</span></span>
+<span data-ttu-id="39c69-103">Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。</span><span class="sxs-lookup"><span data-stu-id="39c69-103">Azure PowerShell is designed for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.</span></span> <span data-ttu-id="39c69-104">これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="39c69-104">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can install it on your local machine and use it in any PowerShell session.</span></span> <span data-ttu-id="39c69-105">この記事では、その基本的な使い方と核となる概念について説明します。</span><span class="sxs-lookup"><span data-stu-id="39c69-105">This article helps get you started using it, and teaches you the core concepts behind it.</span></span>
 
-## <a name="connect"></a><span data-ttu-id="dfe8b-106">接続</span><span class="sxs-lookup"><span data-stu-id="dfe8b-106">Connect</span></span>
+## <a name="connect"></a><span data-ttu-id="39c69-106">接続</span><span class="sxs-lookup"><span data-stu-id="39c69-106">Connect</span></span>
 
-<span data-ttu-id="dfe8b-107">最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-107">The simplest way to get started is to [launch Cloud Shell](/azure/cloud-shell/quickstart).</span></span>
+<span data-ttu-id="39c69-107">最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。</span><span class="sxs-lookup"><span data-stu-id="39c69-107">The simplest way to get started is to [launch Cloud Shell](/azure/cloud-shell/quickstart).</span></span>
 
-1. <span data-ttu-id="dfe8b-108">Cloud Shell は、Azure Portal の上部のナビゲーションから起動します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-108">Launch Cloud Shell from the top navigation of the Azure portal.</span></span>
+1. <span data-ttu-id="39c69-108">Cloud Shell は、Azure Portal の上部のナビゲーションから起動します。</span><span class="sxs-lookup"><span data-stu-id="39c69-108">Launch Cloud Shell from the top navigation of the Azure portal.</span></span>
 
    ![Shell アイコン](~/media/get-started-azureps/shell-icon.png)
 
-2. <span data-ttu-id="dfe8b-110">使用するサブスクリプションを選択し、ストレージ アカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-110">Choose the subscription you want to use and create a storage account.</span></span>
+2. <span data-ttu-id="39c69-110">使用するサブスクリプションを選択し、ストレージ アカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-110">Choose the subscription you want to use and create a storage account.</span></span>
 
    ![ストレージ アカウントの作成](~/media/get-started-azureps/storage-prompt.png)
 
-<span data-ttu-id="dfe8b-112">ストレージが作成されたら、Cloud Shell によってブラウザーで PowerShell セッションが開きます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-112">Once your storage has been created, the Cloud Shell will open a PowerShell session in the browser.</span></span>
+<span data-ttu-id="39c69-112">ストレージが作成されたら、Cloud Shell によってブラウザーで PowerShell セッションが開きます。</span><span class="sxs-lookup"><span data-stu-id="39c69-112">Once your storage has been created, the Cloud Shell will open a PowerShell session in the browser.</span></span>
 
 ![Cloud Shell for PowerShell](~/media/get-started-azureps/cloud-powershell.png)
 
-<span data-ttu-id="dfe8b-114">Azure PowerShell をインストールし、ローカルの PowerShell セッションで使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-114">You can also install Azure PowerShell and use it locally in a PowerShell session.</span></span>
+<span data-ttu-id="39c69-114">Azure PowerShell をインストールし、ローカルの PowerShell セッションで使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="39c69-114">You can also install Azure PowerShell and use it locally in a PowerShell session.</span></span>
 
-## <a name="install-azure-powershell"></a><span data-ttu-id="dfe8b-115">Azure PowerShell をインストールする</span><span class="sxs-lookup"><span data-stu-id="dfe8b-115">Install Azure PowerShell</span></span>
+## <a name="install-azure-powershell"></a><span data-ttu-id="39c69-115">Azure PowerShell をインストールする</span><span class="sxs-lookup"><span data-stu-id="39c69-115">Install Azure PowerShell</span></span>
 
-<span data-ttu-id="dfe8b-116">初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-116">The first step is to make sure you have the latest version of the Azure PowerShell installed.</span></span> <span data-ttu-id="dfe8b-117">最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-117">For information about the latest release, see the [release notes](./release-notes-azureps.md).</span></span>
+<span data-ttu-id="39c69-116">初めに最新バージョンの Azure PowerShell がインストールされていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="39c69-116">The first step is to make sure you have the latest version of the Azure PowerShell installed.</span></span> <span data-ttu-id="39c69-117">最新リリースについては、[リリース ノート](./release-notes-azureps.md)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="39c69-117">For information about the latest release, see the [release notes](./release-notes-azureps.md).</span></span>
 
-1. <span data-ttu-id="dfe8b-118">[Azure PowerShell をインストールします](install-azurerm-ps.md)。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-118">[Install Azure PowerShell](install-azurerm-ps.md).</span></span>
+1. <span data-ttu-id="39c69-118">[Azure PowerShell をインストールします](install-azurerm-ps.md)。</span><span class="sxs-lookup"><span data-stu-id="39c69-118">[Install Azure PowerShell](install-azurerm-ps.md).</span></span>
 
-2. <span data-ttu-id="dfe8b-119">インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-119">To verify the installation was successful, run `Get-Module AzureRM -ListAvailable` from your command line.</span></span>
+2. <span data-ttu-id="39c69-119">インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。</span><span class="sxs-lookup"><span data-stu-id="39c69-119">To verify the installation was successful, run `Get-Module AzureRM -ListAvailable` from your command line.</span></span>
 
-## <a name="sign-in-to-azure"></a><span data-ttu-id="dfe8b-120">Azure へのサインイン</span><span class="sxs-lookup"><span data-stu-id="dfe8b-120">Sign in to Azure</span></span>
+## <a name="sign-in-to-azure"></a><span data-ttu-id="39c69-120">Azure へのサインイン</span><span class="sxs-lookup"><span data-stu-id="39c69-120">Sign in to Azure</span></span>
 
-<span data-ttu-id="dfe8b-121">対話操作でサインオンするには:</span><span class="sxs-lookup"><span data-stu-id="dfe8b-121">Sign on interactively:</span></span>
+<span data-ttu-id="39c69-121">対話操作でサインオンするには:</span><span class="sxs-lookup"><span data-stu-id="39c69-121">Sign on interactively:</span></span>
 
-1. <span data-ttu-id="dfe8b-122">「 `Login-AzureRmAccount`」と入力します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-122">Type `Login-AzureRmAccount`.</span></span> <span data-ttu-id="dfe8b-123">Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-123">You will get dialog box asking for your Azure credentials.</span></span> <span data-ttu-id="dfe8b-124">"-EnvironmentName" オプションを使用すると、Azure China または Azure Germany を認証できます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-124">Option '-EnvironmentName' can let you authenticate for Azure China or Azure Germany.</span></span>
+1. <span data-ttu-id="39c69-122">「 `Login-AzureRmAccount`」と入力します。</span><span class="sxs-lookup"><span data-stu-id="39c69-122">Type `Login-AzureRmAccount`.</span></span> <span data-ttu-id="39c69-123">Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="39c69-123">You will get dialog box asking for your Azure credentials.</span></span> <span data-ttu-id="39c69-124">"-EnvironmentName" オプションを使用すると、Azure China または Azure Germany を認証できます。</span><span class="sxs-lookup"><span data-stu-id="39c69-124">Option '-EnvironmentName' can let you authenticate for Azure China or Azure Germany.</span></span>
 
-   <span data-ttu-id="dfe8b-125">例: Login-AzureRmAccount -EnvironmentName AzureChinaCloud</span><span class="sxs-lookup"><span data-stu-id="dfe8b-125">e.g. Login-AzureRmAccount -EnvironmentName AzureChinaCloud</span></span>
+   <span data-ttu-id="39c69-125">例: Login-AzureRmAccount -EnvironmentName AzureChinaCloud</span><span class="sxs-lookup"><span data-stu-id="39c69-125">e.g. Login-AzureRmAccount -EnvironmentName AzureChinaCloud</span></span>
 
-2. <span data-ttu-id="dfe8b-126">アカウントに関連付けられている電子メール アドレスとパスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-126">Type the email address and password associated with your account.</span></span> <span data-ttu-id="dfe8b-127">Azure により資格情報が認証および保存され、ウィンドウが閉じます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-127">Azure authenticates and saves the credential information, and then closes the window.</span></span>
+2. <span data-ttu-id="39c69-126">アカウントに関連付けられている電子メール アドレスとパスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="39c69-126">Type the email address and password associated with your account.</span></span> <span data-ttu-id="39c69-127">Azure により資格情報が認証および保存され、ウィンドウが閉じます。</span><span class="sxs-lookup"><span data-stu-id="39c69-127">Azure authenticates and saves the credential information, and then closes the window.</span></span>
 
-<span data-ttu-id="dfe8b-128">Azure アカウントへのサインイン後、Azure PowerShell のコマンドレットを使って自分のサブスクリプションのリソースにアクセスし、管理することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-128">Once you have signed in to an Azure account, you can use the Azure PowerShell cmdlets to access and manager the resources in your subscription.</span></span>
+<span data-ttu-id="39c69-128">Azure アカウントへのサインイン後、Azure PowerShell のコマンドレットを使って自分のサブスクリプションのリソースにアクセスし、管理することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-128">Once you have signed in to an Azure account, you can use the Azure PowerShell cmdlets to access and manager the resources in your subscription.</span></span>
 
-## <a name="create-a-resource-group"></a><span data-ttu-id="dfe8b-129">リソース グループの作成</span><span class="sxs-lookup"><span data-stu-id="dfe8b-129">Create a resource group</span></span>
+## <a name="create-a-resource-group"></a><span data-ttu-id="39c69-129">リソース グループの作成</span><span class="sxs-lookup"><span data-stu-id="39c69-129">Create a resource group</span></span>
 
-<span data-ttu-id="dfe8b-130">必要な設定がすべて整ったら、Azure PowerShell を使って Azure にリソースを作成してみましょう。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-130">Now that we've got everything set up, let's use Azure PowerShell to create resources within Azure.</span></span>
+<span data-ttu-id="39c69-130">必要な設定がすべて整ったら、Azure PowerShell を使って Azure にリソースを作成してみましょう。</span><span class="sxs-lookup"><span data-stu-id="39c69-130">Now that we've got everything set up, let's use Azure PowerShell to create resources within Azure.</span></span>
 
-<span data-ttu-id="dfe8b-131">まずリソース グループを作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-131">First, create a Resource Group.</span></span> <span data-ttu-id="dfe8b-132">Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-132">Resource Groups in Azure provide a way to manage multiple resources that you want to logically group together.</span></span> <span data-ttu-id="dfe8b-133">たとえばアプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシンやデータベース、CDN サービスをそこに追加することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-133">For example, you might create a Resource Group for an application or project and add a virtual machine, a database and a CDN service within it.</span></span>
+<span data-ttu-id="39c69-131">まずリソース グループを作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-131">First, create a Resource Group.</span></span> <span data-ttu-id="39c69-132">Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-132">Resource Groups in Azure provide a way to manage multiple resources that you want to logically group together.</span></span> <span data-ttu-id="39c69-133">たとえばアプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシンやデータベース、CDN サービスをそこに追加することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-133">For example, you might create a Resource Group for an application or project and add a virtual machine, a database and a CDN service within it.</span></span>
 
-<span data-ttu-id="dfe8b-134">"MyResourceGroup" という名前のリソース グループを Azure の westeurope リージョンに作成しましょう。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-134">Let's create a resource group named "MyResourceGroup" in the westeurope region of Azure.</span></span> <span data-ttu-id="dfe8b-135">そのためには次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-135">To do so type the following command:</span></span>
+<span data-ttu-id="39c69-134">"MyResourceGroup" という名前のリソース グループを Azure の westeurope リージョンに作成しましょう。</span><span class="sxs-lookup"><span data-stu-id="39c69-134">Let's create a resource group named "MyResourceGroup" in the westeurope region of Azure.</span></span> <span data-ttu-id="39c69-135">そのためには次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="39c69-135">To do so type the following command:</span></span>
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroup -Name 'myResourceGroup' -Location 'westeurope'
 ```
 
@@ -76,15 +76,15 @@ Tags              :
 ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup
 ```
 
-## <a name="create-a-windows-virtual-machine"></a><span data-ttu-id="dfe8b-136">Windows 仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="dfe8b-136">Create a Windows Virtual Machine</span></span>
+## <a name="create-a-windows-virtual-machine"></a><span data-ttu-id="39c69-136">Windows 仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="39c69-136">Create a Windows Virtual Machine</span></span>
 
-<span data-ttu-id="dfe8b-137">リソース グループが完成したら、そこに Windows VM を作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-137">Now that we have our resource group, let's create a Windows VM within it.</span></span> <span data-ttu-id="dfe8b-138">新しい VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-138">To create a new VM we must first create the other required resources and assign them to a configuration.</span></span> <span data-ttu-id="dfe8b-139">その構成を使って VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-139">Then we can use that configuration to create the VM.</span></span>
+<span data-ttu-id="39c69-137">リソース グループが完成したら、そこに Windows VM を作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-137">Now that we have our resource group, let's create a Windows VM within it.</span></span> <span data-ttu-id="39c69-138">新しい VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。</span><span class="sxs-lookup"><span data-stu-id="39c69-138">To create a new VM we must first create the other required resources and assign them to a configuration.</span></span> <span data-ttu-id="39c69-139">その構成を使って VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-139">Then we can use that configuration to create the VM.</span></span>
 
-### <a name="create-the-required-network-resources"></a><span data-ttu-id="dfe8b-140">必要なネットワーク リソースの作成</span><span class="sxs-lookup"><span data-stu-id="dfe8b-140">Create the required network resources</span></span>
+### <a name="create-the-required-network-resources"></a><span data-ttu-id="39c69-140">必要なネットワーク リソースの作成</span><span class="sxs-lookup"><span data-stu-id="39c69-140">Create the required network resources</span></span>
 
-<span data-ttu-id="dfe8b-141">まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-141">First we need to create a subnet configuration to be used with the virtual network creation process.</span></span> <span data-ttu-id="dfe8b-142">その VM に接続できるように、さらにパブリック IP アドレスも作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-142">We also create a public IP address so that we can connect to this VM.</span></span> <span data-ttu-id="dfe8b-143">そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-143">We create a network security group to secure access to the public address.</span></span> <span data-ttu-id="dfe8b-144">最後に、前述のリソースをすべて使って仮想 NIC を作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-144">Finally we create the virtual NIC using all of the previous resources.</span></span>
+<span data-ttu-id="39c69-141">まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="39c69-141">First we need to create a subnet configuration to be used with the virtual network creation process.</span></span> <span data-ttu-id="39c69-142">その VM に接続できるように、さらにパブリック IP アドレスも作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-142">We also create a public IP address so that we can connect to this VM.</span></span> <span data-ttu-id="39c69-143">そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。</span><span class="sxs-lookup"><span data-stu-id="39c69-143">We create a network security group to secure access to the public address.</span></span> <span data-ttu-id="39c69-144">最後に、前述のリソースをすべて使って仮想 NIC を作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-144">Finally we create the virtual NIC using all of the previous resources.</span></span>
 
-```powershell
+```powershell-interactive
 # Variables for common values
 $resourceGroup = "myResourceGroup"
 $location = "westeurope"
@@ -116,18 +116,18 @@ $nic = New-AzureRmNetworkInterface -Name myNic1 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-### <a name="create-the-virtual-machine"></a><span data-ttu-id="dfe8b-145">仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="dfe8b-145">Create the virtual machine</span></span>
+### <a name="create-the-virtual-machine"></a><span data-ttu-id="39c69-145">仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="39c69-145">Create the virtual machine</span></span>
 
-<span data-ttu-id="dfe8b-146">最初に、OS の一連の資格情報が必要です。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-146">First we need a set of credentials for the OS.</span></span>
+<span data-ttu-id="39c69-146">最初に、OS の一連の資格情報が必要です。</span><span class="sxs-lookup"><span data-stu-id="39c69-146">First we need a set of credentials for the OS.</span></span>
 
-```powershell
+```powershell-interactive
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 ```
 
-<span data-ttu-id="dfe8b-147">これで必要なリソースが揃ったので、VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-147">Now that we have the required resources we can create the VM.</span></span> <span data-ttu-id="dfe8b-148">このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-148">For this step, we create a VM configuration object, then we use the configuration to create the VM.</span></span>
+<span data-ttu-id="39c69-147">これで必要なリソースが揃ったので、VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-147">Now that we have the required resources we can create the VM.</span></span> <span data-ttu-id="39c69-148">このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-148">For this step, we create a VM configuration object, then we use the configuration to create the VM.</span></span>
 
-```powershell
+```powershell-interactive
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
   Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred |
@@ -138,7 +138,7 @@ $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-<span data-ttu-id="dfe8b-149">VM の作成が完了し、使用する準備ができると、`New-AzureRmVM` コマンドから結果が出力されます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-149">The `New-AzureRmVM` command outputs results once the VM has been fully created and is ready to be used.</span></span>
+<span data-ttu-id="39c69-149">VM の作成が完了し、使用する準備ができると、`New-AzureRmVM` コマンドから結果が出力されます。</span><span class="sxs-lookup"><span data-stu-id="39c69-149">The `New-AzureRmVM` command outputs results once the VM has been fully created and is ready to be used.</span></span>
 
 ```Output
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -146,9 +146,9 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK
 ```
 
-<span data-ttu-id="dfe8b-150">新しく作成した Windows Server VM のパブリック IP アドレスとリモート デスクトップを使って VM にサインインします。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-150">Now sign in to your newly created Windows Server VM using Remote Desktop and the public IP address of the VM.</span></span> <span data-ttu-id="dfe8b-151">次のコマンドを実行すると、前述のスクリプトで作成したパブリック IP アドレスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-151">The following command displays the public IP address created in the previous script.</span></span>
+<span data-ttu-id="39c69-150">新しく作成した Windows Server VM のパブリック IP アドレスとリモート デスクトップを使って VM にサインインします。</span><span class="sxs-lookup"><span data-stu-id="39c69-150">Now sign in to your newly created Windows Server VM using Remote Desktop and the public IP address of the VM.</span></span> <span data-ttu-id="39c69-151">次のコマンドを実行すると、前述のスクリプトで作成したパブリック IP アドレスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="39c69-151">The following command displays the public IP address created in the previous script.</span></span>
 
-```powershell
+```powershell-interactive
 $publicIp | Select-Object Name,IpAddress
 ```
 
@@ -158,23 +158,23 @@ Name                  IpAddress
 mypublicdns1400512543 xx.xx.xx.xx
 ```
 
-<span data-ttu-id="dfe8b-152">Windows ベースのシステムでは、コマンド ラインで mstsc コマンドを使って同じ操作を実行できます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-152">If you are on a Windows-based system, you can do this from the command line using the mstsc command:</span></span>
+<span data-ttu-id="39c69-152">Windows ベースのシステムでは、コマンド ラインで mstsc コマンドを使って同じ操作を実行できます。</span><span class="sxs-lookup"><span data-stu-id="39c69-152">If you are on a Windows-based system, you can do this from the command line using the mstsc command:</span></span>
 
-```powershell
+```powershell-interactive
 mstsc /v:xx.xxx.xx.xxx
 ```
 
-<span data-ttu-id="dfe8b-153">VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してサインインしてください。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-153">Supply the same username/password combination you used when creating the VM to sign in.</span></span>
+<span data-ttu-id="39c69-153">VM を作成したときと同じユーザー名/パスワードの組み合わせを指定してサインインしてください。</span><span class="sxs-lookup"><span data-stu-id="39c69-153">Supply the same username/password combination you used when creating the VM to sign in.</span></span>
 
-## <a name="create-a-linux-virtual-machine"></a><span data-ttu-id="dfe8b-154">Linux 仮想マシンを作成する</span><span class="sxs-lookup"><span data-stu-id="dfe8b-154">Create a Linux Virtual Machine</span></span>
+## <a name="create-a-linux-virtual-machine"></a><span data-ttu-id="39c69-154">Linux 仮想マシンを作成する</span><span class="sxs-lookup"><span data-stu-id="39c69-154">Create a Linux Virtual Machine</span></span>
 
-<span data-ttu-id="dfe8b-155">新しい Linux VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-155">To create a new Linux VM we must first create the other required resources and assign them to a configuration.</span></span> <span data-ttu-id="dfe8b-156">その構成を使って VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-156">Then we can use that configuration to create the VM.</span></span> <span data-ttu-id="dfe8b-157">ここでは、前述のリソース グループが既に作成済みであることを前提としています。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-157">This assumes that you have already created the resource group as previously shown.</span></span> <span data-ttu-id="dfe8b-158">また、`id_rsa.pub` という名前の SSH 公開キーがユーザー プロファイルの .ssh ディレクトリに必要です。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-158">Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.</span></span>
+<span data-ttu-id="39c69-155">新しい Linux VM を作成するには、その他の必要なリソースを最初に作成し、構成に割り当てる必要があります。</span><span class="sxs-lookup"><span data-stu-id="39c69-155">To create a new Linux VM we must first create the other required resources and assign them to a configuration.</span></span> <span data-ttu-id="39c69-156">その構成を使って VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-156">Then we can use that configuration to create the VM.</span></span> <span data-ttu-id="39c69-157">ここでは、前述のリソース グループが既に作成済みであることを前提としています。</span><span class="sxs-lookup"><span data-stu-id="39c69-157">This assumes that you have already created the resource group as previously shown.</span></span> <span data-ttu-id="39c69-158">また、`id_rsa.pub` という名前の SSH 公開キーがユーザー プロファイルの .ssh ディレクトリに必要です。</span><span class="sxs-lookup"><span data-stu-id="39c69-158">Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.</span></span>
 
-### <a name="create-the-required-network-resources"></a><span data-ttu-id="dfe8b-159">必要なネットワーク リソースの作成</span><span class="sxs-lookup"><span data-stu-id="dfe8b-159">Create the required network resources</span></span>
+### <a name="create-the-required-network-resources"></a><span data-ttu-id="39c69-159">必要なネットワーク リソースの作成</span><span class="sxs-lookup"><span data-stu-id="39c69-159">Create the required network resources</span></span>
 
-<span data-ttu-id="dfe8b-160">まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-160">First we need to create a subnet configuration to be used with the virtual network creation process.</span></span> <span data-ttu-id="dfe8b-161">その VM に接続できるように、さらにパブリック IP アドレスも作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-161">We also create a public IP address so that we can connect to this VM.</span></span> <span data-ttu-id="dfe8b-162">そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-162">We create a network security group to secure access to the public address.</span></span> <span data-ttu-id="dfe8b-163">最後に、前述のリソースをすべて使って仮想 NIC を作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-163">Finally we create the virtual NIC using all of the previous resources.</span></span>
+<span data-ttu-id="39c69-160">まず、仮想ネットワークの作成プロセスで使用するサブネット構成を作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="39c69-160">First we need to create a subnet configuration to be used with the virtual network creation process.</span></span> <span data-ttu-id="39c69-161">その VM に接続できるように、さらにパブリック IP アドレスも作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-161">We also create a public IP address so that we can connect to this VM.</span></span> <span data-ttu-id="39c69-162">そのパブリック アドレスへのアクセスについては、ネットワーク セキュリティ グループを作成してセキュリティを確保します。</span><span class="sxs-lookup"><span data-stu-id="39c69-162">We create a network security group to secure access to the public address.</span></span> <span data-ttu-id="39c69-163">最後に、前述のリソースをすべて使って仮想 NIC を作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-163">Finally we create the virtual NIC using all of the previous resources.</span></span>
 
-```powershell
+```powershell-interactive
 # Variables for common values
 $resourceGroup = "myResourceGroup"
 $location = "westeurope"
@@ -210,11 +210,11 @@ $nic = New-AzureRmNetworkInterface -Name myNic2 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-### <a name="create-the-virtual-machine"></a><span data-ttu-id="dfe8b-164">仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="dfe8b-164">Create the virtual machine</span></span>
+### <a name="create-the-virtual-machine"></a><span data-ttu-id="39c69-164">仮想マシンの作成</span><span class="sxs-lookup"><span data-stu-id="39c69-164">Create the virtual machine</span></span>
 
-<span data-ttu-id="dfe8b-165">これで必要なリソースが揃ったので、VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-165">Now that we have the required resources we can create the VM.</span></span> <span data-ttu-id="dfe8b-166">このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-166">For this step, we create a VM configuration object, then we use the configuration to create the VM.</span></span>
+<span data-ttu-id="39c69-165">これで必要なリソースが揃ったので、VM を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-165">Now that we have the required resources we can create the VM.</span></span> <span data-ttu-id="39c69-166">このステップでは、VM 構成オブジェクトを作成し、その構成を使って VM を作成します。</span><span class="sxs-lookup"><span data-stu-id="39c69-166">For this step, we create a VM configuration object, then we use the configuration to create the VM.</span></span>
 
-```powershell
+```powershell-interactive
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
   Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication |
@@ -229,7 +229,7 @@ Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azur
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-<span data-ttu-id="dfe8b-167">VM が作成されたら、その VM のパブリック IP アドレスを SSH で使用し、新しい Linux VM にログオンすることができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-167">Now that the VM has been created, you can log on to your new Linux VM using SSH with the public IP address of the VM you created:</span></span>
+<span data-ttu-id="39c69-167">VM が作成されたら、その VM のパブリック IP アドレスを SSH で使用し、新しい Linux VM にログオンすることができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-167">Now that the VM has been created, you can log on to your new Linux VM using SSH with the public IP address of the VM you created:</span></span>
 
 ```bash
 ssh xx.xxx.xxx.xxx
@@ -266,29 +266,29 @@ applicable law.
 my-login@MyLinuxVM:../../..$
 ```
 
-## <a name="creating-other-resources-in-azure"></a><span data-ttu-id="dfe8b-168">その他の Azure リソースを作成する</span><span class="sxs-lookup"><span data-stu-id="dfe8b-168">Creating other resources in Azure</span></span>
+## <a name="creating-other-resources-in-azure"></a><span data-ttu-id="39c69-168">その他の Azure リソースを作成する</span><span class="sxs-lookup"><span data-stu-id="39c69-168">Creating other resources in Azure</span></span>
 
-<span data-ttu-id="dfe8b-169">ここまでは、リソース グループ、Linux VM、Windows Server VM の作成方法を見てきました。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-169">We've now walked through how to create a Resource Group, a Linux VM, and a Windows Server VM.</span></span> <span data-ttu-id="dfe8b-170">そのほかにも、さまざまな種類の Azure リソースを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-170">You can create many other types of Azure resources as well.</span></span>
+<span data-ttu-id="39c69-169">ここまでは、リソース グループ、Linux VM、Windows Server VM の作成方法を見てきました。</span><span class="sxs-lookup"><span data-stu-id="39c69-169">We've now walked through how to create a Resource Group, a Linux VM, and a Windows Server VM.</span></span> <span data-ttu-id="39c69-170">そのほかにも、さまざまな種類の Azure リソースを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-170">You can create many other types of Azure resources as well.</span></span>
 
-<span data-ttu-id="dfe8b-171">たとえば、新しく作成した VM に関連付けるための Azure ネットワーク ロード バランサーを作成するには、次のコマンドを使います。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-171">For example, to create an Azure Network Load Balancer that we could then associate with our newly created VMs, we can use the following create command:</span></span>
+<span data-ttu-id="39c69-171">たとえば、新しく作成した VM に関連付けるための Azure ネットワーク ロード バランサーを作成するには、次のコマンドを使います。</span><span class="sxs-lookup"><span data-stu-id="39c69-171">For example, to create an Azure Network Load Balancer that we could then associate with our newly created VMs, we can use the following create command:</span></span>
 
-```powershell
+```powershell-interactive
 New-AzureRmLoadBalancer -Name MyLoadBalancer -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-<span data-ttu-id="dfe8b-172">また、次のコマンドを使って、インフラストラクチャ用に新しいプライベート仮想ネットワーク (Azure では通常 "VNet" と呼ばれます) を作成することもできます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-172">We could also create a new private Virtual Network (commonly referred to as a "VNet" within Azure) for our infrastructure using the following command:</span></span>
+<span data-ttu-id="39c69-172">また、次のコマンドを使って、インフラストラクチャ用に新しいプライベート仮想ネットワーク (Azure では通常 "VNet" と呼ばれます) を作成することもできます。</span><span class="sxs-lookup"><span data-stu-id="39c69-172">We could also create a new private Virtual Network (commonly referred to as a "VNet" within Azure) for our infrastructure using the following command:</span></span>
 
-```powershell
+```powershell-interactive
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet2 -AddressPrefix 10.0.0.0/16
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
   -Name MYvNET3 -AddressPrefix 10.0.0.0/16 -Subnet $subnetConfig
 ```
 
-<span data-ttu-id="dfe8b-173">Azure と Azure PowerShell の優れている点は、それらを使ってクラウドベースのインフラストラクチャを実現できるだけでなく、管理対象となるプラットフォーム サービスを作成できることです。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-173">What makes Azure and the Azure PowerShell powerful is that we can use it not just to get cloud-based infrastructure but also to create managed platform services.</span></span> <span data-ttu-id="dfe8b-174">その管理されたプラットフォーム サービスにインフラストラクチャを組み合わせることで、さらに強力なソリューションを構築することもできます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-174">The managed platform services can also be combined with infrastructure to build even more powerful solutions.</span></span>
+<span data-ttu-id="39c69-173">Azure と Azure PowerShell の優れている点は、それらを使ってクラウドベースのインフラストラクチャを実現できるだけでなく、管理対象となるプラットフォーム サービスを作成できることです。</span><span class="sxs-lookup"><span data-stu-id="39c69-173">What makes Azure and the Azure PowerShell powerful is that we can use it not just to get cloud-based infrastructure but also to create managed platform services.</span></span> <span data-ttu-id="39c69-174">その管理されたプラットフォーム サービスにインフラストラクチャを組み合わせることで、さらに強力なソリューションを構築することもできます。</span><span class="sxs-lookup"><span data-stu-id="39c69-174">The managed platform services can also be combined with infrastructure to build even more powerful solutions.</span></span>
 
-<span data-ttu-id="dfe8b-175">たとえば Azure PowerShell を使って Azure AppService を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-175">For example, you can use the Azure PowerShell to create an Azure AppService.</span></span> <span data-ttu-id="dfe8b-176">Azure AppService は、管理されたプラットフォーム サービスであり、インフラストラクチャには一切気を遣わずに Web アプリをホストできるのが特徴です。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-176">Azure AppService is a managed platform service that provides a great way to host web apps without having to worry about infrastructure.</span></span> <span data-ttu-id="dfe8b-177">Azure AppService の作成後、次のコマンドを使って AppService 内に 2 つの新しい Azure Web アプリを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-177">After creating the Azure AppService, you can create two new Azure Web Apps within the AppService using the following commands:</span></span>
+<span data-ttu-id="39c69-175">たとえば Azure PowerShell を使って Azure AppService を作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-175">For example, you can use the Azure PowerShell to create an Azure AppService.</span></span> <span data-ttu-id="39c69-176">Azure AppService は、管理されたプラットフォーム サービスであり、インフラストラクチャには一切気を遣わずに Web アプリをホストできるのが特徴です。</span><span class="sxs-lookup"><span data-stu-id="39c69-176">Azure AppService is a managed platform service that provides a great way to host web apps without having to worry about infrastructure.</span></span> <span data-ttu-id="39c69-177">Azure AppService の作成後、次のコマンドを使って AppService 内に 2 つの新しい Azure Web アプリを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-177">After creating the Azure AppService, you can create two new Azure Web Apps within the AppService using the following commands:</span></span>
 
-```powershell
+```powershell-interactive
 # Create an Azure AppService that we can host any number of web apps within
 New-AzureRmAppServicePlan -Name MyAppServicePlan -Tier Basic -NumberofWorkers 2 -WorkerSize Small -ResourceGroupName myResourceGroup -Location westeurope
 
@@ -297,11 +297,11 @@ New-AzureRmWebApp -Name MyWebApp43432 -AppServicePlan MyAppServicePlan -Resource
 New-AzureRmWebApp -Name MyWebApp43433 -AppServicePlan MyAppServicePlan -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-## <a name="listing-deployed-resources"></a><span data-ttu-id="dfe8b-178">デプロイされているリソースの一覧表示</span><span class="sxs-lookup"><span data-stu-id="dfe8b-178">Listing deployed resources</span></span>
+## <a name="listing-deployed-resources"></a><span data-ttu-id="39c69-178">デプロイされているリソースの一覧表示</span><span class="sxs-lookup"><span data-stu-id="39c69-178">Listing deployed resources</span></span>
 
-<span data-ttu-id="dfe8b-179">Azure 内で実行されているリソースは、`Get-AzureRmResource` コマンドレットを使って一覧表示することができます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-179">You can use the `Get-AzureRmResource` cmdlet to list the resources running in Azure.</span></span> <span data-ttu-id="dfe8b-180">先ほど新しいリソース グループに作成したリソースを表示する例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-180">The following example shows the resources we just created in the new resource group.</span></span>
+<span data-ttu-id="39c69-179">Azure 内で実行されているリソースは、`Get-AzureRmResource` コマンドレットを使って一覧表示することができます。</span><span class="sxs-lookup"><span data-stu-id="39c69-179">You can use the `Get-AzureRmResource` cmdlet to list the resources running in Azure.</span></span> <span data-ttu-id="39c69-180">先ほど新しいリソース グループに作成したリソースを表示する例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="39c69-180">The following example shows the resources we just created in the new resource group.</span></span>
 
-```powershell
+```powershell-interactive
 Get-AzureRmResource |
   Where-Object ResourceGroupName -eq myResourceGroup |
     Select-Object Name,Location,ResourceType
@@ -326,15 +326,15 @@ MYvNET2                                               westeurope Microsoft.Netwo
 micromyresomywi032907510                              westeurope Microsoft.Storage/storageAccounts
 ```
 
-## <a name="deleting-resources"></a><span data-ttu-id="dfe8b-181">リソースの削除</span><span class="sxs-lookup"><span data-stu-id="dfe8b-181">Deleting resources</span></span>
+## <a name="deleting-resources"></a><span data-ttu-id="39c69-181">リソースの削除</span><span class="sxs-lookup"><span data-stu-id="39c69-181">Deleting resources</span></span>
 
-<span data-ttu-id="dfe8b-182">Azure アカウントをクリーンアップするために、この例で作成したリソースを削除しましょう。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-182">To clean up your Azure account, you want to remove the resources we created in this example.</span></span> <span data-ttu-id="dfe8b-183">不要になったリソースは、`Remove-AzureRm*` コマンドレットを使って削除できます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-183">You can use the `Remove-AzureRm*` cmdlets to delete the resources you no longer need.</span></span> <span data-ttu-id="dfe8b-184">作成した Windows VM を削除するには、次のコマンドを使います。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-184">To remove the Windows VM we created, using the following command:</span></span>
+<span data-ttu-id="39c69-182">Azure アカウントをクリーンアップするために、この例で作成したリソースを削除しましょう。</span><span class="sxs-lookup"><span data-stu-id="39c69-182">To clean up your Azure account, you want to remove the resources we created in this example.</span></span> <span data-ttu-id="39c69-183">不要になったリソースは、`Remove-AzureRm*` コマンドレットを使って削除できます。</span><span class="sxs-lookup"><span data-stu-id="39c69-183">You can use the `Remove-AzureRm*` cmdlets to delete the resources you no longer need.</span></span> <span data-ttu-id="39c69-184">作成した Windows VM を削除するには、次のコマンドを使います。</span><span class="sxs-lookup"><span data-stu-id="39c69-184">To remove the Windows VM we created, using the following command:</span></span>
 
-```powershell
+```powershell-interactive
 Remove-AzureRmVM -Name myWindowsVM -ResourceGroupName myResourceGroup
 ```
 
-<span data-ttu-id="dfe8b-185">リソースを削除してよいか確認するメッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-185">You will be prompted to confirm that you want to remove the resource.</span></span>
+<span data-ttu-id="39c69-185">リソースを削除してよいか確認するメッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="39c69-185">You will be prompted to confirm that you want to remove the resource.</span></span>
 
 ```Output
 Confirm
@@ -342,9 +342,9 @@ Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-<span data-ttu-id="dfe8b-186">多数のリソースを一度に削除することもできます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-186">You can also use the delete many resources at one time.</span></span> <span data-ttu-id="dfe8b-187">たとえば次のコマンドを実行すると、この概要チュートリアルのすべてのサンプルで使ってきたリソース グループ ("MyResourceGroup") が完全に削除されます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-187">For example, the following command deletes all the resource group "MyResourceGroup" that we've used for all the samples in this Get Started tutorial.</span></span> <span data-ttu-id="dfe8b-188">リソース グループだけでなく、そこに含まれるリソースもすべて削除されます。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-188">This removes the resource group and all of the resources in it.</span></span>
+<span data-ttu-id="39c69-186">多数のリソースを一度に削除することもできます。</span><span class="sxs-lookup"><span data-stu-id="39c69-186">You can also use the delete many resources at one time.</span></span> <span data-ttu-id="39c69-187">たとえば次のコマンドを実行すると、この概要チュートリアルのすべてのサンプルで使ってきたリソース グループ ("MyResourceGroup") が完全に削除されます。</span><span class="sxs-lookup"><span data-stu-id="39c69-187">For example, the following command deletes all the resource group "MyResourceGroup" that we've used for all the samples in this Get Started tutorial.</span></span> <span data-ttu-id="39c69-188">リソース グループだけでなく、そこに含まれるリソースもすべて削除されます。</span><span class="sxs-lookup"><span data-stu-id="39c69-188">This removes the resource group and all of the resources in it.</span></span>
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
@@ -354,18 +354,18 @@ Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-<span data-ttu-id="dfe8b-189">このコマンドは、完了までに数分かかる場合があります。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-189">This can take several minutes to complete.</span></span>
+<span data-ttu-id="39c69-189">このコマンドは、完了までに数分かかる場合があります。</span><span class="sxs-lookup"><span data-stu-id="39c69-189">This can take several minutes to complete.</span></span>
 
-## <a name="get-samples"></a><span data-ttu-id="dfe8b-190">サンプルを入手する</span><span class="sxs-lookup"><span data-stu-id="dfe8b-190">Get samples</span></span>
+## <a name="get-samples"></a><span data-ttu-id="39c69-190">サンプルを入手する</span><span class="sxs-lookup"><span data-stu-id="39c69-190">Get samples</span></span>
 
-<span data-ttu-id="dfe8b-191">Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Windows VM](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) 用の一般的なスクリプトが用意されているので、そちらをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-191">To learn more about ways to use the Azure PowerShell, check out our most common scripts for [Linux VMs](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [Windows VMs](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), and [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json).</span></span>
+<span data-ttu-id="39c69-191">Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Windows VM](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) 用の一般的なスクリプトが用意されているので、そちらをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="39c69-191">To learn more about ways to use the Azure PowerShell, check out our most common scripts for [Linux VMs](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [Windows VMs](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), and [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="dfe8b-192">次の手順</span><span class="sxs-lookup"><span data-stu-id="dfe8b-192">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="39c69-192">次の手順</span><span class="sxs-lookup"><span data-stu-id="39c69-192">Next steps</span></span>
 
-* [<span data-ttu-id="dfe8b-193">Azure PowerShell を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="dfe8b-193">Sign in with Azure PowerShell</span></span>](authenticate-azureps.md)
-* [<span data-ttu-id="dfe8b-194">Azure PowerShell による Azure サブスクリプションの管理</span><span class="sxs-lookup"><span data-stu-id="dfe8b-194">Manage Azure subscriptions with Azure PowerShell</span></span>](manage-subscriptions-azureps.md)
-* [<span data-ttu-id="dfe8b-195">Azure PowerShell を使って Azure にサービス プリンシパルを作成する</span><span class="sxs-lookup"><span data-stu-id="dfe8b-195">Create service principals in Azure using Azure PowerShell</span></span>](create-azure-service-principal-azureps.md)
-* <span data-ttu-id="dfe8b-196">以前のリリースからの移行については、リリース ノート ([ https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="dfe8b-196">Read the Release notes about migrating from an older release: [https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes).</span></span>
-* <span data-ttu-id="dfe8b-197">コミュニティに質問する:</span><span class="sxs-lookup"><span data-stu-id="dfe8b-197">Get help from the community:</span></span>
-  * [<span data-ttu-id="dfe8b-198">MSDN の Azure フォーラム</span><span class="sxs-lookup"><span data-stu-id="dfe8b-198">Azure forum on MSDN</span></span>](http://go.microsoft.com/fwlink/p/?LinkId=320212)
-  * [<span data-ttu-id="dfe8b-199">stackoverflow</span><span class="sxs-lookup"><span data-stu-id="dfe8b-199">stackoverflow</span></span>](http://go.microsoft.com/fwlink/?LinkId=320213)
+* [<span data-ttu-id="39c69-193">Azure PowerShell を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="39c69-193">Sign in with Azure PowerShell</span></span>](authenticate-azureps.md)
+* [<span data-ttu-id="39c69-194">Azure PowerShell による Azure サブスクリプションの管理</span><span class="sxs-lookup"><span data-stu-id="39c69-194">Manage Azure subscriptions with Azure PowerShell</span></span>](manage-subscriptions-azureps.md)
+* [<span data-ttu-id="39c69-195">Azure PowerShell を使って Azure にサービス プリンシパルを作成する</span><span class="sxs-lookup"><span data-stu-id="39c69-195">Create service principals in Azure using Azure PowerShell</span></span>](create-azure-service-principal-azureps.md)
+* <span data-ttu-id="39c69-196">以前のリリースからの移行については、リリース ノート ([ https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="39c69-196">Read the Release notes about migrating from an older release: [https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes).</span></span>
+* <span data-ttu-id="39c69-197">コミュニティに質問する:</span><span class="sxs-lookup"><span data-stu-id="39c69-197">Get help from the community:</span></span>
+  * [<span data-ttu-id="39c69-198">MSDN の Azure フォーラム</span><span class="sxs-lookup"><span data-stu-id="39c69-198">Azure forum on MSDN</span></span>](http://go.microsoft.com/fwlink/p/?LinkId=320212)
+  * [<span data-ttu-id="39c69-199">stackoverflow</span><span class="sxs-lookup"><span data-stu-id="39c69-199">stackoverflow</span></span>](http://go.microsoft.com/fwlink/?LinkId=320213)
