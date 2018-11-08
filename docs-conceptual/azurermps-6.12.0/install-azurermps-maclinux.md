@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.openlocfilehash: e7d27c6f6d980c54e45620b179cf2e26ffed17f0
-ms.sourcegitcommit: 1f699b72bf544d92459da9d888cc0091f9415b65
+ms.openlocfilehash: f60ea1c608be4b1c8319d53303713ba039276abc
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "50972657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51212893"
 ---
 # <a name="install-azure-powershell-on-macos-or-linux"></a>macOS または Linux で Azure PowerShell をインストールする
 
@@ -46,7 +46,7 @@ pwsh
 
 Azure PowerShell をインストールするには、次のコマンドを実行します。
 
-```powershell
+```powershell-interactive
 Install-Module Az
 ```
 
@@ -75,7 +75,7 @@ Are you sure you want to install the modules from 'PSGallery'?
 
 既存の `AzureRM` モジュールとの互換性のために、新しい `Az` モジュールでは、`AzureRM` コマンドレット用に下位互換性のあるエイリアスを作成することができます。 初めてモジュールを使用する前に、次のコマンドでこれらのエイリアスを設定します。
 
-```powershell
+```powershell-interactive
 # Import the module into the PowerShell session
 Import-Module Az
 # Enable AzureRM aliases for the user
@@ -95,7 +95,7 @@ Enable-AzureRmAlias -Scope CurrentUser
 
 Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、PowerShell セッションに `Az` を読み込み、Azure の資格情報でサインインする必要があります。 モジュールのインポートには、昇格された特権は__不要__です。
 
-```powershell
+```powershell-interactive
 # Import the module into the PowerShell session
 Import-Module Az
 # Connect to Azure with an interactive dialog for sign-in

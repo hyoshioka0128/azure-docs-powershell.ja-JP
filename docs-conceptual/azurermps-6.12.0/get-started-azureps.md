@@ -8,11 +8,11 @@ ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 09/11/2018
 ms.openlocfilehash: 5378cdb9d70aa0d2dc617d06d3c887ec20eb7767
-ms.sourcegitcommit: 1f699b72bf544d92459da9d888cc0091f9415b65
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "50971790"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51213039"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 

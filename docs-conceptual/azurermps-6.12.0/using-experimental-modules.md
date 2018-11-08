@@ -6,15 +6,15 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/05/2017
-ms.openlocfilehash: 09858da9981c1136e2a39a079962c5b8fc39bde9
+ms.date: 09/11/2018
+ms.openlocfilehash: 245d69d3bcee3c502babe82395341efad2bc96d0
 ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/07/2018
-ms.locfileid: "51211912"
+ms.locfileid: "51213015"
 ---
-# <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
+# <a name="use-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
 Azure PowerShell チームでは現在、Azure の開発者ツール (特に CLI) を中心に Azure PowerShell のエクスペリエンスに多数の改善を加え、その評価試験を実施しています。
 
@@ -30,11 +30,11 @@ Microsoft では、試験を円滑に進めるため、既存の Azure SDK の�
 
 試験版モジュールは、既存の Azure PowerShell モジュールと同じように PowerShell ギャラリーに公開されています。 試験版モジュールの一覧を表示するには、次のコマンドを実行します。
 
-```powershell-interactive
+```azurepowershell-interactive
 Find-Module AzureRM.*.Experiments
 ```
 
-```Output
+```output
 Version Name                         Repository Description
 ------- ----                         ---------- -----------
 1.0.25  AzureRM.Compute.Experiments  PSGallery  Azure Compute experiments for VM creation
@@ -43,7 +43,7 @@ Version Name                         Repository Description
 
 試験版モジュールをインストールするには、管理者特権の PowerShell セッションから次のコマンドを実行します。
 
-```powershell-interactive
+```azurepowershell-interactive
 Install-Module AzureRM.Compute.Experiments
 Install-Module AzureRM.Websites.Experiments
 ```
@@ -89,7 +89,7 @@ Install-Module AzureRM.Websites.Experiments
 
 たとえば、"Web アプリを作成する" シナリオであれば、既存の Git リポジトリにリモートの Azure を自動で追加するスイッチとして `-Git` または `-AddRemote` が考えられます。
 
-- 既定値の設定機能 - `-ResourceGroupName` や `-Location` など、さまざまな局面で使用するパラメーターに既定値を設定できる機能が必要です。
+- 既定値の設定機能 - `-ResourceGroupName`、`-Location` などの一般的なパラメーターに、ユーザーが既定値を設定できる必要があります。
 
 - サイズの既定値 - リソースの "サイズ" は、("Standard\_DS1\_v2"、"S1" などのように) 多数のリソース プロバイダーがさまざまな名称を使用しているため、ユーザーにとってはわかりにくいものです。 もっとも、ほとんどのユーザーがこれよりも気にするのはコストです。 このため、価格体系に基づいて "汎用の" サイズを定めておくと効果的です。 これにより、ユーザー自身が特定のサイズを選択することも、リソースと予算に基づいて Azure PowerShell に "_最適な選択肢_" を選択してもらうこともできるようになります。
 

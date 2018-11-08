@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: af59df025c7a0fb41aacb1e83d6342c20033ee6d
-ms.sourcegitcommit: 1f699b72bf544d92459da9d888cc0091f9415b65
+ms.openlocfilehash: 44537686277810e9632b0916089043d26023e27a
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "50972708"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51212814"
 ---
 # <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet を使用した Windows への Azure PowerShell のインストール
 
@@ -26,7 +26,7 @@ Azure PowerShell を他のプラットフォームにインストールする手
 
 Azure PowerShell バージョン 6.0 以降、Azure PowerShell では PowerShell バージョン 5.0 が必要です。 お使いのマシンで実行されている PowerShell のバージョンを確認するには、次のコマンドを実行します。
 
-```powershell
+```powershell-interactive
 $PSVersionTable.PSVersion
 ```
 
@@ -39,7 +39,7 @@ $PSVersionTable.PSVersion
 
 PowerShell ギャラリーからモジュールをインストールするには、昇格された特権が必要です。 Azure PowerShell をインストールするには、管理者特権のセッションで次のコマンドを実行します。
 
-```powershell
+```powershell-interactive
 Install-Module -Name AzureRM -AllowClobber
 ```
 
@@ -66,7 +66,7 @@ Are you sure you want to install the modules from 'PSGallery'?
 
 Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、現在の PowerShell セッションに `AzureRM` を読み込み、Azure の資格情報でサインインする必要があります。
 
-```powershell
+```powershell-interactive
 # Import the module into the PowerShell session
 Import-Module AzureRM
 # Connect to Azure with an interactive dialog for sign-in
@@ -80,7 +80,7 @@ Azure サインインをセッション間で維持する方法については�
 
 Azure PowerShell のインストールを更新するには、[Update-Module](/powershell/module/powershellget/update-module) を実行します。 このコマンドでは、以前のバージョンはアンインストール__されません__。
 
-```powershell
+```powershell-interactive
 Update-Module -Name AzureRM
 ```
 
@@ -90,7 +90,7 @@ Update-Module -Name AzureRM
 
 複数のバージョンの Azure PowerShell をインストールできます。 複数のバージョンの Azure PowerShell がインストールされているかどうかを確認するには、次のコマンドを使用します。
 
-```powershell
+```powershell-interactive
 Get-Module -Name AzureRM -List | select Name,Version
 ```
 
@@ -98,14 +98,14 @@ Azure PowerShell のバージョンを削除するには、「[Azure PowerShell 
 
 オンプレミスの Azure Stack リソースを使用する場合、古いバージョンの Windows を実行している場合、または Azure クラシック デプロイ モデルを使用している場合は、複数のバージョンが必要になります。 古いバージョンをインストールするには、インストール時に `-RequiredVersion` 引数を指定します。
 
-```powershell
+```powershell-interactive
 # Install version 1.2.9 of Azure PowerShell
 Install-Module -Name AzureRM -RequiredVersion 1.2.9
 ```
 
 Azure PowerShell モジュールの読み込み時には、最新バージョンが既定で読み込まれます。 別のバージョンを読み込むには、`-RequiredVersion` 引数を指定します。
 
-```powershell
+```powershell-interactive
 # Load version 1.2.9 of Azure PowerShell
 Import-Module -Name AzureRM -RequiredVersion 1.2.9
 ```

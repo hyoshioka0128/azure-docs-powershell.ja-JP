@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
-ms.openlocfilehash: f69a0b79ac17c3a6502abfa9bbc5370693ad508e
-ms.sourcegitcommit: c98e3a21037ebd82936828bcb544eed902b24212
+ms.openlocfilehash: 1a9d38cd60ba596c085e5ee9f8d815e238362b1f
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34854275"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51211946"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -29,13 +29,13 @@ ARM コマンドレット用のギャラリー モジュール: [リンク](http
 
 PowerShell ギャラリーから `AzureRM` をインストールするには、次のコマンドを実行します。
 
-```powershell
+```powershell-interactive
 Install-Module -Name AzureRM -Repository PSGallery -Force
 ```
 
 以前のバージョンの `AzureRM` から更新するには、次のコマンドを実行します。
 
-```powershell
+```powershell-interactive
 Update-Module -Name AzureRM
 ```
 
@@ -225,7 +225,7 @@ Update-Module -Name AzureRM
   - ARM テンプレートを更新しました
   - 失敗した操作がロールバックされなくなりました
   - Add-AzureRmServiceFabricNodeType
-    - VM は既定で管理ディスクとなります
+    - VM は既定でマネージド ディスクとなります
     - 既存の VMSS サブネットが使用されます
     - すべての操作はべき等です
   - Remove-AzureRmServiceFabricNodeType により、部分的に作成された VMSS およびクラスター ノードの種類がクリーンアップされます
@@ -667,7 +667,7 @@ Update-Module -Name AzureRM
   - 新しいコマンドレット Update-AzureRmPowerBIEmbeddedCapacity - PowerBI Embedded 容量のインスタンスを変更します
 * プロファイル
   - USGovernmentActiveDirectoryEndpoint を https://login.microsoftonline.us/ に更新しました
-    - Azure Government エンドポイント マッピングの詳細については、https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-developer-guide#endpoint-mapping を参照してください
+    - Azure Government エンドポイント マッピングの詳細については、 https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-developer-guide#endpoint-mapping を参照してください
     - コマンドの -AsJob サポートを追加しました。これにより、選択したコマンドレットをバック グラウンドで実行し、進行状況を追跡および制御するジョブを返すことができます
     - -AsJob パラメーターを Get-AzureRmSubscription コマンドレットに追加しました
 * RecoveryServices.Backup

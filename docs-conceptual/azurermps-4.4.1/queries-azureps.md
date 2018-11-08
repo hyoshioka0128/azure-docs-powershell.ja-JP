@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
-ms.openlocfilehash: eb359710efde6b5969ac721e395725a0ce87fddd
-ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
+ms.openlocfilehash: 9a7627a25f9bbd196b1d615229e45a6e1ce7a7d9
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39024598"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51213003"
 ---
 # <a name="querying-for-azure-resources"></a>Azure リソースに対するクエリ
 
@@ -24,7 +24,7 @@ Azure PowerShell では、コマンドレットごとに既定の書式が定義
 
 ご利用のアカウントに存在する一連の VM を照会するには、`Get-AzureRmVM` コマンドレットを使います。
 
-```powershell
+```powershell-interactive
 Get-AzureRmVM
 ```
 
@@ -39,7 +39,7 @@ MYWESTEURG          MyWin2016VM westeurope Standard_DS1_v2 Windows   mywin2016vm
 
 特定のプロパティが必要であれば、`Select-Object` コマンドレットを使ってそれらを選択することができます。
 
-```powershell
+```powershell-interactive
 Get-AzureRmVM | Select Name,ResourceGroupName,Location
 ```
 
@@ -54,7 +54,7 @@ MyWin2016VM   MYWESTEURG        westeurope
 
 選択の対象となるプロパティが、JSON 出力の中で深く入れ子になっている場合は、その入れ子になっているプロパティの完全パスを指定する必要があります。 `Get-AzureRmVM` コマンドレットの出力から VM 名と OS の種類を選択する例を次に示します。
 
-```powershell
+```powershell-interactive
 Get-AzureRmVM | Select Name,@{Name='OSType'; Expression={$_.StorageProfile.OSDisk.OSType}}
 ```
 
@@ -69,7 +69,7 @@ MyWin2016VM   Windows
 
 `Where-Object` コマンドレットを使うと、プロパティの値に基づいて結果をフィルター選択することができます。 次の例では、名前に "RGD" という文字列が含まれる VM だけをフィルターで選択しています。
 
-```powershell
+```powershell-interactive
 Get-AzureRmVM | Where ResourceGroupName -like RGD* | Select ResourceGroupName,Name
 ```
 
@@ -82,7 +82,7 @@ RGDEMO001          KBDemo020
 
 次の例では、vmSize が 'Standard_DS1_V2' と等しい VM が結果として返されます。
 
-```powershell
+```powershell-interactive
 Get-AzureRmVM | Where vmSize -eq Standard_DS1_V2
 ```
 
