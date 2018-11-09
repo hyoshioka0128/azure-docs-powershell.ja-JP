@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 07/26/2017
-ms.openlocfilehash: 6f0e304c499fc8bf4909e2825d52cd63b1fcbf5d
-ms.sourcegitcommit: 990f82648b0aa2e970f96c02466a7134077c8c56
+ms.openlocfilehash: 563f84c3af98de066611dd80102e552b31f12883
+ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38100493"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51274927"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -262,14 +262,15 @@ ms.locfileid: "38100493"
       - Remove-AzureRMRoleDefinition
       - Set-AzureRMRoleDefinition
 * ServiceBus
-    * NameSpace、Queue、Topic の AuthorizationRules の新しいコマンドレットを追加しました。 パラメーター セットに基づいて、承認規則の操作が実行されます。
-     - New-AzureRmServiceBusAuthorizationRule - 新しい AuthorizationRule を既存の ServiceBus NameSpace/Queue/Topic に追加します。
-     - Get-AzureRmServiceBusAuthorizationRule - AuthorizationRule / 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRules の一覧を取得します。
-     - Set-AzureRmServiceBusAuthorizationRule - Servicebus NameSpace/Queue/Topic の既存の AuthorizationRule のプロパティを更新します。
-     - New-AzureRmServiceBusKey - 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRule の新しいプライマリ/セカンダリ キーを生成します。
-     - Get-AzureRmServiceBusKey - 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRule のプライマリ/セカンダリ キーを取得します。
-     - Remove-AzureRmServiceBusNamespaceAuthorizationRule - Servicebus NameSpace/Queue/Topic の既存の AuthorizationRule のプロパティを削除します。
-    * NamespceAttributes にリソース グループのプロパティを追加しました
+  * NameSpace、Queue、Topic の AuthorizationRules の新しいコマンドレットを追加しました。 パラメーター セットに基づいて、承認規則の操作が実行されます。
+    - New-AzureRmServiceBusAuthorizationRule - 新しい AuthorizationRule を既存の ServiceBus NameSpace/Queue/Topic に追加します。
+    - Get-AzureRmServiceBusAuthorizationRule - AuthorizationRule / 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRules の一覧を取得します。
+    - Set-AzureRmServiceBusAuthorizationRule - Servicebus NameSpace/Queue/Topic の既存の AuthorizationRule のプロパティを更新します。
+    - New-AzureRmServiceBusKey - 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRule の新しいプライマリ/セカンダリ キーを生成します。
+    - Get-AzureRmServiceBusKey - 既存の ServiceBus NameSpace/Queue/Topic の AuthorizationRule のプライマリ/セカンダリ キーを取得します。
+    - Remove-AzureRmServiceBusNamespaceAuthorizationRule - Servicebus NameSpace/Queue/Topic の既存の AuthorizationRule のプロパティを削除します。
+  * NamespceAttributes にリソース グループのプロパティを追加しました
+
 * SQL
     * 暗号化の保護の種類が AzureKeyVault に設定されている場合に警告を表示して確認を要求するよう、Set-AzureRmSqlServerTransparentDataEncryptionProtector を更新
     * 監査設定に対する新しい更新コマンドレットを追加
@@ -297,15 +298,16 @@ ms.locfileid: "38100493"
 
 ## <a name="20170717---version-421"></a>2017.07.17 - バージョン 4.2.1
 * コンピューティング
-    - VM ディスクおよび VM ディスク スナップショットの作成および更新コマンドレットに関する問題を修正しました (リンク)[https://github.com/azure/azure-powershell/issues/4309]。
-      - New-AzureRmDisk
-      - New-AzureRmSnapshot
-      - Update-AzureRmDisk
-      - Update-AzureRmSnapshot
+  - VM ディスクおよび VM ディスク スナップショットの作成および更新コマンドレットに関する問題を修正しました (リンク)[<https://github.com/azure/azure-powershell/issues/4309>]。
+    - New-AzureRmDisk
+    - New-AzureRmSnapshot
+    - Update-AzureRmDisk
+    - Update-AzureRmSnapshot
 * プロファイル
-    - RDFE での非対話型ユーザー認証に関する問題を修正しました (リンク)[https://github.com/Azure/azure-powershell/issues/4299]。
+  - RDFE での非対話型ユーザー認証に関する問題を修正しました (リンク)[<https://github.com/Azure/azure-powershell/issues/4299>]。
+
 * サービス管理
-    - 非対話型ユーザー認証に関する問題を修正しました (リンク)[https://github.com/Azure/azure-powershell/issues/4299]。
+  - 非対話型ユーザー認証に関する問題を修正しました (リンク)[<https://github.com/Azure/azure-powershell/issues/4299>]。
 
 ## <a name="2017711---version-420"></a>2017.7.11 - バージョン 4.2.0
 * AnalysisServices
@@ -313,7 +315,7 @@ ms.locfileid: "38100493"
         - AS サーバー ログ、Export-AzureAnalysisServicesInstanceLog をフェッチする API を導入しました。
 * Automation
     * New-AzureRmAutomationSchedule の週ごとおよび月ごとのスケジュールの TimeZone 値を適切に設定
-        - 詳細については、https://github.com/Azure/azure-powershell/issues/3043 をご覧ください。
+        - 詳細については、 https://github.com/Azure/azure-powershell/issues/3043 をご覧ください。
 * AzureBatch
     - 新しい Get-AzureBatchJobPreparationAndReleaseTaskStatus コマンドレットを追加しました。
     - バイト範囲の開始と終了を Get-AzureBatchNodeFileContent パラメーターに追加しました。
@@ -435,7 +437,7 @@ ms.locfileid: "38100493"
         - Get-AzureRmVirtualNetworkUsageList
 * プロファイル
     * Import-AzureRmContext または Save-AzureRmContext 使用時のエラーを修正しました。
-        - 詳細については、https://github.com/Azure/azure-powershell/issues/3954 をご覧ください。
+        - 詳細については、 https://github.com/Azure/azure-powershell/issues/3954 をご覧ください。
 * RecoveryServices.SiteRecovery
     * Azure Site Recovery 操作用の新しいモジュールを導入します。
         - すべてのコマンドレットが AzureRmRecoveryServicesAsr* で始まります。
@@ -445,7 +447,7 @@ ms.locfileid: "38100493"
     * サーバーの旧バージョン (2.0) がなくなったため、サーバーのアップグレード コマンドレットは非推奨になりました。
     * 新しい省略可能なスイッチ パラメーター AssignIdentity を New-AzureRmSqlServer および Set-AzureRmSqlServer コマンドレットに追加して、SQL サーバー リソース用のリソース ID のプロビジョニングに対応します。
     * パラメーター ResourceGroupName が Get-AzureRmSqlServer で省略できるようになりました。
-        - 詳細については、https://github.com/Azure/azure-powershell/issues/635 をご覧ください。
+        - 詳細については、 https://github.com/Azure/azure-powershell/issues/635 をご覧ください。
 * ServiceManagement   ExpressRoute の場合:
     * New-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
         - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを作成できます。
@@ -461,8 +463,8 @@ ms.locfileid: "38100493"
 * CognitiveServices
     * Cognitive Services リソースの作成時のライセンス契約の詳細表示が更新されます。
 * コンピューティング
-    * 複数の管理ディスクを使用した仮想マシン用の Test-AzureRmVMAEMExtension が修正されます。
-    * Set-AzureRmVMAEMExtension を更新しました。Premium 管理ディスクのキャッシュ情報が追加されます。
+    * 複数のマネージド ディスクを使用した仮想マシン用の Test-AzureRmVMAEMExtension が修正されます。
+    * Set-AzureRmVMAEMExtension を更新しました。Premium マネージド ディスクのキャッシュ情報が追加されます。
     * Add-AzureRmVhd: vhd のサイズ制限が 4TB に増えます。
     * Stop-AzureRmVM: STayProvisioned パラメーターのドキュメントをわかりやすくします。
     * New-AzureRmDiskUpdateConfig
@@ -546,13 +548,13 @@ ms.locfileid: "38100493"
   - 新しいプロパティ BillingPeriodNames
   - リスト ビューでの出力
 * 計算
-  - Premium 管理ディスクをサポートするように Set-AzureRmVMAEMExtension と Test-AzureRmVMAEMExtension の各コマンドレットが更新されました
+  - Premium マネージド ディスクをサポートするように Set-AzureRmVMAEMExtension と Test-AzureRmVMAEMExtension の各コマンドレットが更新されました
   - IaaS VM の暗号化設定をバックアップし、障害時に復元を行います
   - ChefServiceInterval オプションの名前が ChefDaemonInterval に変更されました。 なお、以前のものは引き続き有効です。
   - 重複している DataDiskNames および NetworkInterfaceIDs の各プロパティが PS VM オブジェクトから削除されます。
   - DataDiskNames および NetworkInterfaceIDs パラメーターは、それぞれ Remove-AzureRmVMDataDisk および Remove-AzureRmVMNetworkInterface で省略可能になります。
   - Get コマンドレットがリスト オブジェクトを返すときの Get コマンドレットのパイプ処理の問題が解決されます。
-  - RDFE コマンドレットと競合しているコマンドレットの名前は変更されました。 詳細については、https://github.com/Azure/azure-powershell/issues/2917 をご覧ください。
+  - RDFE コマンドレットと競合しているコマンドレットの名前は変更されました。 詳細については、 https://github.com/Azure/azure-powershell/issues/2917 をご覧ください。
     + `New-AzureVMSqlServerAutoBackupConfig` の名前が `New-AzureRmVMSqlServerAutoBackupConfig` に変更されました
     + `New-AzureVMSqlServerAutoPatchingConfig` の名前が `New-AzureRmVMSqlServerAutoPatchingConfig` に変更されました
     + `New-AzureVMSqlServerKeyVaultCredentialConfig` の名前が `New-AzureRmVMSqlServerKeyVaultCredentialConfig` に変更されました
@@ -660,7 +662,7 @@ ms.locfileid: "38100493"
 * ServiceBus
 
   - バグの修正: ServiceBus キュー オブジェクトのプロパティ値は null に設定されていましたが、このオブジェクトが、キューを更新する Set-AzureRmServiceBusQueue コマンドレットの入力パラメーターとして使用されるようになりました。
-   - 影響を受けるプロパティは、LockDuration、EntityAvailabilityStatus、DuplicateDetectionHistoryTimeWindow、MaxDeliveryCount、MessageCount です。
+    - 影響を受けるプロパティは、LockDuration、EntityAvailabilityStatus、DuplicateDetectionHistoryTimeWindow、MaxDeliveryCount、MessageCount です。
 * ServiceFabric
 
   - Service Fabric のコマンドレットが追加されました。
