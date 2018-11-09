@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
-ms.openlocfilehash: afa83a6258e57e961576b328e67fad634704dddf
-ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
+ms.openlocfilehash: 18861f0e5232e0b505767aa9609099afe88f9477
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51275318"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51211164"
 ---
 # <a name="azure-stack-module-150"></a>Azure Stack Module 1.5.0
 
@@ -46,7 +46,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.5.0
 ```
 
-## <a name="release-notes"></a>リリース ノート
+##<a name="release-notes"></a>リリース ノート
 * AzureRm.Profile モジュールへの同等以上の依存関係が確立されるように、すべての Azure Stack 管理モジュールが更新されました
 * すべてのモジュール内の入れ子になったリソース名を処理するためのサポート
 * ErrorActionPreference が上書きされて Stop になる、すべてのモジュールでのバグ修正
