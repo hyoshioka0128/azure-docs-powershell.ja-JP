@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 49f1f0ef1051d8f1a72423d288d94d1ecae49fae
-ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
+ms.openlocfilehash: 44537686277810e9632b0916089043d26023e27a
+ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51274026"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51212814"
 ---
 # <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet を使用した Windows への Azure PowerShell のインストール
 
@@ -21,8 +21,6 @@ ms.locfileid: "51274026"
 Azure PowerShell を他のプラットフォームにインストールする手順については、[macOS および Linux への Azure PowerShell のインストールと構成](install-azurermps-maclinux.md)に関する記事をご覧ください。
 
 このバージョンの Azure PowerShell では、Azure クラシック デプロイ モデルはサポートされていません。 クラシック デプロイのサポートについては、「[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)」の手順に従ってください。
-
-[!INCLUDE[az-replacing-azurerm](../includes/az-replacing-azurerm.md)]
 
 ## <a name="requirements"></a>必要条件
 
