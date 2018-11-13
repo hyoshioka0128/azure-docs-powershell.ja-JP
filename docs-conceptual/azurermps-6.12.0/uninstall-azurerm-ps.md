@@ -7,28 +7,17 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: 5f51683896fffe56332ac0a43179ad1f894d8d75
-ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
+ms.openlocfilehash: 3543dbb692a41bd3b417bb3d771e67c52d57c340
+ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51212807"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51274655"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
 この記事では、古いバージョンの Azure PowerShell をアンインストールする (システムから完全に削除する) 方法について説明します。 Azure PowerShell を完全にアンインストールすることにした場合は、[Send-Feedback](/powershell/module/azurerm.profile/send-feedback) コマンドレットを使用してフィードバックをお送りください。
 バグが見つかった場合は、[GitHub で問題を報告](https://github.com/azure/azure-powershell/issues)していただきますよう、よろしくお願いいたします。
-
-## <a name="uninstall-msi"></a>MSI のアンインストール
-
-MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
-
-| プラットフォーム | このサンプルについての指示 |
-|----------|--------------|
-| Windows 10 | [スタート] > [設定] > [アプリ] |
-| Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
-
-この画面のプログラムの一覧に [Azure PowerShell] が表示されたら、そこからアンインストールできます。
 
 ## <a name="uninstall-from-powershell"></a>PowerShell からのアンインストール
 
@@ -91,3 +80,14 @@ Uninstalling Azure.AnalysisServices version 0.4.7
 $versions = (get-installedmodule AzureRM -AllVersions | Select-Object Version)
 $versions[1..($versions.Length-1)]  | foreach { Uninstall-AllModules -TargetModule AzureRM -Version ($_.Version) -Force }
 ```
+
+## <a name="uninstall-msi"></a>MSI のアンインストール
+
+MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
+
+| プラットフォーム | このサンプルについての指示 |
+|----------|--------------|
+| Windows 10 | [スタート] > [設定] > [アプリ] |
+| Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
+
+この画面のプログラムの一覧に [Azure PowerShell] が表示されたら、そこからアンインストールできます。

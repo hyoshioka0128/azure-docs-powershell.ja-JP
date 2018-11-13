@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 08/28/2018
-ms.openlocfilehash: c60bc9197266cc1da37cc9af7baf03e7ba8fb7ac
-ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
+ms.openlocfilehash: 8a7b184ed06eb078956229fa67d02840014e3aaf
+ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51212879"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51275522"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -164,7 +164,7 @@ ms.locfileid: "51212879"
 #### <a name="azurermprofile"></a>AzureRM.Profile
 * ストレージの一般的なコードに対する軽微な変更
 * 完全なパラメーター型を含めるようにヘルプ ファイルを更新しました。
-- ServicePrincipalCertificateWithSubscriptionId パラメーター セットの -ServicePrincipal を "任意" に変更しました 
+* ServicePrincipalCertificateWithSubscriptionId パラメーター セットの -ServicePrincipal を "任意" に変更しました 
 
 #### <a name="azurestorage"></a>Azure.Storage
 * OAuth でのストレージ コンテキストの作成がサポートされました。 
@@ -403,7 +403,7 @@ ms.locfileid: "51212879"
 
 #### <a name="azurestorage"></a>Azure.Storage
 * Azure ファイル共有のクォータについて 5 TB の制限を削除しました
-- Set-AzureStorageShareQuota
+* Set-AzureStorageShareQuota
 
 #### <a name="azurermanalysisservices"></a>AzureRM.AnalysisServices
 * Azure ClientRuntime の最新バージョンに更新しました。
@@ -680,8 +680,8 @@ ms.locfileid: "51212879"
 
 #### <a name="azurestorage"></a>Azure.Storage
 * 書き込み専用の SAS トークンを使用した BLOB またはファイルのアップロードがサポートされます
-- Set-AzureStorageBlobContent
-- Set-AzureStorageFileContent
+* Set-AzureStorageBlobContent
+* Set-AzureStorageFileContent
 
 #### <a name="azurermanalysisservices"></a>AzureRM.AnalysisServices
 * 必須プロパティ ResourceGroupName を AS に追加しました
