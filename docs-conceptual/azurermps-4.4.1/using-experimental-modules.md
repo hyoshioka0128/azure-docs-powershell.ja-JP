@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 09858da9981c1136e2a39a079962c5b8fc39bde9
-ms.sourcegitcommit: 06f9206e025afa7207d4657c8f57c94ddb74817a
+ms.openlocfilehash: 30e57805dd59bd60d10c52422fcb68686563fadf
+ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51211912"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51274672"
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
@@ -63,7 +63,7 @@ Install-Module AzureRM.Websites.Experiments
 
 ここで紹介する重要な改善点はいわば "常識" であるため、実装段階に進むにあたって必要な試験はわずかにとどまります。
 
-- シナリオベースのコマンドレット - コマンドレットは "*すべて*"、Azure REST サービスではなくシナリオを中心として設計する必要があります。
+- シナリオベースのコマンドレット - コマンドレットは "<em>すべて</em>"、Azure REST サービスではなくシナリオを中心として設計する必要があります。
 
 - 名前の短縮 - コマンドレット名 (例: `New-AzureRmVM` => `New-AzVm`) とパラメーター名 (例: `-ResourceGroupName` => `-Rg`) が対象です。 "以前の" コマンドレットとの互換性を確保するには、エイリアスを使用します。 "_下位互換性を備えた_" パラメーター セットを提供します。
 
