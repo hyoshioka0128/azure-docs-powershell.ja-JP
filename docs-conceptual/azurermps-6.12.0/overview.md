@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 09/11/2018
 ms.openlocfilehash: bdd8e69a2ea9df8b4fff100e1f3cc4c82d2d9d9d
-ms.sourcegitcommit: ac4b53bb42a25aae013a9d8cd9ae98ada9397274
+ms.sourcegitcommit: 4afdba3cd7e1d348876ce59f3503fdcd258f79ab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51274978"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51575299"
 ---
-# <a name="overview-of-azure-powershell"></a><span data-ttu-id="6f840-103">Azure PowerShell の概要</span><span class="sxs-lookup"><span data-stu-id="6f840-103">Overview of Azure PowerShell</span></span>
+# <a name="overview-of-azure-powershell"></a><span data-ttu-id="cc504-103">Azure PowerShell の概要</span><span class="sxs-lookup"><span data-stu-id="cc504-103">Overview of Azure PowerShell</span></span>
 
-<span data-ttu-id="6f840-104">Azure PowerShell には、Azure リソースの管理に [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) モデルを使う一連のコマンドレットが用意されています。</span><span class="sxs-lookup"><span data-stu-id="6f840-104">Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources.</span></span> <span data-ttu-id="6f840-105">これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="6f840-105">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can install it on your local machine and use it in any PowerShell session.</span></span>
+<span data-ttu-id="cc504-104">Azure PowerShell には、Azure リソースの管理に [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) モデルを使う一連のコマンドレットが用意されています。</span><span class="sxs-lookup"><span data-stu-id="cc504-104">Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources.</span></span> <span data-ttu-id="cc504-105">これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="cc504-105">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can install it on your local machine and use it in any PowerShell session.</span></span>
 
-<span data-ttu-id="6f840-106">Azure PowerShell は、[Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで実行するか、所有するコンピューターに[インストール](install-azurerm-ps.md)します。</span><span class="sxs-lookup"><span data-stu-id="6f840-106">Use the [Cloud Shell](/azure/cloud-shell/overview) to run the Azure PowerShell in your browser, or [install](install-azurerm-ps.md) it on own computer.</span></span> <span data-ttu-id="6f840-107">実際に使う際には、[概要](get-started-azureps.md)の記事をお読みください。</span><span class="sxs-lookup"><span data-stu-id="6f840-107">Then read the [Get Started](get-started-azureps.md) article to begin using it.</span></span> <span data-ttu-id="6f840-108">最新リリースについては、[リリース ノート](release-notes-azureps.md)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="6f840-108">For information about the latest release, see the [release notes](release-notes-azureps.md).</span></span>
+<span data-ttu-id="cc504-106">Azure PowerShell は、[Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで実行するか、所有するコンピューターに[インストール](install-azurerm-ps.md)します。</span><span class="sxs-lookup"><span data-stu-id="cc504-106">Use the [Cloud Shell](/azure/cloud-shell/overview) to run the Azure PowerShell in your browser, or [install](install-azurerm-ps.md) it on own computer.</span></span> <span data-ttu-id="cc504-107">実際に使う際には、[概要](get-started-azureps.md)の記事をお読みください。</span><span class="sxs-lookup"><span data-stu-id="cc504-107">Then read the [Get Started](get-started-azureps.md) article to begin using it.</span></span> <span data-ttu-id="cc504-108">最新リリースについては、[リリース ノート](release-notes-azureps.md)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="cc504-108">For information about the latest release, see the [release notes](release-notes-azureps.md).</span></span>
 
-<span data-ttu-id="6f840-109">Azure PowerShell の基本的な使い方については、次のサンプルが参考になります。</span><span class="sxs-lookup"><span data-stu-id="6f840-109">The following samples can help you learn how to perform common scenarios with Azure PowerShell:</span></span>
+<span data-ttu-id="cc504-109">Azure PowerShell の基本的な使い方については、次のサンプルが参考になります。</span><span class="sxs-lookup"><span data-stu-id="cc504-109">The following samples can help you learn how to perform common scenarios with Azure PowerShell:</span></span>
 
-* [<span data-ttu-id="6f840-110">Linux virtual machines</span><span class="sxs-lookup"><span data-stu-id="6f840-110">Linux Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
-* [<span data-ttu-id="6f840-111">Windows Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="6f840-111">Windows Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/powershell/azure/toc.json)
-* [<span data-ttu-id="6f840-112">Web Apps</span><span class="sxs-lookup"><span data-stu-id="6f840-112">Web Apps</span></span>](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
-* [<span data-ttu-id="6f840-113">SQL Database</span><span class="sxs-lookup"><span data-stu-id="6f840-113">SQL Databases</span></span>](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
+* [<span data-ttu-id="cc504-110">Linux virtual machines</span><span class="sxs-lookup"><span data-stu-id="cc504-110">Linux Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
+* [<span data-ttu-id="cc504-111">Windows Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="cc504-111">Windows Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/powershell/azure/toc.json)
+* [<span data-ttu-id="cc504-112">Web Apps</span><span class="sxs-lookup"><span data-stu-id="cc504-112">Web Apps</span></span>](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
+* [<span data-ttu-id="cc504-113">SQL Database</span><span class="sxs-lookup"><span data-stu-id="cc504-113">SQL Databases</span></span>](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
 
 [!INCLUDE[az-replacing-azurerm](../includes/az-replacing-azurerm.md)]
 
-## <a name="learn-powershell-basics"></a><span data-ttu-id="6f840-114">PowerShell の基礎を学ぶ</span><span class="sxs-lookup"><span data-stu-id="6f840-114">Learn PowerShell basics</span></span>
+## <a name="learn-powershell-basics"></a><span data-ttu-id="cc504-114">PowerShell の基礎を学ぶ</span><span class="sxs-lookup"><span data-stu-id="cc504-114">Learn PowerShell basics</span></span>
 
-<span data-ttu-id="6f840-115">PowerShell について初めて学ぶ場合は、PowerShell の概要に関するページからご覧ください。</span><span class="sxs-lookup"><span data-stu-id="6f840-115">If you're unfamiliar with PowerShell, an introduction to PowerShell may be helpful.</span></span>
+<span data-ttu-id="cc504-115">PowerShell について初めて学ぶ場合は、PowerShell の概要に関するページからご覧ください。</span><span class="sxs-lookup"><span data-stu-id="cc504-115">If you're unfamiliar with PowerShell, an introduction to PowerShell may be helpful.</span></span>
 
-* [<span data-ttu-id="6f840-116">PowerShell のインストール</span><span class="sxs-lookup"><span data-stu-id="6f840-116">Installing PowerShell</span></span>](/powershell/scripting/setup/installing-windows-powershell)
-* [<span data-ttu-id="6f840-117">PowerShell を使用したスクリプト</span><span class="sxs-lookup"><span data-stu-id="6f840-117">Scripting with PowerShell</span></span>](/powershell/scripting/powershell-scripting)
+* [<span data-ttu-id="cc504-116">PowerShell のインストール</span><span class="sxs-lookup"><span data-stu-id="cc504-116">Installing PowerShell</span></span>](/powershell/scripting/setup/installing-windows-powershell)
+* [<span data-ttu-id="cc504-117">PowerShell を使用したスクリプト</span><span class="sxs-lookup"><span data-stu-id="cc504-117">Scripting with PowerShell</span></span>](/powershell/scripting/powershell-scripting)
 
-<span data-ttu-id="6f840-118">また、「[PowerShell Basics: (Part 1) Getting Started with PowerShell (PowerShell の基礎: (パート 1) PowerShell の基本)](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)」のビデオもご覧ください。</span><span class="sxs-lookup"><span data-stu-id="6f840-118">You can also watch this video: [PowerShell Basics: (Part 1) Getting Started with PowerShell](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1).</span></span>
+<span data-ttu-id="cc504-118">また、「[PowerShell Basics: (Part 1) Getting Started with PowerShell (PowerShell の基礎: (パート 1) PowerShell の基本)](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)」のビデオもご覧ください。</span><span class="sxs-lookup"><span data-stu-id="cc504-118">You can also watch this video: [PowerShell Basics: (Part 1) Getting Started with PowerShell](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1).</span></span>
 
-<span data-ttu-id="6f840-119">または、Microsoft Virtual Academy の [PowerShell の概要](https://mva.microsoft.com/liveevents/powershell-jumpstart)に関するクラスにご参加ください。</span><span class="sxs-lookup"><span data-stu-id="6f840-119">Or attend the Microsoft Virtual Academy's [Getting Started with PowerShell Jumpstart](https://mva.microsoft.com/liveevents/powershell-jumpstart).</span></span>
+<span data-ttu-id="cc504-119">または、Microsoft Virtual Academy の [PowerShell の概要](https://mva.microsoft.com/liveevents/powershell-jumpstart)に関するクラスにご参加ください。</span><span class="sxs-lookup"><span data-stu-id="cc504-119">Or attend the Microsoft Virtual Academy's [Getting Started with PowerShell Jumpstart](https://mva.microsoft.com/liveevents/powershell-jumpstart).</span></span>
 
-## <a name="build-your-skills-with-microsoft-learn"></a><span data-ttu-id="6f840-120">Microsoft Learn でスキルを身に付ける</span><span class="sxs-lookup"><span data-stu-id="6f840-120">Build your skills with Microsoft Learn</span></span>
+## <a name="build-your-skills-with-microsoft-learn"></a><span data-ttu-id="cc504-120">Microsoft Learn でスキルを身に付ける</span><span class="sxs-lookup"><span data-stu-id="cc504-120">Build your skills with Microsoft Learn</span></span>
 
-- [<span data-ttu-id="6f840-121">PowerShell でスクリプトを使用した Azure タスクの自動化</span><span class="sxs-lookup"><span data-stu-id="6f840-121">Automate Azure tasks using scripts with PowerShell</span></span>](/learn/modules/automate-azure-tasks-with-powershell/)
-- [<span data-ttu-id="6f840-122">対話型学習の詳細...</span><span class="sxs-lookup"><span data-stu-id="6f840-122">More interactive learning...</span></span>](/learn/browse/?term=powershell)
+- [<span data-ttu-id="cc504-121">PowerShell でスクリプトを使用した Azure タスクの自動化</span><span class="sxs-lookup"><span data-stu-id="cc504-121">Automate Azure tasks using scripts with PowerShell</span></span>](/learn/modules/automate-azure-tasks-with-powershell/)
+- [<span data-ttu-id="cc504-122">対話型学習の詳細...</span><span class="sxs-lookup"><span data-stu-id="cc504-122">More interactive learning...</span></span>](/learn/browse/?term=powershell)
 
-## <a name="other-azure-powershell-modules"></a><span data-ttu-id="6f840-123">その他の Azure PowerShell モジュール</span><span class="sxs-lookup"><span data-stu-id="6f840-123">Other Azure PowerShell modules</span></span>
+## <a name="other-azure-powershell-modules"></a><span data-ttu-id="cc504-123">その他の Azure PowerShell モジュール</span><span class="sxs-lookup"><span data-stu-id="cc504-123">Other Azure PowerShell modules</span></span>
 
-* [<span data-ttu-id="6f840-124">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="6f840-124">Azure Active Directory</span></span>](/powershell/azure/active-directory/)
-* [<span data-ttu-id="6f840-125">Azure Information Protection</span><span class="sxs-lookup"><span data-stu-id="6f840-125">Azure Information Protection</span></span>](/powershell/azure/aip/)
-* [<span data-ttu-id="6f840-126">Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="6f840-126">Azure Service Fabric</span></span>](/powershell/azure/service-fabric/)
-* [<span data-ttu-id="6f840-127">Azure ElasticDB</span><span class="sxs-lookup"><span data-stu-id="6f840-127">Azure ElasticDB</span></span>](/powershell/azure/elasticdbjobs/)
+* [<span data-ttu-id="cc504-124">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="cc504-124">Azure Active Directory</span></span>](/powershell/azure/active-directory/)
+* [<span data-ttu-id="cc504-125">Azure Information Protection</span><span class="sxs-lookup"><span data-stu-id="cc504-125">Azure Information Protection</span></span>](/powershell/azure/aip/)
+* [<span data-ttu-id="cc504-126">Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="cc504-126">Azure Service Fabric</span></span>](/powershell/azure/service-fabric/)
+* [<span data-ttu-id="cc504-127">Azure ElasticDB</span><span class="sxs-lookup"><span data-stu-id="cc504-127">Azure ElasticDB</span></span>](/powershell/azure/elasticdbjobs/)
