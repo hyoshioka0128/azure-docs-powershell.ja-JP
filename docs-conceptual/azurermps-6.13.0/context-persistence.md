@@ -6,15 +6,15 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 08/31/2017
-ms.openlocfilehash: 85de158cd2a4c3a38f653a530db8e6fae50cb37f
+ms.date: 09/09/2018
+ms.openlocfilehash: a07b5fe8cd532f99038d7f0ce10b3b891c896da1
 ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/22/2018
-ms.locfileid: "52258521"
+ms.locfileid: "52259724"
 ---
-# <a name="persisting-user-credentials-across-powershell-sessions"></a>PowerShell セッション間でのユーザーの資格情報の保持
+# <a name="persist-user-credentials-across-powershell-sessions"></a>PowerShell セッション間でユーザーの資格情報を保持する
 
 Azure PowerShell では、**Azure Context Autosave** と呼ばれる機能を提供しています。その機能は以下のとおりです。
 
@@ -32,18 +32,16 @@ Azure PowerShell では、**Azure Context Autosave** と呼ばれる機能を提
 - "*テナント*" - サブスクリプションを含む Azure Active Directory テナント。 テナントは、サービス プリンシパル認証にとってより重要になります。
 - "*環境*" - 対象となる特定の Azure クラウド (通常は Azure グローバル クラウド)。
   ただし、環境設定では、国内、政府、オンプレミス (Azure Stack) クラウドも対象にすることができます。
-- "*資格情報*" - 本人確認と Azure のリソースへのアクセスの承認のために Azure で使用される情報。
+- "*資格情報*" - 本人確認と Azure のリソースへのアクセスの承認のために Azure で使用される情報
 
-以前のリリースでは、新しい PowerShell セッションを開くたびに Azure コンテキストを作成する必要がありました。 Azure PowerShell v4.4.0 以降では、新しい PowerShell セッションを開くとすぐに Azure コンテキストの自動保存と再利用を有効にすることができます。
+以前のリリースでは、新しい PowerShell セッションを開くたびに Azure コンテキストを作成する必要がありました。 Azure PowerShell v4.4.0 以降では、新しい PowerShell セッションを開くたびに Azure コンテキストを自動的に保存できます。
 
-## <a name="automatically-saving-the-context-for-the-next-sign-in"></a>次回サインインのためのコンテキストの自動保存
+## <a name="automatically-save-the-context-for-the-next-sign-in"></a>次回サインインのためのコンテキストの自動保存
 
-既定では、Azure PowerShell は PowerShell セッションを終了するたびにコンテキスト情報を破棄します。
+バージョン 6.3.0 以降、Azure PowerShell では、セッション間で自動的にコンテキスト情報が保持されます。 コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzureRmContextAutoSave` を使用します。 PowerShell セッションを開くたびに Azure へのサインインが必要になります。
 
 PowerShell セッションが終了した後に Azure PowerShell がコンテキストを記憶できるようにするには、`Enable-AzureRmContextAutosave` を使用します。 コンテキストと資格情報は、ユーザー ディレクトリの特殊な隠しフォルダー (`%AppData%\Roaming\Windows Azure PowerShell`) に自動的に保存されます。
-その後、新しい PowerShell セッションそれぞれで、最後のセッションで使用されたコンテキストが対象となります。
-
-コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzureRmContextAutoSave` を使用します。 PowerShell セッションを開くたびに Azure へのサインインが必要になります。
+新しい PowerShell セッションそれぞれで、最後のセッションで使用されたコンテキストが対象となります。
 
 Azure コンテキストを管理できるコマンドレットを使用すると、きめ細かな制御も可能になります。 変更を現在の PowerShell セッションのみ (`Process` スコープ) とすべての PowerShell セッション (`CurrentUser` スコープ) のどちらに適用するかを制御できます。 これらのオプションについては、「[コンテキスト スコープの使用](#Using-Context-Scopes)」で詳しく説明します。
 
@@ -71,7 +69,7 @@ Azure コンテキストを管理できるコマンドレットを使用する�
 
 ## <a name="creating-selecting-renaming-and-removing-contexts"></a>コンテキストの作成、選択、名前変更、削除
 
-コンテキストを作成するには、Azure にサインインしている必要があります。 `Add-AzureRmAccount` コマンドレット (またはそのエイリアス `Login-AzureRmAccount`) は、後続の Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
+コンテキストを作成するには、Azure にサインインしている必要があります。 `Connect-AzureRmAccount` コマンドレット (またはそのエイリアス `Login-AzureRmAccount`) は、Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
 
 サインイン後に新しいコンテキストを追加するには、`Set-AzureRmContext` (またはそのエイリアス `Select-AzureRmSubscription`) を使用します。
 
@@ -95,14 +93,14 @@ PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Co
 PS C:\> Remove-AzureRmContext Contoso2
 ```
 
-"Contoso2" という名前のコンテキストは記憶されません。 その後、`Set-AzureRmContext` を使用して、このコンテキストを再作成できます。
+"Contoso2" という名前のコンテキストは記憶されません。 `Set-AzureRmContext` を使用して、このコンテキストを再作成できます
 
 ## <a name="removing-credentials"></a>資格情報の削除
 
-`Remove-AzureRmAccount` (別名 `Logout-AzureRmAccount`) を使用して、ユーザーまたはサービス プリンシパルの資格情報と関連付けられたコンテキストをすべて削除できます。 `Remove-AzureRmAccount` コマンドレットをパラメーターを指定せずに実行すると、現在のコンテキストのユーザーまたはサービス プリンシパルに関連付けられた資格情報とコンテキストがすべて削除されます。 特定のプリンシパルを対象とするために、ユーザー名、サービス プリンシパル名、またはコンテキストを渡すこともできます。
+`Disconnect-AzureRmAccount` (別名 `Logout-AzureRmAccount`) を使用して、ユーザーまたはサービス プリンシパルの資格情報と関連付けられたコンテキストをすべて削除できます。 `Disconnect-AzureRmAccount` コマンドレットをパラメーターを指定せずに実行すると、現在のコンテキストのユーザーまたはサービス プリンシパルに関連付けられた資格情報とコンテキストがすべて削除されます。 特定のプリンシパルを対象とするために、ユーザー名、サービス プリンシパル名、またはコンテキストを渡すこともできます。
 
 ```azurepowershell-interactive
-Remove-AzureRmAccount user1@contoso.org
+Disconnect-AzureRmAccount user1@contoso.org
 ```
 
 ## <a name="using-context-scopes"></a>コンテキスト スコープの使用
@@ -123,7 +121,7 @@ PS C:\> Select-AzureRmContext Contoso1 -Scope Process
 $env:AzureRmContextAutoSave="true" | "false"
 ```
 
-"true" に設定した場合、コンテキストは自動的に保存されます。 "false" に設定した場合、コンテキストは保存されません。
+"true" に設定すると、コンテキストは自動的に保存されます。 "false" に設定した場合、コンテキストは保存されません。
 
 ## <a name="changes-to-the-azurermprofile-module"></a>AzureRM.Profile モジュールの変更点
 
@@ -132,8 +130,8 @@ $env:AzureRmContextAutoSave="true" | "false"
 - [Enable-AzureRmContextAutosave][enable] - PowerShell セッション間でのコンテキストの保存を許可します。
   変更するとグローバル コンテキストが変更されます。
 - [Disable-AzureRmContextAutosave][disable] - コンテキストの自動保存をオフにします。 新しい PowerShell セッションごとに再度サインインが必要になります。
-- [Select-AzureRmContext][select] - コンテキストを既定値として選択します。 後続のすべてのコマンドレットでは、認証にこのコンテキストの資格情報が使用されます。
-- [Remove-AzureRmAccount][remove-cred] - アカウントに関連付けられた資格情報とコンテキストをすべて削除します。
+- [Select-AzureRmContext][select] - コンテキストを既定値として選択します。 すべてのコマンドレットで、認証にこのコンテキストの資格情報が使用されます。
+- [Disconnect-AzureRmAccount][remove-cred] - アカウントに関連付けられた資格情報とコンテキストをすべて削除します。
 - [Remove-AzureRmContext][remove-context] - 名前付きコンテキストを削除します。
 - [Rename-AzureRmContext][rename] - 既存のコンテキストの名前を変更します。
 
@@ -148,11 +146,11 @@ $env:AzureRmContextAutoSave="true" | "false"
 [enable]: /powershell/module/azurerm.profile/Enable-AzureRmContextAutosave
 [disable]: /powershell/module/azurerm.profile/Disable-AzureRmContextAutosave
 [select]: /powershell/module/azurerm.profile/Select-AzureRmContext
-[remove-cred]: /powershell/module/azurerm.profile/Remove-AzureRmAccount
+[remove-cred]: /powershell/module/azurerm.profile/Disconnect-AzureRmAccount
 [remove-context]: /powershell/module/azurerm.profile/Remove-AzureRmContext
 [rename]: /powershell/module/azurerm.profile/Rename-AzureRmContext
 
 <!-- Updated cmdlets -->
-[login]: /powershell/module/azurerm.profile/Add-AzureRmAccount
-[import]: /powershell/module/azurerm.profile/Import-AzureRmAccount
-[set-context]: /powershell/module/azurerm.profile/Import-AzureRmContext
+[login]: /powershell/module/azurerm.profile/Connect-AzureRmAccount
+[import]:  /powershell/module/azurerm.profile/Import-AzureRmContext
+[set-context]: /powershell/module/azurerm.profile/Set-AzureRmContext

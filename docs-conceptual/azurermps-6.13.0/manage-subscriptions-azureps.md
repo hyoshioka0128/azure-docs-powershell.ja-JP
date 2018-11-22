@@ -1,19 +1,18 @@
 ---
-title: Azure PowerShell による Azure サブスクリプションの管理 | Microsoft Docs
+title: Azure PowerShell による Azure サブスクリプションの管理
 description: Azure PowerShell による Azure サブスクリプションの管理
-keywords: Azure PowerShell, サブスクリプション
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/30/2017
-ms.openlocfilehash: 12e304f32f585c1af40d20579cd46999e0a12395
+ms.date: 09/11/2018
+ms.openlocfilehash: a93461af1dafbf8f2c85ef127ecaefadf3be2f52
 ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/22/2018
-ms.locfileid: "52257960"
+ms.locfileid: "52259813"
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>複数の Azure サブスクリプションの管理
 
@@ -21,7 +20,7 @@ Azure を使い始めたばかりの場合、所有しているサブスクリ�
 
 1. アカウント内のすべてのサブスクリプションの一覧を取得します。
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
     Get-AzureRmSubscription
     ```
 
@@ -50,13 +49,13 @@ Azure を使い始めたばかりの場合、所有しているサブスクリ�
 
 2. 既定のサブスクリプションを設定します。
 
-    ```powershell-interactive
-    Select-AzureRmSubscription -SubscriptionName "My Demos"
+    ```azurepowershell-interactive
+    Select-AzureRmSubscription -Subscription "My Demos"
     ```
 
 3. `Get-AzureRmContext` コマンドレットを実行して変更内容を確認します。
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
     Get-AzureRmContext
     ```
 
@@ -69,4 +68,4 @@ Azure を使い始めたばかりの場合、所有しているサブスクリ�
     CurrentStorageAccount :
     ```
 
-既定のサブスクリプションを設定すると、後続のすべての Azure PowerShell コマンドは、このサブスクリプションに対して実行されます。
+既定のサブスクリプションを設定すると、すべての Azure PowerShell コマンドが、このサブスクリプションに対して実行されます。

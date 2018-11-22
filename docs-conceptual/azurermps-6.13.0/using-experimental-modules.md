@@ -6,15 +6,15 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/05/2017
-ms.openlocfilehash: ff58693c8ec21b7e50e37bd85975a9ae3980a5e7
+ms.date: 09/11/2018
+ms.openlocfilehash: 77d0ce36ae3ab7c7bddd3febef4600fc9652850f
 ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/22/2018
-ms.locfileid: "52259133"
+ms.locfileid: "52259616"
 ---
-# <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
+# <a name="use-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
 Azure PowerShell チームでは現在、Azure の開発者ツール (特に CLI) を中心に Azure PowerShell のエクスペリエンスに多数の改善を加え、その評価試験を実施しています。
 
@@ -89,7 +89,7 @@ Install-Module AzureRM.Websites.Experiments
 
 たとえば、"Web アプリを作成する" シナリオであれば、既存の Git リポジトリにリモートの Azure を自動で追加するスイッチとして `-Git` または `-AddRemote` が考えられます。
 
-- 既定値の設定機能 - `-ResourceGroupName` や `-Location` など、さまざまな局面で使用するパラメーターに既定値を設定できる機能が必要です。
+- 既定値の設定機能 - `-ResourceGroupName`、`-Location` などの一般的なパラメーターに、ユーザーが既定値を設定できる必要があります。
 
 - サイズの既定値 - リソースの "サイズ" は、("Standard\_DS1\_v2"、"S1" などのように) 多数のリソース プロバイダーがさまざまな名称を使用しているため、ユーザーにとってはわかりにくいものです。 もっとも、ほとんどのユーザーがこれよりも気にするのはコストです。 このため、価格体系に基づいて "汎用の" サイズを定めておくと効果的です。 これにより、ユーザー自身が特定のサイズを選択することも、リソースと予算に基づいて Azure PowerShell に "_最適な選択肢_" を選択してもらうこともできるようになります。
 

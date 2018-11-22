@@ -1,40 +1,29 @@
 ---
 title: Azure PowerShell のアンインストール
 description: Azure PowerShell の完全アンインストールを実行する方法
-ms.date: 06/20/2018
+ms.date: 09/11/2018
 author: sptramer
 ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: 3828a6f9d60a68c2837cc201a50d8707324f4f0a
+ms.openlocfilehash: bf1f81b4929ec066eeb888da4ba1303430f026b4
 ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/22/2018
-ms.locfileid: "52257943"
+ms.locfileid: "52259652"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
 この記事では、古いバージョンの Azure PowerShell をアンインストールする (システムから完全に削除する) 方法について説明します。 Azure PowerShell を完全にアンインストールすることにした場合は、[Send-Feedback](/powershell/module/azurerm.profile/send-feedback) コマンドレットを使用してフィードバックをお送りください。
 バグが見つかった場合は、[GitHub で問題を報告](https://github.com/azure/azure-powershell/issues)していただきますよう、よろしくお願いいたします。
 
-## <a name="uninstall-msi-or-web-platform-installer"></a>MSI または Web Platform Installer のアンインストール
-
-MSI パッケージまたは Web Platform Installer を使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
-
-| プラットフォーム | このサンプルについての指示 |
-|----------|--------------|
-| Windows 10 | [スタート] > [設定] > [アプリ] |
-| Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
-
-この画面のプログラムの一覧に [Azure PowerShell] が表示されたら、そこからアンインストールできます。
-
 ## <a name="uninstall-from-powershell"></a>PowerShell からのアンインストール
 
 PowerShellGet を使用して Azure PowerShell をインストールした場合は、[Uninstall-Module](/powershell/module/powershellget/uninstall-module) コマンドレットを使用します。 ただし、`Uninstall-Module` でアンインストールされるモジュールは 1 つだけです。 Azure PowerShell を完全に削除するには、各モジュールを個別にアンインストールする必要があります。 複数のバージョンの Azure PowerShell がインストールされている場合、アンインストールが複雑になることがあります。
 
-次のスクリプトを使用して、1 つのバージョンの Azure PowerShell を完全に削除できます。 このスクリプトでは、PowerShell ギャラリーに照会して依存サブモジュールの一覧を取得します。 次に、各サブモジュールの適切なバージョンがアンインストールされます。
+次のスクリプトでは、PowerShell ギャラリーに照会して依存サブモジュールの一覧を取得します。 次に、各サブモジュールの適切なバージョンがアンインストールされます。
 
 ```powershell-interactive
 function Uninstall-AllModules {
@@ -53,7 +42,7 @@ function Uninstall-AllModules {
   'Creating list of dependencies...'
   $target = Find-Module $TargetModule -RequiredVersion $version
   $target.Dependencies | ForEach-Object {
-    $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$_.requiredversion}
+    $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$_.minimumVersion}
   }
   $AllModules += New-Object -TypeName psobject -Property @{name=$TargetModule; version=$Version}
 
@@ -85,4 +74,20 @@ Uninstalling Azure.AnalysisServices version 0.4.7
 ...
 ```
 
-アンインストールする Azure PowerShell のバージョンごとにこのコマンドを実行します。
+アンインストールする Azure PowerShell のバージョンごとにこのコマンドを実行します。 便宜上、次のスクリプトにより、最新バージョンを__除く__、AzureRM のすべてのバージョンがアンインストールされます。
+
+```powershell-interactive
+$versions = (get-installedmodule AzureRM -AllVersions | Select-Object Version)
+$versions[1..($versions.Length-1)]  | foreach { Uninstall-AllModules -TargetModule AzureRM -Version ($_.Version) -Force }
+```
+
+## <a name="uninstall-msi"></a>MSI のアンインストール
+
+MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
+
+| プラットフォーム | このサンプルについての指示 |
+|----------|--------------|
+| Windows 10 | [スタート] > [設定] > [アプリ] |
+| Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
+
+この画面のプログラムの一覧に [Azure PowerShell] が表示されたら、そこからアンインストールできます。
