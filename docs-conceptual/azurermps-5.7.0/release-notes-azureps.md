@@ -836,7 +836,7 @@ Update-Module -Name AzureRM
     - Disable-AzureRmRecoveryServicesBackupRPMountScript
   * RecoveryServices.Backup SDK を最新バージョンに更新しました
   * テスト実行に必要なすべての設定がテスト自体で行われるように、Azure VM ワークロードのテストを更新しました。
-  * https://github.com/Azure/azure-powershell/issues/3164 を修正しました
+  * [https://github.com/Azure/azure-powershell/issues/3164](https://github.com/Azure/azure-powershell/issues/3164) を修正しました
 * RecoveryServices.SiteRecovery
   * Azure Site Recovery に対する ASR VMware の変更 (コマンドレットは現在、Enterprise から Enterprise、Enterprise から Azure、HyperV から Azure の操作をサポートしています)
     - New-AzureRmRecoveryServicesAsrPolicy
