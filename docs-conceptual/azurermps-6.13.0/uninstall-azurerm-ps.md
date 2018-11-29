@@ -8,11 +8,11 @@ ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.openlocfilehash: bf1f81b4929ec066eeb888da4ba1303430f026b4
-ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
+ms.sourcegitcommit: 558436c824d9b59731aa9b963cdc8df4dea932e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52259652"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52586583"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
@@ -85,7 +85,7 @@ $versions[1..($versions.Length-1)]  | foreach { Uninstall-AllModules -TargetModu
 
 MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
 
-| プラットフォーム | このサンプルについての指示 |
+| プラットフォーム | Instructions |
 |----------|--------------|
 | Windows 10 | [スタート] > [設定] > [アプリ] |
 | Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
