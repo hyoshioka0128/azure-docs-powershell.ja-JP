@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
 ms.openlocfilehash: 72d147f5bc9c882083dda6b33b1c89663fd2eb34
-ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
+ms.sourcegitcommit: 558436c824d9b59731aa9b963cdc8df4dea932e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52257994"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52588249"
 ---
-# <a name="azure-stack-module-140"></a><span data-ttu-id="0c28d-103">Azure Stack Module 1.4.0</span><span class="sxs-lookup"><span data-stu-id="0c28d-103">Azure Stack Module 1.4.0</span></span>
+# <a name="azure-stack-module-140"></a><span data-ttu-id="eee62-103">Azure Stack Module 1.4.0</span><span class="sxs-lookup"><span data-stu-id="eee62-103">Azure Stack Module 1.4.0</span></span>
 
-## <a name="requirements"></a><span data-ttu-id="0c28d-104">要件:</span><span class="sxs-lookup"><span data-stu-id="0c28d-104">Requirements:</span></span>
-<span data-ttu-id="0c28d-105">サポートされている Azure Stack の最小バージョンは 1804 です。</span><span class="sxs-lookup"><span data-stu-id="0c28d-105">Minimum supported Azure Stack version is 1804.</span></span>
+## <a name="requirements"></a><span data-ttu-id="eee62-104">要件:</span><span class="sxs-lookup"><span data-stu-id="eee62-104">Requirements:</span></span>
+<span data-ttu-id="eee62-105">サポートされている Azure Stack の最小バージョンは 1804 です。</span><span class="sxs-lookup"><span data-stu-id="eee62-105">Minimum supported Azure Stack version is 1804.</span></span>
 
-<span data-ttu-id="0c28d-106">注: 以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください。</span><span class="sxs-lookup"><span data-stu-id="0c28d-106">Note: If you are using an earlier version install version 1.2.11</span></span>
+<span data-ttu-id="eee62-106">注: 以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください。</span><span class="sxs-lookup"><span data-stu-id="eee62-106">Note: If you are using an earlier version install version 1.2.11</span></span>
 
-## <a name="known-issues"></a><span data-ttu-id="0c28d-107">既知の問題:</span><span class="sxs-lookup"><span data-stu-id="0c28d-107">Known issues:</span></span>
+## <a name="known-issues"></a><span data-ttu-id="eee62-107">既知の問題:</span><span class="sxs-lookup"><span data-stu-id="eee62-107">Known issues:</span></span>
 
-- <span data-ttu-id="0c28d-108">アラートを閉じるには、Azure Stack バージョン 1803 が必要です。</span><span class="sxs-lookup"><span data-stu-id="0c28d-108">Close Alert requires Azure Stack version 1803</span></span>
-- <span data-ttu-id="0c28d-109">New-AzsOffer では、状態が "パブリック" のオファーを作成することはできません。</span><span class="sxs-lookup"><span data-stu-id="0c28d-109">New-AzsOffer does not allow to create an offer with state public.</span></span> <span data-ttu-id="0c28d-110">状態を変更するには、後で Set-AzsOffer コマンドレットを呼び出す必要があります。</span><span class="sxs-lookup"><span data-stu-id="0c28d-110">The Set-AzsOffer cmdlet needs to be called afterwards to change the state.</span></span>
-- <span data-ttu-id="0c28d-111">再デプロイせずに IP プールを削除することはできません。</span><span class="sxs-lookup"><span data-stu-id="0c28d-111">An IP Pool cannot be removed without a redeployment</span></span>
+- <span data-ttu-id="eee62-108">アラートを閉じるには、Azure Stack バージョン 1803 が必要です。</span><span class="sxs-lookup"><span data-stu-id="eee62-108">Close Alert requires Azure Stack version 1803</span></span>
+- <span data-ttu-id="eee62-109">New-AzsOffer では、状態が "パブリック" のオファーを作成することはできません。</span><span class="sxs-lookup"><span data-stu-id="eee62-109">New-AzsOffer does not allow to create an offer with state public.</span></span> <span data-ttu-id="eee62-110">状態を変更するには、後で Set-AzsOffer コマンドレットを呼び出す必要があります。</span><span class="sxs-lookup"><span data-stu-id="eee62-110">The Set-AzsOffer cmdlet needs to be called afterwards to change the state.</span></span>
+- <span data-ttu-id="eee62-111">再デプロイせずに IP プールを削除することはできません。</span><span class="sxs-lookup"><span data-stu-id="eee62-111">An IP Pool cannot be removed without a redeployment</span></span>
 
-## <a name="breaking-changes"></a><span data-ttu-id="0c28d-112">重大な変更</span><span class="sxs-lookup"><span data-stu-id="0c28d-112">Breaking Changes</span></span>
-<span data-ttu-id="0c28d-113">バージョン 1.3.0 からの重大な変更はありません。</span><span class="sxs-lookup"><span data-stu-id="0c28d-113">There are no breaking changes from the version 1.3.0.</span></span> <span data-ttu-id="0c28d-114">1.2.11 からの移行に関する重大な変更はすべて https://aka.ms/azspowershellmigration に記載されています。</span><span class="sxs-lookup"><span data-stu-id="0c28d-114">All breaking changes migrating from 1.2.11 are documented here https://aka.ms/azspowershellmigration</span></span>
+## <a name="breaking-changes"></a><span data-ttu-id="eee62-112">重大な変更</span><span class="sxs-lookup"><span data-stu-id="eee62-112">Breaking Changes</span></span>
+<span data-ttu-id="eee62-113">バージョン 1.3.0 からの重大な変更はありません。</span><span class="sxs-lookup"><span data-stu-id="eee62-113">There are no breaking changes from the version 1.3.0.</span></span> <span data-ttu-id="eee62-114">1.2.11 からの移行に関する重大な変更はすべて https://aka.ms/azspowershellmigration に記載されています。</span><span class="sxs-lookup"><span data-stu-id="eee62-114">All breaking changes migrating from 1.2.11 are documented here https://aka.ms/azspowershellmigration</span></span>
 
-## <a name="install"></a><span data-ttu-id="0c28d-115">Install</span><span class="sxs-lookup"><span data-stu-id="0c28d-115">Install</span></span>
+## <a name="install"></a><span data-ttu-id="eee62-115">Install</span><span class="sxs-lookup"><span data-stu-id="eee62-115">Install</span></span>
 ```
 # Remove previous versions of AzureStack modules
 Uninstall-Module -Name AzureStack -Force 
@@ -49,98 +49,98 @@ Use-AzureRmProfile -Profile 2017-03-09-profile -Force
 # Install Azure Stack Admin Module
 Install-Module -Name AzureStack -RequiredVersion 1.4.0
 ```
-## <a name="release-notes"></a><span data-ttu-id="0c28d-116">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="0c28d-116">Release Notes</span></span>
-    * <span data-ttu-id="0c28d-117">Azure Stack 1.4.0 バージョンには、以前のリリース 1.3.0 からの重大な変更はありません</span><span class="sxs-lookup"><span data-stu-id="0c28d-117">Azurestack 1.4.0 version has no breaking changes from the previous release 1.3.0</span></span>
-    * <span data-ttu-id="0c28d-118">Azs.AzureBridge.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-118">Azs.AzureBridge.Admin</span></span>
-        - <span data-ttu-id="0c28d-119">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-119">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-120">Azs.Backup.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-120">Azs.Backup.Admin</span></span>
-        - <span data-ttu-id="0c28d-121">Set-AzsBackupShare コマンドレットに、BackupFrequencyInHours、IsBackupSchedulerEnabled、BackupRetentionPeriodInDays の各パラメーターを追加しました</span><span class="sxs-lookup"><span data-stu-id="0c28d-121">Added new parameters BackupFrequencyInHours, IsBackupSchedulerEnabled, BackupRetentionPeriodInDays in cmdlet Set-AzsBackupShare</span></span>
-        - <span data-ttu-id="0c28d-122">暗号化キーの作成を容易にするために、New-EncyptionKeyBase64 コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="0c28d-122">Added a cmdlet New-EncyptionKeyBase64 to facilitate creating encryption key</span></span>
-        - <span data-ttu-id="0c28d-123">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-123">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-124">Azs.Commerce.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-124">Azs.Commerce.Admin</span></span>
-        - <span data-ttu-id="0c28d-125">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-125">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-126">Azs.Fabric.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-126">Azs.Fabric.Admin</span></span>
-        - <span data-ttu-id="0c28d-127">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-127">Fix for the bug that returned only a single page in paginated results</span></span>
-        - <span data-ttu-id="0c28d-128">管理者が Azure Stack スタンプに新しいスケール ユニット ノードを追加できるように、Add-AzsScaleUnitNode コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="0c28d-128">Added a cmdlet Add-AzsScaleUnitNode to enable admin to add new scale unit nodes to the azurestack stamp</span></span>
-        - <span data-ttu-id="0c28d-129">スケール ユニット パラメーター オブジェクトの作成を容易にするために、New-AzsScaleUnitNodeObject コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="0c28d-129">Added cmdlet and New-AzsScaleUnitNodeObject to facilitate the creation scale unit parameter objects</span></span>
-    * <span data-ttu-id="0c28d-130">Azs.Gallery.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-130">Azs.Gallery.Admin</span></span>
-        - <span data-ttu-id="0c28d-131">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-131">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-132">Azs.InfrastructureInsights.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-132">Azs.InfrastructureInsights.Admin</span></span>
-        - <span data-ttu-id="0c28d-133">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-133">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-134">Azs.Network.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-134">Azs.Network.Admin</span></span>
-        - <span data-ttu-id="0c28d-135">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-135">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-136">Azs.Update.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-136">Azs.Update.Admin</span></span>
-        - <span data-ttu-id="0c28d-137">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-137">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-138">Azs.Subscriptions</span><span class="sxs-lookup"><span data-stu-id="0c28d-138">Azs.Subscriptions</span></span>
-        - <span data-ttu-id="0c28d-139">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-139">Fix for the bug that returned only a single page in paginated results</span></span>
-    * <span data-ttu-id="0c28d-140">Azs.Subscriptions.Admin</span><span class="sxs-lookup"><span data-stu-id="0c28d-140">Azs.Subscriptions.Admin</span></span>
-        - <span data-ttu-id="0c28d-141">委任されたプロバイダーのプラン間でサブスクリプションを移動するために、Move-AzsSubscription コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="0c28d-141">Added a cmdlet Move-AzsSubscription to move subscriptions between delegated provider offers</span></span>
-        - <span data-ttu-id="0c28d-142">委任されたプロバイダーのプラン間でユーザー サブスクリプションを移動できることを検証するために、Test-AzsMoveSubscription コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="0c28d-142">Added a cmdlet Test-AzsMoveSubscription to validate that user subscriptions can be moved between delegated provider offers</span></span>
-        - <span data-ttu-id="0c28d-143">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="0c28d-143">Fix for the bug that returned only a single page in paginated results'</span></span>
+## <a name="release-notes"></a><span data-ttu-id="eee62-116">リリース ノート</span><span class="sxs-lookup"><span data-stu-id="eee62-116">Release Notes</span></span>
+    * <span data-ttu-id="eee62-117">Azure Stack 1.4.0 バージョンには、以前のリリース 1.3.0 からの重大な変更はありません</span><span class="sxs-lookup"><span data-stu-id="eee62-117">Azurestack 1.4.0 version has no breaking changes from the previous release 1.3.0</span></span>
+    * <span data-ttu-id="eee62-118">Azs.AzureBridge.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-118">Azs.AzureBridge.Admin</span></span>
+        - <span data-ttu-id="eee62-119">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-119">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-120">Azs.Backup.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-120">Azs.Backup.Admin</span></span>
+        - <span data-ttu-id="eee62-121">Set-AzsBackupShare コマンドレットに、BackupFrequencyInHours、IsBackupSchedulerEnabled、BackupRetentionPeriodInDays の各パラメーターを追加しました</span><span class="sxs-lookup"><span data-stu-id="eee62-121">Added new parameters BackupFrequencyInHours, IsBackupSchedulerEnabled, BackupRetentionPeriodInDays in cmdlet Set-AzsBackupShare</span></span>
+        - <span data-ttu-id="eee62-122">暗号化キーの作成を容易にするために、New-EncyptionKeyBase64 コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="eee62-122">Added a cmdlet New-EncyptionKeyBase64 to facilitate creating encryption key</span></span>
+        - <span data-ttu-id="eee62-123">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-123">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-124">Azs.Commerce.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-124">Azs.Commerce.Admin</span></span>
+        - <span data-ttu-id="eee62-125">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-125">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-126">Azs.Fabric.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-126">Azs.Fabric.Admin</span></span>
+        - <span data-ttu-id="eee62-127">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-127">Fix for the bug that returned only a single page in paginated results</span></span>
+        - <span data-ttu-id="eee62-128">管理者が Azure Stack スタンプに新しいスケール ユニット ノードを追加できるように、Add-AzsScaleUnitNode コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="eee62-128">Added a cmdlet Add-AzsScaleUnitNode to enable admin to add new scale unit nodes to the azurestack stamp</span></span>
+        - <span data-ttu-id="eee62-129">スケール ユニット パラメーター オブジェクトの作成を容易にするために、New-AzsScaleUnitNodeObject コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="eee62-129">Added cmdlet and New-AzsScaleUnitNodeObject to facilitate the creation scale unit parameter objects</span></span>
+    * <span data-ttu-id="eee62-130">Azs.Gallery.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-130">Azs.Gallery.Admin</span></span>
+        - <span data-ttu-id="eee62-131">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-131">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-132">Azs.InfrastructureInsights.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-132">Azs.InfrastructureInsights.Admin</span></span>
+        - <span data-ttu-id="eee62-133">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-133">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-134">Azs.Network.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-134">Azs.Network.Admin</span></span>
+        - <span data-ttu-id="eee62-135">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-135">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-136">Azs.Update.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-136">Azs.Update.Admin</span></span>
+        - <span data-ttu-id="eee62-137">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-137">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-138">Azs.Subscriptions</span><span class="sxs-lookup"><span data-stu-id="eee62-138">Azs.Subscriptions</span></span>
+        - <span data-ttu-id="eee62-139">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-139">Fix for the bug that returned only a single page in paginated results</span></span>
+    * <span data-ttu-id="eee62-140">Azs.Subscriptions.Admin</span><span class="sxs-lookup"><span data-stu-id="eee62-140">Azs.Subscriptions.Admin</span></span>
+        - <span data-ttu-id="eee62-141">委任されたプロバイダーのプラン間でサブスクリプションを移動するために、Move-AzsSubscription コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="eee62-141">Added a cmdlet Move-AzsSubscription to move subscriptions between delegated provider offers</span></span>
+        - <span data-ttu-id="eee62-142">委任されたプロバイダーのプラン間でユーザー サブスクリプションを移動できることを検証するために、Test-AzsMoveSubscription コマンドレットを追加しました</span><span class="sxs-lookup"><span data-stu-id="eee62-142">Added a cmdlet Test-AzsMoveSubscription to validate that user subscriptions can be moved between delegated provider offers</span></span>
+        - <span data-ttu-id="eee62-143">改ページ調整された結果でシングル ページしか返されないバグに対する修正プログラム</span><span class="sxs-lookup"><span data-stu-id="eee62-143">Fix for the bug that returned only a single page in paginated results'</span></span>
 
-## <a name="content"></a><span data-ttu-id="0c28d-144">内容:</span><span class="sxs-lookup"><span data-stu-id="0c28d-144">Content:</span></span>
-### <a name="azure-bridge"></a><span data-ttu-id="0c28d-145">Azure Bridge</span><span class="sxs-lookup"><span data-stu-id="0c28d-145">Azure Bridge</span></span>
-<span data-ttu-id="0c28d-146">Azure Stack AzureBridge 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure からイメージを配信できます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-146">Preview release of the Azure Stack AzureBridge administrator module which allows you to syndicate images from Azure.</span></span>
+## <a name="content"></a><span data-ttu-id="eee62-144">内容:</span><span class="sxs-lookup"><span data-stu-id="eee62-144">Content:</span></span>
+### <a name="azure-bridge"></a><span data-ttu-id="eee62-145">Azure Bridge</span><span class="sxs-lookup"><span data-stu-id="eee62-145">Azure Bridge</span></span>
+<span data-ttu-id="eee62-146">Azure Stack AzureBridge 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure からイメージを配信できます。</span><span class="sxs-lookup"><span data-stu-id="eee62-146">Preview release of the Azure Stack AzureBridge administrator module which allows you to syndicate images from Azure.</span></span>
 
-### <a name="backup"></a><span data-ttu-id="0c28d-147">バックアップ</span><span class="sxs-lookup"><span data-stu-id="0c28d-147">Backup</span></span>
-<span data-ttu-id="0c28d-148">Backup 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-148">Preview release of the Backup administrator module that allows administrators to:</span></span>
-- <span data-ttu-id="0c28d-149">バックアップの保存先の構成</span><span class="sxs-lookup"><span data-stu-id="0c28d-149">Configure where backups are stored</span></span>
-- <span data-ttu-id="0c28d-150">バックアップの実行</span><span class="sxs-lookup"><span data-stu-id="0c28d-150">Perform backups</span></span>
-- <span data-ttu-id="0c28d-151">完了したバックアップの表示と復元</span><span class="sxs-lookup"><span data-stu-id="0c28d-151">List and restore completed backup</span></span>
+### <a name="backup"></a><span data-ttu-id="eee62-147">バックアップ</span><span class="sxs-lookup"><span data-stu-id="eee62-147">Backup</span></span>
+<span data-ttu-id="eee62-148">Backup 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="eee62-148">Preview release of the Backup administrator module that allows administrators to:</span></span>
+- <span data-ttu-id="eee62-149">バックアップの保存先の構成</span><span class="sxs-lookup"><span data-stu-id="eee62-149">Configure where backups are stored</span></span>
+- <span data-ttu-id="eee62-150">バックアップの実行</span><span class="sxs-lookup"><span data-stu-id="eee62-150">Perform backups</span></span>
+- <span data-ttu-id="eee62-151">完了したバックアップの表示と復元</span><span class="sxs-lookup"><span data-stu-id="eee62-151">List and restore completed backup</span></span>
 
-### <a name="commerce"></a><span data-ttu-id="0c28d-152">コマース</span><span class="sxs-lookup"><span data-stu-id="0c28d-152">Commerce</span></span>
-<span data-ttu-id="0c28d-153">Azure Stack Commerce 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure Stack システム全体の集計データの使用状況を表示できます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-153">Preview release of the Azure Stack Commerce administrator module which provides a way to view aggregate data usage across your Azure Stack system.</span></span>
+### <a name="commerce"></a><span data-ttu-id="eee62-152">コマース</span><span class="sxs-lookup"><span data-stu-id="eee62-152">Commerce</span></span>
+<span data-ttu-id="eee62-153">Azure Stack Commerce 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure Stack システム全体の集計データの使用状況を表示できます。</span><span class="sxs-lookup"><span data-stu-id="eee62-153">Preview release of the Azure Stack Commerce administrator module which provides a way to view aggregate data usage across your Azure Stack system.</span></span>
 
-### <a name="compute"></a><span data-ttu-id="0c28d-154">コンピューティング</span><span class="sxs-lookup"><span data-stu-id="0c28d-154">Compute</span></span>
-<span data-ttu-id="0c28d-155">Azure Stack Compute 管理者モジュールのプレビュー リリース。このモジュールは、コンピューティング クォータ、プラットフォーム イメージ、仮想マシン拡張機能を管理する機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="0c28d-155">Preview release of the Azure Stack Compute administrator module which provides functionality to manage compute quotas, platform images, and virtual machine extensions.</span></span>
+### <a name="compute"></a><span data-ttu-id="eee62-154">コンピューティング</span><span class="sxs-lookup"><span data-stu-id="eee62-154">Compute</span></span>
+<span data-ttu-id="eee62-155">Azure Stack Compute 管理者モジュールのプレビュー リリース。このモジュールは、コンピューティング クォータ、プラットフォーム イメージ、仮想マシン拡張機能を管理する機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="eee62-155">Preview release of the Azure Stack Compute administrator module which provides functionality to manage compute quotas, platform images, and virtual machine extensions.</span></span>
 
-### <a name="fabric"></a><span data-ttu-id="0c28d-156">Fabric</span><span class="sxs-lookup"><span data-stu-id="0c28d-156">Fabric</span></span>
-<span data-ttu-id="0c28d-157">Azure Stack Fabric 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用してインフラストラクチャ コンポーネントを表示および管理できます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-157">Preview release of the Azure Stack Fabric administrator module which allows administrators to view and manage infrastructure components:</span></span>
-- <span data-ttu-id="0c28d-158">スケール ユニット ノードの停止、起動、シャットダウン</span><span class="sxs-lookup"><span data-stu-id="0c28d-158">Stop, Start and Shutdown of scale unit nodes</span></span>
-- <span data-ttu-id="0c28d-159">FRU 関連のアクティビティに対応するためのスケール ユニット ノードのドレインと再開</span><span class="sxs-lookup"><span data-stu-id="0c28d-159">Drain and Resume of scale unit nodes for FRU related activities</span></span>
-- <span data-ttu-id="0c28d-160">スケール ユニット ノードの修復</span><span class="sxs-lookup"><span data-stu-id="0c28d-160">Repair of scale unit nodes</span></span>
-- <span data-ttu-id="0c28d-161">インフラストラクチャ ロールの再起動</span><span class="sxs-lookup"><span data-stu-id="0c28d-161">Restart of Infrastructure role</span></span>
-- <span data-ttu-id="0c28d-162">インフラストラクチャ ロール インスタンスの停止、起動、シャットダウン</span><span class="sxs-lookup"><span data-stu-id="0c28d-162">Stop, Start and Shutdown of Infrastructure role instances</span></span>
-- <span data-ttu-id="0c28d-163">新しい IP プールの作成</span><span class="sxs-lookup"><span data-stu-id="0c28d-163">Create new IP Pools</span></span>
+### <a name="fabric"></a><span data-ttu-id="eee62-156">Fabric</span><span class="sxs-lookup"><span data-stu-id="eee62-156">Fabric</span></span>
+<span data-ttu-id="eee62-157">Azure Stack Fabric 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用してインフラストラクチャ コンポーネントを表示および管理できます。</span><span class="sxs-lookup"><span data-stu-id="eee62-157">Preview release of the Azure Stack Fabric administrator module which allows administrators to view and manage infrastructure components:</span></span>
+- <span data-ttu-id="eee62-158">スケール ユニット ノードの停止、起動、シャットダウン</span><span class="sxs-lookup"><span data-stu-id="eee62-158">Stop, Start and Shutdown of scale unit nodes</span></span>
+- <span data-ttu-id="eee62-159">FRU 関連のアクティビティに対応するためのスケール ユニット ノードのドレインと再開</span><span class="sxs-lookup"><span data-stu-id="eee62-159">Drain and Resume of scale unit nodes for FRU related activities</span></span>
+- <span data-ttu-id="eee62-160">スケール ユニット ノードの修復</span><span class="sxs-lookup"><span data-stu-id="eee62-160">Repair of scale unit nodes</span></span>
+- <span data-ttu-id="eee62-161">インフラストラクチャ ロールの再起動</span><span class="sxs-lookup"><span data-stu-id="eee62-161">Restart of Infrastructure role</span></span>
+- <span data-ttu-id="eee62-162">インフラストラクチャ ロール インスタンスの停止、起動、シャットダウン</span><span class="sxs-lookup"><span data-stu-id="eee62-162">Stop, Start and Shutdown of Infrastructure role instances</span></span>
+- <span data-ttu-id="eee62-163">新しい IP プールの作成</span><span class="sxs-lookup"><span data-stu-id="eee62-163">Create new IP Pools</span></span>
 
-### <a name="gallery"></a><span data-ttu-id="0c28d-164">[ギャラリー]</span><span class="sxs-lookup"><span data-stu-id="0c28d-164">Gallery</span></span>
-<span data-ttu-id="0c28d-165">Azure Stack Gallery 管理者モジュールのプレビュー リリース。このモジュールは、Azure Stack Marketplace のギャラリー項目を管理する機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="0c28d-165">Preview release of the Azure Stack Gallery administrator module which provides functionality to manage gallery items in the Azure Stack marketplace.</span></span>
+### <a name="gallery"></a><span data-ttu-id="eee62-164">[ギャラリー]</span><span class="sxs-lookup"><span data-stu-id="eee62-164">Gallery</span></span>
+<span data-ttu-id="eee62-165">Azure Stack Gallery 管理者モジュールのプレビュー リリース。このモジュールは、Azure Stack Marketplace のギャラリー項目を管理する機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="eee62-165">Preview release of the Azure Stack Gallery administrator module which provides functionality to manage gallery items in the Azure Stack marketplace.</span></span>
 
-### <a name="infrastructure-insights"></a><span data-ttu-id="0c28d-166">Infrastructure Insights</span><span class="sxs-lookup"><span data-stu-id="0c28d-166">Infrastructure Insights</span></span>
-<span data-ttu-id="0c28d-167">Infrastructure Insights 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-167">Preview release of the Infrastructure Insights administrator module which allows administrators:</span></span>
-- <span data-ttu-id="0c28d-168">Azure Stack スタンプ リソースの正常性の表示</span><span class="sxs-lookup"><span data-stu-id="0c28d-168">View the health of their Azure Stack stamp resources</span></span>
-- <span data-ttu-id="0c28d-169">アラートの表示と管理</span><span class="sxs-lookup"><span data-stu-id="0c28d-169">View and manage alerts</span></span>
+### <a name="infrastructure-insights"></a><span data-ttu-id="eee62-166">Infrastructure Insights</span><span class="sxs-lookup"><span data-stu-id="eee62-166">Infrastructure Insights</span></span>
+<span data-ttu-id="eee62-167">Infrastructure Insights 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して以下を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="eee62-167">Preview release of the Infrastructure Insights administrator module which allows administrators:</span></span>
+- <span data-ttu-id="eee62-168">Azure Stack スタンプ リソースの正常性の表示</span><span class="sxs-lookup"><span data-stu-id="eee62-168">View the health of their Azure Stack stamp resources</span></span>
+- <span data-ttu-id="eee62-169">アラートの表示と管理</span><span class="sxs-lookup"><span data-stu-id="eee62-169">View and manage alerts</span></span>
 
-### <a name="keyvault"></a><span data-ttu-id="0c28d-170">KeyVault</span><span class="sxs-lookup"><span data-stu-id="0c28d-170">KeyVault</span></span>
-<span data-ttu-id="0c28d-171">Azure Stack KeyVault 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して KeyVault クォータを表示できます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-171">Preview release of the Azure Stack KeyVault administrator module which allows administrator to view KeyVault quotas.</span></span>
+### <a name="keyvault"></a><span data-ttu-id="eee62-170">KeyVault</span><span class="sxs-lookup"><span data-stu-id="eee62-170">KeyVault</span></span>
+<span data-ttu-id="eee62-171">Azure Stack KeyVault 管理者モジュールのプレビュー リリース。管理者は、このモジュールを使用して KeyVault クォータを表示できます。</span><span class="sxs-lookup"><span data-stu-id="eee62-171">Preview release of the Azure Stack KeyVault administrator module which allows administrator to view KeyVault quotas.</span></span>
 
-### <a name="network"></a><span data-ttu-id="0c28d-172">ネットワーク</span><span class="sxs-lookup"><span data-stu-id="0c28d-172">Network</span></span>
-<span data-ttu-id="0c28d-173">Network 管理者モジュールのプレビュー リリース。このモジュールでは次のことが可能です。</span><span class="sxs-lookup"><span data-stu-id="0c28d-173">Preview release of the Network administrator module which allows:</span></span>
-- <span data-ttu-id="0c28d-174">ネットワーク クォータの管理</span><span class="sxs-lookup"><span data-stu-id="0c28d-174">Management of network quotas</span></span>
-- <span data-ttu-id="0c28d-175">割り当て済みのネットワーク リソース (パブリック IP アドレス、仮想ネットワーク、ロード バランサーなど) の表示</span><span class="sxs-lookup"><span data-stu-id="0c28d-175">View allocated network resources such as public IP addresses, virtual networks, load balancers</span></span>
-- <span data-ttu-id="0c28d-176">管理者の概要を表示するコマンドレットの提供</span><span class="sxs-lookup"><span data-stu-id="0c28d-176">Provides a cmdlet which displays an administrator overview</span></span>
+### <a name="network"></a><span data-ttu-id="eee62-172">ネットワーク</span><span class="sxs-lookup"><span data-stu-id="eee62-172">Network</span></span>
+<span data-ttu-id="eee62-173">Network 管理者モジュールのプレビュー リリース。このモジュールでは次のことが可能です。</span><span class="sxs-lookup"><span data-stu-id="eee62-173">Preview release of the Network administrator module which allows:</span></span>
+- <span data-ttu-id="eee62-174">ネットワーク クォータの管理</span><span class="sxs-lookup"><span data-stu-id="eee62-174">Management of network quotas</span></span>
+- <span data-ttu-id="eee62-175">割り当て済みのネットワーク リソース (パブリック IP アドレス、仮想ネットワーク、ロード バランサーなど) の表示</span><span class="sxs-lookup"><span data-stu-id="eee62-175">View allocated network resources such as public IP addresses, virtual networks, load balancers</span></span>
+- <span data-ttu-id="eee62-176">管理者の概要を表示するコマンドレットの提供</span><span class="sxs-lookup"><span data-stu-id="eee62-176">Provides a cmdlet which displays an administrator overview</span></span>
 
-### <a name="storage"></a><span data-ttu-id="0c28d-177">Storage</span><span class="sxs-lookup"><span data-stu-id="0c28d-177">Storage</span></span>
-<span data-ttu-id="0c28d-178">Azure Stack Storage 管理者モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="0c28d-178">Preview release of the Azure Stack Storage administrator module.</span></span>  <span data-ttu-id="0c28d-179">このリリースには、次の機能が用意されています。</span><span class="sxs-lookup"><span data-stu-id="0c28d-179">In this release we provide the functionality to:</span></span>
-- <span data-ttu-id="0c28d-180">ストレージ クォータの管理</span><span class="sxs-lookup"><span data-stu-id="0c28d-180">Manage storage quotas</span></span>
-- <span data-ttu-id="0c28d-181">削除されたストレージ リソースのガベージ コレクションの実行</span><span class="sxs-lookup"><span data-stu-id="0c28d-181">Garbage collect deleted storage resources</span></span>
-- <span data-ttu-id="0c28d-182">削除されたストレージ アカウントの復元</span><span class="sxs-lookup"><span data-stu-id="0c28d-182">Restore deleted storage accounts</span></span>
-- <span data-ttu-id="0c28d-183">共有間でのコンテナーの移行</span><span class="sxs-lookup"><span data-stu-id="0c28d-183">Migrate containers from one share to another</span></span>
-- <span data-ttu-id="0c28d-184">個々のストレージ コンポーネントに関する情報の表示</span><span class="sxs-lookup"><span data-stu-id="0c28d-184">View information about the individual storage components</span></span>
-- <span data-ttu-id="0c28d-185">使用状況とパフォーマンスの情報の表示</span><span class="sxs-lookup"><span data-stu-id="0c28d-185">View usage and performance information</span></span>
+### <a name="storage"></a><span data-ttu-id="eee62-177">Storage</span><span class="sxs-lookup"><span data-stu-id="eee62-177">Storage</span></span>
+<span data-ttu-id="eee62-178">Azure Stack Storage 管理者モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="eee62-178">Preview release of the Azure Stack Storage administrator module.</span></span>  <span data-ttu-id="eee62-179">このリリースには、次の機能が用意されています。</span><span class="sxs-lookup"><span data-stu-id="eee62-179">In this release we provide the functionality to:</span></span>
+- <span data-ttu-id="eee62-180">ストレージ クォータの管理</span><span class="sxs-lookup"><span data-stu-id="eee62-180">Manage storage quotas</span></span>
+- <span data-ttu-id="eee62-181">削除されたストレージ リソースのガベージ コレクションの実行</span><span class="sxs-lookup"><span data-stu-id="eee62-181">Garbage collect deleted storage resources</span></span>
+- <span data-ttu-id="eee62-182">削除されたストレージ アカウントの復元</span><span class="sxs-lookup"><span data-stu-id="eee62-182">Restore deleted storage accounts</span></span>
+- <span data-ttu-id="eee62-183">共有間でのコンテナーの移行</span><span class="sxs-lookup"><span data-stu-id="eee62-183">Migrate containers from one share to another</span></span>
+- <span data-ttu-id="eee62-184">個々のストレージ コンポーネントに関する情報の表示</span><span class="sxs-lookup"><span data-stu-id="eee62-184">View information about the individual storage components</span></span>
+- <span data-ttu-id="eee62-185">使用状況とパフォーマンスの情報の表示</span><span class="sxs-lookup"><span data-stu-id="eee62-185">View usage and performance information</span></span>
 
-### <a name="subscription-admin"></a><span data-ttu-id="0c28d-186">サブスクリプション管理</span><span class="sxs-lookup"><span data-stu-id="0c28d-186">Subscription Admin</span></span>
-<span data-ttu-id="0c28d-187">Azure Stack Subscription 管理者モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="0c28d-187">Preview release of the Azure Stack Subscription administrator module.</span></span>  <span data-ttu-id="0c28d-188">このモジュールは、管理者向けの次の機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="0c28d-188">This module provides functionality for administrators to:</span></span>
-- <span data-ttu-id="0c28d-189">プランとオファーの管理</span><span class="sxs-lookup"><span data-stu-id="0c28d-189">Manage plans and offers</span></span>
-- <span data-ttu-id="0c28d-190">使用状況とパフォーマンスの情報の表示</span><span class="sxs-lookup"><span data-stu-id="0c28d-190">View usage and performance information</span></span>
-- <span data-ttu-id="0c28d-191">RBAC の管理</span><span class="sxs-lookup"><span data-stu-id="0c28d-191">Manage RBAC</span></span>
+### <a name="subscription-admin"></a><span data-ttu-id="eee62-186">サブスクリプション管理</span><span class="sxs-lookup"><span data-stu-id="eee62-186">Subscription Admin</span></span>
+<span data-ttu-id="eee62-187">Azure Stack Subscription 管理者モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="eee62-187">Preview release of the Azure Stack Subscription administrator module.</span></span>  <span data-ttu-id="eee62-188">このモジュールは、管理者向けの次の機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="eee62-188">This module provides functionality for administrators to:</span></span>
+- <span data-ttu-id="eee62-189">プランとオファーの管理</span><span class="sxs-lookup"><span data-stu-id="eee62-189">Manage plans and offers</span></span>
+- <span data-ttu-id="eee62-190">使用状況とパフォーマンスの情報の表示</span><span class="sxs-lookup"><span data-stu-id="eee62-190">View usage and performance information</span></span>
+- <span data-ttu-id="eee62-191">RBAC の管理</span><span class="sxs-lookup"><span data-stu-id="eee62-191">Manage RBAC</span></span>
 
-### <a name="subscription"></a><span data-ttu-id="0c28d-192">サブスクリプション</span><span class="sxs-lookup"><span data-stu-id="0c28d-192">Subscription</span></span>
-<span data-ttu-id="0c28d-193">Azure Stack Subscription モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="0c28d-193">Preview release of the Azure Stack Subscription module.</span></span>  <span data-ttu-id="0c28d-194">このモジュールは、ユーザー向けの次の機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="0c28d-194">This module provides functionality for Users to:</span></span>
-- <span data-ttu-id="0c28d-195">サブスクリプションの作成、削除、更新</span><span class="sxs-lookup"><span data-stu-id="0c28d-195">Create, Delete and Update Subscriptions</span></span>
+### <a name="subscription"></a><span data-ttu-id="eee62-192">サブスクリプション</span><span class="sxs-lookup"><span data-stu-id="eee62-192">Subscription</span></span>
+<span data-ttu-id="eee62-193">Azure Stack Subscription モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="eee62-193">Preview release of the Azure Stack Subscription module.</span></span>  <span data-ttu-id="eee62-194">このモジュールは、ユーザー向けの次の機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="eee62-194">This module provides functionality for Users to:</span></span>
+- <span data-ttu-id="eee62-195">サブスクリプションの作成、削除、更新</span><span class="sxs-lookup"><span data-stu-id="eee62-195">Create, Delete and Update Subscriptions</span></span>
 
-### <a name="update"></a><span data-ttu-id="0c28d-196">アップデート</span><span class="sxs-lookup"><span data-stu-id="0c28d-196">Update</span></span>
-<span data-ttu-id="0c28d-197">Azure Stack Update 管理者モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="0c28d-197">Preview release of the Azure Stack Update administrator module.</span></span>  <span data-ttu-id="0c28d-198">このモジュールでは、管理者は以下を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="0c28d-198">In this module administrators can:</span></span>
-- <span data-ttu-id="0c28d-199">使用可能な更新プログラムの表示とインストール</span><span class="sxs-lookup"><span data-stu-id="0c28d-199">List and install available updates</span></span>
-- <span data-ttu-id="0c28d-200">中断された更新の再開</span><span class="sxs-lookup"><span data-stu-id="0c28d-200">Resume interrupted updates</span></span>
-- <span data-ttu-id="0c28d-201">インストール済みの更新プログラムの表示</span><span class="sxs-lookup"><span data-stu-id="0c28d-201">View installed updates</span></span>
+### <a name="update"></a><span data-ttu-id="eee62-196">アップデート</span><span class="sxs-lookup"><span data-stu-id="eee62-196">Update</span></span>
+<span data-ttu-id="eee62-197">Azure Stack Update 管理者モジュールのプレビュー リリース。</span><span class="sxs-lookup"><span data-stu-id="eee62-197">Preview release of the Azure Stack Update administrator module.</span></span>  <span data-ttu-id="eee62-198">このモジュールでは、管理者は以下を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="eee62-198">In this module administrators can:</span></span>
+- <span data-ttu-id="eee62-199">使用可能な更新プログラムの表示とインストール</span><span class="sxs-lookup"><span data-stu-id="eee62-199">List and install available updates</span></span>
+- <span data-ttu-id="eee62-200">中断された更新の再開</span><span class="sxs-lookup"><span data-stu-id="eee62-200">Resume interrupted updates</span></span>
+- <span data-ttu-id="eee62-201">インストール済みの更新プログラムの表示</span><span class="sxs-lookup"><span data-stu-id="eee62-201">View installed updates</span></span>
