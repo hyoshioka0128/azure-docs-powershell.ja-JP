@@ -6,13 +6,13 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/16/2018
-ms.openlocfilehash: 32e96c6459c9db0c4b9eda0cc170c85ba99a22ca
-ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
+ms.date: 11/26/2018
+ms.openlocfilehash: 3d52b18750341f220dc8e10d6bf89796457c5a10
+ms.sourcegitcommit: 558436c824d9b59731aa9b963cdc8df4dea932e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52259796"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52588181"
 ---
 # <a name="install-the-azure-powershell-az-module"></a>Azure PowerShell "Az" モジュールのインストール
 
@@ -32,7 +32,9 @@ $PSVersionTable.PSVersion
 
 > [!IMPORTANT]
 >
-> `AzureRM` と `Az` の両方のモジュールを同じシステムに同時にインストールすることはできません。 `Az` モジュールをインストールするには、`AzureRM` をアンインストールする必要があります。 その方法については、[Azure PowerShell モジュール (AzureRM) のアンインストール](uninstall-azurerm-ps.md)に関するページをご覧ください。
+> `AzureRM` と `Az` の両方のモジュールを同時にインストールすることができます。 両方のモジュールをインストールした場合は、__別名を有効にしない__でください。
+> 別名を有効にすると、`AzureRM` コマンドレットと `Az` コマンドの別名との間に競合が発生して、予期しない動作が起こる可能性があります。
+> `Az` モジュールをインストールする前に、`AzureRM` をアンインストールすることをお勧めします。 `AzureRM` のインストールや別名の有効化はいつでもできます。 アンインストールの手順については、[Azure PowerShell モジュール (AzureRM) のアンインストール](uninstall-azurerm-ps.md)に関するページを参照してください。 
 
 グローバル スコープでモジュールをインストールするには、PowerShell ギャラリーからモジュールをインストールするための、昇格された特権が必要です。 Azure PowerShell をインストールするには、管理者特権セッション (Windows の場合は [管理者として実行]、macOS または Linux の場合はスーパーユーザー権限) で、次のコマンドを実行します。
 

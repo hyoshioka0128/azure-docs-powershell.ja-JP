@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 0c73e7ac1d47a2a97b6136fa481d0adce8de33db
-ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
+ms.openlocfilehash: 720387ec1b23f10ddf2b153cf0705b2b6d1b7b82
+ms.sourcegitcommit: 558436c824d9b59731aa9b963cdc8df4dea932e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52259640"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52587705"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az"></a>AzureRM から Azure PowerShell Az への移行
 
@@ -21,7 +21,7 @@ AzureRM コマンドレット用に記述されたスクリプトは、新しい
 
 ## <a name="ensure-your-existing-scripts-work-with-the-latest-azurerm-release"></a>既存スクリプトが AzureRM の最新リリースで機能することを確認する
 
-これは最も重要な手順です。 既存のスクリプトを実行し、AzureRM の "_最新_" リリース (__6.12.0__) で機能することを確認します。 スクリプトが機能しない場合は、必ず [AzureRM 移行ガイド](migration-guide.6.0.0.md)をお読みください。
+これは最も重要な手順です。 既存のスクリプトを実行し、AzureRM の "_最新_" リリース (__6.13.0__) で機能することを確認します。 スクリプトが機能しない場合は、必ず [AzureRM 移行ガイド](migration-guide.6.0.0.md)をお読みください。
 
 ## <a name="install-the-azure-powershell-az-module"></a>Azure PowerShell Az モジュールをインストールする
 
