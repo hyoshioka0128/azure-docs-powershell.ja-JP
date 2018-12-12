@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell のアンインストール
 description: Azure PowerShell の完全アンインストールを実行する方法
-ms.date: 09/11/2018
+ms.date: 11/30/2018
 author: sptramer
 ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: bf1f81b4929ec066eeb888da4ba1303430f026b4
-ms.sourcegitcommit: 558436c824d9b59731aa9b963cdc8df4dea932e7
+ms.openlocfilehash: a35814f4411dd9cab75fa36bd13ff087cdec8f9b
+ms.sourcegitcommit: 93f93b90ef88c2659be95f3acaba514fe9639169
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52586583"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52826699"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
@@ -23,7 +23,20 @@ ms.locfileid: "52586583"
 
 PowerShellGet を使用して Azure PowerShell をインストールした場合は、[Uninstall-Module](/powershell/module/powershellget/uninstall-module) コマンドレットを使用します。 ただし、`Uninstall-Module` でアンインストールされるモジュールは 1 つだけです。 Azure PowerShell を完全に削除するには、各モジュールを個別にアンインストールする必要があります。 複数のバージョンの Azure PowerShell がインストールされている場合、アンインストールが複雑になることがあります。
 
-次のスクリプトでは、PowerShell ギャラリーに照会して依存サブモジュールの一覧を取得します。 次に、各サブモジュールの適切なバージョンがアンインストールされます。
+現在インストールされている Azure PowerShell のバージョンを確認するには、次のコマンドを実行します。
+
+```powershell-interactive
+Get-InstalledModule -Name AzureRM -AllVersions
+```
+
+```output
+Version              Name                                Repository           Description
+-------              ----                                ----------           -----------
+6.11.0               AzureRM                             PSGallery            Azure Resource Manager Module
+6.13.1               AzureRM                             PSGallery            Azure Resource Manager Module
+```
+
+次のスクリプトでは、PowerShell ギャラリーに照会して依存サブモジュールの一覧を取得します。 次に、各サブモジュールの適切なバージョンがアンインストールされます。 `Process` または `CurrentUser` 以外のスコープでこのスクリプトを実行するには、管理者アクセス権が必要です。
 
 ```powershell-interactive
 function Uninstall-AllModules {
@@ -34,22 +47,38 @@ function Uninstall-AllModules {
     [Parameter(Mandatory=$true)]
     [string]$Version,
 
-    [switch]$Force
+    [switch]$Force,
+
+    [switch]$WhatIf
   )
-
+  
   $AllModules = @()
-
+  
   'Creating list of dependencies...'
   $target = Find-Module $TargetModule -RequiredVersion $version
   $target.Dependencies | ForEach-Object {
-    $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$_.minimumVersion}
+    if ($_.requiredVersion) {
+      $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$_.requiredVersion}
+    }
+    else { # Assume minimum version
+      # Minimum version actually reports the installed dependency
+      # which is used, not the actual "minimum dependency." Check to
+      # see if the requested version was installed as a dependency earlier.
+      $candidate = Get-InstalledModule $_.name -RequiredVersion $version
+      if ($candidate) {
+        $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$version}
+      }
+      else {
+        Write-Warning ("Could not find uninstall candidate for {0}:{1} - module may require manual uninstall" -f $_.name,$version)
+      }
+    }
   }
   $AllModules += New-Object -TypeName psobject -Property @{name=$TargetModule; version=$Version}
 
   foreach ($module in $AllModules) {
-    Write-Host ('Uninstalling {0} version {1}' -f $module.name,$module.version)
+    Write-Host ('Uninstalling {0} version {1}...' -f $module.name,$module.version)
     try {
-      Uninstall-Module -Name $module.name -RequiredVersion $module.version -Force:$Force -ErrorAction Stop
+      Uninstall-Module -Name $module.name -RequiredVersion $module.version -Force:$Force -ErrorAction Stop -WhatIf:$WhatIf
     } catch {
       Write-Host ("`t" + $_.Exception.Message)
     }
@@ -63,7 +92,7 @@ function Uninstall-AllModules {
 Uninstall-AllModules -TargetModule AzureRM -Version 4.4.1 -Force
 ```
 
-スクリプトを実行すると、アンインストールされる各サブモジュールの名前とバージョンが表示されます。
+スクリプトを実行すると、アンインストールされる各サブモジュールの名前とバージョンが表示されます。 スクリプトを実行して削除対象を削除せずに表示のみを行うには、`-WhatIf` オプションを使用します。
 
 ```output
 Creating list of dependencies...
