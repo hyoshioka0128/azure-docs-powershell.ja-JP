@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 09/11/2018
 ms.openlocfilehash: bdd8e69a2ea9df8b4fff100e1f3cc4c82d2d9d9d
-ms.sourcegitcommit: 93f93b90ef88c2659be95f3acaba514fe9639169
+ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52827345"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53217815"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
 
@@ -37,7 +37,7 @@ PowerShell について初めて学ぶ場合は、PowerShell の概要に関す�
 * [PowerShell のインストール](/powershell/scripting/setup/installing-windows-powershell)
 * [PowerShell を使用したスクリプト](/powershell/scripting/powershell-scripting)
 
-また、「[PowerShell Basics: (Part 1) Getting Started with PowerShell (PowerShell の基礎: (パート 1) PowerShell の基本)](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)」のビデオもご覧ください。
+次のビデオをご覧いただくこともできます。[PowerShell の基礎: (パート 1) PowerShell の概要](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)。
 
 または、Microsoft Virtual Academy の [PowerShell の概要](https://mva.microsoft.com/liveevents/powershell-jumpstart)に関するクラスにご参加ください。
 

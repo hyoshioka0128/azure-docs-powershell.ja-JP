@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/16/2018
-ms.openlocfilehash: b442da364a01cd6022c14cbb32a9b633676ca8c7
-ms.sourcegitcommit: 93f93b90ef88c2659be95f3acaba514fe9639169
+ms.openlocfilehash: 0976fd51b26010702d200cee445d93269405416c
+ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52828860"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53216931"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi"></a>MSI を使用した Windows への Azure PowerShell のインストール
 
@@ -26,7 +26,7 @@ Linux または macOS 環境でのインストールについては、「[macOS 
 
 ## <a name="install-or-update-on-windows-using-the-msi-package"></a>MSI パッケージを使って Windows でインストールまたは更新する
 
-Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releases/latest) から MSI ファイルを使ってインストールすることができます。 以前のバージョンの Azure モジュールが MSI としてインストールされている場合、それらのモジュールはインストーラーによって自動的に削除されます。 MSI パッケージでは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にモジュールがインストールされます。 `AzureRM` モジュールと `Azure` モジュールの両方がインストールされます。
+Windows PowerShell 5.x 対応の Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.13.1-November2018) から入手可能な MSI ファイルを使ってインストールできます。 以前のバージョンの Azure モジュールが MSI としてインストールされている場合、それらのモジュールはインストーラーによって自動的に削除されます。 MSI パッケージでは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にモジュールがインストールされます。 `AzureRM` モジュールと `Azure` モジュールの両方がインストールされます。
 
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、`Azure` モジュールのみを使用してください。

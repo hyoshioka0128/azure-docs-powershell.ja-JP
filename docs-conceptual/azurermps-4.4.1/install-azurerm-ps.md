@@ -8,16 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.openlocfilehash: ef796bcb81e24b1942c644aad2b4ec7705916b02
-ms.sourcegitcommit: 93f93b90ef88c2659be95f3acaba514fe9639169
+ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52826546"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53217747"
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell のインストールおよび構成
 
 この記事では、Windows 環境に Azure PowerShell モジュールをインストールする手順について説明します。
-macOS または Linux で Azure PowerShell を使用する場合は、「[macOS および Linux での Azure PowerShell のインストールおよび構成](install-azurermps-maclinux.md)」をご覧ください。
+macOS または Linux で Azure PowerShell を使用する場合は、次の記事をご覧ください。[macOS および Linux での Azure PowerShell のインストールおよび構成](install-azurermps-maclinux.md)。
 
 Azure PowerShell は、PowerShell ギャラリーからインストールすることをお勧めします。
 

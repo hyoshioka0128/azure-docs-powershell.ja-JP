@@ -8,19 +8,19 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
-ms.openlocfilehash: 72d147f5bc9c882083dda6b33b1c89663fd2eb34
-ms.sourcegitcommit: 93f93b90ef88c2659be95f3acaba514fe9639169
+ms.openlocfilehash: c87e53a9befe20a664b73fd86a52033ff5841e29
+ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52826656"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53216383"
 ---
 # <a name="azure-stack-module-140"></a>Azure Stack Module 1.4.0
 
 ## <a name="requirements"></a>要件:
 サポートされている Azure Stack の最小バージョンは 1804 です。
 
-注: 以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください。
+注:以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください
 
 ## <a name="known-issues"></a>既知の問題:
 
@@ -91,7 +91,7 @@ Backup 管理者モジュールのプレビュー リリース。管理者は、
 ### <a name="commerce"></a>コマース
 Azure Stack Commerce 管理者モジュールのプレビュー リリース。このモジュールを使用して、Azure Stack システム全体の集計データの使用状況を表示できます。
 
-### <a name="compute"></a>コンピューティング
+### <a name="compute"></a>Compute
 Azure Stack Compute 管理者モジュールのプレビュー リリース。このモジュールは、コンピューティング クォータ、プラットフォーム イメージ、仮想マシン拡張機能を管理する機能を提供します。
 
 ### <a name="fabric"></a>Fabric
