@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.workload: ''
 ms.date: 08/28/2018
 ms.openlocfilehash: 7f517f0b3768a2075557b131158ee1264ea9ab3f
-ms.sourcegitcommit: 93f93b90ef88c2659be95f3acaba514fe9639169
+ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52826733"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53218223"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -139,7 +139,7 @@ ms.locfileid: "52826733"
 * Recovery Services で Azure ファイル共有のサポートを追加しました。
 
 #### <a name="azurermresources"></a>AzureRM.Resources
-*  https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
     - "Get-AzureRmResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました
 
 #### <a name="azurermservicebus"></a>AzureRM.ServiceBus
@@ -168,7 +168,7 @@ ms.locfileid: "52826733"
 * 仮想ネットワーク規則のサポートを追加しました
     - Get-AzureRmDataLakeStoreVirtualNetworkRule: Azure Data Lake Store の仮想ネットワーク ルールを取得または一覧表示します。
     - Add-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウントに仮想ネットワーク ルールを追加します。
-    - Set-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウントの指定された仮想ネットワーク ルールを変更します。
+    - Set-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウント内の指定された仮想ネットワーク ルールを変更します。
     - Remove-AzureRmDataLakeStoreVirtualNetworkRule: Azure Data Lake Store の仮想ネットワーク ルールを削除します。
 
 #### <a name="azurermnetwork"></a>AzureRM.Network
@@ -271,7 +271,7 @@ ms.locfileid: "52826733"
   - Set-AzureRmLoadBalancerOutboundRuleConfig
   - Remove-AzureRmLoadBalancerOutboundRuleConfig
 * PSNetworkInterface の新しい HostedWorkloads プロパティを追加しました
-* ARM 経由の Azure Firewall 機能のために新しいコマンドレットを追加しました
+* 次の機能のために新しいコマンドレットを追加しました: Azure Firewall (ARM を介して)
   - Get-AzureRmFirewall を追加しました
   - Set-AzureRmFirewall を追加しました
   - New-AzureRmFirewall を追加しました
@@ -364,7 +364,7 @@ ms.locfileid: "52826733"
     - Lock-AzureRmStorageContainerImmutabilityPolicy
 
 #### <a name="azurermwebsites"></a>AzureRM.Websites
-* Get-AzureRmDeletedWebApp と Restore-AzureRmDeletedWebApp の 2 つの新しいコマンドレットを追加しました
+* 追加された 2 つの新しいコマンドレット: Get-AzureRmDeletedWebApp および Restore-AzureRmDeletedWebApp
 * Windows コンテナーでの App Service プランの作成用に New-AzureRmAppServicePlan -HyperV スイッチが追加されました
 * Windows コンテナー アプリを作成および管理用に、New-AzureRmWebApp/ New-AzureRmWebAppSlot/ Set-AzureRmWebApp/ Set-AzureRmWebAppSlot - New パラメーター (–ContainerRegistryUser string -ContainerRegistryPassword secureString -EnableContainerContinuousDeployment) が追加されました
 
@@ -852,7 +852,7 @@ ms.locfileid: "52826733"
 
 #### <a name="azurermnetwork"></a>AzureRM.Network
 * ゾーン冗長 VirtualNetworkGateways の新しい SKU を公開しました
-* ARM を介した ExpressRoute パートナー API 機能の新しいコマンドを追加しました
+* 次の機能のために新しいコマンドを追加しました: ExpressRoute Partner API (ARM を介して)
     - Get-AzureRmExpressRouteCrossConnection を追加しました
     - Set-AzureRmExpressRouteCrossConnection を追加しました
     - Add-AzureRmExpressRouteCrossConnectionPeering を追加しました
@@ -1006,7 +1006,7 @@ ms.locfileid: "52826733"
 * プライベート CA によってルートまたは CA として発行された証明書のインストールのサポートを追加しました。
 * KeyVault および複数のプロキシ ホスト名を使用した、カスタム SSL 証明書の受け入れのサポートを追加しました。
 * MSI ID のサポートを追加しました。
-* URL を使用したポリシーの受け入れのサポートを追加しました。次のコマンドレットは、今後のリリースで非推奨になる予定です。
+* URL を使用したポリシーの受け入れのサポートを追加しました。次のコマンドレットは、今後のリリースで非推奨になる予定です
    - Import-AzureRmApiManagementHostnameCertificate
    - New-AzureRmApiManagementHostnameConfiguration
    - Set-AzureRmApiManagementHostnames
