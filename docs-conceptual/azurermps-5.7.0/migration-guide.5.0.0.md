@@ -1,6 +1,6 @@
 # <a name="breaking-changes-for-microsoft-azure-powershell-500"></a>Microsoft Azure PowerShell 5.0.0 の重大な変更
 
-このドキュメントは、Microsoft Azure PowerShell コマンドレットのコンシューマー向けに、重大な変更を通知すると同時に、移行ガイドとしても役立ちます。 各セクションでは、重大な変更の影響と抵抗を最小限に抑える移行パスを示しています。 詳細なコンテキストについては、各変更に関するプル要求を参照してください。
+このドキュメントは、Microsoft Azure PowerShell コマンドレットのコンシューマー向けに、重大な変更を通知すると同時に、移行ガイドとしても役立ちます。 各セクションでは、重大な変更の影響と抵抗を最小限に抑える移行パスを示しています。 詳細なコンテキストについては、各変更に関する pull request を参照してください。
 
 ## <a name="table-of-contents"></a>目次
 
@@ -389,7 +389,7 @@ $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
 ### <a name="add-azurermlogalertrule"></a>**Add-AzureRMLogAlertRule**
 - 
   **Add-AzureRMLogAlertRule** コマンドレットは非推奨となりました。
-- 10 月 1 日以降、この機能はアクティビティ ログ アラートに移行するため、このコマンドレットを使用しても効果はなくなります。 詳細については、https://aka.ms/migratemealerts を参照してください。
+- 10 月 1 日以降、この機能はアクティビティ ログ アラートに移行するため、このコマンドレットを使用しても効果はなくなります。 詳細については、 https://aka.ms/migratemealerts を参照してください。
 
 ### <a name="get-azurermusage"></a>**Get-AzureRMUsage**
 - 
