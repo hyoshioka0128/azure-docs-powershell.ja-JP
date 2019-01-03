@@ -7,23 +7,18 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/06/2018
-ms.openlocfilehash: 47611281f67d68c9fc2686e0c6156b060a225158
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.openlocfilehash: 936bb24eecb4077080e172bf0d29fe57ec652187
+ms.sourcegitcommit: 797c18f93aaa495ef005993b2e202d7378588dfa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53217526"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53594456"
 ---
 # <a name="install-azure-powershell-on-macos-or-linux"></a>macOS または Linux で Azure PowerShell をインストールする
 
 Windows 以外のプラットフォームについては、PowerShell Core v6 で Azure PowerShell を実行できます。 このバージョンの PowerShell は、.NET Core をサポートするプラットフォームで使用できるように構築されています。 これらのプラットフォームで使用するために、Azure PowerShell の特別な .NET Core バージョンが提供されています。
 
-> [!NOTE]
-> 現時点では、PowerShell Core v6 と Azure PowerShell for .NET Core はどちらもベータ版で提供されており、
-> これらの製品のサポートには制限があります。 問題やバグを見つけた場合は、GitHub で問題を登録してください。
->
-> * [PowerShell Core v6 の問題](https://github.com/PowerShell/PowerShell/issues)
-> * [Azure PowerShell の問題](https://github.com/azure/azure-docs-powershell/issues)
+[!INCLUDE[az-replacing-azurerm.md](../includes/az-replacing-azurerm.md)]
 
 ## <a name="install-powershell-core"></a>PowerShell Core をインストールする
 
@@ -64,7 +59,7 @@ Are you sure you want to install the modules from 'PSGallery'?
 
 インストールを続行するには、`Yes` または `Yes to All` を選択します。
 
-## <a name="sign-in"></a>[サインイン]
+## <a name="sign-in"></a>サインイン
 
 Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、PowerShell セッションに `AzureRM.Netcore` を読み込み、Azure の資格情報でサインインする必要があります。 モジュールのインポートには、昇格された特権は__不要__です。
 

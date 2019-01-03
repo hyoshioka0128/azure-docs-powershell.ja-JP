@@ -7,17 +7,29 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: a35814f4411dd9cab75fa36bd13ff087cdec8f9b
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.openlocfilehash: 7456e45fe9a94d3c1e809dfd075a090448001607
+ms.sourcegitcommit: 6685809f054203bd733c84f68acc69e53e5cca8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53217067"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53982827"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
 この記事では、古いバージョンの Azure PowerShell をアンインストールする (システムから完全に削除する) 方法について説明します。 Azure PowerShell を完全にアンインストールすることにした場合は、[Send-Feedback](/powershell/module/azurerm.profile/send-feedback) コマンドレットを使用してフィードバックをお送りください。
 バグが見つかった場合は、[GitHub で問題を報告](https://github.com/azure/azure-powershell/issues)していただきますよう、よろしくお願いいたします。
+
+
+## <a name="uninstall-msi"></a>MSI のアンインストール
+
+MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
+
+| プラットフォーム | Instructions |
+|----------|--------------|
+| Windows 10 | [スタート] > [設定] > [アプリ] |
+| Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
+
+この画面のプログラムの一覧に [Azure PowerShell] が表示されたら、そこからアンインストールできます。
 
 ## <a name="uninstall-from-powershell"></a>PowerShell からのアンインストール
 
@@ -109,14 +121,3 @@ Uninstalling Azure.AnalysisServices version 0.4.7
 $versions = (get-installedmodule AzureRM -AllVersions | Select-Object Version)
 $versions[1..($versions.Length-1)]  | foreach { Uninstall-AllModules -TargetModule AzureRM -Version ($_.Version) -Force }
 ```
-
-## <a name="uninstall-msi"></a>MSI のアンインストール
-
-MSI パッケージを使用して Azure PowerShell をインストールした場合は、PowerShell ではなく Windows システムからアンインストールする必要があります。
-
-| プラットフォーム | Instructions |
-|----------|--------------|
-| Windows 10 | [スタート] > [設定] > [アプリ] |
-| Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
-
-この画面のプログラムの一覧に [Azure PowerShell] が表示されたら、そこからアンインストールできます。

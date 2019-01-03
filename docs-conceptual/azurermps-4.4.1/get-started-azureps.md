@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 838a50627e1d51221724515dfacd58ab9469b005
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.openlocfilehash: d45ef549eaf33359d2e91e85e135e365c1737deb
+ms.sourcegitcommit: 6685809f054203bd733c84f68acc69e53e5cca8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53217611"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53982962"
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -42,7 +42,7 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 1. [Azure PowerShell をインストールします](install-azurerm-ps.md)。
 
-2. インストールが成功したことを確認するために、コマンド ラインから `Get-Module AzureRM -ListAvailable` を実行します。
+2. インストールが成功したことを確認するために、コマンド ラインから `Get-InstalledModule AzureRM -AllVersions` を実行します。
 
 ## <a name="sign-in-to-azure"></a>Azure へのサインイン
 

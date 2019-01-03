@@ -8,14 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 08/31/2017
-ms.openlocfilehash: ff5ee02b11b6f0649e20b056c14fc8a9b3ba6276
-ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
+ms.openlocfilehash: 5ee8572ccb8e9fc2de11c2253a1815a666e038a7
+ms.sourcegitcommit: 4acddc7026522c4fe39de2c4424917d88ee01b7e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39024700"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736497"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
+
+[!INCLUDE[az-replacing-azurerm.md](../includes/az-replacing-azurerm.md)]
 
 Azure PowerShell には、Azure リソースの管理に [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) モデルを使う一連のコマンドレットが用意されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。
 
@@ -28,9 +30,6 @@ Azure PowerShell の基本的な使い方については、次のサンプルが
 * [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
 * [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
 
-> [!NOTE]
-> 変換できないクラシック デプロイ モデルを現在の環境で使っている場合は、Service Management 版の Azure PowerShell をインストールできます。 詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。
-
 ## <a name="learn-powershell-basics"></a>PowerShell の基礎を学ぶ
 
 PowerShell についてまだよく知らない方は、PowerShell の概要に関するページからご覧ください。
@@ -38,7 +37,7 @@ PowerShell についてまだよく知らない方は、PowerShell の概要に�
 * [PowerShell のインストール](/powershell/scripting/installing-windows-powershell)
 * [PowerShell を使用したスクリプト](/powershell/scripting/scripting-with-windows-powershell)
 
-また、「[PowerShell Basics: (Part 1) Getting Started with PowerShell (PowerShell の基礎: (パート 1) PowerShell の基本)](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)」のビデオもご覧ください。
+次のビデオをご覧いただくこともできます。[PowerShell の基礎: (パート 1) PowerShell の概要](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)。
 
 または、Microsoft Virtual Academy の [PowerShell の概要](https://mva.microsoft.com/liveevents/powershell-jumpstart)に関するクラスにご参加ください。
 
