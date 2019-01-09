@@ -1,21 +1,20 @@
 ---
 author: sptramer
 ms.author: sttramer
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.topic: include
-ms.openlocfilehash: 02a7969c5a52f47de2024485e642ed03834fe8e9
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.openlocfilehash: a19417fcab60d92edc1867901fe8c4fffdaefd30
+ms.sourcegitcommit: 4acddc7026522c4fe39de2c4424917d88ee01b7e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53218240"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736881"
 ---
 > [!NOTE]
 > 
-> 2018 年 11 月以降、`AzureRM` モジュールには新しい機能やコマンドレットは追加されません。 `AzureRM` は引き続きサポートされ、バグの修正プログラムを受信できます。 新機能は `Az` モジュールで提供されます。このモジュールは同時に 1.0 となります。 `Az` には、`AzureRM` との下位互換性モードがあり、簡単に切り替えられるように設計されています。 この新しいモジュールとアップグレード方法の詳細については、以下を参照してください。
+> 2018 年 12 月から、AzureRM モジュールに新機能は追加されません。 AzureRM は引き続きサポートされ、バグの修正プログラムを受信できます。 新機能は、Azure PowerShell Az モジュールに含まれています。 AzureRM からアップグレードする方法など、Az モジュールの詳細については、[Azure PowerShell のメイン ドキュメント](/powershell/azure)をご覧ください。
 >
-> * [Azure PowerShell Az モジュールの概要](/powershell/azure/new-azureps-module-az)
-> * [Azure PowerShell Az モジュールのインストール](/powershell/azure/install-az-ps)
-> * [新しい Azure PowerShell Az モジュールへの移行](/powershell/azure/migrate-from-azurerm-to-az)
+> 現時点では、Azure Stack ユーザーは AzureRM を引き続き使用する必要があります。 Azure Stack をサポートする AzureRM の最新バージョンは [AzureRM 2.3.0](/powershell/azure/azurerm?view=azurermps-2.3.0) です。
 >
-> 変換できないクラシック デプロイ モデルを現在の環境で使っている場合は、Service Management 版の Azure PowerShell をインストールできます。 詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。
+> クラシック デプロイ モデルを使用している場合は、Service Management 版の Azure PowerShell をインストールします。
+> 詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。
