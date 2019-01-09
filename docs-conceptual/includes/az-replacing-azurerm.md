@@ -1,21 +1,20 @@
 ---
 author: sptramer
 ms.author: sttramer
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.topic: include
-ms.openlocfilehash: 02a7969c5a52f47de2024485e642ed03834fe8e9
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.openlocfilehash: a19417fcab60d92edc1867901fe8c4fffdaefd30
+ms.sourcegitcommit: 4acddc7026522c4fe39de2c4424917d88ee01b7e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53218240"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736881"
 ---
 > [!NOTE]
 > 
-> <span data-ttu-id="2094e-101">2018 年 11 月以降、`AzureRM` モジュールには新しい機能やコマンドレットは追加されません。</span><span class="sxs-lookup"><span data-stu-id="2094e-101">After November 2018, there will be no new features or cmdlets added to the `AzureRM` module.</span></span> <span data-ttu-id="2094e-102">`AzureRM` は引き続きサポートされ、バグの修正プログラムを受信できます。</span><span class="sxs-lookup"><span data-stu-id="2094e-102">`AzureRM` will continue to be supported and receive bugfixes.</span></span> <span data-ttu-id="2094e-103">新機能は `Az` モジュールで提供されます。このモジュールは同時に 1.0 となります。</span><span class="sxs-lookup"><span data-stu-id="2094e-103">New features will be provided in the `Az` module, which will reach 1.0 at the same time.</span></span> <span data-ttu-id="2094e-104">`Az` には、`AzureRM` との下位互換性モードがあり、簡単に切り替えられるように設計されています。</span><span class="sxs-lookup"><span data-stu-id="2094e-104">`Az` has a backwards compatibility mode with `AzureRM`, and is designed to be easy to switch to.</span></span> <span data-ttu-id="2094e-105">この新しいモジュールとアップグレード方法の詳細については、以下を参照してください。</span><span class="sxs-lookup"><span data-stu-id="2094e-105">To learn more about this new module and how to upgrade, see:</span></span>
+> <span data-ttu-id="876d1-101">2018 年 12 月から、AzureRM モジュールに新機能は追加されません。</span><span class="sxs-lookup"><span data-stu-id="876d1-101">Starting in December 2018, no new features will be added to the AzureRM module.</span></span> <span data-ttu-id="876d1-102">AzureRM は引き続きサポートされ、バグの修正プログラムを受信できます。</span><span class="sxs-lookup"><span data-stu-id="876d1-102">AzureRM will continue to be supported and receive bugfixes.</span></span> <span data-ttu-id="876d1-103">新機能は、Azure PowerShell Az モジュールに含まれています。</span><span class="sxs-lookup"><span data-stu-id="876d1-103">New features are in the Azure PowerShell Az module.</span></span> <span data-ttu-id="876d1-104">AzureRM からアップグレードする方法など、Az モジュールの詳細については、[Azure PowerShell のメイン ドキュメント](/powershell/azure)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="876d1-104">To learn more about the Az module, including how to upgrade from AzureRM, see [the main Azure PowerShell documentation](/powershell/azure).</span></span>
 >
-> * [<span data-ttu-id="2094e-106">Azure PowerShell Az モジュールの概要</span><span class="sxs-lookup"><span data-stu-id="2094e-106">Introducing the Azure PowerShell Az module</span></span>](/powershell/azure/new-azureps-module-az)
-> * [<span data-ttu-id="2094e-107">Azure PowerShell Az モジュールのインストール</span><span class="sxs-lookup"><span data-stu-id="2094e-107">Install Azure PowerShell Az module</span></span>](/powershell/azure/install-az-ps)
-> * [<span data-ttu-id="2094e-108">新しい Azure PowerShell Az モジュールへの移行</span><span class="sxs-lookup"><span data-stu-id="2094e-108">Migrate to the new Azure PowerShell Az module</span></span>](/powershell/azure/migrate-from-azurerm-to-az)
+> <span data-ttu-id="876d1-105">現時点では、Azure Stack ユーザーは AzureRM を引き続き使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="876d1-105">Azure Stack users should continue to use AzureRM for now.</span></span> <span data-ttu-id="876d1-106">Azure Stack をサポートする AzureRM の最新バージョンは [AzureRM 2.3.0](/powershell/azure/azurerm?view=azurermps-2.3.0) です。</span><span class="sxs-lookup"><span data-stu-id="876d1-106">The latest version of AzureRM which supports Azure Stack is [AzureRM 2.3.0](/powershell/azure/azurerm?view=azurermps-2.3.0).</span></span>
 >
-> <span data-ttu-id="2094e-109">変換できないクラシック デプロイ モデルを現在の環境で使っている場合は、Service Management 版の Azure PowerShell をインストールできます。</span><span class="sxs-lookup"><span data-stu-id="2094e-109">If you have deployments that use the classic deployment model that cannot be converted, you can install the Service Management version of Azure PowerShell.</span></span> <span data-ttu-id="2094e-110">詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="2094e-110">For more information, see [Install the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).</span></span>
+> <span data-ttu-id="876d1-107">クラシック デプロイ モデルを使用している場合は、Service Management 版の Azure PowerShell をインストールします。</span><span class="sxs-lookup"><span data-stu-id="876d1-107">If you use the classic deployment model, install the Service Management version of Azure PowerShell.</span></span>
+> <span data-ttu-id="876d1-108">詳しくは、[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="876d1-108">For more information, see [Install the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).</span></span>
