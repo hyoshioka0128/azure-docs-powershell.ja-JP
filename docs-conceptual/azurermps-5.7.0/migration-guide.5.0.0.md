@@ -387,13 +387,11 @@ $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
 ## <a name="breaking-changes-to-insights-cmdlets"></a>Insights コマンドレットの重大な変更
 
 ### <a name="add-azurermlogalertrule"></a>**Add-AzureRMLogAlertRule**
-- 
-  **Add-AzureRMLogAlertRule** コマンドレットは非推奨となりました。
+- **Add-AzureRMLogAlertRule** コマンドレットは非推奨となりました。
 - 10 月 1 日以降、この機能はアクティビティ ログ アラートに移行するため、このコマンドレットを使用しても効果はなくなります。 詳細については、 https://aka.ms/migratemealerts を参照してください。
 
 ### <a name="get-azurermusage"></a>**Get-AzureRMUsage**
-- 
-  **Get-AzureRMUsage** コマンドレットは非推奨となりました。
+- **Get-AzureRMUsage** コマンドレットは非推奨となりました。
 
 ### <a name="get-azurermalerthistory--get-azurermautoscalehistory--get-azurermlogs"></a>**Get-AzureRmAlertHistory** / **Get-AzureRmAutoscaleHistory** / **Get-AzureRmLogs**
 - 出力の変更: (これらのコマンドレットから返される) EventData オブジェクトの EventChannels フィールドは、定数値 (Admin,Operation) を返すようになったため、非推奨となります。
