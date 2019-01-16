@@ -7,16 +7,23 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.openlocfilehash: 8b085720aeabe26c1293ece193e050b31f99a693
-ms.sourcegitcommit: ae81b08a45d8729fc8d40156422e3eb2e94de8c7
+ms.openlocfilehash: 80c59a10666c6e3a01e6c33716fce40094fb14be
+ms.sourcegitcommit: b5635e291cdc324e66c936aa16c5772507fc78e8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786681"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055678"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
-Azure PowerShell では、複数の認証方法がサポートされています。 最も簡単に始められるのは、コマンド ラインから対話形式でサインインする方法です。
+Azure PowerShell では、複数の認証方法がサポートされています。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使用すると自動的にログインできるため、最も簡単に作業を開始できます。 ローカル インストールを利用すると、ブラウザーから対話形式でサインインできます。 自動化のスクリプトを記述するとき、必要なアクセス許可で[サービス プリンシパル](create-azure-service-principal-azureps.md)を使用する方法が推奨されます。 ユース ケースに対して可能な限りサインイン アクセス許可を制限することで、Azure リソースのセキュリティを維持できます。
+
+サインイン後、コマンドが既定のサブスクリプションに対して実行されます。 セッションのアクティブ サブスクリプションを変更するには、[Set-AzContext](/powershell/module/az.accounts/set-azcontext) コマンドレットを使用します。 Azure PowerShell でログインするときに使用される既定のサブスクリプションを変更するには、[Set-AzDefault](/powershell/module/az.accounts/set-azdefault) を使用します。
+
+> [!IMPORTANT]
+>
+> サインインしたままであれば、資格情報は複数の PowerShell セッション間で共有されます。
+> 詳細については、[永続的な資格情報](context-persistence.md)に関する記事を参照してください。
 
 ## <a name="sign-in-interactively"></a>対話操作でサインインする
 
@@ -26,12 +33,20 @@ Azure PowerShell では、複数の認証方法がサポートされています
 Connect-AzAccount
 ```
 
-このコマンドレットを実行すると、トークン文字列が表示されます。 ログインするには、この文字列をコピーし、ブラウザーの https://microsoft.com/devicelogin に貼り付けます。 Azure に接続するために PowerShell セッションが認証されます。 この認証は、現在の PowerShell セッションが終了するまで有効です。
+このコマンドレットを実行すると、トークン文字列が表示されます。 サインインするには、この文字列をコピーし、ブラウザーの https://microsoft.com/devicelogin に貼り付けます。 Azure に接続するために PowerShell セッションが認証されます。
 
-> [!IMPORTANT]
->
-> サインインしたままであれば、資格情報は複数の PowerShell セッション間で共有されます。
-> 詳細については、[永続的な資格情報](context-persistence.md)に関する記事を参照してください。
+## <a name="sign-in-with-credentials"></a>資格情報でサインインする
+
+Azure への接続が認められた `PSCredential` オブジェクトでサインインすることもできます。
+資格情報オブジェクトを取得する最も簡単な方法は [Get-Credential](/powershell/module/Microsoft.PowerShell.Security/Get-Credential) コマンドレットを使用することです。 このコマンドレットを実行すると、ユーザー名/パスワードの資格情報ペアが求められます。
+
+> [!Note]
+> この方法は、Microsoft アカウント、または 2 要素認証が有効になっているアカウントでは機能しません。
+
+```azurepowershell-interactive
+$creds = Get-Credential
+Connect-AzAccount -Credential $creds
+```
 
 ## <a name="sign-in-with-a-service-principal"></a>サービス プリンシパルを使ってサインインする
 
@@ -46,15 +61,17 @@ $pscredential = Get-Credential
 Connect-AzAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
 ```
 
-## <a name="sign-in-using-an-azure-managed-service-identity"></a>Azure マネージド サービス ID を使用してサインインする
+## <a name="sign-in-using-a-managed-identity"></a>マネージド ID を使用したサインイン 
 
-Azure リソースのマネージドID は、Azure Active Directory の機能です。 サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 マネージド ID は、Azure クラウドで実行されている仮想マシンでのみ使用できます。
+マネージド ID は Azure Active Directory の機能です。 マネージド ID は、Azure で実行されるリソースに割り当てられたサービス プリンシパルです。 サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 マネージド ID は、Azure クラウドで実行されているリソースでのみ使用できます。
 
-Azure リソースのマネージド ID の詳細については、「[How to use managed identities for Azure resources on an Azure VM to acquire an access token (Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法)](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)」を参照してください。
+Azure リソースのマネージド ID の詳細については、「[Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)」を参照してください。
 
-## <a name="sign-in-as-a-cloud-solution-provider-csp"></a>クラウド ソリューション プロバイダー (CSP) としてサインインする
+## <a name="sign-in-with-a-non-default-tenant-or-as-a-cloud-solution-provider-csp"></a>既定ではないテナントで、あるいはクラウド ソリューション プロバイダー (CSP) としてサインインする
 
-[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) のサインインには、`-TenantId` を使用する必要があります。 通常は、このパラメーターにはテナント ID またはドメイン名を指定できます。 しかし、CSP のサインインの場合、**テナント ID** を指定する必要があります。
+アカウントが複数のテナントに関連付けられている場合、接続時に `-TenantId` パラメーターを使用することがサインインで要求されます。 このパラメーターは他のあらゆるサインイン メソッドで動作します。 ログイン時、テナントの Azure オブジェクト ID (テナント ID) またはテナントの完全修飾ドメイン名がこのパラメーター値になります。
+
+[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) の場合、`-TenantId` 値はテナント ID にすることが**必要**となります。
 
 ```azurepowershell-interactive
 Connect-AzAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'
@@ -62,7 +79,7 @@ Connect-AzAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'
 
 ## <a name="sign-in-to-another-cloud"></a>別のクラウドにサインインする
 
-Azure クラウド サービスでは、リージョンのデータ処理規制に準拠した環境を提供します。
+Azure クラウド サービスでは、リージョンのデータ処理の法律に準拠した環境を提供します。
 リージョン クラウド内のアカウントの場合は、サインインするときに `-Environment` 引数で環境を設定します。
 たとえば、ご自身のアカウントが中国のクラウドにある場合は、次のように指定します。
 
@@ -75,17 +92,3 @@ Connect-AzAccount -Environment AzureChinaCloud
 ```azurepowershell-interactive
 Get-AzEnvironment | Select-Object Name
 ```
-
-## <a name="learn-more-about-managing-azure-role-based-access"></a>Azure ロールベース アクセスの管理についての詳細情報
-
-Azure での認証とサブスクリプション管理の詳細については、[アカウント、サブスクリプション、管理者ロールの管理](/azure/active-directory/role-based-access-control-configure)に関するページを参照してください。
-
-ロール管理を目的とした Azure PowerShell のコマンドレット:
-
-* [Get-AzRoleAssignment](/powershell/module/az.Resources/Get-azRoleAssignment)
-* [Get-AzRoleDefinition](/powershell/module/az.Resources/Get-azRoleDefinition)
-* [New-AzRoleAssignment](/powershell/module/az.Resources/New-azRoleAssignment)
-* [New-AzRoleDefinition](/powershell/module/az.Resources/New-azRoleDefinition)
-* [Remove-AzRoleAssignment](/powershell/module/az.Resources/Remove-azRoleAssignment)
-* [Remove-AzRoleDefinition](/powershell/module/az.Resources/Remove-azRoleDefinition)
-* [Set-AzRoleDefinition](/powershell/module/az.Resources/Set-azRoleDefinition)

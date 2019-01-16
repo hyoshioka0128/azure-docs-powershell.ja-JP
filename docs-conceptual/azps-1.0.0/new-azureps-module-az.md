@@ -7,12 +7,12 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: cff9a6ef64907c7ff493dbc9c83dd20a82f297d9
-ms.sourcegitcommit: 797c18f93aaa495ef005993b2e202d7378588dfa
+ms.openlocfilehash: d08bca962b6ff65d25135150824b7c24fbd20103
+ms.sourcegitcommit: 007a733342f37894d4aaec7a859dc1ca93c00c92
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53594873"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54012348"
 ---
 # <a name="introducing-the-new-azure-powershell-az-module"></a>新しい Azure PowerShell Az モジュールの概要
 
@@ -42,4 +42,4 @@ Az は新しいモジュールであるため、バージョンが 1.0.0 にリ�
 
 ## <a name="the-future-of-support-for-azurerm"></a>今後の AzureRM のサポート
 
-既存の AzureRM モジュールは、新しいコマンドレットや機能を受け入れなくなります。 ただし、AzureRM は引き続き正式に維持され、バグの修正プログラムを取得できます。 Azure の最新のサービスと機能に対応するには、Az モジュールに切り替える必要があります。
+既存の AzureRM モジュールは、新しいコマンドレットや機能を受け入れなくなります。 ただし、AzureRM は 2020 年 12 月まで引き続き正式に維持され、バグの修正プログラムを取得できます。 Azure の最新のサービスと機能に対応するには、Az モジュールに切り替えてください。
