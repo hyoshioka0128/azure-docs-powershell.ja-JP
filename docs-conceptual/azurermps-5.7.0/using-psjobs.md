@@ -7,28 +7,28 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: a986824d952ccf6cd52dc86418899f3805a38973
-ms.sourcegitcommit: bcf80dfd7fbe17e82e7ad029802cfe8a2f02b15c
+ms.openlocfilehash: 827bf06cfafc43e6cabdd504b7cfff5ce353072c
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323494"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156276"
 ---
-# <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a><span data-ttu-id="2d53f-103">PowerShell ジョブを使用したコマンドレットの並列実行</span><span class="sxs-lookup"><span data-stu-id="2d53f-103">Running cmdlets in parallel using PowerShell jobs</span></span>
+# <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a><span data-ttu-id="69ed8-103">PowerShell ジョブを使用したコマンドレットの並列実行</span><span class="sxs-lookup"><span data-stu-id="69ed8-103">Running cmdlets in parallel using PowerShell jobs</span></span>
 
-<span data-ttu-id="2d53f-104">PowerShell は、[PowerShell ジョブ](/powershell/module/microsoft.powershell.core/about/about_jobs)による非同期アクションをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="2d53f-104">PowerShell supports asynchronous action with [PowerShell Jobs](/powershell/module/microsoft.powershell.core/about/about_jobs).</span></span>
-<span data-ttu-id="2d53f-105">Azure PowerShell は、Azure に対するネットワーク呼び出し (および、呼び出し待機) に大きく依存します。</span><span class="sxs-lookup"><span data-stu-id="2d53f-105">Azure PowerShell is heavily dependent on making, and waiting for, network calls to Azure.</span></span> <span data-ttu-id="2d53f-106">開発者として、スクリプトで Azure への非ブロッキング呼び出しを複数実行しようとしていること、また、現在のセッションをブロックせずに REPL で Azure リソースを作成しなければならないことはよくあるでしょう。</span><span class="sxs-lookup"><span data-stu-id="2d53f-106">As a developer, you may often find yourself looking to make multiple non-blocking calls to Azure in a script, or you may find that you want to create Azure resources in the REPL without blocking the current session.</span></span> <span data-ttu-id="2d53f-107">こうしたニーズに対処するために、Azure PowerShell ではファースト クラス [PSJob](/powershell/module/microsoft.powershell.core/about/about_jobs) がサポートされます。</span><span class="sxs-lookup"><span data-stu-id="2d53f-107">To address these needs, Azure PowerShell provides first-class [PSJob](/powershell/module/microsoft.powershell.core/about/about_jobs) support.</span></span>
+<span data-ttu-id="69ed8-104">PowerShell は、[PowerShell ジョブ](/powershell/module/microsoft.powershell.core/about/about_jobs)による非同期アクションをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="69ed8-104">PowerShell supports asynchronous action with [PowerShell Jobs](/powershell/module/microsoft.powershell.core/about/about_jobs).</span></span>
+<span data-ttu-id="69ed8-105">Azure PowerShell は、Azure に対するネットワーク呼び出し (および、呼び出し待機) に大きく依存します。</span><span class="sxs-lookup"><span data-stu-id="69ed8-105">Azure PowerShell is heavily dependent on making, and waiting for, network calls to Azure.</span></span> <span data-ttu-id="69ed8-106">開発者として、スクリプトで Azure への非ブロッキング呼び出しを複数実行しようとしていること、また、現在のセッションをブロックせずに REPL で Azure リソースを作成しなければならないことはよくあるでしょう。</span><span class="sxs-lookup"><span data-stu-id="69ed8-106">As a developer, you may often find yourself looking to make multiple non-blocking calls to Azure in a script, or you may find that you want to create Azure resources in the REPL without blocking the current session.</span></span> <span data-ttu-id="69ed8-107">こうしたニーズに対処するために、Azure PowerShell ではファースト クラス [PSJob](/powershell/module/microsoft.powershell.core/about/about_jobs) がサポートされます。</span><span class="sxs-lookup"><span data-stu-id="69ed8-107">To address these needs, Azure PowerShell provides first-class [PSJob](/powershell/module/microsoft.powershell.core/about/about_jobs) support.</span></span>
 
-## <a name="context-persistence-and-psjobs"></a><span data-ttu-id="2d53f-108">コンテキストの永続化と PSJob</span><span class="sxs-lookup"><span data-stu-id="2d53f-108">Context Persistence and PSJobs</span></span>
+## <a name="context-persistence-and-psjobs"></a><span data-ttu-id="69ed8-108">コンテキストの永続化と PSJob</span><span class="sxs-lookup"><span data-stu-id="69ed8-108">Context Persistence and PSJobs</span></span>
 
-<span data-ttu-id="2d53f-109">PSJob は個別のプロセスで実行されます。つまり、Azure 接続に関する情報は、作成するジョブと適切に共有されている必要があります。</span><span class="sxs-lookup"><span data-stu-id="2d53f-109">PSJobs are run in separate processes, which means that information about your Azure connection must be properly shared with the jobs you create.</span></span> <span data-ttu-id="2d53f-110">`Connect-AzureRmAccount` で Azure アカウントを PowerShell セッションに接続するとき、コンテキストをジョブに渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="2d53f-110">Upon connecting your Azure account to your PowerShell session with `Connect-AzureRmAccount`, you can pass the context to a job.</span></span>
+<span data-ttu-id="69ed8-109">PSJob は個別のプロセスで実行されます。つまり、Azure 接続に関する情報は、作成するジョブと適切に共有されている必要があります。</span><span class="sxs-lookup"><span data-stu-id="69ed8-109">PSJobs are run in separate processes, which means that information about your Azure connection must be properly shared with the jobs you create.</span></span> <span data-ttu-id="69ed8-110">`Connect-AzureRmAccount` で Azure アカウントを PowerShell セッションに接続するとき、コンテキストをジョブに渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="69ed8-110">Upon connecting your Azure account to your PowerShell session with `Connect-AzureRmAccount`, you can pass the context to a job.</span></span>
 
 ```azurepowershell-interactive
 $creds = Get-Credential
 $job = Start-Job { param($context,$vmadmin) New-AzureRmVM -Name MyVm -AzureRmContext $context -Credential $vmadmin} -Arguments (Get-AzureRmContext),$creds
 ```
 
-<span data-ttu-id="2d53f-111">ただし、コンテキストが `Enable-AzureRmContextAutosave` で自動的に保存されるように選択した場合、そのコンテキストは、作成するすべてのジョブと自動的に共有されます。</span><span class="sxs-lookup"><span data-stu-id="2d53f-111">However, if you have chosen to have your context automatically saved with `Enable-AzureRmContextAutosave`, the context is automatically shared with any jobs you create.</span></span>
+<span data-ttu-id="69ed8-111">ただし、コンテキストが `Enable-AzureRmContextAutosave` で自動的に保存されるように選択した場合、そのコンテキストは、作成するすべてのジョブと自動的に共有されます。</span><span class="sxs-lookup"><span data-stu-id="69ed8-111">However, if you have chosen to have your context automatically saved with `Enable-AzureRmContextAutosave`, the context is automatically shared with any jobs you create.</span></span>
 
 ```azurepowershell-interactive
 Enable-AzureRmContextAutosave
@@ -36,17 +36,17 @@ $creds = Get-Credential
 $job = Start-Job { param($vmadmin) New-AzureRmVM -Name MyVm -Credential $vmadmin} -Arguments $creds
 ```
 
-## <a name="automatic-jobs-with--asjob"></a><span data-ttu-id="2d53f-112">自動ジョブと `-AsJob`</span><span class="sxs-lookup"><span data-stu-id="2d53f-112">Automatic Jobs with `-AsJob`</span></span>
+## <a name="automatic-jobs-with--asjob"></a><span data-ttu-id="69ed8-112">自動ジョブと `-AsJob`</span><span class="sxs-lookup"><span data-stu-id="69ed8-112">Automatic Jobs with `-AsJob`</span></span>
 
-<span data-ttu-id="2d53f-113">必要に応じて、Azure PowerShell は実行時間の長い一部のコマンドレットで `-AsJob` スイッチを提供します。</span><span class="sxs-lookup"><span data-stu-id="2d53f-113">As a convenience, Azure PowerShell also provides an `-AsJob` switch on some long-running cmdlets.</span></span>
-<span data-ttu-id="2d53f-114">`-AsJob` スイッチにより、PSJob の作成がさらに簡単になります。</span><span class="sxs-lookup"><span data-stu-id="2d53f-114">The `-AsJob` switch makes creating PSJobs even easier.</span></span>
+<span data-ttu-id="69ed8-113">必要に応じて、Azure PowerShell は実行時間の長い一部のコマンドレットで `-AsJob` スイッチを提供します。</span><span class="sxs-lookup"><span data-stu-id="69ed8-113">As a convenience, Azure PowerShell also provides an `-AsJob` switch on some long-running cmdlets.</span></span>
+<span data-ttu-id="69ed8-114">`-AsJob` スイッチにより、PSJob の作成がさらに簡単になります。</span><span class="sxs-lookup"><span data-stu-id="69ed8-114">The `-AsJob` switch makes creating PSJobs even easier.</span></span>
 
 ```azurepowershell-interactive
 $creds = Get-Credential
 $job = New-AzureRmVM -Name MyVm -Credential $creds -AsJob
 ```
 
-<span data-ttu-id="2d53f-115">ジョブと進行状況は、`Get-Job` および `Get-AzureRmVM` を使用していつでも確認できます。</span><span class="sxs-lookup"><span data-stu-id="2d53f-115">You can inspect the job and progress at any time with `Get-Job` and `Get-AzureRmVM`.</span></span>
+<span data-ttu-id="69ed8-115">ジョブと進行状況は、`Get-Job` および `Get-AzureRmVM` を使用していつでも確認できます。</span><span class="sxs-lookup"><span data-stu-id="69ed8-115">You can inspect the job and progress at any time with `Get-Job` and `Get-AzureRmVM`.</span></span>
 
 ```azurepowershell-interactive
 Get-Job $job
@@ -63,11 +63,11 @@ ResourceGroupName    Name Location          VmSize  OsType     NIC ProvisioningS
 MyVm                 MyVm   eastus Standard_DS1_v2 Windows    MyVm          Creating
 ```
 
-<span data-ttu-id="2d53f-116">その後、完了時に、ジョブの結果を取得するには、`Receive-Job` を使用します。</span><span class="sxs-lookup"><span data-stu-id="2d53f-116">Subsequently, upon completion, you can obtain the result of the job with `Receive-Job`.</span></span>
+<span data-ttu-id="69ed8-116">その後、完了時に、ジョブの結果を取得するには、`Receive-Job` を使用します。</span><span class="sxs-lookup"><span data-stu-id="69ed8-116">Subsequently, upon completion, you can obtain the result of the job with `Receive-Job`.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="2d53f-117">`Receive-Job` は、`-AsJob` フラグが存在しないように、コマンドレットから結果を返します。</span><span class="sxs-lookup"><span data-stu-id="2d53f-117">`Receive-Job` returns the result from the cmdlet as if the `-AsJob` flag were not present.</span></span>
-> <span data-ttu-id="2d53f-118">たとえば、`Do-Action -AsJob` の `Receive-Job` 結果の種類は、`Do-Action` の結果と同じです。</span><span class="sxs-lookup"><span data-stu-id="2d53f-118">For example, the `Receive-Job` result of `Do-Action -AsJob` is of the same type as the result of `Do-Action`.</span></span>
+> <span data-ttu-id="69ed8-117">`Receive-Job` は、`-AsJob` フラグが存在しないように、コマンドレットから結果を返します。</span><span class="sxs-lookup"><span data-stu-id="69ed8-117">`Receive-Job` returns the result from the cmdlet as if the `-AsJob` flag were not present.</span></span>
+> <span data-ttu-id="69ed8-118">たとえば、`Do-Action -AsJob` の `Receive-Job` 結果の種類は、`Do-Action` の結果と同じです。</span><span class="sxs-lookup"><span data-stu-id="69ed8-118">For example, the `Receive-Job` result of `Do-Action -AsJob` is of the same type as the result of `Do-Action`.</span></span>
 
 ```azurepowershell-interactive
 $vm = Receive-Job $job
@@ -90,9 +90,9 @@ StorageProfile           : {ImageReference, OsDisk, DataDisks}
 FullyQualifiedDomainName : myvmmyvm.eastus.cloudapp.azure.com
 ```
 
-## <a name="example-scenarios"></a><span data-ttu-id="2d53f-119">シナリオ例</span><span class="sxs-lookup"><span data-stu-id="2d53f-119">Example Scenarios</span></span>
+## <a name="example-scenarios"></a><span data-ttu-id="69ed8-119">シナリオ例</span><span class="sxs-lookup"><span data-stu-id="69ed8-119">Example Scenarios</span></span>
 
-<span data-ttu-id="2d53f-120">複数の VM を一度に作成します。</span><span class="sxs-lookup"><span data-stu-id="2d53f-120">Create multiple VMs at once.</span></span>
+<span data-ttu-id="69ed8-120">複数の VM を一度に作成します。</span><span class="sxs-lookup"><span data-stu-id="69ed8-120">Create multiple VMs at once.</span></span>
 
 ```azurepowershell-interactive
 $creds = Get-Credential
@@ -107,7 +107,7 @@ Get-Job | Wait-Job
 Get-AzureRmVM
 ```
 
-<span data-ttu-id="2d53f-121">この例では、`Wait-Job` コマンドレットは、ジョブの実行中にスクリプトを一時停止します。</span><span class="sxs-lookup"><span data-stu-id="2d53f-121">In this example, the `Wait-Job` cmdlet causes the script to pause while jobs run.</span></span> <span data-ttu-id="2d53f-122">スクリプトは、すべてのジョブが完了した後に実行を続けます。</span><span class="sxs-lookup"><span data-stu-id="2d53f-122">The script continues executing once all of the jobs have completed.</span></span> <span data-ttu-id="2d53f-123">これにより、並列実行される複数のジョブを作成し、完了するのを待ってから、続行することができます。</span><span class="sxs-lookup"><span data-stu-id="2d53f-123">This allows you to create several jobs running in parallel then wait for completion before continuing.</span></span>
+<span data-ttu-id="69ed8-121">この例では、`Wait-Job` コマンドレットは、ジョブの実行中にスクリプトを一時停止します。</span><span class="sxs-lookup"><span data-stu-id="69ed8-121">In this example, the `Wait-Job` cmdlet causes the script to pause while jobs run.</span></span> <span data-ttu-id="69ed8-122">スクリプトは、すべてのジョブが完了した後に実行を続けます。</span><span class="sxs-lookup"><span data-stu-id="69ed8-122">The script continues executing once all of the jobs have completed.</span></span> <span data-ttu-id="69ed8-123">これにより、並列実行される複数のジョブを作成し、完了するのを待ってから、続行することができます。</span><span class="sxs-lookup"><span data-stu-id="69ed8-123">This allows you to create several jobs running in parallel then wait for completion before continuing.</span></span>
 
 ```output
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command

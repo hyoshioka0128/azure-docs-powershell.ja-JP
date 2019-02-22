@@ -15,7 +15,7 @@ items:
     href: get-started-azureps.md
   - name: Cloud Shell
     href: https://docs.microsoft.com/azure/cloud-shell/overview
-  - name: '[サインイン]'
+  - name: サインイン
     href: authenticate-azureps.md
     items:
     - name: サービス プリンシパルの作成
@@ -26,7 +26,7 @@ items:
     href: queries-azureps.md
   - name: 出力の書式設定
     href: formatting-output.md
-  - name: '[サブスクリプションの管理]'
+  - name: サブスクリプションの管理
     href: manage-subscriptions-azureps.md
   - name: デプロイ
     items:
@@ -64,8 +64,8 @@ items:
   - name: Cosmos DB
     href: /azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json
 ms.openlocfilehash: d9dea81278a566ae4024aa1b5c7a4aa464cc96aa
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53216485"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56153634"
