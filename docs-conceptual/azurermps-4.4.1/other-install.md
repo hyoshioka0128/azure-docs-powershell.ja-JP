@@ -8,11 +8,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
 ms.openlocfilehash: 836b586f9b537d5ca4147cea01f9192f890bb544
-ms.sourcegitcommit: 6685809f054203bd733c84f68acc69e53e5cca8c
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982979"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56144776"
 ---
 # <a name="other-installation-methods"></a>その他のインストール方法
 

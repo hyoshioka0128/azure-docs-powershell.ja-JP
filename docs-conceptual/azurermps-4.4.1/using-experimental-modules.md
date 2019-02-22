@@ -8,11 +8,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
 ms.openlocfilehash: 30e57805dd59bd60d10c52422fcb68686563fadf
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53217662"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56144682"
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
@@ -69,7 +69,7 @@ Install-Module AzureRM.Websites.Experiments
 
 - スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 例: 
   - リソース グループ
-  - 場所
+  - Location
   - 依存リソース
 
 ### <a name="experimental-improvements"></a>試験的改善点

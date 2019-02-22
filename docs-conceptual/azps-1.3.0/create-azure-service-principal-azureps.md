@@ -7,24 +7,21 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/09/2018
-ms.openlocfilehash: 2db1ada32e5a9285c27ec3f569b622c9c33a06b0
+ms.date: 12/13/2018
+ms.openlocfilehash: 3e1c5ad280bdb29ce479dd0a478d0ed58237f969
 ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144551"
+ms.locfileid: "56153811"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
 Azure PowerShell を使ってアプリまたはサービスを管理する場合、その実行には、自分の資格情報ではなく、Azure Active Directory (AAD) のサービス プリンシパルを使用する必要があります。 この記事では、Azure PowerShell でセキュリティ プリンシパルを作成する手順を紹介します。
 
-> [!NOTE]
-> Azure Portal からサービス プリンシパルを作成することもできます。 詳細については、「[リソースにアクセスできる Azure Active Directory アプリケーションとサービス プリンシパルをポータルで作成する](/azure/azure-resource-manager/resource-group-create-service-principal-portal)」を参照してください。
+## <a name="what-is-a-service-principal"></a>サービス プリンシパルとは
 
-## <a name="what-is-a-service-principal"></a>"サービス プリンシパル" とは
-
-Azure サービス プリンシパルは、ユーザーによって作成されたアプリやサービス、オートメーション ツールが特定の Azure リソースにアクセスする際に使うセキュリティ ID です。 アクセス許可が厳しく管理された、特定のロールが与えられた "ユーザー ID" (ユーザー名とパスワードまたは証明書) と考えてください。 一般的なユーザー ID とは異なり、サービス プリンシパルで行うタスクは制限する必要があります。 管理タスクを実行するために必要な最小限のアクセス許可レベルだけを与えるようにすれば、セキュリティは向上します。
+Azure サービス プリンシパルは、ユーザーによって作成されたアプリやサービス、オートメーション ツールが特定の Azure リソースにアクセスする際に使うセキュリティ ID です。 サービス プリンシパルには、タスクに関連する特定のアクセス許可が割り当てられるため、セキュリティ制御が強化されます。 通常何でも変更する権限が与えられる一般的なユーザー ID とは異なります。
 
 ## <a name="verify-your-own-permission-level"></a>自分のアクセス許可レベルの確認
 
@@ -41,10 +38,11 @@ Azure サービス プリンシパルは、ユーザーによって作成され�
 
 ### <a name="get-information-about-your-application"></a>アプリケーションに関する情報を取得する
 
-アプリケーションに関する情報は、`Get-AzureRmADApplication` コマンドレットを使って取得できます。
+アプリケーションに関する情報は、`Get-AzADApplication` コマンドレットを使って取得できます。
 
 ```azurepowershell-interactive
-Get-AzureRmADApplication -DisplayNameStartWith MyDemoWebApp
+$app = Get-AzADApplication -DisplayNameStartWith MyDemoWebApp
+$app
 ```
 
 ```output
@@ -61,10 +59,10 @@ ReplyUrls               : {}
 
 ### <a name="create-a-service-principal-for-your-application"></a>アプリケーションのサービス プリンシパルを作成する
 
-サービス プリンシパルは、`New-AzureRmADServicePrincipal` コマンドレットを使って作成します。
+サービス プリンシパルは、`New-AzADServicePrincipal` コマンドレットを使って作成します。
 
 ```azurepowershell-interactive
-$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId 00c01aaa-1603-49fc-b6df-b78c4e5138b4
+$servicePrincipal = New-AzADServicePrincipal -ApplicationId 00c01aaa-1603-49fc-b6df-b78c4e5138b4
 ```
 
 ```output
@@ -77,7 +75,7 @@ AdfsId                :
 Type                  : ServicePrincipal
 ```
 
-ここから、Connect-AzureRmAccount で $servicePrincipal.Secret プロパティを直接使用する (次の「サービス プリンシパルを使ってサインインする」を参照) か、後で使用できるようにこの SecureString をプレーンテキストに変換することができます。
+ここからは、`$servicePrincipal.Secret` プロパティを`Connect-AzAccount` への引数として直接使用するか (「サービス プリンシパルを使用してサインインする」を参照)、この `SecureString` をプレーンテキスト文字列に変換することができます。
 
 ```azurepowershell-interactive
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($servicePrincipal.Secret)
@@ -87,11 +85,12 @@ $password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 
 ### <a name="sign-in-using-the-service-principal"></a>サービス プリンシパルを使ってサインインする
 
-指定した "*アプリ ID*" と自動生成された "*パスワード*" を使って、アプリの新しいサービス プリンシパルとしてサインインできるようになりました。 サービス プリンシパルのテナント ID も必要です。 テナント ID は、個人用の資格情報で Azure にサインインすると表示されます。 サービス プリンシパルを使用してサインインするには、次のコマンドを使用します。
+指定した `appId` と生成された `password` を使って、アプリの新しいサービス プリンシパルとしてサインインできるようになりました  
+。 サービス プリンシパルのテナント ID も必要です。 テナント ID は、個人用の資格情報で Azure にサインインすると表示されます。 サービス プリンシパルを使用してサインインするには、次のコマンドを使用します。
 
 ```azurepowershell-interactive
 $cred = New-Object System.Management.Automation.PSCredential ("00c01aaa-1603-49fc-b6df-b78c4e5138b4", $servicePrincipal.Secret)
-Connect-AzureRmAccount -Credential $cred -ServicePrincipal -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+Connect-AzAccount -Credential $cred -ServicePrincipal -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
 
 サインインに成功すると、次のような出力が表示されます。
@@ -114,9 +113,9 @@ CurrentStorageAccount :
 
 Azure PowerShell には、ロールの割り当て管理を目的とした次のコマンドレットが用意されています。
 
-* [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)
-* [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)
-* [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment)
+* [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)
+* [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)
+* [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)
 
 サービス プリンシパルの既定のロールは**共同作成者**です。 このロールは、広範なアクセス許可が与えられていることから、Azure サービスに対するアプリの対話の範囲によっては最適とは言えない場合もあります。
 読み取り専用のアプリであれば、より制限の厳しい**閲覧者**ロールの方が適しています。 Azure Portal でロールごとのアクセス許可について詳しい情報を確認したり、カスタム ロールを作成したりすることができます。
@@ -124,7 +123,7 @@ Azure PowerShell には、ロールの割り当て管理を目的とした次の
 この例では、先ほどの例に**閲覧者**ロールを追加し、**共同作成者**ロールを削除しています。
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Reader
+New-AzRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Reader
 ```
 
 ```output
@@ -139,13 +138,13 @@ ObjectType         : ServicePrincipal
 ```
 
 ```azurepowershell-interactive
-Remove-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Contributor
+Remove-AzRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Contributor
 ```
 
 現在割り当てられているロールを表示するには、次のコマンドレットを使用します。
 
 ```azurepowershell-interactive
-Get-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
+Get-AzRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
 ```
 
 ```output
@@ -161,10 +160,10 @@ ObjectType         : ServicePrincipal
 
 その他、ロールの管理を目的として次の Azure PowerShell コマンドレットが用意されています。
 
-* [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/Get-AzureRmRoleDefinition)
-* [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/New-AzureRmRoleDefinition)
-* [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/Remove-AzureRmRoleDefinition)
-* [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/Set-AzureRmRoleDefinition)
+* [Get-AzRoleDefinition](/powershell/module/az.resources/Get-azRoleDefinition)
+* [New-AzRoleDefinition](/powershell/module/az.resources/New-azRoleDefinition)
+* [Remove-AzRoleDefinition](/powershell/module/az.resources/Remove-azRoleDefinition)
+* [Set-AzRoleDefinition](/powershell/module/az.resources/Set-azRoleDefinition)
 
 ## <a name="change-the-credentials-of-the-security-principal"></a>セキュリティ プリンシパルの資格情報を変更する
 
@@ -173,7 +172,7 @@ ObjectType         : ServicePrincipal
 ### <a name="add-a-new-password-for-the-service-principal"></a>サービス プリンシパルの新しいパスワードを追加する
 
 ```azurepowershell-interactive
-New-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
+New-AzADSpCredential -ServicePrincipalName http://MyDemoWebApp
 ```
 
 ```output
@@ -187,7 +186,7 @@ Type      : Password
 ### <a name="get-a-list-of-credentials-for-the-service-principal"></a>サービス プリンシパルの一連の資格情報を取得する
 
 ```azurepowershell-interactive
-Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
+Get-AzADSpCredential -ServicePrincipalName http://MyDemoWebApp
 ```
 
 ```output
@@ -200,7 +199,7 @@ StartDate           EndDate             KeyId                                Typ
 ### <a name="remove-the-old-password-from-the-service-principal"></a>サービス プリンシパルから古いパスワードを削除する
 
 ```azurepowershell-interactive
-Remove-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp -KeyId ca9d4846-4972-4c70-b6f5-a4effa60b9bc
+Remove-AzADSpCredential -ServicePrincipalName http://MyDemoWebApp -KeyId ca9d4846-4972-4c70-b6f5-a4effa60b9bc
 ```
 
 ```output
@@ -213,7 +212,7 @@ service principal objectId '698138e7-d7b6-4738-a866-b4e3081a69e4'.
 ### <a name="verify-the-list-of-credentials-for-the-service-principal"></a>サービス プリンシパルの一連の資格情報を確認する
 
 ```azurepowershell-interactive
-Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
+Get-AzADSpCredential -ServicePrincipalName http://MyDemoWebApp
 ```
 
 ```output
@@ -225,7 +224,7 @@ StartDate           EndDate             KeyId                                Typ
 ### <a name="get-information-about-the-service-principal"></a>サービス プリンシパルに関する情報を取得する
 
 ```azurepowershell-interactive
-$svcprincipal = Get-AzureRmADServicePrincipal -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
+$svcprincipal = Get-AzADServicePrincipal -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
 $svcprincipal | Select-Object *
 ```
 
