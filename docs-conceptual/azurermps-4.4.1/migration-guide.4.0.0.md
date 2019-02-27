@@ -1,3 +1,19 @@
+---
+title: Microsoft Azure PowerShell 4.0.0 の重大な変更
+description: この移行ガイドには、バージョン 4 リリースの Azure PowerShell で行われた重大な変更が記載されています。
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.devlang: powershell
+ms.topic: conceptual
+ms.date: 05/01/2018
+ms.openlocfilehash: 379bbc788e530598f51e893a2bad71f09b059193
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56153440"
+---
 # <a name="breaking-changes-for-microsoft-azure-powershell-400"></a>Microsoft Azure PowerShell 4.0.0 の重大な変更
 
 このドキュメントは、Microsoft Azure PowerShell コマンドレットのコンシューマー向けに、重大な変更を通知すると同時に、移行ガイドとしても役立ちます。 各セクションでは、重大な変更の影響と抵抗を最小限に抑える移行パスを示しています。 詳細なコンテキストについては、各変更に関する pull request を参照してください。
@@ -12,7 +28,7 @@
 - [Sql コマンドレットの重大な変更](#breaking-changes-to-sql-cmdlets)
 - [Storage コマンドレットの重大な変更](#breaking-changes-to-storage-cmdlets)
 - [Profile コマンドレットの重大な変更](#breaking-changes-to-profile-cmdlets)
-## <a name="breaking-changes-to-compute-cmdlets"></a>Compute コマンドレットの重大な変更
+  ## <a name="breaking-changes-to-compute-cmdlets"></a>Compute コマンドレットの重大な変更
 
 このリリースで影響を受けた出力の型は次のとおりです。
 
@@ -26,7 +42,7 @@
     - `Remove-AzureRmVMNetworkInterface`
     - `Set-AzureRmVMDataDisk`
 
-```powershell
+```powershell-interactive
 # Old
 $vm.DataDiskNames
 $vm.NetworkInterfaceIDs
@@ -56,7 +72,7 @@ $vm.NetworkProfile.NetworkInterfaces | Select -Property Id
 ### <a name="remove-azurermalertrule"></a>Remove-AzureRmAlertRule
 - このコマンドレットの出力が、単一のオブジェクトを含むリストから単一のオブジェクトに変更されました。このオブジェクトには、requestId と状態コードが含まれます。
     
-```powershell
+```powershell-interactive
 # Old  
 $s1 = Remove-AzureRmAlertRule -ResourceGroup $resourceGroup -name chiricutin
 if ($s1 -ne $null)
@@ -77,7 +93,7 @@ $s = $s1.StatusCode
 ### <a name="get-azurermalertrule"></a>Get-AzureRmAlertRule
 - このコマンドレットの出力 (オブジェクトのリスト) の各要素がフラット化されます。つまり、構造体 `{ Id, Location, Name, Tags, Properties }` を持つオブジェクトを返す代わりに、構造体 `{ Id, Location, Name, Tags, Type, Description, IsEnabled, Condition, Actions, LastUpdatedTime, ...}` を持つオブジェクトを返します。この構造体は、Azure リソースのすべての属性と、最上位レベルの AlertRuleResource のすべての属性です。
     
-```powershell
+```powershell-interactive
 # Old
 $rules = Get-AzureRmAlertRule -ResourceGroup $resourceGroup
 if ($rules -and $rules.count -ge 1)
@@ -109,7 +125,7 @@ if ($rules -and $rules.count -ge 1)
 ### <a name="get-azurermautoscalesetting"></a>Get-AzureRmAutoscaleSetting
 - `AutoscaleSettingResourceName`&gt; フィールドには `Name` フィールドと常に同じ値が含まれるため、非推奨となりました。
 
-```powershell
+```powershell-interactive
 # Old  
 $s1 = Get-AzureRmAutoscaleSetting -ResourceGroup $resourceGroup -Name MySetting
 if ($s1.AutoscaleSettingResourceName -ne $s1.Name)
@@ -127,7 +143,7 @@ Write-Host $s1.Name
 ### <a name="remove-azurermlogprofile"></a>Remove-AzureRmLogProfile
 - このコマンドレットの出力が、`Boolean` から、`RequestId` と `StatusCode` を含むオブジェクトに変更されます。
 
-```powershell
+```powershell-interactive
 # Old  
 $s1 = Remove-AzureRmLogProfile -Name myLogProfile
 if ($s1 -eq $true)
@@ -148,7 +164,7 @@ $s = $s1.StatusCode
 ### <a name="add-azurermlogprofile"></a>Add-AzureRmLogProfile
 - このコマンドレットの出力が、requestId、状態コード、更新されたリソースまたは新しく作成されたリソースを含むオブジェクトに変更されます。
     
-```powershell
+```powershell-interactive
 # Old  
 $s1 = Add-AzureRmLogProfile -Name default -StorageAccountId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162 -Locations Global -categ Delete, Write, Action -retention 3
 $r = $s1.ServiceBusRuleId
@@ -164,7 +180,7 @@ $a = $s1.NewResource.ServiceBusRuleId
 ### <a name="set-azurermdiagnosticsettings"></a>Set-AzureRmDiagnosticSettings
 - このコマンドの名前が `Update-AzureRmDiagnsoticSettings` に変更されます。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmDiagnosticSettings
 
@@ -179,7 +195,7 @@ Update-AzureRmDiagnosticSettings
 ### <a name="new-azurermvirtualnetworkgatewayconnection"></a>New-AzureRmVirtualNetworkGatewayConnection
 - `EnableBgp` パラメーターが、`string` ではなく `boolean` を受け取るように変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName "RG" -name "conn1" -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localnetGateway -ConnectionType IPsec -SharedKey "key" -EnableBgp "true"
 
@@ -206,7 +222,7 @@ New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName "RG" -name "conn1"
 - `Tag` パラメーターが削除されました。
 - `GracePeriodWithDataLossHour` パラメーターの名前が `GracePeriodWithDataLossHours` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1 -FailoverGroupName fg -PartnerServerName server2 -FailoverPolicy Automatic -GracePeriodWithDataLossHour 1 -Tag @{ Environment="Test" }
 
@@ -218,7 +234,7 @@ New-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1 -F
 - `Tag` パラメーターが削除されました。
 - `GracePeriodWithDataLossHour` パラメーターの名前が `GracePeriodWithDataLossHours` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1 -FailoverGroupName fg -FailoverPolicy Automatic -GracePeriodWithDataLossHour 1 -Tag @{ Environment="Test" }
 
@@ -229,7 +245,7 @@ Set-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1 -F
 ### <a name="add-azurermsqldatabasetofailovergroup"></a>Add-AzureRmSqlDatabaseToFailoverGroup
 - `Tag` パラメーターが削除されました。
 
-```powershell
+```powershell-interactive
 # Old
 Add-AzureRmSqlDatabaseToFailoverGroup -ResourceGroupName rg -ServerName server1 -FailoverGroupName fg -Database $db1 -Tag @{ Environment="Test" }
 
@@ -240,7 +256,7 @@ Add-AzureRmSqlDatabaseToFailoverGroup -ResourceGroupName rg -ServerName server1 
 ###  <a name="remove-azurermsqldatabasefromfailovergroup"></a>Remove-AzureRmSqlDatabaseFromFailoverGroup
 - `Tag` パラメーターが削除されました。
 
-```powershell
+```powershell-interactive
 # Old
 Remove-AzureRmSqlDatabaseFromFailoverGroup -ResourceGroupName rg -ServerName server1 -FailoverGroupName fg -Database $db1 -Tag @{ Environment="Test" }
 
@@ -252,7 +268,7 @@ Remove-AzureRmSqlDatabaseFromFailoverGroup -ResourceGroupName rg -ServerName ser
 - `PartnerResourceGroupName` パラメーターが削除されました。
 - `PartnerServerName` パラメーターが削除されました。
 
-```powershell
+```powershell-interactive
 # Old
 Remove-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1 -FailoverGroupName fg -PartnerServerName server2 -PartnerResourceGroupName rg
 
@@ -318,7 +334,7 @@ Remove-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1
     - `Get-AzureStorageTable`
     - `New-AzureStorageTable`
     
-```powershell
+```powershell-interactive
 # Old
 $LocationMode = (Get-AzureStorageBlob -Container $containername)[0].ICloudBlob.ServiceClient.LocationMode       
 $ParallelOperationThreadCount = (Get-AzureStorageContainer -Container $containername).CloudBlobContainer.ServiceClient.ParallelOperationThreadCount
@@ -340,7 +356,7 @@ $RetryPolicy = (Get-AzureStorageQueue -Name $queuename).CloudQueue.ServiceClient
 
 - ```EnvironmentName``` パラメーターが削除され、```Environment``` に置き換えられました。```Environment``` は、```AzureEnvironment``` オブジェクトではなく文字列を受け取ります。
 
-```powershell
+```powershell-interactive
 # Old
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 
@@ -352,7 +368,7 @@ Add-AzureRmAccount -Environment AzureChinaCloud
 
 ```Select-AzureRmProfile``` の名前が ```Import-AzureRmContext``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 Select-AzureRmProfile -Path c:\mydir\myprofile.json
 
@@ -364,7 +380,7 @@ Import-AzureRmContext -Path c:\mydir\myprofile.json
 
 ```Save-AzureRmProfile``` の名前が ```Save-AzureRmContext``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 Save-AzureRmProfile -Path c:\mydir\myprofile.json
 
@@ -375,7 +391,7 @@ Save-AzureRmContext -Path c:\mydir\myprofile.json
 
 - ```TokenCache``` プロパティが、```byte[]``` ではなく ```IAzureTokenCache``` を実装する型に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $bytes = (Get-AzureRmContext).TokenCache
 $bytes = (Set-AzureRmContext -SubscriptionId xxx-xxx-xxx-xxx).TokenCache
@@ -391,7 +407,7 @@ $bytes = (Add-AzureRmAccount).Context.TokenCache.CacheData
 
 - ```AccountType``` プロパティが ```Type``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $type = (Get-AzureRmContext).Account.AccountType
 $type = (Set-AzureRmContext -SubscriptionId xxx-xxx-xxx-xxx).Account.AccountType
@@ -406,7 +422,7 @@ $type = (Add-AzureRmAccount).Context.Account.Type
 ### <a name="breaking-changes-to-the-output-psazuresubscription-type"></a>出力の PSAzureSubscription 型の重大な変更
 - ```SubscriptionId``` プロパティが ```Id``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $id =(Get-AzureRmSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx).SubscriptionId
 $id =(Add-AzureRmAccount -SubscriptionId xxxx-xxxx-xxxx-xxxx).Context.Subscription.SubscriptionId
@@ -422,7 +438,7 @@ $id =(Set-AzureRmContext -SubscriptionId xxxx-xxxx-xxxx-xxxx).Subscription.Id
 
 - ```SubscriptionName``` プロパティが ```Name``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $name =(Get-AzureRmSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx).SubscriptionName
 $name =(Add-AzureRmAccount -SubscriptionId xxxx-xxxx-xxxx-xxxx).Context.Subscription.SubscriptionName
@@ -440,7 +456,7 @@ $name =(Set-AzureRmContext -SubscriptionId xxxx-xxxx-xxxx-xxxx).Subscription.Nam
 
 - ```TenantId``` プロパティが ```Id``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $id =(Get-AzureRmTenant -TenantId xxxx-xxxx-xxxx-xxxx).TenantId
 $id =(Add-AzureRmAccount -SubscriptionId xxxx-xxxx-xxxx-xxxx).Context.Tenant.TenantId
@@ -456,7 +472,7 @@ $id =(Set-AzureRmContext -SubscriptionId xxxx-xxxx-xxxx-xxxx).Tenant.Id
 
 - ```Domain``` プロパティが ```Directory``` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $tenantName =(Get-AzureRmTenant -TenantId xxxx-xxxx-xxxx-xxxx).Domain
 

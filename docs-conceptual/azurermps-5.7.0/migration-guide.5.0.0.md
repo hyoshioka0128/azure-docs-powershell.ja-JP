@@ -1,3 +1,19 @@
+---
+title: Microsoft Azure PowerShell 5.0.0 の重大な変更
+description: この移行ガイドには、バージョン 5 リリースの Azure PowerShell で行われた重大な変更が記載されています。
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.devlang: powershell
+ms.topic: conceptual
+ms.date: 05/01/2018
+ms.openlocfilehash: b4cbeb1b523664fb49c4640eaafd56e3b843ebaa
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56144558"
+---
 # <a name="breaking-changes-for-microsoft-azure-powershell-500"></a>Microsoft Azure PowerShell 5.0.0 の重大な変更
 
 このドキュメントは、Microsoft Azure PowerShell コマンドレットのコンシューマー向けに、重大な変更を通知すると同時に、移行ガイドとしても役立ちます。 各セクションでは、重大な変更の影響と抵抗を最小限に抑える移行パスを示しています。 詳細なコンテキストについては、各変更に関する pull request を参照してください。
@@ -18,7 +34,7 @@
 ### <a name="new-azurermapimanagementbackendproxy"></a>**New-AzureRmApiManagementBackendProxy**
 - "UserName" パラメーターと "Password" パラメーターが PSCredential に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmApiManagementBackendProxy [other required parameters] -UserName "plain-text string" -Password "plain-text string"
 
@@ -29,7 +45,7 @@ New-AzureRmApiManagementBackendProxy [other required parameters] -Credential $PS
 ### <a name="new-azurermapimanagementuser"></a>**New-AzureRmApiManagementUser**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmApiManagementUser [other required parameters] -Password "plain-text string"
 
@@ -40,7 +56,7 @@ New-AzureRmApiManagementUser [other required parameters] -Password $SecureString
 ### <a name="set-azurermapimanagementuser"></a>**Set-AzureRmApiManagementUser**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmApiManagementUser [other required parameters] -Password "plain-text string"
 
@@ -53,7 +69,7 @@ Set-AzureRmApiManagementUser [other required parameters] -Password $SecureString
 ### <a name="new-azurebatchcertificate"></a>**New-AzureBatchCertificate**
 - `Password` パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchCertificate [other required parameters] -Password "plain-text string"
 
@@ -64,7 +80,7 @@ New-AzureBatchCertificate [other required parameters] -Password $SecureStringVar
 ### <a name="new-azurebatchcomputenodeuser"></a>**New-AzureBatchComputeNodeUser**
 - `Password` パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchComputeNodeUser [other required parameters] -Password "plain-text string"
 
@@ -75,7 +91,7 @@ New-AzureBatchComputeNodeUser [other required parameters] -Password $SecureStrin
 ### <a name="set-azurermbatchcomputenodeuser"></a>**Set-AzureRmBatchComputeNodeUser**
 - `Password` パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmBatchComputeNodeUser [other required parameters] -Password "plain-text string"
 
@@ -86,7 +102,7 @@ Set-AzureRmBatchComputeNodeUser [other required parameters] -Password $SecureStr
 ### <a name="new-azurebatchtask"></a>**New-AzureBatchTask**
  - `RunElevated` スイッチが削除され、`UserIdentity` に置き換えられました。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchTask -Id $taskId1 -JobId $jobId -CommandLine "cmd /c echo hello" -RunElevated $TRUE
 
@@ -102,7 +118,7 @@ New-AzureBatchTask -Id $taskId1 -JobId $jobId -CommandLine "cmd /c echo hello" -
 
 - `PSMultiInstanceSettings` コンストラクターが `numberOfInstances` 必須パラメーターを受け取らなくなりました。代わりに、`coordinationCommandLine` 必須パラメーターを受け取ります。
 
-```powershell
+```powershell-interactive
 # Old
 $settings = New-Object Microsoft.Azure.Commands.Batch.Models.PSMultiInstanceSettings -ArgumentList @(2)
 $settings.CoordinationCommandLine = "cmd /c echo hello"
@@ -116,7 +132,7 @@ New-AzureBatchTask [other parameters] -MultiInstanceSettings $settings
 ### <a name="get-azurebatchtask"></a>**Get-AzureBatchTask**
  - `PSCloudTask` の `RunElevated` プロパティが削除されました。 `RunElevated` に代わって `UserIdentity` プロパティが追加されました。
 
-```powershell
+```powershell-interactive
 # Old
 $task = Get-AzureBatchTask [parameters]
 $task.RunElevated
@@ -132,7 +148,7 @@ $task.UserIdentity.AutoUser.ElevationLevel
 
 - `PSExitConditions` の `SchedulingError` プロパティの名前が `PreProcessingError` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $task = Get-AzureBatchTask [parameters]
 $task.ExitConditions.SchedulingError
@@ -148,7 +164,7 @@ $task.ExitConditions.PreProcessingError
   - タスク エラーが発生すると、常に `FailureInformation` が返されます。 これには、以前のすべてのスケジュール エラー ケースとゼロ以外のタスク終了コード、および新しい出力ファイル機能からのファイル アップロード エラーが含まれます。
   - これは以前と同様に構造化されているので、この型を使用するときにコードの変更は不要です。
 
-```powershell
+```powershell-interactive
 # Old
 $task = Get-AzureBatchTask [parameters]
 $task.ExecutionInformation.SchedulingError
@@ -158,13 +174,13 @@ $task = Get-AzureBatchTask [parameters]
 $task.ExecutionInformation.FailureInformation
 ```
 
-これは、Get-AzureBatchPool、Get-AzureBatchSubtask、Get-AzureBatchJobPreparationAndReleaseTaskStatus にも影響を及ぼします。
+これは、次のものにも影響を及ぼします。Get-AzureBatchPool、Get-AzureBatchSubtask、Get-AzureBatchJobPreparationAndReleaseTaskStatus
 
 ### <a name="new-azurebatchpool"></a>**New-AzureBatchPool**
  - `TargetDedicated` が削除され、`TargetDedicatedComputeNodes` および `TargetLowPriorityComputeNodes` に置き換えられました。
  - `TargetDedicatedComputeNodes` には、エイリアス `TargetDedicated` があります。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchPool [other parameters] [-TargetDedicated <Int32>]
 
@@ -172,12 +188,12 @@ New-AzureBatchPool [other parameters] [-TargetDedicated <Int32>]
 New-AzureBatchPool [other parameters] [-TargetDedicatedComputeNodes <Int32>] [-TargetLowPriorityComputeNodes <Int32>]
 ```
 
-これは、Start-AzureBatchPoolResize にも影響を及ぼします。
+これは、次のものにも影響を及ぼします。Start-AzureBatchPoolResize
 
 ### <a name="get-azurebatchpool"></a>**Get-AzureBatchPool**
  - `PSCloudPool` の `TargetDedicated` プロパティおよび `CurrentDedicated` プロパティの名前が、`TargetDedicatedComputeNodes`、`CurrentDedicatedComputeNodes` にそれぞれ変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $pool = Get-AzureBatchPool [parameters]
 $pool.TargetDedicated
@@ -193,7 +209,7 @@ $pool.CurrentDedicatedComputeNodes
 
 - `PSCloudPool` の `ResizeError` の名前が `ResizeErrors` に変更され、コレクションになりました。
 
-```powershell
+```powershell-interactive
 # Old
 $pool = Get-AzureBatchPool [parameters]
 $pool.ResizeError
@@ -206,7 +222,7 @@ $pool.ResizeErrors[0]
 ### <a name="new-azurebatchjob"></a>**New-AzureBatchJob**
 - `PSPoolSpecification` の `TargetDedicated` プロパティの名前が `TargetDedicatedComputeNodes` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $poolInfo = New-Object Microsoft.Azure.Commands.Batch.Models.PSPoolInformation
 $poolInfo.AutoPoolSpecification = New-Object Microsoft.Azure.Commands.Batch.Models.PSAutoPoolSpecification
@@ -226,7 +242,7 @@ New-AzureBatchJob [other parameters] -PoolInformation $poolInfo
  - `Name` が削除され、`Path` に置き換えられました。
  - `Path` には、エイリアス `Name` があります。
 
-```powershell
+```powershell-interactive
 # Old
 Get-AzureBatchNodeFile [other parameters] [[-Name] <String>]
 
@@ -234,13 +250,13 @@ Get-AzureBatchNodeFile [other parameters] [[-Name] <String>]
 Get-AzureBatchNodeFile [other parameters] [[-Path] <String>]
 ```
 
-これは、Get-AzureBatchNodeFileContent と Remove-AzureBatchNodeFile にも影響を及ぼします。
+これは、次のものにも影響を及ぼします。Get-AzureBatchNodeFileContent、Remove-AzureBatchNodeFile
 
 ### <a name="type-psnodefile"></a>**PSNodeFile** 型
 
  - `PSNodeFile` の `Name` プロパティの名前が `Path` に変更されました。
 
-```powershell
+```powershell-interactive
 # Old
 $file = Get-AzureBatchNodeFile [parameters]
 $file.Name
@@ -254,7 +270,7 @@ $file.Path
 - `PSSubtaskInformation` の `PreviousState` プロパティと `State` プロパティが `TaskState` 型ではなくなり、`SubtaskState` 型になりました。
   - `TaskState` とは異なり、`SubtaskState` はサブタスクを `Active` 状態にすることができないため、この型には `Active` 値はありません。
 
-```powershell
+```powershell-interactive
 # Old
 $subtask = Get-AzureBatchSubtask [parameters]
 if ($subtask.State -eq Microsoft.Azure.Batch.Common.TaskState.Running) { }
@@ -269,7 +285,7 @@ if ($subtask.State -eq Microsoft.Azure.Batch.Common.SubtaskState.Running) { }
 ### <a name="set-azurermvmaccessextension"></a>**Set-AzureRmVMAccessExtension**
 - "UserName" パラメーターと "Password" パラメーターが PSCredential に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmVMAccessExtension [other required parameters] -UserName "plain-text string" -Password "plain-text string"
 
@@ -300,7 +316,7 @@ Set-AzureRmVMAccessExtension [other required parameters] -Credential $PSCredenti
 ### <a name="new-azurermeventhubnamespace"></a>**New-AzureRmEventHubNamespace**
 - NamespceAttributes の "Status" プロパティと "Enabled" プロパティが削除されます。 
 
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property  
 $namespace = New-AzureRmEventHubNamespace <parameters>
@@ -315,7 +331,7 @@ $namespace = Get-AzureRmEventHubNamespace <parameters>
 ### <a name="get-azurermeventhubnamespace"></a>**Get-AzureRmEventHubNamespace**
 - NamespceAttributes の "Status" プロパティと "Enabled" プロパティが削除されます。 
 
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property 
 $namespace = Get-AzureRmEventHubNamespace <parameters>
@@ -330,7 +346,7 @@ $namespace = Get-AzureRmEventHubNamespace <parameters>
 ### <a name="set-azurermeventhubnamespace"></a>**Set-AzureRmEventHubNamespace**
 - NamespceAttributes の "Status" プロパティと "Enabled" プロパティが削除されます。 
 
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property 
 $namespace = Set-AzureRmEventHubNamespace <parameters>
@@ -345,7 +361,7 @@ $namespace = Set-AzureRmEventHubNamespace <parameters>
 ### <a name="new-azurermeventhubconsumergroup"></a>**New-AzureRmEventHubConsumerGroup**
 - ConsumerGroupAttributes の "EventHubPath" プロパティが削除されます。
 
-```powershell
+```powershell-interactive
 # Old
 # The $consumergroup has EventHubPath property 
 $consumergroup = New-AzureRmEventHubConsumerGroup <parameters>
@@ -359,7 +375,7 @@ $consumergroup = New-AzureRmEventHubConsumerGroup <parameters>
 ### <a name="set-azurermeventhubconsumergroup"></a>**Set-AzureRmEventHubConsumerGroup**
 - ConsumerGroupAttributes の "EventHubPath" プロパティが削除されます。
 
-```powershell
+```powershell-interactive
 # Old
 # The $consumergroup has EventHubPath property 
 $consumergroup = Set-AzureRmEventHubConsumerGroup <parameters>
@@ -373,7 +389,7 @@ $consumergroup = Set-AzureRmEventHubConsumerGroup <parameters>
 ### <a name="get-azurermeventhubconsumergroup"></a>**Get-AzureRmEventHubConsumerGroup**
 - ConsumerGroupAttributes の "EventHubPath" プロパティが削除されます。
 
-```powershell
+```powershell-interactive
 # Old
 # The $consumergroup has EventHubPath property 
 $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
@@ -394,12 +410,12 @@ $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
 - **Get-AzureRMUsage** コマンドレットは非推奨となりました。
 
 ### <a name="get-azurermalerthistory--get-azurermautoscalehistory--get-azurermlogs"></a>**Get-AzureRmAlertHistory** / **Get-AzureRmAutoscaleHistory** / **Get-AzureRmLogs**
-- 出力の変更: (これらのコマンドレットから返される) EventData オブジェクトの EventChannels フィールドは、定数値 (Admin,Operation) を返すようになったため、非推奨となります。
+- 出力の変更:(これらのコマンドレットから返される) EventData オブジェクトの EventChannels フィールドは、定数値 (Admin,Operation) を返すようになったため、非推奨となります。
 
 ### <a name="get-azurermalertrule"></a>**Get-AzureRmAlertRule**
-- 出力の変更: ユーザー エクスペリエンスを向上させるために、このコマンドレットの出力はフラット化されます (プロパティ フィールドが排除されます)。
+- 出力の変更:ユーザー エクスペリエンスを向上させるために、このコマンドレットの出力はフラット化されます (プロパティ フィールドが排除されます)。
 
-```powershell
+```powershell-interactive
 # Old
 $rules = Get-AzureRmAlertRule -ResourceGroup $resourceGroup
 if ($rules -and $rules.count -ge 1)
@@ -427,9 +443,9 @@ if ($rules -and $rules.count -ge 1)
 ```
 
 ### <a name="get-azurermautoscalesetting"></a>**Get-AzureRmAutoscaleSetting**
-- 出力の変更: AutoscaleSettingResourceName フィールドは Name フィールドと常に等しいため、非推奨となります。
+- 出力の変更:AutoscaleSettingResourceName フィールドは Name フィールドと常に等しいため、非推奨となります。
 
-```powershell
+```powershell-interactive
 # Old
 $s1 = Get-AzureRmAutoscaleSetting -ResourceGroup $resourceGroup -Name MySetting
 if ($s1.AutoscaleSettingResourceName -ne $s1.Name)
@@ -445,9 +461,9 @@ Write-Host $s1.Name
 ```
 
 ### <a name="remove-azurermalertrule--remove-azurermlogprofile"></a>**Remove-AzureRmAlertRule** / **Remove-AzureRmLogProfile**
-- 出力の変更: 要求 ID と状態コードを含む単一のオブジェクトを返すために出力の型が変更されます。
+- 出力の変更:要求 ID と状態コードを含む単一のオブジェクトを返すために出力の型が変更されます。
 
-```powershell
+```powershell-interactive
 # Old
 $s1 = Remove-AzureRmAlertRule -ResourceGroup $resourceGroup -name $ruleName
 if ($s1 -ne $null)
@@ -467,7 +483,7 @@ $s = $s1.StatusCode
 ### <a name="add-azurermapplicationgatewaysslcertificate"></a>**Add-AzureRmApplicationGatewaySslCertificate**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 Add-AzureRmApplicationGatewaySslCertificate [other required parameters] -Password "plain-text string"
 
@@ -478,7 +494,7 @@ Add-AzureRmApplicationGatewaySslCertificate [other required parameters] -Passwor
 ### <a name="new-azurermapplicationgatewaysslcertificate"></a>**New-AzureRmApplicationGatewaySslCertificate**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmApplicationGatewaySslCertificate [other required parameters] -Password "plain-text string"
 
@@ -489,7 +505,7 @@ New-AzureRmApplicationGatewaySslCertificate [other required parameters] -Passwor
 ### <a name="set-azurermapplicationgatewaysslcertificate"></a>**Set-AzureRmApplicationGatewaySslCertificate**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmApplicationGatewaySslCertificate [other required parameters] -Password "plain-text string"
 
@@ -502,7 +518,7 @@ Set-AzureRmApplicationGatewaySslCertificate [other required parameters] -Passwor
 ### <a name="new-azurermadappcredential"></a>**New-AzureRmADAppCredential**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADAppCredential [other required parameters] -Password "plain-text string"
 
@@ -513,7 +529,7 @@ New-AzureRmADAppCredential [other required parameters] -Password $SecureStringVa
 ### <a name="new-azurermadapplication"></a>**New-AzureRmADApplication**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADApplication [other required parameters] -Password "plain-text string"
 
@@ -524,7 +540,7 @@ New-AzureRmADApplication [other required parameters] -Password $SecureStringVari
 ### <a name="new-azurermadserviceprincipal"></a>**New-AzureRmADServicePrincipal**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADServicePrincipal [other required parameters] -Password "plain-text string"
 
@@ -535,7 +551,7 @@ New-AzureRmADServicePrincipal [other required parameters] -Password $SecureStrin
 ### <a name="new-azurermadspcredential"></a>**New-AzureRmADSpCredential**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADSpCredential [other required parameters] -Password "plain-text string"
 
@@ -546,7 +562,7 @@ New-AzureRmADSpCredential [other required parameters] -Password $SecureStringVar
 ### <a name="new-azurermaduser"></a>**New-AzureRmADUser**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADUser [other required parameters] -Password "plain-text string"
 
@@ -557,7 +573,7 @@ New-AzureRmADUser [other required parameters] -Password $SecureStringVariable
 ### <a name="set-azurermaduser"></a>**Set-AzureRmADUser**
 - "Password" パラメーターが SecureString に置き換えられます。
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmADUser [other required parameters] -Password "plain-text string"
 
@@ -623,10 +639,10 @@ Set-AzureRmADUser [other required parameters] -Password $SecureStringVariable
 
 ### <a name="type-namespaceattributes"></a>**NamespaceAttributes 型**
 - 次のプロパティが削除されました。
-    - 有効
-    - 状態
+    - Enabled
+    - Status
    
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property 
 $namespace = Get-AzureRmServiceBusNamespace <parameters>
@@ -645,7 +661,7 @@ $namespace = Get-AzureRmServiceBusNamespace <parameters>
     - IsAnonymousAccessible
     - SupportOrdering
 
-```powershell
+```powershell-interactive
 # Old
 # The $queue has EntityAvailabilityStatus, EnableBatchedOperations, IsAnonymousAccessible and SupportOrdering properties
 $queue = Get-AzureRmServiceBusQueue <parameters>
@@ -661,14 +677,14 @@ $queue = Get-AzureRmServiceBusQueue <parameters>
    
 ### <a name="type-topicattribute"></a>**TopicAttribute 型**
 - 次のプロパティは古い形式としてマークされています。
-    - 場所
+    - Location
     - IsExpress
     - IsAnonymousAccessible
     - FilteringMessagesBeforePublishing
     - EnableSubscriptionPartitioning
     - EntityAvailabilityStatus
 
-```powershell
+```powershell-interactive
 # Old
 # The $topic has EntityAvailabilityStatus, EnableSubscriptionPartitioning, IsAnonymousAccessible, IsExpress, Location and FilteringMessagesBeforePublishing properties
 $topic = Get-AzureRmServiceBusTopic <parameters>
@@ -689,9 +705,9 @@ $topic = Get-AzureRmServiceBusTopic <parameters>
     - DeadLetteringOnFilterEvaluationExceptions
     - EntityAvailabilityStatus
     - IsReadOnly
-    - 場所
+    - Location
    
-```powershell
+```powershell-interactive
 # Old
 # The $subscription has EntityAvailabilityStatus, EnableSubscriptionPartitioning, IsAnonymousAccessible, IsExpress, Location and FilteringMessagesBeforePublishing properties
 $subscription = Get-AzureRmServiceBussubscription <parameters>
