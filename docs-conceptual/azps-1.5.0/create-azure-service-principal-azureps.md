@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.openlocfilehash: ae8bb8341209fedc3fadf8137f4faaf1ad3fe686
-ms.sourcegitcommit: 447276d46ffeeb37f0c07a570536665e36c5ddb8
+ms.openlocfilehash: 3ce1135cc81d11ce6faa62c790cb4358b5fceda4
+ms.sourcegitcommit: 32dad89878c7e728f740936f5f338b8ae878a6a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57882404"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58192924"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -88,7 +88,7 @@ $sp = New-AzADServicePrincipal -DisplayName ServicePrincipalName -KeyCredential 
 
 ## <a name="get-an-existing-service-principal"></a>既存のサービス プリンシパルの取得
 
-[Get AzADServicePrincipal](/module/az.resources/get-azadserviceprincipal) を使用すると、現在アクティブなテナントのサービス プリンシパル一覧を取得できます。 既定では、このコマンドによってテナント内の__すべての__サービス プリンシパルが返されるため、大規模な組織の場合は、結果が返されるまでに長時間を要することがあります。 代わりに、オプションのサーバー側フィルター処理引数のいずれかを使用することをお勧めします。
+[Get AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) を使用すると、現在アクティブなテナントのサービス プリンシパル一覧を取得できます。 既定では、このコマンドによってテナント内の__すべての__サービス プリンシパルが返されるため、大規模な組織の場合は、結果が返されるまでに長時間を要することがあります。 代わりに、オプションのサーバー側フィルター処理引数のいずれかを使用することをお勧めします。
 
 * `-DisplayNameBeginsWith` は、指定した値に一致する "_プレフィックス_" を持つサービス プリンシパルを要求します。 サービス プリンシパルの表示名は、作成時に `-DisplayName` で設定した値です。
 * `-DisplayName` は、サービス プリンシパル名に "_正確に一致するもの_" を要求します。
@@ -121,7 +121,7 @@ Delete-AzRoleAssignment -ApplicationId <service principal application ID> -RoleD
 変更を確認するには、割り当てられているロールの一覧を表示します。
 
 ```azurepowershell-interactive
-Get-AzRoleAssignment -ServicePrinicpalName ServicePrincipalName
+Get-AzRoleAssignment -ServicePrincipalName ServicePrincipalName
 ```
 
 ## <a name="sign-in-using-a-service-principal"></a>サービス プリンシパルを使用したサインイン

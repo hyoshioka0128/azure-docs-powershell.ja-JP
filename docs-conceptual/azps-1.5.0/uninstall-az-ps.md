@@ -7,12 +7,12 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: fcec2c713d1967a5a70df9b13aa30d9ff4625e9d
-ms.sourcegitcommit: 447276d46ffeeb37f0c07a570536665e36c5ddb8
+ms.openlocfilehash: 6a34ac1821c3cec359d0d64664d3f1689621b304
+ms.sourcegitcommit: e736293cbc7b813b6b133781c88c7978fb22122a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57882362"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58215272"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
@@ -111,8 +111,8 @@ $versions[1..($versions.Length-1)]  | foreach { Uninstall-AllModules -TargetModu
 
 ## <a name="uninstall-the-azurerm-module"></a>AzureRM モジュールをアンインストールする
 
-Az モジュールがシステムにインストールされていて、AzureRM をアンインストールする場合は、上記の `Uninstall-AllModules` スクリプトを実行する必要のない方法が 2 つあります。 AzureRM をインストールした方法に応じて、実行する方法は異なります。
-不明な場合は、まず、MSI をアンインストールするための手順を確認します。
+Az モジュールがシステムにインストールされていて、AzureRM をアンインストールする場合は、上記の `Uninstall-AllModules` スクリプトを実行する必要のない方法が 2 つあります。 AzureRM モジュールをインストールした方法に応じて、実行する方法は異なります。
+不明な場合は、まず、MSI をアンインストールするための手順に従います。
 
 ### <a name="uninstall-azure-powershell-msi"></a>Azure PowerShell MSI のアンインストール
 
@@ -123,11 +123,11 @@ MSI パッケージを使用して Azure PowerShell AzureRM モジュールを�
 | Windows 10 | [スタート] > [設定] > [アプリ] |
 | Windows 7 </br>Windows 8 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
 
-この画面のプログラムの一覧に [__Azure PowerShell__] が表示されます。 これが、アンインストール対象のアプリです。
+この画面のプログラムの一覧に [__Azure PowerShell__] が表示されます。 これが、アンインストール対象のアプリです。 このプログラムが一覧に表示されていない場合は、PowerShellGet を介してインストールされています。この場合は、次の一連の手順に従います。
 
 ### <a name="uninstall-from-powershell"></a>PowerShell からのアンインストール
 
-PowerShellGet から AzureRM をインストールした場合は、新しい `Uninstall-AzureRM` コマンドを使用してモジュールを削除します。 これによって、"_すべて_" の AzureRM モジュールがコンピューターから削除されます。ただし、管理者特権が必要です。
+PowerShellGet を使用して AzureRM をインストールした場合は、`Az.Accounts` モジュールの一部として使用可能な [Uninstall-AzureRM](/powershell/module/az.accounts/uninstall-azurerm) コマンドでモジュールを削除します。 これによって、"_すべて_" の AzureRM モジュールがコンピューターから削除されます。ただし、管理者特権が必要です。
 
 ```powershell-interactive
 Uninstall-AzureRm
