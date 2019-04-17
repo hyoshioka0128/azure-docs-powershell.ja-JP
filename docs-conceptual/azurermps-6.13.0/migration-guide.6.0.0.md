@@ -151,7 +151,7 @@ New-AzureRmAvailabilitySet -ResourceGroupName "MyRG" -Name "MyAvailabilitySet" -
 
 **Set-AzureRmVMAEMExtension**
 - `DisableWAD` パラメーターが削除されました。
-    -  Windows Azure 診断が既定で無効になっています。
+    -  Windows Azure Diagnostics が既定で無効になっています。
 
 **Set-AzureRmVMDataDisk**
 - `StorageAccountType` パラメーターに指定できる値が、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。
