@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.openlocfilehash: be3e19dc4b689adbc63b933dd9f3454122d5344a
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59364150"
 ---
 # <a name="migration-guide-for-az-100"></a>Az 1.0.0 の移行ガイド
@@ -60,7 +60,7 @@ Get-AzVM
 Get-AzKeyVaultSecret
 ```
 
-これらの新しいコマンドレット名に簡単に移行できるように、Az では ```Enable-AzureRmAlias``` と ```Disable-AzureRmAlias``` の 2 つの新しいコマンドレットが導入されています。  ```Enable-AzureRmAlias``` AzureRM の古いコマンドレット名から新しい Az コマンドレット名に対するエイリアスを作成します。  このコマンドレットでは、現在のセッションでエイリアスを作成することも、ユーザー プロファイルまたはマシン プロファイルを変更してすべてのセッションでエイリアスを作成することもできます。 
+これらの新しいコマンドレット名に簡単に移行できるように、Az では ```Enable-AzureRmAlias``` と ```Disable-AzureRmAlias``` の 2 つの新しいコマンドレットが導入されています。  ```Enable-AzureRmAlias``` は、AzureRM の古いコマンドレット名から新しい Az コマンドレット名に対するエイリアスを作成します。  このコマンドレットでは、現在のセッションでエイリアスを作成することも、ユーザー プロファイルまたはマシン プロファイルを変更してすべてのセッションでエイリアスを作成することもできます。 
 
 たとえば、AzureRM の次のスクリプトがあるとします。
 ```powershell
@@ -82,7 +82,7 @@ Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 
 エイリアス コマンドレットの使用方法の詳細については、PowerShell プロンプトから ```Get-Help -Online Enable-AzureRmAlias``` を実行してください。
 
-```Disable-AzureRmAlias``` ```Enable-AzureRmAlias``` によって作成された AzureRM コマンドレットのエイリアスを削除します。  詳細については、PowerShell プロンプトから ```Get-Help -Online Disable-AzureRmAlias``` を実行してください。
+```Disable-AzureRmAlias``` は、```Enable-AzureRmAlias``` によって作成された AzureRM コマンドレットのエイリアスを削除します。  詳細については、PowerShell プロンプトから ```Get-Help -Online Disable-AzureRmAlias``` を実行してください。
 
 ### <a name="module-name-changes"></a>モジュール名の変更
 - 次のモジュールを除き、モジュール名が `AzureRM.*` から `Az.*` に変更されました。
@@ -187,10 +187,10 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 
 ### <a name="azcompute-previously-azurermcompute"></a>Az.Compute (以前の AzureRM.Compute)
 - `PSVirtualMachine` および `PSVirtualMachineScaleSet` オブジェクトの `Identity` プロパティから `IdentityIds` が削除されました。スクリプトでは、このフィールドの値を使用して処理を決定することはできなくなりました。
-- `PSVirtualMachineScaleSetVM` オブジェクトの `InstanceView` プロパティの型が、`VirtualMachineInstanceView` から変更されました `VirtualMachineScaleSetVMInstanceView`
-- `AutoOSUpgradePolicy` `UpgradePolicy` プロパティから、`AutomaticOSUpgrade` プロパティが削除されました
-- `PSSnapshotUpdate` オブジェクトの `Sku` プロパティの型が、`DiskSku` から変更されました `SnapshotSku`
-- `VmScaleSetVMParameterSet` `Add-AzVMDataDisk` コマンドレットから、が削除されました。スケールセット VM にデータ ディスクを個別に追加することはできなくなりました。
+- `PSVirtualMachineScaleSetVM` オブジェクトの `InstanceView` プロパティの型が、`VirtualMachineInstanceView` から `VirtualMachineScaleSetVMInstanceView` に変更されました。
+- `UpgradePolicy` プロパティから、`AutoOSUpgradePolicy` および `AutomaticOSUpgrade` プロパティが削除されました。
+- `PSSnapshotUpdate` オブジェクトの `Sku` プロパティの型が、`DiskSku` から `SnapshotSku` に変更されました。
+- `Add-AzVMDataDisk` コマンドレットから、`VmScaleSetVMParameterSet` が削除されました。スケールセット VM にデータ ディスクを個別に追加することはできなくなりました。
 
 ### <a name="azdatafactory-previously-azurermdatafactories-and-azurermdatafactoryv2"></a>Az.DataFactory (以前の AzureRM.DataFactories および AzureRM.DataFactoryV2)
 - `New-AzDataFactoryEncryptValue` コマンドレットで `GatewayName` パラメーターが必須になりました。
@@ -198,7 +198,7 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 - `Get-AzDataFactoryV2ActivityRun` コマンドレットから、`LinkedServiceName` パラメーターが削除されました。スクリプトでは、このフィールドの値を使用して処理を決定することはできなくなりました。
 
 ### <a name="azdatalakeanalytics-previously-azurermdatalakeanalytics"></a>Az.DataLakeAnalytics (以前の AzureRM.DataLakeAnalytics)
-- 非推奨の `New-AzDataLakeAnalyticsCatalogSecret`、`Remove-AzDataLakeAnalyticsCatalogSecret` の各コマンドレットが削除されました `Set-AzDataLakeAnalyticsCatalogSecret`
+- 非推奨の `New-AzDataLakeAnalyticsCatalogSecret`、`Remove-AzDataLakeAnalyticsCatalogSecret`、`Set-AzDataLakeAnalyticsCatalogSecret` の各コマンドレットが削除されました。
 
 ### <a name="azdatalakestore-previously-azurermdatalakestore"></a>Az.DataLakeStore (以前の AzureRM.DataLakeStore)
 - 次のコマンドレットの `Encoding` パラメーターの型が、`FileSystemCmdletProviderEncoding` から `System.Text.Encoding` に変更されました。 この変更により、エンコード値 `String` と `Oem` が削除されます。 以前からの他のエンコード値はすべて残ります。
@@ -264,7 +264,7 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 
 ### <a name="azrecoveryservices-previously-azurermrecoveryservices-azurermrecoveryservicesbackup-and-azurermrecoveryservicessiterecovery"></a>Az.RecoveryServices (以前の AzureRM.RecoveryServices、AzureRM.RecoveryServices.Backup、および AzureRM.RecoveryServices.SiteRecovery)
 - `New/Set-AzRecoveryServicesAsrPolicy` コマンドレットから、`Encryption` パラメーターが削除されました。
-- `TargetStorageAccountName` `Restore-AzRecoveryServicesBackupItem` コマンドレットでのマネージド ディスクの復元にパラメーターが必須になりました
+- `Restore-AzRecoveryServicesBackupItem` コマンドレットでのマネージド ディスクの復元に `TargetStorageAccountName` パラメーターが必須になりました。
 - `Restore-AzRecoveryServicesBackupItem` コマンドレットの `StorageAccountName` および `StorageAccountResourceGroupName` パラメーターが削除されました。
 - `Get-AzRecoveryServicesBackupContainer` コマンドレットの `Name` パラメーターが削除されました。
 
@@ -304,13 +304,13 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 
 ### <a name="azsql-previously-azurermsql"></a>Az.Sql (以前の AzureRM.Sql)
 - `Set-AzSqlDatabaseBackupLongTermRetentionPolicy` コマンドレットから、`State` および `ResourceId` パラメーターが削除されました。
-- 非推奨の `Get/Set-AzSqlServerBackupLongTermRetentionVault`、`Get/Start/Stop-AzSqlServerUpgrade`、`Get/Set-AzSqlDatabaseAuditingPolicy`、`Get/Set-AzSqlServerAuditingPolicy`、`Remove-AzSqlDatabaseAuditing` の各コマンドレットが削除されました `Remove-AzSqlServerAuditing`
+- 非推奨の `Get/Set-AzSqlServerBackupLongTermRetentionVault`、`Get/Start/Stop-AzSqlServerUpgrade`、`Get/Set-AzSqlDatabaseAuditingPolicy`、`Get/Set-AzSqlServerAuditingPolicy`、`Remove-AzSqlDatabaseAuditing`、`Remove-AzSqlServerAuditing` の各コマンドレットが削除されました。
 - `Get-AzSqlDatabaseBackupLongTermRetentionPolicy` コマンドレットから、非推奨の `Current` パラメーターが削除されました。
 - `Get-AzSqlServerServiceObjective` コマンドレットから、非推奨の `DatabaseName` パラメーターが削除されました。
 - `Set-AzSqlDatabaseDataMaskingPolicy` コマンドレットから、非推奨の `PrivilegedLogin` パラメーターが削除されました。
 
 ### <a name="azstorage-previously-azurestorage-and-azurermstorage"></a>Az.Storage (以前の Azure.Storage and AzureRM.Storage)
-- ストレージ アカウント名のみを使用した Oauth ストレージ コンテキストの作成をサポートするために、既定のパラメーター セットが変更されました `OAuthParameterSet`
+- ストレージ アカウント名のみを使用した Oauth ストレージ コンテキストの作成をサポートするために、既定のパラメーター セットが `OAuthParameterSet` に変更されました。
   - 例: `$ctx = New-AzureStorageContext -StorageAccountName $accountName`
 - `Get-AzStorageUsage` コマンドレットで `Location` パラメーターが必須になりました。
 - Storage API のメソッドで、同期 API 呼び出しの代わりに、タスク ベースの非同期パターン (TAP) が使用されるようになりました。

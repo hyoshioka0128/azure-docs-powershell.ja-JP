@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 28122ca953d62b405f19effbbc680f2dc6202cca
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59364188"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az"></a>AzureRM から Azure PowerShell Az への移行
@@ -43,7 +43,7 @@ Azure PowerShell Az モジュールをインストールするには、次の手
 
 * __推奨__:[AzureRM モジュールをアンインストールする](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
   最新のバージョンだけでなく、インストールした "_すべて_" のバージョンの AzureRM を必ず削除します。
-* [Az モジュールのインストール](install-az-ps.md)
+* [Az モジュールをインストールする](install-az-ps.md)
 
 ## <a name="a-namealiasesenable-azurerm-compatibility-aliases"></a><a name="aliases"/>AzureRM と互換性のある別名を有効にする 
 

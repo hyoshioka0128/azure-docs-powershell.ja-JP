@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.openlocfilehash: 06116c7eb6ed848c9f369a3dd16f5e901e02afbe
-ms.sourcegitcommit: 1f13aaa89d23130f84b98047e261d26cd4e9cf0c
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59430620"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
@@ -91,8 +91,8 @@ $sp = New-AzADServicePrincipal -DisplayName ServicePrincipalName -KeyCredential 
 
 [Get AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) を使用すると、現在アクティブなテナントのサービス プリンシパル一覧を取得できます。 既定では、このコマンドによってテナント内の__すべての__サービス プリンシパルが返されるため、大規模な組織の場合は、結果が返されるまでに長時間を要することがあります。 代わりに、オプションのサーバー側フィルター処理引数のいずれかを使用することをお勧めします。
 
-* `-DisplayNameBeginsWith` 指定した値に一致する "_プレフィックス_" を持つサービス プリンシパルを要求します。 サービス プリンシパルの表示名は、作成時に `-DisplayName` で設定した値です。
-* `-DisplayName` サービス プリンシパル名に "_正確に一致するもの_" を要求します。
+* `-DisplayNameBeginsWith` は、指定した値に一致する "_プレフィックス_" を持つサービス プリンシパルを要求します。 サービス プリンシパルの表示名は、作成時に `-DisplayName` で設定した値です。
+* `-DisplayName` は、サービス プリンシパル名に "_正確に一致するもの_" を要求します。
 
 ## <a name="manage-service-principal-roles"></a>サービス プリンシパル ロールを管理する
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 01/10/2019
 ms.openlocfilehash: 45ab083dd133c8c7b8dbe902484c92564bc216b9
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59364164"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
@@ -46,7 +46,7 @@ Azure PowerShell の最新リリースについては、[リリース ノート]
 
 Azure PowerShell の基礎を学ぶには、[Azure PowerShell の使用に関するページ](get-started-azureps.md)をご覧ください。 PowerShell について初めて学ぶ場合は、概要に関するページからご覧ください。
 
-* [PowerShell をインストールする](/powershell/scripting/install/installing-powershell)
+* [PowerShell のインストール](/powershell/scripting/install/installing-powershell)
 * [PowerShell を使用したスクリプト](/powershell/scripting/powershell-scripting)
 * [PowerShell の基礎: (パート 1) PowerShell の概要](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)
 * Microsoft Virtual Academy の [PowerShell の概要](https://mva.microsoft.com/liveevents/powershell-jumpstart)
@@ -56,7 +56,7 @@ Azure PowerShell の基礎を学ぶには、[Azure PowerShell の使用に関す
 * [Linux Virtual Machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
 * [Windows Virtual Machines](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/powershell/azure/toc.json)
 * [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
-* [SQL データベース](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
+* [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
 
 ## <a name="build-your-skills-with-microsoft-learn"></a>Microsoft Learn でスキルを身に付ける
 

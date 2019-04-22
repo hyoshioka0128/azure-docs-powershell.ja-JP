@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.openlocfilehash: 825a07e01194a07b747712a62384c7f162e63d7d
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59364096"
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>PowerShell ジョブを使用したコマンドレットの並列実行
@@ -66,7 +66,7 @@ MyVm                 MyVm   eastus Standard_DS1_v2 Windows    MyVm          Crea
 ジョブが完了したら、`Receive-Job` を使用してジョブの結果を取得します。
 
 > [!NOTE]
-> `Receive-Job` `-AsJob` フラグが存在しないかのように、コマンドレットから結果を返します。
+> `Receive-Job` は、`-AsJob` フラグが存在しないように、コマンドレットから結果を返します。
 > たとえば、`Do-Action -AsJob` の `Receive-Job` 結果の種類は、`Do-Action` の結果と同じです。
 
 ```azurepowershell-interactive
