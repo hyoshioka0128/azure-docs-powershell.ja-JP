@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
-ms.openlocfilehash: 836b586f9b537d5ca4147cea01f9192f890bb544
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 8049b156e1c881ed2d4fe35a0d29c9dcd48e6e97
+ms.sourcegitcommit: b37b8bb6f8e39ecea5b50ceec48601eed313add7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144776"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511599"
 ---
 # <a name="other-installation-methods"></a>その他のインストール方法
 
@@ -30,7 +30,7 @@ WebPI から最新の Azure PowerShell をインストールする方法は、�
 >
 > PowerShell ギャラリー モジュールでは、`$env:ProgramFiles\WindowsPowerShell\Modules` にモジュールがインストールされます。 一方、WebPI インストーラーでは、Azure モジュールは `$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\` にインストールされます。
 >
-> インストール中にエラーが発生した場合は、`$env:ProgramFiles\WindowsPowerShell\Modules` フォルダーから Azure* フォルダーを手動で削除したうえで、もう一度インストールを試みてください。
+> インストール中にエラーが発生した場合は、`$env:ProgramFiles\WindowsPowerShell\Modules` フォルダーから Azure\* フォルダーを手動で削除したうえで、もう一度インストールを試みてください。
 
 インストールが完了したら、Azure PowerShell コマンドレットを含むディレクトリが `$env:PSModulePath` の設定に含まれている必要があります。 Azure PowerShell が適切にインストールされているかどうかは、次のコマンドを使って確認できます。
 
