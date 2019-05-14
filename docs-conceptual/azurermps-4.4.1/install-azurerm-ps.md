@@ -7,25 +7,28 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: fac77e88612091c09106dffea6aa6d3765c1416b
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: a8f79a5b24e790731a1ee962a1e80fb5ad89561a
+ms.sourcegitcommit: b37b8bb6f8e39ecea5b50ceec48601eed313add7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153881"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511583"
 ---
-# <a name="install-and-configure-azure-powershell"></a>Azure PowerShell のインストールおよび構成
+# <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet を使用した Windows への Azure PowerShell のインストール
 
-この記事では、Windows 環境に Azure PowerShell モジュールをインストールする手順について説明します。
-macOS または Linux で Azure PowerShell を使用する場合は、次の記事をご覧ください。[macOS および Linux での Azure PowerShell のインストールおよび構成](install-azurermps-maclinux.md)。
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
-Azure PowerShell は、PowerShell ギャラリーからインストールすることをお勧めします。
+この記事では、PowerShellGet を使用して、Windows 用 PowerShell 5.x の Azure PowerShell モジュールをインストールする手順について説明します。 Azure PowerShell をインストールするときは、PowerShellGet およびモジュール管理を使用することをお勧めしますが、Web Platform Installer または MSI パッケージを使ってインストールすることもできます。方法については、[その他のインストール方法](other-install.md)に関する記事をご覧ください。
 
-[!INCLUDE[az-replacing-azurerm.md](../includes/az-replacing-azurerm.md)]
+このバージョンの Azure PowerShell では、Azure クラシック デプロイ モデルはサポートされていません。 クラシック デプロイのサポートについては、「[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)」の手順に従ってください。
 
-## <a name="step-1-install-powershellget"></a>手順 1: PowerShellGet をインストールする
+> [!IMPORTANT]
+> AzureRM モジュールは、macOS または Linux ではサポートされません。 これらのプラットフォームで Azure PowerShell コマンドレットを使用するには、[Az モジュールをインストール](/powershell/azure/install-az-ps)します。
+
+## <a name="step-1-install-powershellget"></a>手順 1:PowerShellGet をインストールする
 
 PowerShell ギャラリーからソフトウェアをインストールするには、PowerShellGet モジュールが必要です。 PowerShellGet のバージョンが適切であるかなど、システム要件を満たしていることを確認してください。 ご使用のシステムに PowerShellGet がインストールされているかどうかを確認するには、次のコマンドを実行します。
+
 
 ```powershell-interactive
 Get-InstalledModule -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path
