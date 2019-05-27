@@ -61,4 +61,8 @@
     - name: Cosmos DB
       href: /azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json
 - name: リリース ノート
-  href: release-notes-azureps.md
+  items:
+    - name: Az 2.1.0 リリース ノート
+      href: release-notes-azureps.md
+    - name: Az 2.0.0 重大な変更
+      href: migrate-az-2.0.0.md
