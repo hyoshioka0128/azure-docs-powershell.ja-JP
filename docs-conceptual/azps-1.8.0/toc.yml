@@ -8,7 +8,7 @@
   href: uninstall-az-ps.md
 - name: AzureRM から移行する
   items:
-    - name: 移行の開始
+    - name: 移行の手順
       href: migrate-from-azurerm-to-az.md
     - name: AzureRM と Az 間の変更
       href: migrate-az-1.0.0.md
