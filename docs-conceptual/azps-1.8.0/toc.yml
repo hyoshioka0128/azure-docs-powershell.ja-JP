@@ -6,6 +6,12 @@
   href: install-az-ps.md
 - name: アンインストール
   href: uninstall-az-ps.md
+- name: AzureRM から移行する
+  items:
+    - name: 移行の開始
+      href: migrate-from-azurerm-to-az.md
+    - name: AzureRM と Az 間の変更
+      href: migrate-az-1.0.0.md
 - name: 作業開始
   href: get-started-azureps.md
 - name: Cloud Shell
@@ -18,8 +24,6 @@
       href: create-azure-service-principal-azureps.md
     - name: 永続的な資格情報
       href: context-persistence.md
-- name: AzureRM から移行する
-  href: migrate-from-azurerm-to-az.md
 - name: クエリ
   href: queries-azureps.md
 - name: 出力の書式設定
@@ -58,5 +62,3 @@
       href: /azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json
 - name: リリース ノート
   href: release-notes-azureps.md
-- name: Az 1.0.0 の破壊的変更
-  href: migrate-az-1.0.0.md
