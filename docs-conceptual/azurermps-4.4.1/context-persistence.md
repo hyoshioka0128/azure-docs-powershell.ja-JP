@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 85de158cd2a4c3a38f653a530db8e6fae50cb37f
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 442dfed6175f2f5e2f386df3cb2bcea4871bcc01
+ms.sourcegitcommit: 0fdccb57a356b6e7c35a77b1f76e01fb96ef582b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144932"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65854180"
 ---
 # <a name="persisting-user-credentials-across-powershell-sessions"></a>PowerShell セッション間でのユーザーの資格情報の保持
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure PowerShell では、**Azure Context Autosave** と呼ばれる機能を提供しています。その機能は以下のとおりです。
 
@@ -45,7 +47,7 @@ PowerShell セッションが終了した後に Azure PowerShell がコンテキ
 
 コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzureRmContextAutoSave` を使用します。 PowerShell セッションを開くたびに Azure へのサインインが必要になります。
 
-Azure コンテキストを管理できるコマンドレットを使用すると、きめ細かな制御も可能になります。 変更を現在の PowerShell セッションのみ (`Process` スコープ) とすべての PowerShell セッション (`CurrentUser` スコープ) のどちらに適用するかを制御できます。 これらのオプションについては、「[コンテキスト スコープの使用](#Using-Context-Scopes)」で詳しく説明します。
+Azure コンテキストを管理できるコマンドレットを使用すると、きめ細かな制御も可能になります。 変更を現在の PowerShell セッションのみ (`Process` スコープ) とすべての PowerShell セッション (`CurrentUser` スコープ) のどちらに適用するかを制御できます。 これらのオプションについては、「[コンテキスト スコープの使用](#using-context-scopes)」で詳しく説明します。
 
 ## <a name="running-azure-powershell-cmdlets-as-background-jobs"></a>バックグラウンド ジョブとしての Azure PowerShell コマンドレットの実行
 
@@ -81,7 +83,7 @@ PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso
 
 前の例では、現在の資格情報を使用して、"Contoso Subscription 1" を対象とした新しいコンテキストを追加します。 新しいコンテキストの名前は "Contoso1" です。 コンテキストに名前を指定しない場合は、アカウント ID とサブスクリプション ID を使用した既定の名前が使用されます。
 
-既存のコンテキストの名前を変更するには、`Rename-AzureRmContext` コマンドレットを使用します。 例: 
+既存のコンテキストの名前を変更するには、`Rename-AzureRmContext` コマンドレットを使用します。 例:
 
 ```azurepowershell-interactive
 PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso2'
@@ -89,7 +91,7 @@ PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Co
 
 この例では、自動的に `[user1@contoso.org; 123456-7890-1234-564321]` という名前の付いたコンテキストの名前を簡単な名前 "Contoso2" に変更します。 コンテキストを管理するコマンドレットではタブ補完も使用されているため、コンテキストをすばやく選択できます。
 
-最後に、コンテキストを削除するには、`Remove-AzureRmContext` コマンドレットを使用します。  例: 
+最後に、コンテキストを削除するには、`Remove-AzureRmContext` コマンドレットを使用します。  例:
 
 ```azurepowershell-interactive
 PS C:\> Remove-AzureRmContext Contoso2

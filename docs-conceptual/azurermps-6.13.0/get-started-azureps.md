@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.openlocfilehash: 36a689dcfbd311871fe8638a0e56b037f6d0292a
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: a6256bf17d9f94cf362138275c577e74a1210e99
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144738"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534946"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで使用することも、ローカル コンピューターにインストールすることもできます。 この記事では、Azure PowerShell の基本的な使い方と、主要な概念について説明します。
 

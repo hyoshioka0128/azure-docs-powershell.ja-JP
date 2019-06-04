@@ -7,19 +7,19 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.openlocfilehash: 30f7a01b941bb2861b1652fa30ea002d40c80a80
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: fe35fccd7994d7c3c3587096263a50af598e8651
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56156255"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535039"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi-or-web-platform-installer"></a>MSI または Web Platform Installer を使用した Windows への Azure PowerShell のインストール
 
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
+
 この記事では、MSI または Web Platform Installer (WebPI) を使って Windows に Azure PowerShell をインストールする方法について説明します。  
 これらのインストール方法は、システムで必要とされる場合にのみ使用してください。 Windows に Azure PowerShell をインストールするときは、PowerShellGet を使用することをお勧めします。 PowerShellGet を使用して Azure PowerShell をインストールする手順については、「[PowerShellGet を使用して Azure PowerShell をインストールする](install-azurerm-ps.md)」を参照してください。
-
-[!INCLUDE[az-replacing-azurerm.md](../includes/az-replacing-azurerm.md)]
 
 ## <a name="install-or-update-on-windows-using-the-msi-package"></a>MSI パッケージを使って Windows でインストールまたは更新する
 

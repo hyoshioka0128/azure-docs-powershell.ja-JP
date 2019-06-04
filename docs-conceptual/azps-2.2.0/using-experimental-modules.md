@@ -6,19 +6,17 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.openlocfilehash: 11847ca2fe09ebeb48f962eab6dac2be06bd8805
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.date: 12/13/2018
+ms.openlocfilehash: ae2fecf73271a34a08ac66de03962a7a529e353b
+ms.sourcegitcommit: 0c012450805bef75472f48c74fe488baf6ba53bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534347"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66498609"
 ---
 # <a name="use-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
-[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
-
-Azure PowerShell チームでは現在、Azure の開発者ツール (特に CLI) を中心に Azure PowerShell のエクスペリエンスに多数の改善を加え、その評価試験を実施しています。
+Azure PowerShell チームでは現在、Azure の開発者ツールを中心に Azure PowerShell のエクスペリエンスに多数の改善を加え、その評価試験を実施しています。 この記事では、Azure PowerShell を使用した実験にオプトインし、開発チームにフィードバックを提供する方法について説明します。
 
 ## <a name="experimentation-methodology"></a>試験の手法
 
@@ -26,29 +24,17 @@ Microsoft では、試験を円滑に進めるため、既存の Azure SDK の�
 
 試験版モジュールは、既存の Azure PowerShell モジュールと共存させることができます。 コマンドレット名が短くなっているため、既存の (試験段階ではない) コマンドレットとの間に名前の競合が発生することはありません。
 
-試験版モジュールでは、名前付け規則 `AzureRM.*.Experiments` を使用しています。 この名前付け規則は、プレビュー版モジュールの名前の付け方によく似ています (プレビュー版では、`AzureRM.*.Preview` のようになっています)。 プレビュー版モジュールと試験版モジュールは異なるものです。 プレビュー版モジュールには、Azure サービスの新機能のうち、プレビュー版限定で利用できるものが実装されています。 プレビュー版モジュールは、既存の Azure PowerShell モジュールに代わるものであるため、採用しているコマンドレット名やパラメーター名が同じになっています。
+試験版モジュールでは、名前付け規則 `Az.*.Experiments` を使用しています。 この名前付け規則は、プレビュー版モジュールの名前の付け方によく似ています (プレビュー版では、`Az.*.Preview` のようになっています)。 プレビュー版モジュールと試験版モジュールは異なるものです。 プレビュー版モジュールには、Azure サービスの新機能のうち、プレビュー版限定で利用できるものが実装されています。 プレビュー版モジュールは、既存の Azure PowerShell モジュールに代わるものであるため、採用しているコマンドレット名やパラメーター名が同じになっています。
 
 ## <a name="how-to-install-an-experimental-module"></a>試験版モジュールをインストールする方法
 
 試験版モジュールは、既存の Azure PowerShell モジュールと同じように PowerShell ギャラリーに公開されています。 試験版モジュールの一覧を表示するには、次のコマンドを実行します。
 
 ```azurepowershell-interactive
-Find-Module AzureRM.*.Experiments
+Find-Module Az.*.Experiments
 ```
 
-```output
-Version Name                         Repository Description
-------- ----                         ---------- -----------
-1.0.25  AzureRM.Compute.Experiments  PSGallery  Azure Compute experiments for VM creation
-1.0.0   AzureRM.Websites.Experiments PSGallery  Create and deploy web applications using Azure App Services.
-```
-
-試験版モジュールをインストールするには、管理者特権の PowerShell セッションから次のコマンドを実行します。
-
-```azurepowershell-interactive
-Install-Module AzureRM.Compute.Experiments
-Install-Module AzureRM.Websites.Experiments
-```
+試験版モジュールをインストールするには、`Install-Module` コマンドレットをインストールします。
 
 ### <a name="documentation-and-support"></a>ドキュメントとサポート
 
@@ -58,16 +44,17 @@ Install-Module AzureRM.Websites.Experiments
 
 ## <a name="experiments-and-areas-of-improvement"></a>試験的変更点および改善領域
 
-ここに挙げた改善点は、競合製品との主な差別化要因に基づいて選定したものです。 たとえば、Azure CLI 2.0 では "_API の表面的な部分_" ではなく、"_シナリオ_" に基づいてコマンドを実装することを基本的な方針としています。
-また、Azure CLI 2.0 はエンド ユーザーが "初めて使用する" という局面に簡単に対応できるように、スマートな既定値を多数採用しています。
+ここに挙げた改善点は、競合製品との主な差別化要因に基づいて選定したものです。 たとえば、Azure CLI では "_API の表面的な部分_" ではなく、"_シナリオ_" に基づいてコマンドを実装することを基本的な方針としています。
+また、Azure CLI はエンド ユーザーが "初めて使用する" という局面に簡単に対応できるように、スマートな既定値を多数採用しています。
 
 ### <a name="core-improvements"></a>重要な改善点
 
 ここで紹介する重要な改善点はいわば "常識" であるため、実装段階に進むにあたって必要な試験はわずかにとどまります。
 
-- シナリオベースのコマンドレット - コマンドレットは "<em>すべて</em>"、Azure REST サービスではなくシナリオを中心として設計する必要があります。
+- シナリオベースのコマンドレット - コマンドレットは "*すべて*"、Azure REST サービスではなくシナリオを中心として設計する必要があります。
 
-- 名前の短縮 - コマンドレット名 (例: `New-AzureRmVM` => `New-AzVm`) とパラメーター名 (例: `-ResourceGroupName` => `-Rg`) が対象です。 "以前の" コマンドレットとの互換性を確保するには、エイリアスを使用します。 "_下位互換性を備えた_" パラメーター セットを提供します。
+- 名前の短縮 - コマンドレット名とパラメーター名が対象です。
+  "以前の" コマンドレットとの互換性を確保するには、エイリアスを使用します。 "_下位互換性を備えた_" パラメーター セットを提供します。
 
 - スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 例:
   - リソース グループ

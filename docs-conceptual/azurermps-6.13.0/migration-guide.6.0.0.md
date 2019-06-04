@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 39d9fa6e354c3c3448053c9cdc98fdc7f55b068d
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 1fbd24996da2fbc7d4e95c2a63f828aea6cb3145
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153548"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534938"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-600"></a>Microsoft Azure PowerShell 6.0.0 の重大な変更
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 このドキュメントは、Microsoft Azure PowerShell コマンドレットのコンシューマー向けに、重大な変更を通知すると同時に、移行ガイドとしても役立ちます。 各セクションでは、重大な変更の影響と抵抗を最小限に抑える移行パスを示しています。 詳細なコンテキストについては、各変更に関する pull request を参照してください。
 
@@ -151,7 +153,7 @@ New-AzureRmAvailabilitySet -ResourceGroupName "MyRG" -Name "MyAvailabilitySet" -
 
 **Set-AzureRmVMAEMExtension**
 - `DisableWAD` パラメーターが削除されました。
-    -  Windows Azure Diagnostics が既定で無効になっています。
+    -  Windows Azure 診断が既定で無効になっています。
 
 **Set-AzureRmVMDataDisk**
 - `StorageAccountType` パラメーターに指定できる値が、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。

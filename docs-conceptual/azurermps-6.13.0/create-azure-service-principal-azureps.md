@@ -8,14 +8,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.openlocfilehash: 2db1ada32e5a9285c27ec3f569b622c9c33a06b0
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 38bb4345a9e4d2d9e450e74f99fb2c320c3ca4d8
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144551"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534915"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure PowerShell を使ってアプリまたはサービスを管理する場合、その実行には、自分の資格情報ではなく、Azure Active Directory (AAD) のサービス プリンシパルを使用する必要があります。 この記事では、Azure PowerShell でセキュリティ プリンシパルを作成する手順を紹介します。
 

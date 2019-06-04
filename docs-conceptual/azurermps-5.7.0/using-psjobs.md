@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 827bf06cfafc43e6cabdd504b7cfff5ce353072c
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: d2ffd6cc4c5e70c53ab60b1280384faac9b45867
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56156276"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534724"
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>PowerShell ジョブを使用したコマンドレットの並列実行
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 PowerShell は、[PowerShell ジョブ](/powershell/module/microsoft.powershell.core/about/about_jobs)による非同期アクションをサポートしています。
 Azure PowerShell は、Azure に対するネットワーク呼び出し (および、呼び出し待機) に大きく依存します。 開発者として、スクリプトで Azure への非ブロッキング呼び出しを複数実行しようとしていること、また、現在のセッションをブロックせずに REPL で Azure リソースを作成しなければならないことはよくあるでしょう。 こうしたニーズに対処するために、Azure PowerShell ではファースト クラス [PSJob](/powershell/module/microsoft.powershell.core/about/about_jobs) がサポートされます。

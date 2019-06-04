@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/16/2018
-ms.openlocfilehash: 8fdf5598050cea2ef3f7422d53b22f9e49fe7477
-ms.sourcegitcommit: b37b8bb6f8e39ecea5b50ceec48601eed313add7
+ms.openlocfilehash: 82375cc4267f468f562d138c4cdec6131e34ae32
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511667"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534521"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi"></a>MSI を使用した Windows への Azure PowerShell のインストール
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 この記事では、MSI インストーラーを使って Windows に Azure PowerShell をインストールする方法について説明します。  
 これらのインストール方法は、システムで必要とされる場合にのみ使用してください。 Windows に Azure PowerShell をインストールするときは、PowerShellGet を使用することをお勧めします。 PowerShellGet を使用して Azure PowerShell をインストールする手順については、「[PowerShellGet を使用して Azure PowerShell をインストールする](install-azurerm-ps.md)」を参照してください。

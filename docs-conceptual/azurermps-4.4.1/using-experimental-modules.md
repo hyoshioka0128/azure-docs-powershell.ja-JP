@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 30e57805dd59bd60d10c52422fcb68686563fadf
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 7867adeac41444c81c31b7ee44b910ab40d873f8
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144682"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534756"
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure PowerShell チームでは現在、Azure の開発者ツール (特に CLI) を中心に Azure PowerShell のエクスペリエンスに多数の改善を加え、その評価試験を実施しています。
 
@@ -30,11 +32,11 @@ Microsoft では、試験を円滑に進めるため、既存の Azure SDK の�
 
 試験版モジュールは、既存の Azure PowerShell モジュールと同じように PowerShell ギャラリーに公開されています。 試験版モジュールの一覧を表示するには、次のコマンドを実行します。
 
-```powershell-interactive
+```azurepowershell-interactive
 Find-Module AzureRM.*.Experiments
 ```
 
-```Output
+```output
 Version Name                         Repository Description
 ------- ----                         ---------- -----------
 1.0.25  AzureRM.Compute.Experiments  PSGallery  Azure Compute experiments for VM creation
@@ -43,7 +45,7 @@ Version Name                         Repository Description
 
 試験版モジュールをインストールするには、管理者特権の PowerShell セッションから次のコマンドを実行します。
 
-```powershell-interactive
+```azurepowershell-interactive
 Install-Module AzureRM.Compute.Experiments
 Install-Module AzureRM.Websites.Experiments
 ```
@@ -67,7 +69,7 @@ Install-Module AzureRM.Websites.Experiments
 
 - 名前の短縮 - コマンドレット名 (例: `New-AzureRmVM` => `New-AzVm`) とパラメーター名 (例: `-ResourceGroupName` => `-Rg`) が対象です。 "以前の" コマンドレットとの互換性を確保するには、エイリアスを使用します。 "_下位互換性を備えた_" パラメーター セットを提供します。
 
-- スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 例: 
+- スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 例:
   - リソース グループ
   - Location
   - 依存リソース

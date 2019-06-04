@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: d3e467714b1a9e4840f2a34b57eabfa5a2c6eaec
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: fbafc345b50fb86cc277bd5418549f91d7124933
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153662"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535150"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure PowerShell は、複数の認証方法をサポートしています。 最も簡単に始められるのは、コマンド ラインから対話形式でサインインする方法です。
 

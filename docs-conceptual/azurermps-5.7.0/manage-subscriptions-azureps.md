@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
-ms.openlocfilehash: 5edfe15a1ed4e321d28422e9e6c32a14b717b93c
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 34a062010f2f86744e71bbcbb6f4db28e47d5b16
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144599"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534976"
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>複数の Azure サブスクリプションの管理
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure を使い始めたばかりの場合、所有しているサブスクリプションは 1 つだけだと思われます。 一方、しばらく前から Azure を使用している場合は、複数の Azure サブスクリプションを作成済みであることも考えられます。 その場合は、特定のサブスクリプションに対してコマンドを実行するように Azure PowerShell を構成することができます。
 

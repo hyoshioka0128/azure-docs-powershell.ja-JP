@@ -7,18 +7,18 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
-ms.openlocfilehash: 8049b156e1c881ed2d4fe35a0d29c9dcd48e6e97
-ms.sourcegitcommit: b37b8bb6f8e39ecea5b50ceec48601eed313add7
+ms.openlocfilehash: d41e7ce2faac6a82b63ed173b5b64b85b56577c0
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511599"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535084"
 ---
 # <a name="other-installation-methods"></a>その他のインストール方法
 
-Azure PowerShell には、複数のインストール方法があります。 その中でも、PowerShell ギャラリーに対して PowerShellGet を使う方法をお勧めします。 それ以外にも、Web Platform Installer (WebPI) を使うか、GitHub から入手した MSI ファイルを使って Windows に Azure PowerShell をインストールすることができます。
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
-[!INCLUDE[az-replacing-azurerm.md](../includes/az-replacing-azurerm.md)]
+Azure PowerShell には、複数のインストール方法があります。 その中でも、PowerShell ギャラリーに対して PowerShellGet を使う方法をお勧めします。 それ以外にも、Web Platform Installer (WebPI) を使うか、GitHub から入手した MSI ファイルを使って Windows に Azure PowerShell をインストールすることができます。
 
 ## <a name="install-on-windows-using-the-web-platform-installer"></a>Web Platform Installer を使って Windows にインストールする
 
@@ -56,7 +56,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-このエラーは、コンピューターを再起動するか、完全修飾パスを使ってモジュールをインポートすることで修正できます。 例: 
+このエラーは、コンピューターを再起動するか、完全修飾パスを使ってモジュールをインポートすることで修正できます。 例:
 
 ```powershell-interactive
 Import-Module "$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\AzureRM.psd1"
