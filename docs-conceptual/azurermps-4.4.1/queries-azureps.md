@@ -7,16 +7,18 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
-ms.openlocfilehash: 9a7627a25f9bbd196b1d615229e45a6e1ce7a7d9
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: db161bb0ec1b25b1cb7445724cc5758599dbc674
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153760"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534643"
 ---
 # <a name="querying-for-azure-resources"></a>Azure リソースに対するクエリ
 
-PowerShell におけるクエリは、組み込みのコマンドレットを使って実行できます。 PowerShell のコマンドレット名は、**_<動詞>-<名詞>_** の形式になっています。 **_Get_** という動詞が使われているコマンドレットがクエリのコマンドレットです。 コマンドレットの名詞の部分には、動詞の作用が及ぶ Azure リソースの種類が入ります。
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
+
+PowerShell におけるクエリは、組み込みのコマンドレットを使って実行できます。 PowerShell のコマンドレット名は、 ** _<動詞>-<名詞>_ ** の形式になっています。 **_Get_** という動詞が使われているコマンドレットがクエリのコマンドレットです。 コマンドレットの名詞の部分には、動詞の作用が及ぶ Azure リソースの種類が入ります。
 
 ## <a name="selecting-simple-properties"></a>単純なプロパティの選択
 

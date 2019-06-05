@@ -8,14 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 08/28/2018
-ms.openlocfilehash: 7f517f0b3768a2075557b131158ee1264ea9ab3f
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: eecd66ddf433cc2543ceeaef1519d69179f2f099
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153452"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534449"
 ---
 # <a name="release-notes"></a>リリース ノート
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 これは Azure PowerShell の今回のリリースで行われた変更の一覧です。
 
@@ -139,7 +141,7 @@ ms.locfileid: "56153452"
 * Recovery Services で Azure ファイル共有のサポートを追加しました。
 
 #### <a name="azurermresources"></a>AzureRM.Resources
-*  https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
     - "Get-AzureRmResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました
 
 #### <a name="azurermservicebus"></a>AzureRM.ServiceBus
@@ -166,10 +168,10 @@ ms.locfileid: "56153452"
 
 #### <a name="azurermdatalakestore"></a>AzureRM.DataLakeStore
 * 仮想ネットワーク規則のサポートを追加しました
-    - Get-AzureRmDataLakeStoreVirtualNetworkRule: Azure Data Lake Store の仮想ネットワーク規則を取得または一覧表示します。
-    - Add-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウントに仮想ネットワーク規則を追加します。
-    - Set-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウント内の指定された仮想ネットワーク規則を変更します。
-    - Remove-AzureRmDataLakeStoreVirtualNetworkRule: Azure Data Lake Store の仮想ネットワーク規則を削除します。
+    - Get-AzureRmDataLakeStoreVirtualNetworkRule: Azure Data Lake Store の仮想ネットワーク ルールを取得または一覧表示します。
+    - Add-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウントに仮想ネットワーク ルールを追加します。
+    - Set-AzureRmDataLakeStoreVirtualNetworkRule: 指定された Data Lake Store アカウント内の指定された仮想ネットワーク ルールを変更します。
+    - Remove-AzureRmDataLakeStoreVirtualNetworkRule: Azure Data Lake Store の仮想ネットワーク ルールを削除します。
 
 #### <a name="azurermnetwork"></a>AzureRM.Network
 * プロトコル値をバックエンドに渡すように、Test-AzureRmNetworkWatcherConnectivity コマンドレットを更新しました。
@@ -680,7 +682,7 @@ ms.locfileid: "56153452"
 #### <a name="azurermcompute"></a>AzureRM.Compute
 * New-AzureRmVm での DiskFileParameterSet を使用した VM の作成が、PremiumLRS ストレージ アカウントの種類の名前変更が原因で失敗する問題を修正しました。
 * Invoke-AzureRmVMRunCommand コマンドレットを修正しました
-* サブスクリプション内のすべての可用性セットを一覧表示できるように、Get-AzureRmAvailabilitySet を更新しました   (ResouceGroupName パラメーターは省略可能になりました)。
+* サブスクリプション内のすべての可用性セットを一覧表示できるように、Get-AzureRmAvailabilitySet を更新しました  (ResouceGroupName パラメーターは省略可能になりました)。
 * 条件に合う VM で高速ネットワークを有効にできるように "New-AzureRmVm" の SimpleParameterSet を更新しました。
 * ユーザーが指定した LB が既に存在する場合 vmss の作成が失敗するように、New-AzureRmVmss の単純なパラメーター セットを更新しました。
 * New-AzureRmDisk の例を更新しました
