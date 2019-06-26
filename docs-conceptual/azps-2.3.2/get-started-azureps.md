@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 01/14/2019
-ms.openlocfilehash: 0c3b749cb2ac7f11dacafca76b65944f523f727d
-ms.sourcegitcommit: 0356a4694f77eda40eec8c3759b9bb7f28979eb6
+ms.openlocfilehash: c60036ba8be6282007aa34a0bb9c0d9e33197072
+ms.sourcegitcommit: fd62a6376eef9b6ca76df766de1edcd7938c7a30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67193211"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67388930"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
@@ -52,7 +52,7 @@ Azure PowerShell による Azure サブスクリプションの管理の詳細�
 
 ## <a name="find-commands"></a>コマンドを見つける
 
-Azure PowerShell コマンドレットは、PowerShell の標準的な名前付け規則 (`VERB-NOUN`) に従っています。 動詞はアクションを説明し (例: `Create`、`Get`、`Set`、`Delete`)、名詞はリソースの種類を説明します (例: `AzVM`、`AzKeyVaultCertificate`、`AzFirewall`、`AzVirtualNetworkGateway`)。 Azure PowerShell では名詞は常にプレフィックス `Az` で始まります。 標準的な動詞の完全な一覧については、「[Approved verbs for PowerShell Command (PowerShell コマンドの承認された動詞)](/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands)」を参照してください。
+Azure PowerShell コマンドレットは、PowerShell の標準的な名前付け規則 (`VERB-NOUN`) に従っています。 動詞はアクションを説明し (例: `New`、`Get`、`Set`、`Remove`)、名詞はリソースの種類を説明します (例: `AzVM`、`AzKeyVaultCertificate`、`AzFirewall`、`AzVirtualNetworkGateway`)。 Azure PowerShell では名詞は常にプレフィックス `Az` で始まります。 標準的な動詞の完全な一覧については、「[Approved verbs for PowerShell Command (PowerShell コマンドの承認された動詞)](/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands)」を参照してください。
 
 使用できる名詞、動詞、および Azure PowerShell モジュールを知ることは、[Get-Command](/powershell/module/microsoft.powershell.core/get-command) コマンドレットを使ったコマンドの検索に役立ちます。 たとえば、動詞 `Get` を使用したすべての VM 関連のコマンドを見つけるには、以下を使用します。
 
