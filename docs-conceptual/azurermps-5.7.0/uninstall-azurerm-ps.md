@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell のアンインストール
 description: Azure PowerShell の完全アンインストールを実行する方法
-ms.date: 06/20/2018
+ms.date: 06/10/2019
 author: sptramer
 ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: 82352c436f430814aaaf207a989e006f1a3eab86
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: cc0b6a4369116e92b8200ffbc0838d6ee2991263
+ms.sourcegitcommit: febbbd3f75c8dd1a296281d265289f015b6cb537
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534875"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67037698"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
@@ -47,22 +47,39 @@ function Uninstall-AllModules {
     [Parameter(Mandatory=$true)]
     [string]$Version,
 
-    [switch]$Force
+    [switch]$Force,
+
+    [switch]$WhatIf
   )
-
+  
   $AllModules = @()
-
+  
   'Creating list of dependencies...'
   $target = Find-Module $TargetModule -RequiredVersion $version
   $target.Dependencies | ForEach-Object {
-    $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$_.requiredversion}
+    if ($_.PSObject.Properties.Name -contains 'requiredVersion') {
+      $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$_.requiredVersion}
+    }
+    else { # Assume minimum version
+      # Minimum version actually reports the installed dependency
+      # which is used, not the actual "minimum dependency." Check to
+      # see if the requested version was installed as a dependency earlier.
+      $candidate = Get-InstalledModule $_.name -RequiredVersion $version -ErrorAction Ignore
+      if ($candidate) {
+        $AllModules += New-Object -TypeName psobject -Property @{name=$_.name; version=$version}
+      }
+      else {
+        $availableModules = Get-InstalledModule $_.name -AllVersions
+        Write-Warning ("Could not find uninstall candidate for {0}:{1} - module may require manual uninstall. Available versions are: {2}" -f $_.name,$version,($availableModules.Version -join ', '))
+      }
+    }
   }
   $AllModules += New-Object -TypeName psobject -Property @{name=$TargetModule; version=$Version}
 
   foreach ($module in $AllModules) {
-    Write-Host ('Uninstalling {0} version {1}' -f $module.name,$module.version)
+    Write-Host ('Uninstalling {0} version {1}...' -f $module.name,$module.version)
     try {
-      Uninstall-Module -Name $module.name -RequiredVersion $module.version -Force:$Force -ErrorAction Stop
+      Uninstall-Module -Name $module.name -RequiredVersion $module.version -Force:$Force -ErrorAction Stop -WhatIf:$WhatIf
     } catch {
       Write-Host ("`t" + $_.Exception.Message)
     }
@@ -76,7 +93,7 @@ function Uninstall-AllModules {
 Uninstall-AllModules -TargetModule AzureRM -Version 4.4.1 -Force
 ```
 
-スクリプトを実行すると、アンインストールされる各サブモジュールの名前とバージョンが表示されます。
+スクリプトを実行すると、アンインストールされる各サブモジュールの名前とバージョンが表示されます。 スクリプトを実行して削除対象を削除せずに表示のみを行うには、`-WhatIf` オプションを使用します。
 
 ```output
 Creating list of dependencies...
@@ -87,4 +104,14 @@ Uninstalling Azure.AnalysisServices version 0.4.7
 ...
 ```
 
-アンインストールする Azure PowerShell のバージョンごとにこのコマンドを実行します。
+> [!NOTE]
+> このスクリプトは、アンインストールするのと同じバージョンの依存関係を正確に突き合わせることができない場合、その依存関係の_どの_バージョンもアンインストールしません。 これは、これらの依存関係に依存する他のバージョンのターゲット モジュールがシステム上に存在する可能性があるためです。 この場合、依存関係の使用可能なバージョンが一覧表示されます。
+> その後、`Uninstall-Module` を使用して任意の古いバージョンを手動で削除できます。
+
+
+アンインストールする Azure PowerShell のバージョンごとにこのコマンドを実行します。 便宜上、次のスクリプトにより、最新バージョンを__除く__、AzureRM のすべてのバージョンがアンインストールされます。
+
+```powershell-interactive
+$versions = (get-installedmodule AzureRM -AllVersions | Select-Object Version)
+$versions[0..($versions.Length-2)]  | foreach { Uninstall-AllModules -TargetModule AzureRM -Version ($_.Version) -Force }
+```
