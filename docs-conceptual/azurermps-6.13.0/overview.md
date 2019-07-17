@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 12/20/2018
-ms.openlocfilehash: eaa4e3ccd2b53304aeaf9cb184814b83f4f88608
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: bdb63ce4bb614920582460ae707d8594977e8f71
+ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153495"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863580"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
 
@@ -38,8 +38,6 @@ PowerShell について初めて学ぶ場合は、PowerShell の概要に関す�
 * [PowerShell を使用したスクリプト](/powershell/scripting/powershell-scripting)
 
 次のビデオをご覧いただくこともできます。[PowerShell の基礎: (パート 1) PowerShell の概要](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)。
-
-または、Microsoft Virtual Academy の [PowerShell の概要](https://mva.microsoft.com/liveevents/powershell-jumpstart)に関するクラスにご参加ください。
 
 ## <a name="build-your-skills-with-microsoft-learn"></a>Microsoft Learn でスキルを身に付ける
 
