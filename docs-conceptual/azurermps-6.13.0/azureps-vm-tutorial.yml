@@ -16,12 +16,12 @@ metadata:
   ms.technology: azure-powershell
   ms.topic: tutorial
   clicktale: true
-  ms.openlocfilehash: a037b16eef107ecfab9a8df9de0b085b0c9a9ae2
-  ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+  ms.openlocfilehash: d161f0467c2371ce004a895eb12ebd8d257399a5
+  ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 05/11/2019
-  ms.locfileid: "65534778"
+  ms.lasthandoff: 07/13/2019
+  ms.locfileid: "67863863"
 items:
 - durationInMinutes: 1
   content: "\n[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]\n\nこのチュートリアルでは、Azure PowerShell を使用した仮想マシンの設定に関連するすべての手順について学習します。 チュートリアルでは、出力クエリ、Azure リソースの再利用、およびリソースのクリーンアップについても説明します。\n\nこれは、Azure Cloud Shell によって提供される対話型チュートリアルです。また、ローカルに [Azure PowerShell をインストール](install-azurerm-ps.md)することもできます。\n\nチュートリアルのテキストを Azure Cloud Shell に貼り付けるには、__Ctrl + Shift + V__ キー (macOS の場合は __cmd-v shift__) を使用します。"

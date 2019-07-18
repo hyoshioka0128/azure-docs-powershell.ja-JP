@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 07/26/2017
-ms.openlocfilehash: bee7d63c06ab42e920eea750095facddb8f542d8
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 1491f3f23deb767b754a98b3fab616356daa71f3
+ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534547"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863761"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -535,7 +535,7 @@ ms.locfileid: "65534547"
       * AzureRM.profile の 2.x バージョンとの下位互換性のために `-EnvironmentName` パラメーター エイリアスを追加しました。
 
 ## <a name="20170512---version-401"></a>2017.05.12 - バージョン 4.0.1
- * オフライン シナリオでの New-AzureStorageContext に関する問題を修正しました (https://github.com/Azure/azure-powershell/issues/3939)。
+ * オフライン シナリオでの New-AzureStorageContext に関する問題を修正しました (https://github.com/Azure/azure-powershell/issues/3939 )。
 
 ## <a name="20170510---version-400"></a>2017.05.10 - バージョン 4.0.0
 

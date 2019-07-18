@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ac8513b3eee4adfcaf0be8bf7b4e8d09190811df
-ms.sourcegitcommit: a4e527d3deba004007cfa22fa536e8255dd23b37
+ms.openlocfilehash: f357a17f698d68c1a29dcb78f83671973fd6ecad
+ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67516642"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863736"
 ---
 ## <a name="240---july-2019"></a>2.4.0 - 2019 年 7 月
 #### <a name="azaccounts"></a>Az.Accounts
@@ -91,18 +91,18 @@ ms.locfileid: "67516642"
 
 ## <a name="232---june-2019"></a>2.3.2 - 2019 年 6 月
 #### <a name="azaccounts"></a>Az.Accounts
-* 関数呼び出しで不適切な URL が使用されるバグを修正しました
+* 関数呼び出しにおいて、一部のケースで不適切な URL が使用されていたバグを修正しました
     - 詳細については、次を参照してください。 https://github.com/Azure/azure-powershell/issues/8983
-* エイリアスの問題を AzureRM から Az コマンドレットに修正しました
+* AzureRM コマンドレットから Az コマンドレットへの移行におけるエイリアスの問題を修正しました
   - Set-AzureRmVMBootDiagnostics -> Set-AzVMBootDiagnostic
   - Export-AzureRMLogAnalyticThrottledRequests -> Export-AzLogAnalyticThrottledRequest
 
 #### <a name="azcompute"></a>Az.Compute
-* 単純なパラメーター セット New-AzVm and New-AzVmss で 'ProximityPlacementGroup' パラメーターが受け入れられるようになりました。
-* 'New-AzVM' リファレンス ドキュメントのタイポを修正しました
+* 単純なパラメーター セット New-AzVm および New-AzVmss で "ProximityPlacementGroup" パラメーターが受け入れられるようになりました。
+* "New-AzVM" のリファレンス ドキュメントの入力ミスを修正しました
 
 #### <a name="azdns"></a>Az.Dns
-* 'Set-AzDnsZone' ヘルプの例のタイポを修正しました。
+* "Set-AzDnsZone" ヘルプの例の入力ミスを修正しました。
 
 #### <a name="azeventgrid"></a>Az.EventGrid
 * 2019-06-01 API バージョンを使用するように更新しました。
@@ -127,26 +127,26 @@ ms.locfileid: "67516642"
     - New-AzureRmEventGridSubscription/Update-AzureRmEventGridSubscription:
         - 新しい Event Grid ドメインと Event Grid ドメイン トピックのパイプ処理をサポートしてこれらのリソース下に新しいイベント サブスクリプションを作成できるようにするために新しい必須のパラメーターを追加しました。
         - 新しい Event Grid ドメイン名または Event Grid ドメイン トピック名を指定してこれらのリソース下に新しいイベント サブスクリプションを作成できるようにするために新しい必須のパラメーターを追加しました。
-        - 既存のパラメーターの再利用を許可するドメインとドメイン トピック用の新しいパラメーター セットを追加しました (EndPointType、SubjectBeginsWith など)
+        - 既存のパラメーターの再利用を許可するためにドメインとドメイン トピック用の新しいパラメーター セットを追加しました (EndPointType、SubjectBeginsWith など)。
         - 以下を指定するための新しい省略可能なパラメーターを追加:
             - イベント サブスクリプションの有効期限の日付
             - 高度なフィルター パラメーター
         - 宛先として servicebusqueue の新しい列挙型を追加しました。
-        - -IncludedEventType オプションの 'All' の使用を不許可にし、以下に置き換えました 
+        - -IncludedEventType オプションの "All" の使用を不許可にし、以下に置き換えました 
     - Get-AzEventGridTopic、Get-AzEventGridDomain、Get-AzEventGridDomainTopic、Get-AzEventGridSubscription:
-        - 結果の改ページ位置の自動修正ジとフィルター処理をサポートするために省略可能な新しいパラメーター (Top、ODataQuery、NextLink) を追加しました。
+        - 結果の改ページ位置の自動修正とフィルター処理をサポートするために省略可能な新しいパラメーター (Top、ODataQuery、NextLink) を追加しました。
     - Remove-AzureRmEventGridSubscription
         - Event Grid ドメインと Event Grid ドメイン トピックのパイプ処理をサポートしてこれらのリソース下での既存イベント サブスクリプションの削除を許可するように新しい必須のパラメーターを追加しました。
         - Event Grid ドメイン名または Event Grid ドメイン トピック名を指定してこれらのリソース下での既存イベント サブスクリプションの削除を許可するように新しい必須のパラメーターを追加しました。
 
 #### <a name="azfrontdoor"></a>Az.FrontDoor
 * New-AzFrontDoorWafMatchConditionObject
-    - 変換のサポートと新しい演算子オート コンプリート値 (RegEx) を追加しました
+    - 変換のサポートと新しい演算子のオート コンプリート値 (RegEx) を追加しました
 * New-AzFrontDoorWafManagedRuleObject
     - 新しいオート コンプリート値を追加しました
 
 #### <a name="aznetwork"></a>Az.Network
-* Virtual Network ゲートウェイ リソースのサポートを追加しました
+* 仮想ネットワーク ゲートウェイ リソースのサポートを追加しました
     - 新しいコマンドレット
         - Get-AzVirtualNetworkGatewayVpnClientConnectionHealth
 * AvailablePrivateEndpointType を追加しました
@@ -165,46 +165,46 @@ ms.locfileid: "67516642"
         - New-AzPrivateEndpoint
         - Remove-AzPrivateEndpoint
         - New-AzPrivateLinkServiceConnection
-* 次の機能のために以下のコマンドを更新しました。UseLocalAzureIpAddress flag on VpnConnection
+* 次の機能のために以下のコマンドを更新しました。VpnConnection 上の UseLocalAzureIpAddress フラグ
     - New-AzVpnConnection を更新:接続の初期化時にローカルの azure ip アドレスをソース アドレスとして使用する必要があることを示すために、省略可能なパラメーター -UseLocalAzureIpAddress を追加しました。
     - Set-AzVpnConnection を更新:接続の初期化時にローカルの azure ip アドレスをソース アドレスとして使用する必要があることを示すために、省略可能なパラメーター -UseLocalAzureIpAddress を追加しました。
 * ExpressRoute ピアリングに読み取り専用フィールド PeeredConnections を追加しました。
 * ExpressRoute に読み取り専用フィールド GlobalReachEnabled を追加しました。
-* ExpressRouteCircuit モデル内の AllowGlobalReach フィールドの廃止を呼び出すために破壊的変更属性を追加しました
-* TargetListenerID を AzApplicationGatewayRedirectConfiguration コマンドレットと共に使用する問題 8756 エラーを修正しました
+* ExpressRouteCircuit モデル内の AllowGlobalReach フィールドの廃止に注意を向けるために破壊的変更属性を追加しました
+* TargetListenerID を AzApplicationGatewayRedirectConfiguration コマンドレットと共に使用するとエラーが発生する問題 8756 を修正しました
 * 書き換えルールセットの設定を妨げる New-AzApplicationGatewayPathRuleConfig のバグを修正しました。
 * NetworkInterfaceIpConfiguration での VirtualNetworkTaps 表示を修正しました
 * すべての部分を一覧表示するための Cortex Get コマンドレットを修正しました
 * ExpressRouteGateways、VpnGateway の VirtualHub リファレンス作成を修正しました
 * AzureFirewall および NatGateway の Availability Zones のサポートを追加しました
 * Get-AzNetworkServiceTag コマンドレットを追加しました
-* Azure Firewall に対する複数のパブリック IP アドレスのサポートを追加しました
+* Azure Firewall の複数のパブリック IP アドレスのサポートを追加しました
     - New-AzFirewall コマンドレットを更新:
         - 1 つ以上のパブリック IP アドレス オブジェクトを受け入れるパラメーター -PublicIpAddress を追加しました
-        - Virtual Network オブジェクトを受け入れるパラメーター -VirtualNetwork を追加しました
-        - Firewall オブジェクトにメソッド AddPublicIpAddress および RemovePublicIpAddress を追加しました (入力としてパブリック IP アドレス オブジェクトを受け入れる)
-        - パラメーター -PublicIpName および -VirtualNetworkName を廃止予定 
+        - 仮想ネットワーク オブジェクトを受け入れるパラメーター -VirtualNetwork を追加しました
+        - ファイアウォール オブジェクトにメソッド AddPublicIpAddress および RemovePublicIpAddress を追加しました (これらは入力としてパブリック IP アドレス オブジェクトを受け入れます)
+        - パラメーター -PublicIpName および -VirtualNetworkName が非推奨になりました 
 * 次の機能のために以下のコマンドを更新しました。仮想ネットワーク ゲートウェイ リソースに VpnClient AAD 認証オプションを設定しました。 
-    - New-AzVirtualNetworkGateway を更新しました。ゲートウェイ上で VpnClient AAD 認証オプションを設定するためのオプション パラメーター AadTenantUri、AadAudienceId、および AadIssuerUri を追加しました。
-    - Set-AzVirtualNetworkGateway を更新しました。ゲートウェイ上で VpnClient AAD 認証オプションを設定するためのオプション パラメーター AadTenantUri、AadAudienceId、および AadIssuerUri を追加しました。
-    - Set-AzVirtualNetworkGateway を更新しました。ゲートウェイから VpnClient AAD 認証オプションを削除するためのオプション スイッチ パラメーター RemoveAadAuthentication を追加しました。
+    - New-AzVirtualNetworkGateway を更新しました。ゲートウェイ上で VpnClient AAD 認証オプションを設定するための省略可能なパラメーター AadTenantUri、AadAudienceId、および AadIssuerUri を追加しました。
+    - Set-AzVirtualNetworkGateway を更新しました。ゲートウェイ上で VpnClient AAD 認証オプションを設定するための省略可能なパラメーター AadTenantUri、AadAudienceId、および AadIssuerUri を追加しました。
+    - Set-AzVirtualNetworkGateway を更新しました。ゲートウェイから VpnClient AAD 認証オプションを削除するための省略可能なスイッチ パラメーター RemoveAadAuthentication を追加しました。
 
 #### <a name="azoperationalinsights"></a>Az.OperationalInsights
-* 'New-AzureRmOperationalInsightsWorkspace' コマンドでの **pergb2018** 価格レベルを有効化
+* "New-AzureRmOperationalInsightsWorkspace" コマンドでの **pergb2018** 価格レベルを有効しました
 
 #### <a name="azresources"></a>Az.Resources
-* 追加の Template Export オプションをサポート
-    - Export-AzResourceGroup に '-SkipResourceNameParameterization' パラメーターを追加
-    - Export-AzResourceGroup に '-SkipAllParameterization' パラメーターを追加
-    - エクスポートされたリソースのフィルター処理用に Export-AzResourceGroup に '-Resource' パラメーターを追加
+* 追加の [テンプレートのエクスポート] オプションがサポートされました
+    - Export-AzResourceGroup に "-SkipResourceNameParameterization" パラメーターを追加しました
+    - Export-AzResourceGroup に "-SkipAllParameterization" パラメーターを追加しました
+    - エクスポートされたリソースのフィルター処理用に Export-AzResourceGroup に "-Resource" パラメーターを追加しました
 
 #### <a name="azservicefabric"></a>Az.ServiceFabric
-* 場合によって、ByExistingKeyVault が誤った拇印を取得した証明書を追加するのを修正
+* 場合によって、ByExistingKeyVault の証明書追加で誤ったサムプリントが取得される問題を修正しました
 
 #### <a name="azsql"></a>Az.Sql
-* 高度な脅威保護ストレージ エンドポイント サフィックスを修正
-* Advanced Data Security を有効にする高度な脅威保護ポリシーのオーバーライドを修正
-* Management.Sql 用の新しいコマンドレットにより、TDE キーの追加、マネージド インスタンスへの TDE プロテクターの設定が可能になりました
+* Advanced Threat Protection ストレージ エンドポイント サフィックスを修正しました
+* Advanced Data Security を有効にする Advanced Threat Protection ポリシーのオーバーライドを修正しました
+* Management.Sql 用の新しいコマンドレットにより、マネージド インスタンスへの TDE キーの追加と TDE プロテクターの設定が可能になりました
    - Add-AzSqlInstanceKeyVaultKey
    - Get-AzSqlInstanceKeyVaultKey
    - Remove-AzSqlInstanceKeyVaultKey
@@ -212,14 +212,14 @@ ms.locfileid: "67516642"
    - Set-AzSqlInstanceTransparentDataEncryptionProtector
 
 #### <a name="azstorage"></a>Az.Storage
-* ストレージ アカウントの作成時に Kind FileStorage および SkuName Premium_ZRS をサポート
+* ストレージ アカウントの作成時の Kind FileStorage および SkuName Premium_ZRS のサポートを追加しました
     - New-AzStorageAccount
 * BLOB 不変コマンドレットの説明を明確化しました
     -  Remove-AzRmStorageContainerImmutabilityPolicy
 
 #### <a name="azwebsites"></a>Az.Websites
-* クライアントではなくサーバー上のリソース グループでフィルター処理するように Get-AzWebAppCertificate を最適化
-* Get-AzWebAppSnapshot に -UseDisasterRecovery スイッチ パラメーターを追加
+* クライアントではなくサーバー上のリソース グループでフィルター処理するように Get-AzWebAppCertificate を最適化しました
+* Get-AzWebAppSnapshot に -UseDisasterRecovery スイッチ パラメーターを追加しました
 
 ## <a name="220---june-2019"></a>2.2.0 - 2019 年 6 月
 #### <a name="azcdn"></a>Az.Cdn
