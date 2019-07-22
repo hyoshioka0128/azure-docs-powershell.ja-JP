@@ -141,7 +141,7 @@ ms.locfileid: "65534449"
 * Recovery Services で Azure ファイル共有のサポートを追加しました。
 
 #### <a name="azurermresources"></a>AzureRM.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
+* [https://github.com/Azure/azure-powershell/issues/7402](https://github.com/Azure/azure-powershell/issues/7402 ) を修正しました
     - "Get-AzureRmResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました
 
 #### <a name="azurermservicebus"></a>AzureRM.ServiceBus
@@ -380,7 +380,7 @@ ms.locfileid: "65534449"
 * 修正された問題 https://github.com/Azure/azure-powershell/issues/6603
     - Import-AzureRmApiManagementApi コマンドレットおよび *-AzureRmApiManagementCertificate コマンドレットで、相対パスを処理できるようになりました
 * 修正された問題 https://github.com/Azure/azure-powershell/issues/6879
-    - CertificateInformation は、Set-AzureRmApiManagement コマンドレットが適切に動作できるようにする設定可能なプロパティです。 4.0.4-preview NuGet へのアップグレードによって修正しました
+    - CertificateInformation は、Set-AzureRmApiManagement コマンドレットが適切に動作できるようにする設定可能なプロパティです。 4\.0.4-preview NuGet へのアップグレードによって修正しました
 * 修正された問題 https://github.com/Azure/azure-powershell/issues/6853
     - 製品を名前で検索するための Odata フィルターを修正しました
 * 修正された問題 https://github.com/Azure/azure-powershell/issues/6814
