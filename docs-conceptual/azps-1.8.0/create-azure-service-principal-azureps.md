@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: abb85d3d3f6a20697510447cda2c02b2703ef921
-ms.sourcegitcommit: 5bdedc77b27b66998387486761ec67ed9326f169
+ms.openlocfilehash: 6d9df4a62238f1e3b9cc9a62864f5d4d9337d6a7
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67345355"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807379"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -40,7 +40,14 @@ Azure サービス プリンシパルは、Azure リソースにアクセスす�
 $sp = New-AzADServicePrincipal -DisplayName ServicePrincipalName
 ```
 
-返されるオブジェクトには、`Secret` メンバーが含まれています。これは生成されたパスワードを格納している `SecureString` です。 サービス プリンシパルで認証するためには、この値を必ず安全な場所に保存してください。 この値は、コンソール出力には表示され__ません__。 パスワードを紛失した場合は、[サービス プリンシパルの資格情報をリセット](#reset-credentials)します。 
+返されるオブジェクトには、`Secret` メンバーが含まれています。これは生成されたパスワードを格納している `SecureString` です。 サービス プリンシパルで認証するためには、この値を必ず安全な場所に保存してください。 この値は、コンソール出力には表示され__ません__。 パスワードを紛失した場合は、[サービス プリンシパルの資格情報をリセット](#reset-credentials)します。
+
+次のコードにより、シークレットをエクスポートできます。
+
+```azurepowershell-interactive
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
+$UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+```
 
 ユーザー指定のパスワードの場合、`-PasswordCredential` 引数は `Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential` オブジェクトを受け取ります。 これらのオブジェクトは有効な `StartDate` と`EndDate` を持ち、プレーンテキストの `Password` を受け取ります。 パスワードを作成する際は、必ず [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従ってください。 脆弱なパスワードを使用したり、パスワードを再利用したりしないでください。
 

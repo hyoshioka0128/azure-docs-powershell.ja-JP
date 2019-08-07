@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell のアンインストール
 description: Azure PowerShell の完全アンインストールを実行する方法
-ms.date: 05/10/2019
+ms.date: 06/10/2019
 author: sptramer
 ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: b32547e9c3df0df7495d1631a43be6934e1f62dc
-ms.sourcegitcommit: febbbd3f75c8dd1a296281d265289f015b6cb537
+ms.openlocfilehash: e71b4d0d662b29a32610fecb36351532040428e4
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67037751"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807437"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
 
@@ -106,7 +106,8 @@ Uninstalling Az.AnalysisServices version 0.7.0
 ```
 
 > [!NOTE]
-> このスクリプトは、アンインストールする依存関係モジュールのバージョンを正確に突き合わせることができない場合、そのモジュールの_どの_バージョンもアンインストールしません。 これは、これらのモジュールに依存する他のバージョンの `Az` がシステム上に存在する可能性があるためです。 この場合、見つからなかったモジュールのバージョンが一覧表示されます (インストール済みのものがある場合)。 その後、`Uninstall-Module` を使用して任意の古いバージョンを手動で削除できます。
+> このスクリプトは、アンインストールするのと同じバージョンの依存関係を正確に突き合わせることができない場合、その依存関係の "_どの_" バージョンもアンインストールしません。 これは、これらの依存関係に依存する他のバージョンのターゲット モジュールがシステム上に存在する可能性があるためです。 この場合、依存関係の使用可能なバージョンが一覧表示されます。
+> その後、`Uninstall-Module` を使用して任意の古いバージョンを手動で削除できます。
 
 アンインストールする Azure PowerShell のバージョンごとにこのコマンドを実行します。 便宜上、次のスクリプトにより、最新バージョンを__除く__、Az のすべてのバージョンがアンインストールされます。
 
