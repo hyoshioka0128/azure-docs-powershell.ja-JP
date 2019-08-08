@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: ead6c48496c646b5184f88aeac64fbe650be17c4
-ms.sourcegitcommit: 6c0d296bfec7c1c35a1d15074ca5eacda6684ea4
+ms.openlocfilehash: 8e63e3efb2671eef435498063010d5704c793060
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68657979"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807464"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
@@ -40,16 +40,16 @@ PowerShell Core を使用する場合、Azure PowerShell にその他の要件�
 > [!WARNING]
 > Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることは__できません__。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
 
-グローバル スコープでモジュールをインストールするには、PowerShell ギャラリーからモジュールをインストールするための、昇格された特権が必要です。 Azure PowerShell をインストールするには、管理者特権セッション (Windows の場合は [管理者として実行]、macOS または Linux の場合はスーパーユーザー権限) で、次のコマンドを実行します。
-
-```powershell-interactive
-Install-Module -Name Az -AllowClobber
-```
-
-管理者特権へのアクセス許可がない場合は、`-Scope` 引数を追加することで、現在のユーザーに対してインストールできます。
+推奨されるインストール方法として、アクティブ ユーザーにのみインストールします。
 
 ```powershell-interactive
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
+```
+
+システム上のすべてのユーザーに対してインストールする場合は、管理者特権が必要です。 管理者特権での PowerShell セッションから、管理者として実行するか、macOS または Linux 上で `sudo` コマンドを使用して実行します。
+
+```powershell-interactive
+Install-Module -Name Az -AllowClobber -Scope AllUsers
 ```
 
 既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとしては構成されません。 PSGallery の初回使用時には、次のプロンプトが表示されます。

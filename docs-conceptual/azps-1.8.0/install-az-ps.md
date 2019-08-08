@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: d99265c7f156622d876d700106e2b06dd729e8b8
-ms.sourcegitcommit: 020c69430358b13cbd99fedd5d56607c9b10047b
+ms.openlocfilehash: 8e63e3efb2671eef435498063010d5704c793060
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365742"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807504"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
@@ -37,23 +37,19 @@ PowerShell Core を使用する場合、Azure PowerShell にその他の要件�
 
 ## <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
-> [!IMPORTANT]
->
-> AzureRM と Az の両方のモジュールを同時にインストールすることができます。 両方のモジュールをインストールした場合は、__別名を有効にしない__でください。
-> 別名を有効にすると、AzureRM コマンドレットと Az コマンドの別名との間に競合が発生して、予期しない動作が起こる可能性があります。
-> Az モジュールをインストールする前に、AzureRM をアンインストールすることをお勧めします。 AzureRM のアンインストールや別名の有効化はいつでもできます。 AzureRM コマンドの別名の詳細については、[AzureRM から Az への移行](migrate-from-azurerm-to-az.md)に関するページを参照してください。
-> アンインストールの手順については、「[AzureRM モジュールをアンインストールする](uninstall-az-ps.md#uninstall-the-azurerm-module)」を参照してください。 
+> [!WARNING]
+> Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることは__できません__。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
 
-グローバル スコープでモジュールをインストールするには、PowerShell ギャラリーからモジュールをインストールするための、昇格された特権が必要です。 Azure PowerShell をインストールするには、管理者特権セッション (Windows の場合は [管理者として実行]、macOS または Linux の場合はスーパーユーザー権限) で、次のコマンドを実行します。
-
-```powershell-interactive
-Install-Module -Name Az -AllowClobber
-```
-
-管理者特権へのアクセス許可がない場合は、`-Scope` 引数を追加することで、現在のユーザーに対してインストールできます。
+推奨されるインストール方法として、アクティブ ユーザーにのみインストールします。
 
 ```powershell-interactive
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
+```
+
+システム上のすべてのユーザーに対してインストールする場合は、管理者特権が必要です。 管理者特権での PowerShell セッションから、管理者として実行するか、macOS または Linux 上で `sudo` コマンドを使用して実行します。
+
+```powershell-interactive
+Install-Module -Name Az -AllowClobber -Scope AllUsers
 ```
 
 既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとしては構成されません。 PSGallery の初回使用時には、次のプロンプトが表示されます。
@@ -71,6 +67,28 @@ Are you sure you want to install the modules from 'PSGallery'?
 インストールを続行するには、`Yes` または `Yes to All` を選択します。
 
 Az モジュールは、Azure PowerShell コマンドレットのロールアップ モジュールです。 これをインストールすると、利用可能な Azure Resource Manager モジュールがすべてダウンロードされ、コマンドレットを使用できるようになります。
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+ここでは、Azure PowerShell モジュールのインストール時に発生する一般的な問題をいくつか示します。 ここに示されていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/azure/azure-powershell/issues)してください。
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+PowerShell ギャラリーにアクセスできないことを示すエラーが `Install-Module` から発生した場合は、プロキシの内側にいる可能性があります。 さまざまなオペレーティング システムにシステム全体のプロキシを構成するためのさまざまな要件がありますが、ここではそれについて詳しく説明しません。 プロキシ設定とお使いの OS 用に構成する方法については、システム管理者に問い合わせてください。
+
+PowerShell 自体は、このプロキシを自動的に使用するように構成されていない場合があります。 PowerShell 5.1 以降は、次のコマンドで PowerShell セッションに使用するプロキシを構成します。
+
+```powershell
+(New-Object System.Net.WebClient).Proxy.Credentials = `
+  [System.Net.CredentialCache]::DefaultNetworkCredentials
+```
+
+オペレーティング システムの資格情報が正しく構成されている場合は、これにより PowerShell 要求がプロキシ経由でルーティングされます。
+この設定をセッション間で保持するためには、このコマンドを [PowerShell プロファイル](/powershell/module/microsoft.powershell.core/about/about_profiles)に追加します。
+
+パッケージをインストールするためには、プロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://www.powershellgallery.com`
 
 ## <a name="sign-in"></a>サインイン
 

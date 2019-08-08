@@ -7,16 +7,16 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: da1d7ec9a196068db237d871834b92f8b077b42c
-ms.sourcegitcommit: 6c0d296bfec7c1c35a1d15074ca5eacda6684ea4
+ms.openlocfilehash: 8dc5a7d3b47870455213aa01aebc1d215ad640a7
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68657605"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807448"
 ---
 # <a name="introducing-the-new-azure-powershell-az-module"></a>新しい Azure PowerShell Az モジュールの概要
 
-2018 年 12 月から、Azure PowerShell Az モジュールが一般公開リリースされました。このモジュールは、Azure の操作を目的とする PowerShell モジュールです。 Az で、コマンドの短縮、安定性の向上、およびクロスプラットフォームのサポートが実現します。 また、機能パリティと、AzureRM からの簡単な移行パスも提供されます。
+2018 年 12 月から、Azure PowerShell Az モジュールが一般公開リリースされました。このモジュールは、Azure の操作を目的とする PowerShell モジュールです。 Az で、コマンドの短縮、安定性の向上、およびクロスプラットフォームのサポートが実現します。 また、Az は AzureRM と同等の機能を持ち、簡単な移行パスも提供されます。
 
 Az モジュールにより、Azure PowerShell は、Windows 上の PowerShell 5.1、およびサポートされているすべてのプラットフォーム (Windows、macOS、Linux など) 上の PowerShell Core 6.x 以降と互換性を持つようになりました。
 
@@ -67,6 +67,4 @@ Az モジュールには互換モードがあり、既存のスクリプトを�
 
 ## <a name="continued-support-for-azurerm"></a>AzureRM で継続されるサポート
 
-既存の AzureRM モジュールは、新しいコマンドレットや機能を受け入れなくなります。 ただし、AzureRM は少なくとも 2020 年 12 月までは引き続き正式に維持され、バグの修正プログラムを取得できます。
-
-Az モジュールが完全な機能を備えているか、テスト済みか、または実稼働対応かを懸念している場合、AzureRM に組み込まれたすべてのエンジニアリング作業は現在は Az に焦点を定めるようになっており、これには既存のモジュールのコードの可能な限りの再利用や、新しいモジュールの機能に互換性を持たせるための広範なテストが含まれています。 Az への移行は組織のスケジュールだけに影響され、具体的な特徴が現れるのを待つ必要はありません。
+AzureRM は、新しいコマンドレットや機能を受け入れなくなります。 ただし、AzureRM モジュールは 2020 年 12 月まで引き続き正式に維持され、バグの修正プログラムも取得されます。
