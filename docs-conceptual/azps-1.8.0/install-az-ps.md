@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 8e63e3efb2671eef435498063010d5704c793060
-ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
+ms.openlocfilehash: 21345445efc89ab54bb7483cfe81f439f0a887a3
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807504"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861290"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
@@ -38,7 +38,7 @@ PowerShell Core を使用する場合、Azure PowerShell にその他の要件�
 ## <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
 > [!WARNING]
-> Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることは__できません__。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
+> Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることは__できません__。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
 
 推奨されるインストール方法として、アクティブ ユーザーにのみインストールします。
 

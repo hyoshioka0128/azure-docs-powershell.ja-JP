@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.openlocfilehash: d6545f18115e4162bb716def79f6b4cae8953a9c
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 464d7efa640f1d1ffd1c34bfbe6cf13cbe5202b6
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534710"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863235"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
@@ -54,7 +54,7 @@ Azure リソースのマネージド ID の詳細については、「[How to us
 
 ## <a name="sign-in-as-a-cloud-solution-provider-csp"></a>クラウド ソリューション プロバイダー (CSP) としてサインインする
 
-[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) のサインインには、`-TenantId` を使用する必要があります。 通常は、このパラメーターにはテナント ID またはドメイン名を指定できます。 しかし、CSP のサインインの場合、**テナント ID** を指定する必要があります。
+[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) のサインインには、`-TenantId` を使用する必要があります。 通常は、このパラメーターにはテナント ID またはドメイン名を指定できます。 しかし、CSP のサインインの場合、**テナント ID** を指定する必要があります。
 
 ```azurepowershell-interactive
 Connect-AzureRmAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'

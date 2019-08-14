@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: b7283e4a54cd423282141c07750630050799d59c
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 1f859dcbaca88e28ebc0814513b7f4ee35610dc2
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153746"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863215"
 ---
 # <a name="installing-the-azure-powershell-service-management-module"></a>Azure PowerShell Service Management モジュールのインストール
 
@@ -81,7 +81,7 @@ Windows PowerShell のインストール、学習、使用、カスタマイズ�
 |OS バージョン|インストール手順|
 |---|---|
 |Windows 10 または Windows Server 2016 を所有している|OS 標準の Windows Management Framework (WMF) 5.0 に組み込まれています。|
-|PowerShell 5 にアップグレードしたい|[最新バージョンの WMF をインストール](https://www.microsoft.com/en-us/download/details.aspx?id=54616)します。|
+|PowerShell 5 にアップグレードしたい|[最新バージョンの WMF をインストール](https://www.microsoft.com/download/details.aspx?id=54616)します。|
 |PowerShell 3 または PowerShell 4 が付属するバージョンの Windows を使っている|[PackageManagement モジュールを入手](http://go.microsoft.com/fwlink/?LinkID=746217)します。|
 
 <div id="helpmechoose"/>

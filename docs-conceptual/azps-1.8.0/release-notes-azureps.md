@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: ffeba2cff2e157e7ec0fb7639f9d4075c359c85e
-ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
+ms.openlocfilehash: faf9313d642a3ca45731f4527aafdfd7f5096a78
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863837"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861284"
 ---
 ## <a name="180---april-2019"></a>1.8.0 - 2019 年 4 月
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
 * `Az` モジュールの詳細については、次のリンクを参照してください。 https://aka.ms/azps-announce
-* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/
+* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/blog/completers-in-azure-powershell/
 * Az.Compute および Az.Network 用の Get コマンドレットにワイルドカードのサポートを追加
 * Windows PowerShell 5.1 のみにユーザー名/パスワードの対話型認証を追加
 * Az.Automation の Python 2 Runbook のサポートを追加
@@ -114,7 +114,7 @@ ms.locfileid: "67863837"
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
 * `Az` モジュールの詳細については、次のリンクを参照してください。 https://aka.ms/azps-announce
-* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/
+* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/blog/completers-in-azure-powershell/
 * Az.Compute および Az.Network 用の Get コマンドレットにワイルドカードのサポートを追加
 * Windows PowerShell 5.1 のみにユーザー名/パスワードの対話型認証を追加
 * Az.Automation の Python 2 Runbook のサポートを追加
@@ -171,7 +171,7 @@ ms.locfileid: "67863837"
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
 * `Az` モジュールの詳細については、次のリンクを参照してください。 https://aka.ms/azps-announce
-* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/
+* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/blog/completers-in-azure-powershell/
 * Az.Compute および Az.Network 用の Get コマンドレットにワイルドカードのサポートを追加
 * Windows PowerShell 5.1 のみにユーザー名/パスワードの対話型認証を追加
 * Az.Automation の Python 2 Runbook のサポートを追加

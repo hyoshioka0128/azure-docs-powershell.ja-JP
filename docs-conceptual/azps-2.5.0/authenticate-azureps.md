@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.openlocfilehash: 1e25d4650cc20d7b6613e0efb12ec60d424608c4
-ms.sourcegitcommit: 6c0d296bfec7c1c35a1d15074ca5eacda6684ea4
+ms.openlocfilehash: 0b7a6fa4278d95a69b21f570ac6fb22b70f073f6
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658098"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861319"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
@@ -110,7 +110,7 @@ Azure リソースのマネージド ID の詳細については、「[Azure VM 
 
 アカウントが複数のテナントに関連付けられている場合、接続時に `-TenantId` パラメーターを使用することがサインインで要求されます。 このパラメーターは他のあらゆるサインイン メソッドで動作します。 ログイン時、テナントの Azure オブジェクト ID (テナント ID) またはテナントの完全修飾ドメイン名がこのパラメーター値になります。
 
-[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) の場合、`-TenantId` 値はテナント ID にすることが**必要**となります。
+[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) の場合、`-TenantId` 値はテナント ID にすることが**必要**となります。
 
 ```azurepowershell-interactive
 Connect-AzAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'

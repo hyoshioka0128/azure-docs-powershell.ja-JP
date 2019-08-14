@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
-ms.openlocfilehash: ee9fb7e777d06f50514c6b4ba39805936b867045
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 61ab0f91c3d6fffdbffd336fa0d6ed9b0ab8f6ec
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535068"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863294"
 ---
 # <a name="release-notes"></a>リリース ノート
 
@@ -669,7 +669,7 @@ Update-Module -Name AzureRM
   - 新しいコマンドレット Update-AzureRmPowerBIEmbeddedCapacity - PowerBI Embedded 容量のインスタンスを変更します
 * プロファイル
   - USGovernmentActiveDirectoryEndpoint を https://login.microsoftonline.us/ に更新しました
-    - Azure Government エンドポイント マッピングの詳細については、 https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-developer-guide#endpoint-mapping を参照してください
+    - Azure Government エンドポイント マッピングの詳細については、 https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide#endpoint-mapping を参照してください
     - コマンドの -AsJob サポートを追加しました。これにより、選択したコマンドレットをバック グラウンドで実行し、進行状況を追跡および制御するジョブを返すことができます
     - -AsJob パラメーターを Get-AzureRmSubscription コマンドレットに追加しました
 * RecoveryServices.Backup
@@ -723,15 +723,15 @@ Update-Module -Name AzureRM
   - AzureRM.StreamAnalytics
 
 ## <a name="2017118---version-500"></a>2017.11.8 - バージョン 5.0.0
-* 注:これは重大な変更のリリースです。 導入された重大な変更の完全な一覧については、移行ガイド (https://aka.ms/azps-migration-guide)) を参照してください。
+* 注:これは重大な変更のリリースです。 導入された重大な変更の完全な一覧については、移行ガイド (https://aka.ms/azps-migration-guide) ) を参照してください。
 * AzureRM のコマンドレットはすべて、オンライン ヘルプをサポートするようになりました
   - -Online パラメーターを指定して Get-Help を実行すると、既定のインターネット ブラウザーでオンライン ヘルプが表示されます
 * AnalysisServices
   * 同期のために新しい AsAzure REST API と連携するように Synchronize-AzureAsInstance コマンドを修正しました
 * ApiManagement
   * ApiManagement の、このリリースでの重大な変更については、移行ガイドを参照してください
-  * 問題 (https://github.com/Azure/azure-powershell/issues/4510) を修正するために Get-AzureRmApiManagementUser コマンドレットを更新しました
-  * 空のパスを持つ API (https://github.com/Azure/azure-powershell/issues/4069) を作成するために、New-AzureRmApiManagementApi コマンドレットを更新しました
+  * 問題 (https://github.com/Azure/azure-powershell/issues/4510 ) を修正するために Get-AzureRmApiManagementUser コマンドレットを更新しました
+  * 空のパスを持つ API (https://github.com/Azure/azure-powershell/issues/4069 ) を作成するために、New-AzureRmApiManagementApi コマンドレットを更新しました
 * ApplicationInsights
   * Application Insights のリソースを取得/作成/削除するコマンドを追加
     - Get-AzureRmApplicationInsights
@@ -838,7 +838,7 @@ Update-Module -Name AzureRM
     - Disable-AzureRmRecoveryServicesBackupRPMountScript
   * RecoveryServices.Backup SDK を最新バージョンに更新しました
   * テスト実行に必要なすべての設定がテスト自体で行われるように、Azure VM ワークロードのテストを更新しました。
-  * [https://github.com/Azure/azure-powershell/issues/3164](https://github.com/Azure/azure-powershell/issues/3164) を修正しました
+  * [https://github.com/Azure/azure-powershell/issues/3164](https://github.com/Azure/azure-powershell/issues/3164 ) を修正しました
 * RecoveryServices.SiteRecovery
   * Azure Site Recovery に対する ASR VMware の変更 (コマンドレットは現在、Enterprise から Enterprise、Enterprise から Azure、HyperV から Azure の操作をサポートしています)
     - New-AzureRmRecoveryServicesAsrPolicy

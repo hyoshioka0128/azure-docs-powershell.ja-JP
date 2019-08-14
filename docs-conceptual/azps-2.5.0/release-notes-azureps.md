@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e72aae940b48543d6a99801032186112748ea48b
-ms.sourcegitcommit: 6c0d296bfec7c1c35a1d15074ca5eacda6684ea4
+ms.openlocfilehash: 77cb28e47d8dddcf3936edff23f794de3b78442b
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68657962"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861186"
 ---
 ## <a name="250---july-2019"></a>2.5.0 - 2019 年 7 月
 #### <a name="azaccounts"></a>Az.Accounts
@@ -536,7 +536,7 @@ ms.locfileid: "68657962"
     - Set-AzScheduledQueryRule
     - Update-AzScheduledQueryRule
     - Remove-AzScheduledQueryRule
-    - SQR API に関する[詳細](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules)情報
+    - SQR API に関する[詳細](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)情報
     - GenV2 (非クラシック) メトリックベースのアラート ルールのコマンドレットが含まれるように Az.Monitor.md を更新しました
 
 #### <a name="aznetwork"></a>Az.Network
@@ -589,7 +589,7 @@ ms.locfileid: "68657962"
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
 * `Az` モジュールの詳細については、次のリンクを参照してください。 https://aka.ms/azps-announce
-* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/
+* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/blog/completers-in-azure-powershell/
 * Az.Compute および Az.Network 用の Get コマンドレットにワイルドカードのサポートを追加
 * Windows PowerShell 5.1 のみにユーザー名/パスワードの対話型認証を追加
 * Az.Automation の Python 2 Runbook のサポートを追加
@@ -693,7 +693,7 @@ ms.locfileid: "68657962"
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
 * `Az` モジュールの詳細については、次のリンクを参照してください。 https://aka.ms/azps-announce
-* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/
+* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/blog/completers-in-azure-powershell/
 * Az.Compute および Az.Network 用の Get コマンドレットにワイルドカードのサポートを追加
 * Windows PowerShell 5.1 のみにユーザー名/パスワードの対話型認証を追加
 * Az.Automation の Python 2 Runbook のサポートを追加
@@ -750,7 +750,7 @@ ms.locfileid: "68657962"
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
 * `Az` モジュールの詳細については、次のリンクを参照してください。 https://aka.ms/azps-announce
-* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/
+* Location、ResourceGroup、および ResourceName 入力候補を追加: https://azure.microsoft.com/blog/completers-in-azure-powershell/
 * Az.Compute および Az.Network 用の Get コマンドレットにワイルドカードのサポートを追加
 * Windows PowerShell 5.1 のみにユーザー名/パスワードの対話型認証を追加
 * Az.Automation の Python 2 Runbook のサポートを追加
