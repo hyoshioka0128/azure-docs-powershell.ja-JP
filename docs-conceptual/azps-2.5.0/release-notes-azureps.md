@@ -130,7 +130,7 @@ ms.locfileid: "68861186"
     - **Get-AzApiManagementSubscription**
         - ユーザーおよび製品別のサブスクリプションへのクエリの実行のサポートを追加しました
         - スコープ '/', '/apis', '/apis/echo-api' を使用したクエリのサポートを追加しました
-* https://github.com/Azure/azure-powershell/issues/9307 と https://github.com/Azure/azure-powershell/issues/8432 の問題を修正
+* [https://github.com/Azure/azure-powershell/issues/9307](https://github.com/Azure/azure-powershell/issues/9307 ) と https://github.com/Azure/azure-powershell/issues/8432 の問題を修正
     - **Import-AzApiManagementApi**
         - Api をインポートするときに 'ApiVersion' と 'ApiVersionSetId' を指定するサポートを追加しました
 
