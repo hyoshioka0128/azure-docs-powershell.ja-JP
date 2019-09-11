@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 01/14/2019
-ms.openlocfilehash: c60036ba8be6282007aa34a0bb9c0d9e33197072
-ms.sourcegitcommit: fd62a6376eef9b6ca76df766de1edcd7938c7a30
+ms.openlocfilehash: a4c8792f2ff27e1b6d3cee97144c26455356b7fd
+ms.sourcegitcommit: e5b029312d17e12257b2b5351b808fdab0b4634c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67388922"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386820"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
@@ -43,7 +43,8 @@ Connect-AzAccount
 Connect-AzAccount -Environment AzureChinaCloud
 ```
 
-使用するトークンを取得します https://microsoft.com/devicelogin します。 お使いのブラウザーでこのページを開いてトークンを入力し、Azure アカウントの資格情報でサインインし、Azure PowerShell を承認します。 
+PowerShell 5.1 環境では、サインイン ダイアログが表示され、Azure アカウントのユーザー名とパスワードを入力できます。 それ以外のすべてのバージョンの PowerShell では、[https://microsoft.com/devicelogin ] で使用するトークンが提供されます。
+お使いのブラウザーでこのページを開いてトークンを入力し、Azure アカウントの資格情報でサインインし、Azure PowerShell を承認します。
 
 サインインすると、どの Azure サブスクリプションがアクティブになっているかを示す情報が表示されます。 アカウントに複数の Azure サブスクリプションがあり、別のサブスクリプションを選択する場合は、使用可能なサブスクリプションを [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) コマンドレットで取得し、サブスクリプション ID を指定して [Set-AzContext](/powershell/module/az.accounts/set-azcontext) コマンドレットを実行します。
 Azure PowerShell による Azure サブスクリプションの管理の詳細については、「[複数の Azure サブスクリプションの使用](manage-subscriptions-azureps.md)」を参照してください。

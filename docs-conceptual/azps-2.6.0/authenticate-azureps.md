@@ -6,13 +6,13 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.openlocfilehash: 0b7a6fa4278d95a69b21f570ac6fb22b70f073f6
-ms.sourcegitcommit: abca342d8687ca638679c049792d0cef6045837d
+ms.date: 09/04/2019
+ms.openlocfilehash: 44f5d5b44788a52db297a0d73697161eec2eedc2
+ms.sourcegitcommit: e5b029312d17e12257b2b5351b808fdab0b4634c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052483"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386758"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
@@ -54,7 +54,7 @@ Azure PowerShell で使用するサービス プリンシパルを作成する�
 
 ```azurepowershell-interactive
 $pscredential = Get-Credential
-Connect-AzAccount -ServicePrincipal -Credential $pscredential -TenantId $tenantId
+Connect-AzAccount -ServicePrincipal -Credential $pscredential -Tenant $tenantId
 ```
 
 自動化のシナリオでは、ユーザー名とセキュリティで保護された文字列から資格情報を作成する必要があります。
@@ -62,7 +62,7 @@ Connect-AzAccount -ServicePrincipal -Credential $pscredential -TenantId $tenantI
 ```azurepowershell-interactive
 $passwd = ConvertTo-SecureString <use a secure password here> -AsPlainText -Force
 $pscredential = New-Object System.Management.Automation.PSCredential('service principal name/id', $passwd)
-Connect-AzAccount -ServicePrincipal -Credential $pscredential -TenantId $tenantId
+Connect-AzAccount -ServicePrincipal -Credential $pscredential -Tenant $tenantId
 ```
 
 サービス プリンシパルへの接続を自動化する場合は、必ず適切なパスワード保存プラクティスを使用してください。
@@ -70,8 +70,15 @@ Connect-AzAccount -ServicePrincipal -Credential $pscredential -TenantId $tenantI
 ### <a name="certificate-based-authentication"></a>証明書ベースの認証
 
 証明書ベースの認証では、Azure PowerShell で、証明書の拇印に基づいてローカル証明書ストアから情報を取得できる必要があります。
+
 ```azurepowershell-interactive
-Connect-AzAccount -ServicePrincipal -TenantId $tenantId -CertificateThumbprint <thumbprint>
+Connect-AzAccount -ApplicationId $appId -Tenant $tenantId -CertificateThumbprint <thumbprint>
+```
+
+登録されたアプリケーションではなくサービス プリンシパルを使用する場合は、`-ServicePrincipal` 引数を追加し、`-ApplicationId` パラメーターの値としてサービス プリンシパルの ID を指定します。
+
+```azurepowershell-interactive
+Connect-AzAccount -ServicePrincipal -ApplicationId $servicePrincipalId -Tenant $tenantId -CertificateThumbprint <thumbprint>
 ```
 
 PowerShell 5.1 では、[PKI](/powershell/module/pkiclient) モジュールを使用して、証明書ストアを管理および検査できます。 PowerShell Core 6.x 以降の場合は、プロセスがさらに複雑になります。 次のスクリプトでは、PowerShell からアクセスできる証明書ストアに、既存の証明書をインポートする方法を示します。
@@ -100,7 +107,7 @@ $store.Add($Certificate)
 $store.Close()
 ```
 
-## <a name="sign-in-using-a-managed-identity"></a>マネージド ID を使用したサインイン 
+## <a name="sign-in-using-a-managed-identity"></a>マネージド ID を使用したサインイン
 
 マネージド ID は Azure Active Directory の機能です。 マネージド ID は、Azure で実行されるリソースに割り当てられたサービス プリンシパルです。 サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 マネージド ID は、Azure クラウドで実行されているリソースでのみ使用できます。
 
@@ -108,19 +115,19 @@ Azure リソースのマネージド ID の詳細については、「[Azure VM 
 
 ## <a name="sign-in-with-a-non-default-tenant-or-as-a-cloud-solution-provider-csp"></a>既定ではないテナントで、あるいはクラウド ソリューション プロバイダー (CSP) としてサインインする
 
-アカウントが複数のテナントに関連付けられている場合、接続時に `-TenantId` パラメーターを使用することがサインインで要求されます。 このパラメーターは他のあらゆるサインイン メソッドで動作します。 ログイン時、テナントの Azure オブジェクト ID (テナント ID) またはテナントの完全修飾ドメイン名がこのパラメーター値になります。
+アカウントが複数のテナントに関連付けられている場合、接続時に `-Tenant` パラメーターを使用することがサインインで要求されます。 このパラメーターはあらゆるサインイン メソッドで動作します。 ログイン時、テナントの Azure オブジェクト ID (テナント ID) またはテナントの完全修飾ドメイン名がこのパラメーター値になります。
 
-[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) の場合、`-TenantId` 値はテナント ID にすることが**必要**となります。
+[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) の場合、`-Tenant` 値はテナント ID にすることが**必要**となります。
 
 ```azurepowershell-interactive
-Connect-AzAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'
+Connect-AzAccount -Tenant 'xxxx-xxxx-xxxx-xxxx'
 ```
 
 ## <a name="sign-in-to-another-cloud"></a>別のクラウドにサインインする
 
 Azure クラウド サービスでは、リージョンのデータ処理の法律に準拠した環境を提供します。
 リージョン クラウド内のアカウントの場合は、サインインするときに `-Environment` 引数で環境を設定します。
-たとえば、ご自身のアカウントが中国のクラウドにある場合は、次のように指定します。
+このパラメーターはあらゆるサインイン メソッドで動作します。 たとえば、ご自身のアカウントが中国のクラウドにある場合は、次のように指定します。
 
 ```azurepowershell-interactive
 Connect-AzAccount -Environment AzureChinaCloud

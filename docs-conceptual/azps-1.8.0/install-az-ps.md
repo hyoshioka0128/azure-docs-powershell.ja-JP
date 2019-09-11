@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 21345445efc89ab54bb7483cfe81f439f0a887a3
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.openlocfilehash: e302e49d95b6bc15750366c9eb960a6fec80c1a4
+ms.sourcegitcommit: e5b029312d17e12257b2b5351b808fdab0b4634c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68861290"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386785"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
@@ -101,13 +101,14 @@ Connect-AzAccount
 
 > [!NOTE]
 >
-> モジュールの自動読み込みを無効にしている場合は、`Import-Module Az` を使用してモジュールを手動でインポートする必要があります。 モジュールが構造化されているため、これには数秒かかることがあります。
+> モジュールの自動読み込みを無効にしている場合は、`Import-Module Az` を使用してモジュールを手動でインポートします。 モジュールが構造化されているため、これには数秒かかることがあります。
 
 新しい PowerShell セッションを開始するたびに、この手順を繰り返す必要があります。 Azure サインインを PowerShell セッション間で維持する方法については、「[PowerShell セッション間でユーザーの資格情報を保持する](context-persistence.md)」をご覧ください。
 
 ## <a name="update-the-azure-powershell-module"></a>Azure PowerShell モジュールの更新
 
-Az モジュールのパッケージ方法のために、[Update-Module](/powershell/module/powershellget/update-module) コマンドではインストールは適切に更新されません。 Az は技術的にはメタモジュールであり、Azure サービスを操作するためのコマンドレットを含むすべてのサブモジュールが含まれています。 つまり、Azure PowerShell モジュールを更新するには、__更新__するだけではなく__再インストール__する必要があります。 これはインストールと同じ方法で行いますが、`-Force` 引数を追加する必要がある場合があります。
+Az モジュールのパッケージ方法のために、[Update-Module](/powershell/module/powershellget/update-module) コマンドではインストールは適切に更新されません。 Az モジュールをインストールすると、それに依存するすべてのサブモジュールが収集され、インストールされます。これにより、各サービスのコマンドレットが提供されます。
+つまり、Azure PowerShell モジュールを更新するには、__更新__するだけではなく__再インストール__する必要があります。 これはインストールと同じ方法で行いますが、`-Force` 引数を追加する必要がある場合があります。
 
 ```powershell
 Install-Module -Name Az -AllowClobber -Force
