@@ -4,7 +4,11 @@
   href: new-azureps-module-az.md
   displayName: 'intro, introduction, azurerm'
 - name: Install
-  href: install-az-ps.md
+  items:
+    - name: PowerShell Get を使用したインストール
+      href: install-az-ps.md
+    - name: MSI を使用したインストール
+      href: install-az-ps-msi.md
 - name: アンインストール
   href: uninstall-az-ps.md
 - name: AzureRM から移行する
