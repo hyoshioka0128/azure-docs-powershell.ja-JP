@@ -1,150 +1,161 @@
 ---
-title: PowerShell セッション間で Azure の資格情報を保持する
+title: Azure コンテキストとサインイン資格情報
 description: 複数の PowerShell セッション間で Azure の資格情報や他の情報を再利用する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/13/2018
-ms.openlocfilehash: 02b8090aa1868f24445ddff3a95c0d0c376e2cb8
-ms.sourcegitcommit: 020c69430358b13cbd99fedd5d56607c9b10047b
+ms.date: 10/21/2019
+ms.openlocfilehash: 0e8dd4f766307d9ab2e27e2cf8bec6bbd34f5e51
+ms.sourcegitcommit: 1cdff856d1d559b978aac6bc034dd2f99ac04afe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365770"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791418"
 ---
-# <a name="persist-azure-user-credentials-across-powershell-sessions"></a>PowerShell セッション間で Azure のユーザー資格情報を保持する
+# <a name="azure-powershell-context-objects"></a>Azure PowerShell コンテキスト オブジェクト
 
-Azure PowerShell では、**Azure Context Autosave** と呼ばれる機能を提供しています。その機能は以下のとおりです。
+Azure PowerShell は、_Azure PowerShell コンテキスト オブジェクト_ (Azure コンテキスト) を使用して、サブスクリプションと認証情報を保持します。 複数のサブスクリプションがある場合は、Azure コンテキストを使用して、Azure PowerShell コマンドレットを実行するサブスクリプションを選択できます。 Azure コンテキストは、複数の PowerShell セッションにわたってサインイン情報を格納し、バックグラウンド タスクを実行するためにも使用されます。
 
-- 新しい PowerShell セッションで再利用するためにサインイン情報を保持する。
-- 実行時間の長いコマンドレットを実行する場合にバックグラウンド タスクを使いやすくする。
-- 個別のサインインを使用せずにアカウント、サブスクリプション、環境を切り替える。
-- 同一の PowerShell セッションから、異なる資格情報やサブスクリプションを同時に使用してタスクを実行する。
+この記事では、サブスクリプションやアカウントの管理ではなく、Azure コンテキストの管理について説明します。 ユーザー、サブスクリプション、テナント、またはその他のアカウント情報を管理する方法については、[Azure Active Directory](/azure/active-directory) のドキュメントを参照してください。 コンテキストを使用してバックグラウンド タスクまたは並列タスクを実行する方法については、Azure コンテキストに慣れた後に [PowerShell ジョブでの Azure PowerShell コマンドレットの使用](using-psjobs.md)に関するページを参照してください。
 
-## <a name="azure-contexts-defined"></a>Azure コンテキストの定義
+## <a name="overview-of-azure-context-objects"></a>Azure コンテキスト オブジェクトの概要
 
-"*Azure コンテキスト*" とは、Azure PowerShell コマンドレットの対象を定義する一連の情報です。 このコンテキストは、次の 5 つの要素で構成されます。
+Azure コンテキストは、コマンドの実行対象のアクティブなサブスクリプションと、Azure クラウドに接続するために必要な認証情報を表す PowerShell オブジェクトです。 Azure コンテキストを使用すると、サブスクリプションを切り替えるたびに、Azure PowerShell でアカウントを再認証する必要はありません。 Azure コンテキストは、次のもので構成されます。
 
-- "*アカウント*" - Azure との通信の認証に使用されるユーザー名またはサービス プリンシパル。
-- "*サブスクリプション*" - 処理対象のリソースを含む Azure サブスクリプション。
-- "*テナント*" - サブスクリプションを含む Azure Active Directory テナント。 テナントは、サービス プリンシパル認証にとってより重要になります。
-- "*環境*" - 対象となる特定の Azure クラウド (通常は Azure グローバル クラウド)。
-  ただし、環境設定では、国内、政府、オンプレミス (Azure Stack) クラウドも対象にすることができます。
-- "*資格情報*" - 本人確認と Azure のリソースへのアクセスの承認のために Azure で使用される情報
+* [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) を使用して Azure にサインインするために使用された_アカウント_。 Azure コンテキストでは、アカウントの観点からは、ユーザー、アプリケーション ID、およびサービス プリンシパルが同じものとして扱われます。
+* _テナント_に関連付けられたアクティブな_サブスクリプション_ (Azure リソースを作成および実行するための Microsoft とのサービス契約)。 多くの場合、テナントは、ドキュメント内で、または Active Directory を使用する場合に_組織_と呼ばれます。
+* _トークン キャッシュ_ (Azure クラウドへアクセスするための格納された認証トークン) への参照。 このトークンの格納場所と保持期間は[コンテキスト自動保存設定](#save-azure-contexts-across-powershell-sessions)によって決定されます。
 
-Azure PowerShell の最新バージョンでは、新しい PowerShell セッションを開くたびに Azure コンテキストを自動的に保存できます。
+これらの用語の詳細については、[Azure Active Directory の用語](/azure/active-directory/fundamentals/active-directory-whatis#terminology)に関するページをご覧ください。 Azure コンテキストによって使用される認証トークンは、永続セッションの一部である他の保存されたトークンと同じです。 
 
-## <a name="automatically-save-the-context-for-the-next-sign-in"></a>次回サインインのためのコンテキストの自動保存
+`Connect-AzAccount` を使用してサインインすると、既定のサブスクリプションに対して少なくとも 1 つの Azure コンテキストが作成されます。 `Connect-AzAccount` によって返されるオブジェクトは、残りの PowerShell セッションで使用される既定の Azure コンテキストです。
 
-Azure PowerShell では、セッション間で自動的にコンテキスト情報が保持されます。 コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzContextAutoSave` を使用します。 コンテキストの保存を無効にすると、PowerShell セッションを開くたびに Azure へのサインインが必要になります。
+## <a name="get-azure-contexts"></a>Azure コンテキストを取得する
 
-PowerShell セッションが終了した後に Azure PowerShell がコンテキストを記憶できるようにするには、`Enable-AzContextAutosave` を使用します。 コンテキストと資格情報は、ユーザー ディレクトリの特殊な隠しフォルダー (Windows では `$env:USERPROFILE\.Azure`、その他のプラットフォームでは `$HOME/.Azure`) に自動的に保存されます。 新しい PowerShell セッションそれぞれで、最後のセッションで使用されたコンテキストが対象となります。
+[Get-AzContext](/powershell/module/az.accounts/get-azcontext) コマンドレットを使用すると、使用可能な Azure コンテキストが取得されます。 `-ListAvailable` を使用して使用可能なすべてのコンテキストを一覧表示します。
 
-Azure コンテキストを管理できるコマンドレットを使用すると、きめ細かな制御も可能になります。 変更を現在の PowerShell セッションのみ (`Process` スコープ) とすべての PowerShell セッション (`CurrentUser` スコープ) のどちらに適用するかを制御できます。 これらのオプションについては、「[コンテキスト スコープの使用](#using-context-scopes)」で詳しく説明します。
+```azurepowershell-interactive
+Get-AzContext -ListAvailable
+```
 
-## <a name="running-azure-powershell-cmdlets-as-background-jobs"></a>バックグラウンド ジョブとしての Azure PowerShell コマンドレットの実行
+または、名前を指定してコンテキストを取得します。
 
-**Azure Context Autosave** 機能を使用すると、コンテキストを PowerShell のバックグラウンド ジョブと共有することもできます。 PowerShell を使用すると、実行時間の長いタスクをバックグラウンド ジョブとして開始および監視できます。タスクが完了するのを待つ必要はありません。 資格情報をバックグラウンド ジョブと共有するには、次の 2 つの方法があります。
+```azurepowershell-interactive
+$context = Get-Context -Name "mycontext"
+```
 
-- コンテキストを引数として渡す
+コンテキスト名は、関連付けられたサブスクリプションの名前とは異なる場合があります。
 
-  ほとんどの AzureRM コマンドレットでは、コンテキストをパラメーターとしてコマンドレットに渡すことができます。 次の例に示すように、バックグラウンド ジョブにコンテキストを渡すことができます。
+> [!IMPORTANT]
+> 使用可能な Azure コンテキストが必ずしも使用可能なサブスクリプションであるとは__限りません__。 Azure コンテキストはローカルに保存された情報のみを表します。 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-1.8.0) コマンドレットを使用すると、サブスクリプションを取得できます。
 
-  ```powershell-interactive
-  PS C:\> $job = Start-Job { param ($ctx) New-AzVm -AzureRmContext $ctx [... Additional parameters ...]} -ArgumentList (Get-AzContext)
+## <a name="create-a-new-azure-context-from-subscription-information"></a>サブスクリプション情報から新しい Azure コンテキストを作成する
+
+[Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext?view=azps-1.8.0) コマンドレットを使用して、新しい Azure コンテキストの作成と、アクティブ コンテキストとしての設定の両方を行います。
+新しい Azure コンテキストを作成する最も簡単な方法は、既存のサブスクリプション情報を使用することです。 このコマンドレットは、`Get-AzSubscription` からの出力オブジェクトをパイプ値として受け取り、新しい Azure コンテキストを作成します。
+
+```azurepowershell-interactive
+Get-AzSubscription -SubscriptionName 'MySubscriptionName' | Set-AzContext -Name 'MyContextName'
+```
+
+または、サブスクリプション名または ID と必要に応じてテナント ID を指定します。
+
+```azurepowershell-interactive
+Set-AzContext -Name 'MyContextName' -Subscription 'MySubscriptionName' -Tenant '.......'
+```
+
+`-Name` 引数を省略すると、サブスクリプションの名前と ID が `Subscription Name (subscription-id)` の形式でコンテキスト名として使用されます。
+
+## <a name="change-the-active-azure-context"></a>アクティブな Azure コンテキストを変更する
+
+アクティブな Azure コンテキストを変更するには、`Set-AzContext` と [Select-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-1.8.0) の両方を使用できます。 [新しい Azure コンテキストの作成](#create-a-new-azure-context-from-subscription-information)に関するセクションで説明されているように、`Set-AzContext` を使用すると、サブスクリプションに対して新しい Azure コンテキストが作成され (存在しない場合)、それをアクティブ コンテキストとして使用するように切り替えられます。
+
+`Select-AzContext` は、既存の Azure コンテキストでのみ使用されることが想定されており、`Set-AzContext -Context` と同じように動作しますが、パイプを使用するように設計されています。
+
+```azurepowershell-interactive
+Set-AzContext -Context $(Get-AzContext -Name "mycontext") # Set a context with an inline Azure context object
+Get-AzContext -Name "mycontext" | Select-AzContext # Set a context with a piped Azure context object
+```
+
+Azure PowerShell の他の多くのアカウントおよびコンテキスト管理コマンドと同様に、`Set-AzContext` と `Select-AzContext` では、コンテキストがアクティブになる期間を制御できるように `-Scope` 引数がサポートされています。 `-Scope` では、既定値を変更せずに、1 つのセッションのアクティブなコンテキストを変更できます。
+
+```azurepowershell-interactive
+Get-AzContext -Name "mycontext" | Select-AzContext -Scope Process
+```
+
+PowerShell セッション全体のコンテキストを切り替えないようにするために、すべての PowerShell コマンドは `-AzContext` 引数を使用して、指定のコンテキストに対して実行できます。
+
+```azurepowershell-interactive
+$context = Get-AzContext -Name "mycontext"
+New-AzVM -Name ExampleVM -AzContext $context
+```
+
+Azure PowerShell コマンドレットでのコンテキストのもう 1 つの主な用途は、バックグラウンド コマンドを実行することです。 Azure PowerShell を使用した PowerShell ジョブの実行の詳細については、[PowerShell ジョブでの Azure PowerShell コマンドレットの実行](using-psjobs.md)に関する記事を参照してください。
+
+## <a name="save-azure-contexts-across-powershell-sessions"></a>PowerShell セッション間での Azure コンテキストの保存
+
+既定では、Azure コンテキストは、PowerShell セッション間で使用するために保存されます。 この動作は、次の方法で変更します。
+
+* `Connect-AzAccount` で `-Scope Process` を使用してサインインします。
+
+  ```azurepowershell
+  Connect-AzAccount -Scope Process
   ```
 
-- 自動保存を有効にした状態で既定のコンテキストを使用する
+  このサインインの一部として返される Azure コンテキストは、現在のセッションで_のみ_有効で、Azure PowerShell コンテキストの自動保存の設定に関係なく、自動的には保存されません。
+* [Disable-AzContextAutosave](/powershell/module/az.accounts/disable-azcontextautosave) コマンドレットを使用して、AzurePowershell のコンテキストの自動保存を無効にします。
+  コンテキストの自動保存を無効にしても、格納されているトークンはクリア__されません__。 保存されている Azure コンテキスト情報をクリアする方法については、[Azure コンテキストと資格情報の削除](#remove-azure-contexts-and-stored-credentials)に関する記事を参照してください。
+* Azure コンテキストの自動保存を明示的に有効にするには、[Enable-AzContextAutosave](/powershell/module/az.accounts/enable-azcontextautosave) コマンドレットを使用します。 自動保存が有効になっていると、ユーザーのすべてのコンテキストは、後の PowerShell セッション用にローカルに保存されます。
+* 今後の PowerShell セッションで使用するために [Save-AzContext](/powershell/module/az.accounts/save-azcontext) を使用してコンテキストを手動で保存します。保存したコンテキストは、[Import-AzContext](/powershell/module/az.accounts/import-azcontext) を使用して読み込むことができます。
 
-  **Context Autosave** を有効にした場合、バックグラウンド ジョブは、既定で保存されているコンテキストを自動的に使用します。
-
-  ```powershell-interactive
-  PS C:\> $job = Start-Job { New-AzVm [... Additional parameters ...]}
+  ```azurepowershell
+  Save-AzContext -Path current-context.json # Save the current context
+  Save-AzContext -Profile $profileObject -Path other-context.json # Save a context object
+  Import-AzContext -Path other-context.json # Load the context from a file and set it to the current context
   ```
 
-バックグラウンド タスクの結果を知っておく必要がある場合は、`Get-Job` を使用してジョブの状態を確認し、`Wait-Job` を使用してジョブの完了を待ちます。 バックグラウンド ジョブの出力をキャプチャまたは表示するには、`Receive-Job` を使用します。 詳細については、「[about_Jobs](/powershell/module/microsoft.powershell.core/about/about_jobs)」を参照してください。
+> [!WARNING]
+> コンテキストの自動保存を無効にしても、保存されていた保存済みのコンテキスト情報はクリア__されません__。 保存されている情報を削除するには、[Clear-AzContext](/powershell/module/az.accounts/Clear-AzContext) コマンドレットを使用します。 保存済みコンテキストの削除の詳細については、[コンテキストと資格情報の削除](#remove-azure-contexts-and-stored-credentials)に関する記事を参照してください。
 
-## <a name="creating-selecting-renaming-and-removing-contexts"></a>コンテキストの作成、選択、名前変更、削除
-
-コンテキストを作成するには、Azure にサインインしている必要があります。 `Connect-AzAccount` コマンドレット (またはそのエイリアス `Login-AzAccount`) は、Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。
-
-サインイン後に新しいコンテキストを追加するには、`Set-AzContext` (またはそのエイリアス `Select-AzSubscription`) を使用します。
+これらの各コマンドでは、`-Scope` パラメーターがサポートされています。これは、`Process` の値を取り、現在実行中のプロセスのみに適用することができます。 たとえば、新しく作成されたコンテキストが PowerShell セッションを終了した後に保存されないようにするには、次のようにします。
 
 ```azurepowershell-interactive
-PS C:\> Set-AzContext -Subscription "Contoso Subscription 1" -Name "Contoso1"
+Disable-AzContextAutosave -Scope Process
+$context2 = Set-AzContext -Subscription "sub-id" -Tenant "other-tenant"
 ```
 
-前の例では、現在の資格情報を使用して、"Contoso Subscription 1" を対象とした新しいコンテキストを追加します。 新しいコンテキストの名前は "Contoso1" です。 コンテキストに名前を指定しない場合は、アカウント ID とサブスクリプション ID を使用した既定の名前が使用されます。
+コンテキスト情報とトークンは、Windows 上の `$env:USERPROFILE\.Azure` ディレクトリおよび他のプラットフォーム上の `$HOME/.Azure` に格納されます。 サブスクリプション ID やテナント ID などの機密情報が、ログまたは保存されたコンテキストなどにより、まだ保存された情報に公開されている場合があります。 保存されている情報をクリアする方法については、[コンテキストと資格情報の削除](#remove-azure-contexts-and-stored-credentials)に関するセクションを参照してください。
 
-既存のコンテキストの名前を変更するには、`Rename-AzContext` コマンドレットを使用します。 例:
+## <a name="remove-azure-contexts-and-stored-credentials"></a>Azure コンテキストと保存されている資格情報の削除
 
-```azurepowershell-interactive
-PS C:\> Rename-AzContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso2'
-```
+Azure コンテキストと資格情報をクリアするには、次のようにします。
 
-この例では、自動的に `[user1@contoso.org; 123456-7890-1234-564321]` という名前の付いたコンテキストの名前を簡単な名前 "Contoso2" に変更します。 コンテキストを管理するコマンドレットではタブ補完も使用されているため、コンテキストをすばやく選択できます。
+* [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount) を使用してアカウントからサインアウトします。
+  アカウントまたはコンテキストにより、任意のアカウントからサインアウトできます。
 
-最後に、コンテキストを削除するには、`Remove-AzContext` コマンドレットを使用します。  例:
+  ```azurepowershell-interactive
+  Disconnect-AzAccount # Disconnect active account 
+  Disconnect-AzAccount -Username "user@contoso.com" # Disconnect by account name
 
-```azurepowershell-interactive
-PS C:\> Remove-AzContext Contoso2
-```
+  Disconnect-AzAccount -ContextName "subscription2" # Disconnect by context name
+  Disconnect-AzAccount -AzureContext $contextObject # Disconnect using context object information
+  ```
 
-"Contoso2" という名前のコンテキストは記憶されません。 `Set-AzContext` を使用して、このコンテキストを再作成できます
+  切断すると、保存されている認証トークンが必ず削除され、切断されたユーザーまたはコンテキストに関連付けられている保存済みのコンテキストがクリアされます。
+* [Clear-AzContext](/powershell/module/az.accounts/Clear-AzContext) を使用します。 このコマンドレットは、保存されているコンテキストと認証トークンを常に削除することが保証されており、さらにユーザーをサインアウトします。
+* [Remove-AzContext](/powershell/module/az.accounts/remove-azcontext) を使用してコンテキストを削除します。
+  
+  ```azurepowershell-interactive
+  Remove-AzContext -Name "mycontext" # Remove by name
+  Get-AzContext -Name "mycontext" | Remove-AzContext # Remove by piping Azure context object
+  ```
 
-## <a name="removing-credentials"></a>資格情報の削除
+  アクティブなコンテキストを削除すると、Azure から切断され、`Connect-AzAccount` で再認証する必要があります。
 
-`Disconnect-AzAccount` (別名 `Logout-AzAccount`) を使用して、ユーザーまたはサービス プリンシパルの資格情報と関連付けられたコンテキストをすべて削除できます。 `Disconnect-AzAccount` コマンドレットをパラメーターを指定せずに実行すると、現在のコンテキストのユーザーまたはサービス プリンシパルに関連付けられた資格情報とコンテキストがすべて削除されます。 特定のプリンシパルを対象とするために、ユーザー名、サービス プリンシパル名、またはコンテキストを渡すこともできます。
+## <a name="see-also"></a>関連項目
 
-```azurepowershell-interactive
-Disconnect-AzAccount user1@contoso.org
-```
-
-## <a name="using-context-scopes"></a>コンテキスト スコープの使用
-
-場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。 コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。 `Process` スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。 逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。
-
-たとえば、他のウィンドウに影響を与えることなく現在の PowerShell セッションの既定のコンテキストを変更したり、次にセッションを開いたときに使用されるコンテキストを変更したりするには、次を使用します。
-
-```azurepowershell-interactive
-PS C:\> Select-AzContext Contoso1 -Scope Process
-```
-
-## <a name="how-the-context-autosave-setting-is-remembered"></a>コンテキストの自動保存設定を記憶する方法
-
-コンテキストの自動保存設定は、ユーザーの Azure PowerShell ディレクトリ (Windows では `$env:USERPROFILE\.Azure`、その他のプラットフォームでは `$HOME/.Azure`) に保存されます。 コンピューター アカウントの中には、このディレクトリにアクセスできないものがあります。 このようなシナリオでは、環境変数を使用できます。
-
-```azurepowershell-interactive
-$env:AzureRmContextAutoSave="true" | "false"
-```
-
-"true" に設定すると、コンテキストは自動的に保存されます。 "false" に設定した場合、コンテキストは保存されません。
-
-## <a name="context-management-cmdlets"></a>コンテキスト管理コマンドレット
-
-- [Enable-AzContextAutosave][enable] - PowerShell セッション間でのコンテキストの保存を許可します。
-  変更するとグローバル コンテキストが変更されます。
-- [Disable-AzContextAutosave][disable] - コンテキストの自動保存をオフにします。 新しい PowerShell セッションごとに再度サインインが必要になります。
-- [Select-AzContext][select] - コンテキストを既定値として選択します。 すべてのコマンドレットで、認証にこのコンテキストの資格情報が使用されます。
-- [Disconnect-AzAccount][remove-cred] - アカウントに関連付けられた資格情報とコンテキストをすべて削除します。
-- [Remove-AzContext][remove-context] - 名前付きコンテキストを削除します。
-- [Rename-AzContext][rename] - 既存のコンテキストの名前を変更します。
-- [Add-AzAccount][login] - サインインのスコープをプロセスまたは現在のユーザーにすることを許可します。
-  認証後に既定のコンテキストに名前を付けることができます。
-- [Import-AzContext][import] - サインインのスコープをプロセスまたは現在のユーザーにすることを許可します。
-- [Set-AzContext][set-context] - 既存の名前付きコンテキストの選択と、プロセスまたは現在のユーザーへのスコープの変更を許可します。
-
-<!-- Hyperlinks -->
-[enable]: /powershell/module/az.accounts/Enable-AzureRmContextAutosave
-[disable]: /powershell/module/az.accounts/Disable-AzContextAutosave
-[select]: /powershell/module/az.accounts/Select-AzContext
-[remove-cred]: /powershell/module/az.accounts/Disconnect-AzAccount
-[remove-context]: /powershell/module/az.accounts/Remove-AzContext
-[rename]: /powershell/module/az.accounts/Rename-AzContext
-
-<!-- Updated cmdlets -->
-[login]: /powershell/module/az.accounts/Connect-AzAccount
-[import]:  /powershell/module/az.accounts/Import-AzContext
-[set-context]: /powershell/module/az.accounts/Set-AzContext
+* [PowerShell ジョブで Azure PowerShell コマンドレットを実行する](using-psjobs.md)
+* [Azure Active Directory 用語集](/azure/active-directory/fundamentals/active-directory-whatis#terminology)
+* [Az.Accounts リファレンス](/powershell/module/az.accounts)
