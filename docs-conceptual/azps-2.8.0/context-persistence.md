@@ -1,150 +1,161 @@
 ---
-title: PowerShell セッション間で Azure の資格情報を保持する
+title: Azure コンテキストとサインイン資格情報
 description: 複数の PowerShell セッション間で Azure の資格情報や他の情報を再利用する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/13/2018
-ms.openlocfilehash: 02b8090aa1868f24445ddff3a95c0d0c376e2cb8
-ms.sourcegitcommit: 0b94b9566124331d0b15eb7f5a811305c254172e
+ms.date: 10/21/2019
+ms.openlocfilehash: 72d1b07bb2c66f80ea6f5d37ef7012d0d0a5bbbc
+ms.sourcegitcommit: 1cdff856d1d559b978aac6bc034dd2f99ac04afe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72370405"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791470"
 ---
-# <a name="persist-azure-user-credentials-across-powershell-sessions"></a><span data-ttu-id="ef676-103">PowerShell セッション間で Azure のユーザー資格情報を保持する</span><span class="sxs-lookup"><span data-stu-id="ef676-103">Persist Azure user credentials across PowerShell sessions</span></span>
+# <a name="azure-powershell-context-objects"></a><span data-ttu-id="0b27d-103">Azure PowerShell コンテキスト オブジェクト</span><span class="sxs-lookup"><span data-stu-id="0b27d-103">Azure PowerShell context objects</span></span>
 
-<span data-ttu-id="ef676-104">Azure PowerShell では、**Azure Context Autosave** と呼ばれる機能を提供しています。その機能は以下のとおりです。</span><span class="sxs-lookup"><span data-stu-id="ef676-104">Azure PowerShell offers a feature called **Azure Context Autosave**, which gives the following features:</span></span>
+<span data-ttu-id="0b27d-104">Azure PowerShell は、_Azure PowerShell コンテキスト オブジェクト_ (Azure コンテキスト) を使用して、サブスクリプションと認証情報を保持します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-104">Azure PowerShell uses _Azure PowerShell context objects_ (Azure contexts) to hold subscription and authentication information.</span></span> <span data-ttu-id="0b27d-105">複数のサブスクリプションがある場合は、Azure コンテキストを使用して、Azure PowerShell コマンドレットを実行するサブスクリプションを選択できます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-105">If you have more than one subscription, Azure contexts let you select the subscription to run Azure PowerShell cmdlets on.</span></span> <span data-ttu-id="0b27d-106">Azure コンテキストは、複数の PowerShell セッションにわたってサインイン情報を格納し、バックグラウンド タスクを実行するためにも使用されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-106">Azure contexts are also used to store sign-in information across multiple PowerShell sessions and run background tasks.</span></span>
 
-- <span data-ttu-id="ef676-105">新しい PowerShell セッションで再利用するためにサインイン情報を保持する。</span><span class="sxs-lookup"><span data-stu-id="ef676-105">Retention of sign-in information for reuse in new PowerShell sessions.</span></span>
-- <span data-ttu-id="ef676-106">実行時間の長いコマンドレットを実行する場合にバックグラウンド タスクを使いやすくする。</span><span class="sxs-lookup"><span data-stu-id="ef676-106">Easier use of background tasks for executing long-running cmdlets.</span></span>
-- <span data-ttu-id="ef676-107">個別のサインインを使用せずにアカウント、サブスクリプション、環境を切り替える。</span><span class="sxs-lookup"><span data-stu-id="ef676-107">Switch between accounts, subscriptions, and environments without a separate sign-in.</span></span>
-- <span data-ttu-id="ef676-108">同一の PowerShell セッションから、異なる資格情報やサブスクリプションを同時に使用してタスクを実行する。</span><span class="sxs-lookup"><span data-stu-id="ef676-108">Execution of tasks using different credentials and subscriptions, simultaneously, from the same PowerShell session.</span></span>
+<span data-ttu-id="0b27d-107">この記事では、サブスクリプションやアカウントの管理ではなく、Azure コンテキストの管理について説明します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-107">This article covers managing Azure contexts, not the management of subscriptions or accounts.</span></span> <span data-ttu-id="0b27d-108">ユーザー、サブスクリプション、テナント、またはその他のアカウント情報を管理する方法については、[Azure Active Directory](/azure/active-directory) のドキュメントを参照してください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-108">If you're looking to manage users, subscriptions, tenants, or other account information, see the [Azure Active Directory](/azure/active-directory) documentation.</span></span> <span data-ttu-id="0b27d-109">コンテキストを使用してバックグラウンド タスクまたは並列タスクを実行する方法については、Azure コンテキストに慣れた後に [PowerShell ジョブでの Azure PowerShell コマンドレットの使用](using-psjobs.md)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-109">To learn about using contexts for running background or parallel tasks, see [Use Azure PowerShell cmdlets in PowerShell jobs](using-psjobs.md) after becoming familiar with Azure contexts.</span></span>
 
-## <a name="azure-contexts-defined"></a><span data-ttu-id="ef676-109">Azure コンテキストの定義</span><span class="sxs-lookup"><span data-stu-id="ef676-109">Azure contexts defined</span></span>
+## <a name="overview-of-azure-context-objects"></a><span data-ttu-id="0b27d-110">Azure コンテキスト オブジェクトの概要</span><span class="sxs-lookup"><span data-stu-id="0b27d-110">Overview of Azure context objects</span></span>
 
-<span data-ttu-id="ef676-110">"*Azure コンテキスト*" とは、Azure PowerShell コマンドレットの対象を定義する一連の情報です。</span><span class="sxs-lookup"><span data-stu-id="ef676-110">An *Azure context* is a set of information that defines the target of Azure PowerShell cmdlets.</span></span> <span data-ttu-id="ef676-111">このコンテキストは、次の 5 つの要素で構成されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-111">The context consists of five parts:</span></span>
+<span data-ttu-id="0b27d-111">Azure コンテキストは、コマンドの実行対象のアクティブなサブスクリプションと、Azure クラウドに接続するために必要な認証情報を表す PowerShell オブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="0b27d-111">Azure contexts are PowerShell objects representing your active subscription to run commands against, and the authentication information needed to connect to an Azure cloud.</span></span> <span data-ttu-id="0b27d-112">Azure コンテキストを使用すると、サブスクリプションを切り替えるたびに、Azure PowerShell でアカウントを再認証する必要はありません。</span><span class="sxs-lookup"><span data-stu-id="0b27d-112">With Azure contexts, Azure PowerShell doesn't need to reauthenticate your account each time you switch subscriptions.</span></span> <span data-ttu-id="0b27d-113">Azure コンテキストは、次のもので構成されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-113">An Azure context consists of:</span></span>
 
-- <span data-ttu-id="ef676-112">"*アカウント*" - Azure との通信の認証に使用されるユーザー名またはサービス プリンシパル。</span><span class="sxs-lookup"><span data-stu-id="ef676-112">An *Account* - the UserName or Service Principal used to authenticate communications with Azure</span></span>
-- <span data-ttu-id="ef676-113">"*サブスクリプション*" - 処理対象のリソースを含む Azure サブスクリプション。</span><span class="sxs-lookup"><span data-stu-id="ef676-113">A *Subscription* - The Azure Subscription with the Resources being acted upon.</span></span>
-- <span data-ttu-id="ef676-114">"*テナント*" - サブスクリプションを含む Azure Active Directory テナント。</span><span class="sxs-lookup"><span data-stu-id="ef676-114">A *Tenant* - The Azure Active Directory tenant that contains your subscription.</span></span> <span data-ttu-id="ef676-115">テナントは、サービス プリンシパル認証にとってより重要になります。</span><span class="sxs-lookup"><span data-stu-id="ef676-115">Tenants are more important to ServicePrincipal authentication.</span></span>
-- <span data-ttu-id="ef676-116">"*環境*" - 対象となる特定の Azure クラウド (通常は Azure グローバル クラウド)。</span><span class="sxs-lookup"><span data-stu-id="ef676-116">An *Environment* - The particular Azure Cloud being targeted, usually the Azure global Cloud.</span></span>
-  <span data-ttu-id="ef676-117">ただし、環境設定では、国内、政府、オンプレミス (Azure Stack) クラウドも対象にすることができます。</span><span class="sxs-lookup"><span data-stu-id="ef676-117">However, the environment setting allows you to target National, Government, and on-premises (Azure Stack) clouds as well.</span></span>
-- <span data-ttu-id="ef676-118">"*資格情報*" - 本人確認と Azure のリソースへのアクセスの承認のために Azure で使用される情報</span><span class="sxs-lookup"><span data-stu-id="ef676-118">*Credentials* - The information used by Azure to verify your identity and confirm your authorization to access resources in Azure</span></span>
+* <span data-ttu-id="0b27d-114">[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) を使用して Azure にサインインするために使用された_アカウント_。</span><span class="sxs-lookup"><span data-stu-id="0b27d-114">The _account_ that was used to sign in to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).</span></span> <span data-ttu-id="0b27d-115">Azure コンテキストでは、アカウントの観点からは、ユーザー、アプリケーション ID、およびサービス プリンシパルが同じものとして扱われます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-115">Azure contexts treat users, application IDs, and service principals the same from an account perspective.</span></span>
+* <span data-ttu-id="0b27d-116">_テナント_に関連付けられたアクティブな_サブスクリプション_ (Azure リソースを作成および実行するための Microsoft とのサービス契約)。</span><span class="sxs-lookup"><span data-stu-id="0b27d-116">The active _subscription_, a service agreement with Microsoft to create and run Azure resources, which are associated with a _tenant_.</span></span> <span data-ttu-id="0b27d-117">多くの場合、テナントは、ドキュメント内で、または Active Directory を使用する場合に_組織_と呼ばれます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-117">Tenants are often referred to as _organizations_ in documentation or when working with Active Directory.</span></span>
+* <span data-ttu-id="0b27d-118">_トークン キャッシュ_ (Azure クラウドへアクセスするための格納された認証トークン) への参照。</span><span class="sxs-lookup"><span data-stu-id="0b27d-118">A reference to a _token cache_, a stored authentication token for accessing an Azure cloud.</span></span> <span data-ttu-id="0b27d-119">このトークンの格納場所と保持期間は[コンテキスト自動保存設定](#save-azure-contexts-across-powershell-sessions)によって決定されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-119">Where this token is stored and how long it persists for is determined by the [context autosave settings](#save-azure-contexts-across-powershell-sessions).</span></span>
 
-<span data-ttu-id="ef676-119">Azure PowerShell の最新バージョンでは、新しい PowerShell セッションを開くたびに Azure コンテキストを自動的に保存できます。</span><span class="sxs-lookup"><span data-stu-id="ef676-119">With the latest version of Azure PowerShell, Azure Contexts can automatically be saved whenever opening a new PowerShell session.</span></span>
+<span data-ttu-id="0b27d-120">これらの用語の詳細については、[Azure Active Directory の用語](/azure/active-directory/fundamentals/active-directory-whatis#terminology)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-120">For more information on these terms, see [Azure Active Directory Terminology](/azure/active-directory/fundamentals/active-directory-whatis#terminology).</span></span> <span data-ttu-id="0b27d-121">Azure コンテキストによって使用される認証トークンは、永続セッションの一部である他の保存されたトークンと同じです。</span><span class="sxs-lookup"><span data-stu-id="0b27d-121">Authentication tokens used by Azure contexts are the same as other stored tokens that are part of a persistent session.</span></span> 
 
-## <a name="automatically-save-the-context-for-the-next-sign-in"></a><span data-ttu-id="ef676-120">次回サインインのためのコンテキストの自動保存</span><span class="sxs-lookup"><span data-stu-id="ef676-120">Automatically save the context for the next sign-in</span></span>
+<span data-ttu-id="0b27d-122">`Connect-AzAccount` を使用してサインインすると、既定のサブスクリプションに対して少なくとも 1 つの Azure コンテキストが作成されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-122">When you sign in with `Connect-AzAccount`, at least one Azure context is created for your default subscription.</span></span> <span data-ttu-id="0b27d-123">`Connect-AzAccount` によって返されるオブジェクトは、残りの PowerShell セッションで使用される既定の Azure コンテキストです。</span><span class="sxs-lookup"><span data-stu-id="0b27d-123">The object returned by `Connect-AzAccount` is the default Azure context used for the rest of the PowerShell session.</span></span>
 
-<span data-ttu-id="ef676-121">Azure PowerShell では、セッション間で自動的にコンテキスト情報が保持されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-121">Azure PowerShell retains your context information automatically between sessions.</span></span> <span data-ttu-id="ef676-122">コンテキストと資格情報を記憶しないように PowerShell を設定するには、`Disable-AzContextAutoSave` を使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-122">To set PowerShell to forget your context and credentials, use `Disable-AzContextAutoSave`.</span></span> <span data-ttu-id="ef676-123">コンテキストの保存を無効にすると、PowerShell セッションを開くたびに Azure へのサインインが必要になります。</span><span class="sxs-lookup"><span data-stu-id="ef676-123">With context saving disabled, you'll need to sign in to Azure every time you open a PowerShell session.</span></span>
+## <a name="get-azure-contexts"></a><span data-ttu-id="0b27d-124">Azure コンテキストを取得する</span><span class="sxs-lookup"><span data-stu-id="0b27d-124">Get Azure contexts</span></span>
 
-<span data-ttu-id="ef676-124">PowerShell セッションが終了した後に Azure PowerShell がコンテキストを記憶できるようにするには、`Enable-AzContextAutosave` を使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-124">To allow Azure PowerShell to remember your context after the PowerShell session is closed, use `Enable-AzContextAutosave`.</span></span> <span data-ttu-id="ef676-125">コンテキストと資格情報は、ユーザー ディレクトリの特殊な隠しフォルダー (Windows では `$env:USERPROFILE\.Azure`、その他のプラットフォームでは `$HOME/.Azure`) に自動的に保存されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-125">Context and credential information are automatically saved in a special hidden folder in your user directory (`$env:USERPROFILE\.Azure` on Windows, and `$HOME/.Azure` on other platforms).</span></span> <span data-ttu-id="ef676-126">新しい PowerShell セッションそれぞれで、最後のセッションで使用されたコンテキストが対象となります。</span><span class="sxs-lookup"><span data-stu-id="ef676-126">Each new PowerShell session targets the context used in your last session.</span></span>
+<span data-ttu-id="0b27d-125">[Get-AzContext](/powershell/module/az.accounts/get-azcontext) コマンドレットを使用すると、使用可能な Azure コンテキストが取得されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-125">Available Azure contexts are retrieved with the [Get-AzContext](/powershell/module/az.accounts/get-azcontext) cmdlet.</span></span> <span data-ttu-id="0b27d-126">`-ListAvailable` を使用して使用可能なすべてのコンテキストを一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-126">List all of the available contexts with `-ListAvailable`:</span></span>
 
-<span data-ttu-id="ef676-127">Azure コンテキストを管理できるコマンドレットを使用すると、きめ細かな制御も可能になります。</span><span class="sxs-lookup"><span data-stu-id="ef676-127">The cmdlets that allow you to manage Azure contexts also allow you fine grained control.</span></span> <span data-ttu-id="ef676-128">変更を現在の PowerShell セッションのみ (`Process` スコープ) とすべての PowerShell セッション (`CurrentUser` スコープ) のどちらに適用するかを制御できます。</span><span class="sxs-lookup"><span data-stu-id="ef676-128">If you want changes to apply only to the current PowerShell session (`Process` scope) or every PowerShell session (`CurrentUser` scope).</span></span> <span data-ttu-id="ef676-129">これらのオプションについては、「[コンテキスト スコープの使用](#using-context-scopes)」で詳しく説明します。</span><span class="sxs-lookup"><span data-stu-id="ef676-129">These options are discussed in more detail in [Using Context Scopes](#using-context-scopes).</span></span>
+```azurepowershell-interactive
+Get-AzContext -ListAvailable
+```
 
-## <a name="running-azure-powershell-cmdlets-as-background-jobs"></a><span data-ttu-id="ef676-130">バックグラウンド ジョブとしての Azure PowerShell コマンドレットの実行</span><span class="sxs-lookup"><span data-stu-id="ef676-130">Running Azure PowerShell cmdlets as background jobs</span></span>
+<span data-ttu-id="0b27d-127">または、名前を指定してコンテキストを取得します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-127">Or get a context by name:</span></span>
 
-<span data-ttu-id="ef676-131">**Azure Context Autosave** 機能を使用すると、コンテキストを PowerShell のバックグラウンド ジョブと共有することもできます。</span><span class="sxs-lookup"><span data-stu-id="ef676-131">The **Azure Context Autosave** feature also allows you to share you context with PowerShell background jobs.</span></span> <span data-ttu-id="ef676-132">PowerShell を使用すると、実行時間の長いタスクをバックグラウンド ジョブとして開始および監視できます。タスクが完了するのを待つ必要はありません。</span><span class="sxs-lookup"><span data-stu-id="ef676-132">PowerShell allows you to start and monitor long-executing tasks as background jobs without having to wait for the tasks to complete.</span></span> <span data-ttu-id="ef676-133">資格情報をバックグラウンド ジョブと共有するには、次の 2 つの方法があります。</span><span class="sxs-lookup"><span data-stu-id="ef676-133">You can share credentials with background jobs in two different ways:</span></span>
+```azurepowershell-interactive
+$context = Get-Context -Name "mycontext"
+```
 
-- <span data-ttu-id="ef676-134">コンテキストを引数として渡す</span><span class="sxs-lookup"><span data-stu-id="ef676-134">Passing the context as an argument</span></span>
+<span data-ttu-id="0b27d-128">コンテキスト名は、関連付けられたサブスクリプションの名前とは異なる場合があります。</span><span class="sxs-lookup"><span data-stu-id="0b27d-128">Context names may be different from the name of the associated subscription.</span></span>
 
-  <span data-ttu-id="ef676-135">ほとんどの AzureRM コマンドレットでは、コンテキストをパラメーターとしてコマンドレットに渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="ef676-135">Most AzureRM cmdlets allow you to pass the context as a parameter to the cmdlet.</span></span> <span data-ttu-id="ef676-136">次の例に示すように、バックグラウンド ジョブにコンテキストを渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="ef676-136">You can pass a context to a background job as shown in the following example:</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="0b27d-129">使用可能な Azure コンテキストが必ずしも使用可能なサブスクリプションであるとは__限りません__。</span><span class="sxs-lookup"><span data-stu-id="0b27d-129">The available Azure contexts __aren't__ always your available subscriptions.</span></span> <span data-ttu-id="0b27d-130">Azure コンテキストはローカルに保存された情報のみを表します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-130">Azure contexts only represent locally-stored information.</span></span> <span data-ttu-id="0b27d-131">[Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-1.8.0) コマンドレットを使用すると、サブスクリプションを取得できます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-131">You can get your subscriptions with the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-1.8.0) cmdlet.</span></span>
 
-  ```powershell-interactive
-  PS C:\> $job = Start-Job { param ($ctx) New-AzVm -AzureRmContext $ctx [... Additional parameters ...]} -ArgumentList (Get-AzContext)
+## <a name="create-a-new-azure-context-from-subscription-information"></a><span data-ttu-id="0b27d-132">サブスクリプション情報から新しい Azure コンテキストを作成する</span><span class="sxs-lookup"><span data-stu-id="0b27d-132">Create a new Azure context from subscription information</span></span>
+
+<span data-ttu-id="0b27d-133">[Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) コマンドレットを使用して、新しい Azure コンテキストの作成と、アクティブ コンテキストとしての設定の両方を行います。</span><span class="sxs-lookup"><span data-stu-id="0b27d-133">The [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) cmdlet is used to both create new Azure contexts and set them as the active context.</span></span>
+<span data-ttu-id="0b27d-134">新しい Azure コンテキストを作成する最も簡単な方法は、既存のサブスクリプション情報を使用することです。</span><span class="sxs-lookup"><span data-stu-id="0b27d-134">The easiest way to create a new Azure context is to use existing subscription information.</span></span> <span data-ttu-id="0b27d-135">このコマンドレットは、`Get-AzSubscription` からの出力オブジェクトをパイプ値として受け取り、新しい Azure コンテキストを作成します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-135">The cmdlet is designed to take the output object from `Get-AzSubscription` as a piped value and configure a new Azure context:</span></span>
+
+```azurepowershell-interactive
+Get-AzSubscription -SubscriptionName 'MySubscriptionName' | Set-AzContext -Name 'MyContextName'
+```
+
+<span data-ttu-id="0b27d-136">または、サブスクリプション名または ID と必要に応じてテナント ID を指定します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-136">Or give the subscription name or ID and the tenant ID if necessary:</span></span>
+
+```azurepowershell-interactive
+Set-AzContext -Name 'MyContextName' -Subscription 'MySubscriptionName' -Tenant '.......'
+```
+
+<span data-ttu-id="0b27d-137">`-Name` 引数を省略すると、サブスクリプションの名前と ID が `Subscription Name (subscription-id)` の形式でコンテキスト名として使用されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-137">If the `-Name` argument is omitted, then the subscription's name and ID are used as the context name in the format `Subscription Name (subscription-id)`.</span></span>
+
+## <a name="change-the-active-azure-context"></a><span data-ttu-id="0b27d-138">アクティブな Azure コンテキストを変更する</span><span class="sxs-lookup"><span data-stu-id="0b27d-138">Change the active Azure context</span></span>
+
+<span data-ttu-id="0b27d-139">アクティブな Azure コンテキストを変更するには、`Set-AzContext` と [Select-AzContext](/powershell/module/az.accounts/set-azcontext) の両方を使用できます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-139">Both `Set-AzContext` and [Select-AzContext](/powershell/module/az.accounts/set-azcontext) can be used to change the active Azure context.</span></span> <span data-ttu-id="0b27d-140">[新しい Azure コンテキストの作成](#create-a-new-azure-context-from-subscription-information)に関するセクションで説明されているように、`Set-AzContext` を使用すると、サブスクリプションに対して新しい Azure コンテキストが作成され (存在しない場合)、それをアクティブ コンテキストとして使用するように切り替えられます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-140">As described in [Create a new Azure context](#create-a-new-azure-context-from-subscription-information), `Set-AzContext` creates a new Azure context for a subscription if one doesn't exist, and then switches to use that context as the active one.</span></span>
+
+<span data-ttu-id="0b27d-141">`Select-AzContext` は、既存の Azure コンテキストでのみ使用されることが想定されており、`Set-AzContext -Context` と同じように動作しますが、パイプを使用するように設計されています。</span><span class="sxs-lookup"><span data-stu-id="0b27d-141">`Select-AzContext` is meant to be used with existing Azure contexts only and works similarly to using `Set-AzContext -Context`, but is designed for use with piping:</span></span>
+
+```azurepowershell-interactive
+Set-AzContext -Context $(Get-AzContext -Name "mycontext") # Set a context with an inline Azure context object
+Get-AzContext -Name "mycontext" | Select-AzContext # Set a context with a piped Azure context object
+```
+
+<span data-ttu-id="0b27d-142">Azure PowerShell の他の多くのアカウントおよびコンテキスト管理コマンドと同様に、`Set-AzContext` と `Select-AzContext` では、コンテキストがアクティブになる期間を制御できるように `-Scope` 引数がサポートされています。</span><span class="sxs-lookup"><span data-stu-id="0b27d-142">Like many other account and context management commands in Azure PowerShell, `Set-AzContext` and `Select-AzContext` support the `-Scope` argument so that you can control how long the context is active.</span></span> <span data-ttu-id="0b27d-143">`-Scope` では、既定値を変更せずに、1 つのセッションのアクティブなコンテキストを変更できます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-143">`-Scope` lets you change a single session's active context without changing the default:</span></span>
+
+```azurepowershell-interactive
+Get-AzContext -Name "mycontext" | Select-AzContext -Scope Process
+```
+
+<span data-ttu-id="0b27d-144">PowerShell セッション全体のコンテキストを切り替えないようにするために、すべての PowerShell コマンドは `-AzContext` 引数を使用して、指定のコンテキストに対して実行できます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-144">To avoid switching contexts for a whole PowerShell session, all Azure PowerShell commands can be run against a given context with the `-AzContext` argument:</span></span>
+
+```azurepowershell-interactive
+$context = Get-AzContext -Name "mycontext"
+New-AzVM -Name ExampleVM -AzContext $context
+```
+
+<span data-ttu-id="0b27d-145">Azure PowerShell コマンドレットでのコンテキストのもう 1 つの主な用途は、バックグラウンド コマンドを実行することです。</span><span class="sxs-lookup"><span data-stu-id="0b27d-145">The other main use of contexts with Azure PowerShell cmdlets is to run background commands.</span></span> <span data-ttu-id="0b27d-146">Azure PowerShell を使用した PowerShell ジョブの実行の詳細については、[PowerShell ジョブでの Azure PowerShell コマンドレットの実行](using-psjobs.md)に関する記事を参照してください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-146">To learn more about running PowerShell Jobs using Azure PowerShell, see [Run Azure PowerShell cmdlets in PowerShell Jobs](using-psjobs.md).</span></span>
+
+## <a name="save-azure-contexts-across-powershell-sessions"></a><span data-ttu-id="0b27d-147">PowerShell セッション間での Azure コンテキストの保存</span><span class="sxs-lookup"><span data-stu-id="0b27d-147">Save Azure contexts across PowerShell sessions</span></span>
+
+<span data-ttu-id="0b27d-148">既定では、Azure コンテキストは、PowerShell セッション間で使用するために保存されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-148">By default, Azure contexts are saved for use between PowerShell sessions.</span></span> <span data-ttu-id="0b27d-149">この動作は、次の方法で変更します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-149">You change this behavior in the following ways:</span></span>
+
+* <span data-ttu-id="0b27d-150">`Connect-AzAccount` で `-Scope Process` を使用してサインインします。</span><span class="sxs-lookup"><span data-stu-id="0b27d-150">Sign in using `-Scope Process` with `Connect-AzAccount`.</span></span>
+
+  ```azurepowershell
+  Connect-AzAccount -Scope Process
   ```
 
-- <span data-ttu-id="ef676-137">自動保存を有効にした状態で既定のコンテキストを使用する</span><span class="sxs-lookup"><span data-stu-id="ef676-137">Using the default context with Autosave enabled</span></span>
+  <span data-ttu-id="0b27d-151">このサインインの一部として返される Azure コンテキストは、現在のセッションで_のみ_有効で、Azure PowerShell コンテキストの自動保存の設定に関係なく、自動的には保存されません。</span><span class="sxs-lookup"><span data-stu-id="0b27d-151">The Azure context returned as part of this sign in is valid for the current session _only_ and will not be automatically saved, regardless of the Azure PowerShell context autosave setting.</span></span>
+* <span data-ttu-id="0b27d-152">[Disable-AzContextAutosave](/powershell/module/az.accounts/disable-azcontextautosave) コマンドレットを使用して、AzurePowershell のコンテキストの自動保存を無効にします。</span><span class="sxs-lookup"><span data-stu-id="0b27d-152">Disable AzurePowershell's context autosave with the [Disable-AzContextAutosave](/powershell/module/az.accounts/disable-azcontextautosave) cmdlet.</span></span>
+  <span data-ttu-id="0b27d-153">コンテキストの自動保存を無効にしても、格納されているトークンはクリア__されません__。</span><span class="sxs-lookup"><span data-stu-id="0b27d-153">Disabling context autosave __doesn't__ clear any stored tokens.</span></span> <span data-ttu-id="0b27d-154">保存されている Azure コンテキスト情報をクリアする方法については、[Azure コンテキストと資格情報の削除](#remove-azure-contexts-and-stored-credentials)に関する記事を参照してください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-154">To learn how to clear stored Azure context information, see [Remove Azure contexts and credentials](#remove-azure-contexts-and-stored-credentials).</span></span>
+* <span data-ttu-id="0b27d-155">Azure コンテキストの自動保存を明示的に有効にするには、[Enable-AzContextAutosave](/powershell/module/az.accounts/enable-azcontextautosave) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-155">Explicitly enable Azure context autosave can be enabled with the [Enable-AzContextAutosave](/powershell/module/az.accounts/enable-azcontextautosave) cmdlet.</span></span> <span data-ttu-id="0b27d-156">自動保存が有効になっていると、ユーザーのすべてのコンテキストは、後の PowerShell セッション用にローカルに保存されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-156">With autosave enabled, all of a user's contexts are stored locally for later PowerShell sessions.</span></span>
+* <span data-ttu-id="0b27d-157">今後の PowerShell セッションで使用するために [Save-AzContext](/powershell/module/az.accounts/save-azcontext) を使用してコンテキストを手動で保存します。保存したコンテキストは、[Import-AzContext](/powershell/module/az.accounts/import-azcontext) を使用して読み込むことができます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-157">Manually save contexts with [Save-AzContext](/powershell/module/az.accounts/save-azcontext) to be used in future PowerShell sessions, where they can be loaded with [Import-AzContext](/powershell/module/az.accounts/import-azcontext):</span></span>
 
-  <span data-ttu-id="ef676-138">**Context Autosave** を有効にした場合、バックグラウンド ジョブは、既定で保存されているコンテキストを自動的に使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-138">If you have enabled **Context Autosave**, background jobs automatically use the default saved context.</span></span>
-
-  ```powershell-interactive
-  PS C:\> $job = Start-Job { New-AzVm [... Additional parameters ...]}
+  ```azurepowershell
+  Save-AzContext -Path current-context.json # Save the current context
+  Save-AzContext -Profile $profileObject -Path other-context.json # Save a context object
+  Import-AzContext -Path other-context.json # Load the context from a file and set it to the current context
   ```
 
-<span data-ttu-id="ef676-139">バックグラウンド タスクの結果を知っておく必要がある場合は、`Get-Job` を使用してジョブの状態を確認し、`Wait-Job` を使用してジョブの完了を待ちます。</span><span class="sxs-lookup"><span data-stu-id="ef676-139">When you need to know the outcome of the background task, use `Get-Job` to check the job status and `Wait-Job` to wait for the Job to complete.</span></span> <span data-ttu-id="ef676-140">バックグラウンド ジョブの出力をキャプチャまたは表示するには、`Receive-Job` を使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-140">Use `Receive-Job` to capture or display the output of the background job.</span></span> <span data-ttu-id="ef676-141">詳細については、「[about_Jobs](/powershell/module/microsoft.powershell.core/about/about_jobs)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="ef676-141">For more information, see [about_Jobs](/powershell/module/microsoft.powershell.core/about/about_jobs).</span></span>
+> [!WARNING]
+> <span data-ttu-id="0b27d-158">コンテキストの自動保存を無効にしても、保存されていた保存済みのコンテキスト情報はクリア__されません__。</span><span class="sxs-lookup"><span data-stu-id="0b27d-158">Disabling context autosave __doesn't__ clear any stored context information that was saved.</span></span> <span data-ttu-id="0b27d-159">保存されている情報を削除するには、[Clear-AzContext](/powershell/module/az.accounts/Clear-AzContext) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-159">To remove stored information, use the [Clear-AzContext](/powershell/module/az.accounts/Clear-AzContext) cmdlet.</span></span> <span data-ttu-id="0b27d-160">保存済みコンテキストの削除の詳細については、[コンテキストと資格情報の削除](#remove-azure-contexts-and-stored-credentials)に関する記事を参照してください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-160">For more on removing saved contexts, see [Remove contexts and credentials](#remove-azure-contexts-and-stored-credentials).</span></span>
 
-## <a name="creating-selecting-renaming-and-removing-contexts"></a><span data-ttu-id="ef676-142">コンテキストの作成、選択、名前変更、削除</span><span class="sxs-lookup"><span data-stu-id="ef676-142">Creating, selecting, renaming, and removing contexts</span></span>
-
-<span data-ttu-id="ef676-143">コンテキストを作成するには、Azure にサインインしている必要があります。</span><span class="sxs-lookup"><span data-stu-id="ef676-143">To create a context, you must be signed in to Azure.</span></span> <span data-ttu-id="ef676-144">`Connect-AzAccount` コマンドレット (またはそのエイリアス `Login-AzAccount`) は、Azure PowerShell コマンドレットで使用される既定のコンテキストを設定し、資格情報で許可されているテナントまたはサブスクリプションへのアクセスを許可します。</span><span class="sxs-lookup"><span data-stu-id="ef676-144">The `Connect-AzAccount` cmdlet (or its alias, `Login-AzAccount`) sets the default context used by Azure PowerShell cmdlets, and allows you to access any tenants or subscriptions allowed by your credentials.</span></span>
-
-<span data-ttu-id="ef676-145">サインイン後に新しいコンテキストを追加するには、`Set-AzContext` (またはそのエイリアス `Select-AzSubscription`) を使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-145">To add a new context after sign-in, use `Set-AzContext` (or its alias, `Select-AzSubscription`).</span></span>
+<span data-ttu-id="0b27d-161">これらの各コマンドでは、`-Scope` パラメーターがサポートされています。これは、`Process` の値を取り、現在実行中のプロセスのみに適用することができます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-161">Each of these commands supports the `-Scope` parameter, which can take a value of `Process` to only apply to the current running process.</span></span> <span data-ttu-id="0b27d-162">たとえば、新しく作成されたコンテキストが PowerShell セッションを終了した後に保存されないようにするには、次のようにします。</span><span class="sxs-lookup"><span data-stu-id="0b27d-162">For example, to ensure that newly created contexts aren't saved after exiting a PowerShell session:</span></span>
 
 ```azurepowershell-interactive
-PS C:\> Set-AzContext -Subscription "Contoso Subscription 1" -Name "Contoso1"
+Disable-AzContextAutosave -Scope Process
+$context2 = Set-AzContext -Subscription "sub-id" -Tenant "other-tenant"
 ```
 
-<span data-ttu-id="ef676-146">前の例では、現在の資格情報を使用して、"Contoso Subscription 1" を対象とした新しいコンテキストを追加します。</span><span class="sxs-lookup"><span data-stu-id="ef676-146">The previous example adds a new context targeting 'Contoso Subscription 1' using your current credentials.</span></span> <span data-ttu-id="ef676-147">新しいコンテキストの名前は "Contoso1" です。</span><span class="sxs-lookup"><span data-stu-id="ef676-147">The new context is named 'Contoso1'.</span></span> <span data-ttu-id="ef676-148">コンテキストに名前を指定しない場合は、アカウント ID とサブスクリプション ID を使用した既定の名前が使用されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-148">If you don't provide a name for the context, a default name, using the account ID and subscription ID is used.</span></span>
+<span data-ttu-id="0b27d-163">コンテキスト情報とトークンは、Windows 上の `$env:USERPROFILE\.Azure` ディレクトリおよび他のプラットフォーム上の `$HOME/.Azure` に格納されます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-163">Context information and tokens are stored in the `$env:USERPROFILE\.Azure` directory on Windows, and on `$HOME/.Azure` on other platforms.</span></span> <span data-ttu-id="0b27d-164">サブスクリプション ID やテナント ID などの機密情報が、ログまたは保存されたコンテキストなどにより、まだ保存された情報に公開されている場合があります。</span><span class="sxs-lookup"><span data-stu-id="0b27d-164">Sensitive information such as subscription IDs and tenant IDs may still be exposed in stored information, through logs or saved contexts.</span></span> <span data-ttu-id="0b27d-165">保存されている情報をクリアする方法については、[コンテキストと資格情報の削除](#remove-azure-contexts-and-stored-credentials)に関するセクションを参照してください。</span><span class="sxs-lookup"><span data-stu-id="0b27d-165">To learn how to clear stored information, see the [Remove contexts and credentials](#remove-azure-contexts-and-stored-credentials) section.</span></span>
 
-<span data-ttu-id="ef676-149">既存のコンテキストの名前を変更するには、`Rename-AzContext` コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-149">To rename an existing context, use the `Rename-AzContext` cmdlet.</span></span> <span data-ttu-id="ef676-150">例:</span><span class="sxs-lookup"><span data-stu-id="ef676-150">For example:</span></span>
+## <a name="remove-azure-contexts-and-stored-credentials"></a><span data-ttu-id="0b27d-166">Azure コンテキストと保存されている資格情報の削除</span><span class="sxs-lookup"><span data-stu-id="0b27d-166">Remove Azure contexts and stored credentials</span></span>
 
-```azurepowershell-interactive
-PS C:\> Rename-AzContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso2'
-```
+<span data-ttu-id="0b27d-167">Azure コンテキストと資格情報をクリアするには、次のようにします。</span><span class="sxs-lookup"><span data-stu-id="0b27d-167">To clear Azure contexts and credentials:</span></span>
 
-<span data-ttu-id="ef676-151">この例では、自動的に `[user1@contoso.org; 123456-7890-1234-564321]` という名前の付いたコンテキストの名前を簡単な名前 "Contoso2" に変更します。</span><span class="sxs-lookup"><span data-stu-id="ef676-151">This example renames the context with automatic name `[user1@contoso.org; 123456-7890-1234-564321]` to the simple name 'Contoso2'.</span></span> <span data-ttu-id="ef676-152">コンテキストを管理するコマンドレットではタブ補完も使用されているため、コンテキストをすばやく選択できます。</span><span class="sxs-lookup"><span data-stu-id="ef676-152">Cmdlets that manage contexts also use tab completion, allowing you to quickly select the context.</span></span>
+* <span data-ttu-id="0b27d-168">[Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount) を使用してアカウントからサインアウトします。</span><span class="sxs-lookup"><span data-stu-id="0b27d-168">Sign out of an account with [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount).</span></span>
+  <span data-ttu-id="0b27d-169">アカウントまたはコンテキストにより、任意のアカウントからサインアウトできます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-169">You can sign out of any account either by account or context:</span></span>
 
-<span data-ttu-id="ef676-153">最後に、コンテキストを削除するには、`Remove-AzContext` コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-153">Finally, to remove a context, use the `Remove-AzContext` cmdlet.</span></span>  <span data-ttu-id="ef676-154">例:</span><span class="sxs-lookup"><span data-stu-id="ef676-154">For example:</span></span>
+  ```azurepowershell-interactive
+  Disconnect-AzAccount # Disconnect active account 
+  Disconnect-AzAccount -Username "user@contoso.com" # Disconnect by account name
 
-```azurepowershell-interactive
-PS C:\> Remove-AzContext Contoso2
-```
+  Disconnect-AzAccount -ContextName "subscription2" # Disconnect by context name
+  Disconnect-AzAccount -AzureContext $contextObject # Disconnect using context object information
+  ```
 
-<span data-ttu-id="ef676-155">"Contoso2" という名前のコンテキストは記憶されません。</span><span class="sxs-lookup"><span data-stu-id="ef676-155">Forgets the context that was named 'Contoso2'.</span></span> <span data-ttu-id="ef676-156">`Set-AzContext` を使用して、このコンテキストを再作成できます</span><span class="sxs-lookup"><span data-stu-id="ef676-156">You can recreate this context using `Set-AzContext`</span></span>
+  <span data-ttu-id="0b27d-170">切断すると、保存されている認証トークンが必ず削除され、切断されたユーザーまたはコンテキストに関連付けられている保存済みのコンテキストがクリアされます。</span><span class="sxs-lookup"><span data-stu-id="0b27d-170">Disconnecting always removes stored authentication tokens and clears saved contexts associated with the disconnected user or context.</span></span>
+* <span data-ttu-id="0b27d-171">[Clear-AzContext](/powershell/module/az.accounts/Clear-AzContext) を使用します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-171">Use [Clear-AzContext](/powershell/module/az.accounts/Clear-AzContext).</span></span> <span data-ttu-id="0b27d-172">このコマンドレットは、保存されているコンテキストと認証トークンを常に削除することが保証されており、さらにユーザーをサインアウトします。</span><span class="sxs-lookup"><span data-stu-id="0b27d-172">This cmdlet is guaranteed to always remove stored contexts and authentication tokens, and will also sign you out.</span></span>
+* <span data-ttu-id="0b27d-173">[Remove-AzContext](/powershell/module/az.accounts/remove-azcontext) を使用してコンテキストを削除します。</span><span class="sxs-lookup"><span data-stu-id="0b27d-173">Remove a context with [Remove-AzContext](/powershell/module/az.accounts/remove-azcontext):</span></span>
+  
+  ```azurepowershell-interactive
+  Remove-AzContext -Name "mycontext" # Remove by name
+  Get-AzContext -Name "mycontext" | Remove-AzContext # Remove by piping Azure context object
+  ```
 
-## <a name="removing-credentials"></a><span data-ttu-id="ef676-157">資格情報の削除</span><span class="sxs-lookup"><span data-stu-id="ef676-157">Removing credentials</span></span>
+  <span data-ttu-id="0b27d-174">アクティブなコンテキストを削除すると、Azure から切断され、`Connect-AzAccount` で再認証する必要があります。</span><span class="sxs-lookup"><span data-stu-id="0b27d-174">If you remove the active context, you will be disconnected from Azure and need to reauthenticate with `Connect-AzAccount`.</span></span>
 
-<span data-ttu-id="ef676-158">`Disconnect-AzAccount` (別名 `Logout-AzAccount`) を使用して、ユーザーまたはサービス プリンシパルの資格情報と関連付けられたコンテキストをすべて削除できます。</span><span class="sxs-lookup"><span data-stu-id="ef676-158">You can remove all credentials and associated contexts for a user or service principal using `Disconnect-AzAccount` (also known as `Logout-AzAccount`).</span></span> <span data-ttu-id="ef676-159">`Disconnect-AzAccount` コマンドレットをパラメーターを指定せずに実行すると、現在のコンテキストのユーザーまたはサービス プリンシパルに関連付けられた資格情報とコンテキストがすべて削除されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-159">When executed without parameters, the `Disconnect-AzAccount` cmdlet removes all credentials and contexts associated with the User or Service Principal in the current context.</span></span> <span data-ttu-id="ef676-160">特定のプリンシパルを対象とするために、ユーザー名、サービス プリンシパル名、またはコンテキストを渡すこともできます。</span><span class="sxs-lookup"><span data-stu-id="ef676-160">You may pass in a Username, Service Principal Name, or context to target a particular principal.</span></span>
+## <a name="see-also"></a><span data-ttu-id="0b27d-175">関連項目</span><span class="sxs-lookup"><span data-stu-id="0b27d-175">See also</span></span>
 
-```azurepowershell-interactive
-Disconnect-AzAccount user1@contoso.org
-```
-
-## <a name="using-context-scopes"></a><span data-ttu-id="ef676-161">コンテキスト スコープの使用</span><span class="sxs-lookup"><span data-stu-id="ef676-161">Using context scopes</span></span>
-
-<span data-ttu-id="ef676-162">場合によっては、他のセッションに影響を与えることなく、PowerShell セッションでコンテキストを選択、変更、または削除することもできます。</span><span class="sxs-lookup"><span data-stu-id="ef676-162">Occasionally, you may want to select, change, or remove a context in a PowerShell session without impacting other sessions.</span></span> <span data-ttu-id="ef676-163">コンテキストのコマンドレットの既定の動作を変更するには、`Scope` パラメーターを使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-163">To change the default behavior of context cmdlets, use the `Scope` parameter.</span></span> <span data-ttu-id="ef676-164">`Process` スコープは、現在のセッションのみに適用されるようにすることで、既定の動作をオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="ef676-164">The `Process` scope overrides the default behavior by making it apply only for the current session.</span></span> <span data-ttu-id="ef676-165">逆に、`CurrentUser` スコープは、現在のセッションだけでなく、すべてのセッションのコンテキストを変更します。</span><span class="sxs-lookup"><span data-stu-id="ef676-165">Conversely `CurrentUser` scope changes the context in all sessions, instead of just the current session.</span></span>
-
-<span data-ttu-id="ef676-166">たとえば、他のウィンドウに影響を与えることなく現在の PowerShell セッションの既定のコンテキストを変更したり、次にセッションを開いたときに使用されるコンテキストを変更したりするには、次を使用します。</span><span class="sxs-lookup"><span data-stu-id="ef676-166">As an example, to change the default context in the current PowerShell session without impacting other windows, or the context used the next time a session is opened, use:</span></span>
-
-```azurepowershell-interactive
-PS C:\> Select-AzContext Contoso1 -Scope Process
-```
-
-## <a name="how-the-context-autosave-setting-is-remembered"></a><span data-ttu-id="ef676-167">コンテキストの自動保存設定を記憶する方法</span><span class="sxs-lookup"><span data-stu-id="ef676-167">How the context autosave setting is remembered</span></span>
-
-<span data-ttu-id="ef676-168">コンテキストの自動保存設定は、ユーザーの Azure PowerShell ディレクトリ (Windows では `$env:USERPROFILE\.Azure`、その他のプラットフォームでは `$HOME/.Azure`) に保存されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-168">The context AutoSave setting is saved to the user Azure PowerShell directory (`$env:USERPROFILE\.Azure` on Windows, and `$HOME/.Azure` on other platforms).</span></span> <span data-ttu-id="ef676-169">コンピューター アカウントの中には、このディレクトリにアクセスできないものがあります。</span><span class="sxs-lookup"><span data-stu-id="ef676-169">Some kinds of computer accounts may not have access to this directory.</span></span> <span data-ttu-id="ef676-170">このようなシナリオでは、環境変数を使用できます。</span><span class="sxs-lookup"><span data-stu-id="ef676-170">For such scenarios, you can use the environment variable</span></span>
-
-```azurepowershell-interactive
-$env:AzureRmContextAutoSave="true" | "false"
-```
-
-<span data-ttu-id="ef676-171">"true" に設定すると、コンテキストは自動的に保存されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-171">When set to 'true', the context is automatically saved.</span></span> <span data-ttu-id="ef676-172">"false" に設定した場合、コンテキストは保存されません。</span><span class="sxs-lookup"><span data-stu-id="ef676-172">If set to 'false', the context isn't saved.</span></span>
-
-## <a name="context-management-cmdlets"></a><span data-ttu-id="ef676-173">コンテキスト管理コマンドレット</span><span class="sxs-lookup"><span data-stu-id="ef676-173">Context management cmdlets</span></span>
-
-- <span data-ttu-id="ef676-174">[Enable-AzContextAutosave][enable] - PowerShell セッション間でのコンテキストの保存を許可します。</span><span class="sxs-lookup"><span data-stu-id="ef676-174">[Enable-AzContextAutosave][enable] - Allow saving the context between powershell sessions.</span></span>
-  <span data-ttu-id="ef676-175">変更するとグローバル コンテキストが変更されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-175">Any changes alter the global context.</span></span>
-- <span data-ttu-id="ef676-176">[Disable-AzContextAutosave][disable] - コンテキストの自動保存をオフにします。</span><span class="sxs-lookup"><span data-stu-id="ef676-176">[Disable-AzContextAutosave][disable] - Turn off autosaving the context.</span></span> <span data-ttu-id="ef676-177">新しい PowerShell セッションごとに再度サインインが必要になります。</span><span class="sxs-lookup"><span data-stu-id="ef676-177">Each new PowerShell session is required to sign in again.</span></span>
-- <span data-ttu-id="ef676-178">[Select-AzContext][select] - コンテキストを既定値として選択します。</span><span class="sxs-lookup"><span data-stu-id="ef676-178">[Select-AzContext][select] - Select a context as the default.</span></span> <span data-ttu-id="ef676-179">すべてのコマンドレットで、認証にこのコンテキストの資格情報が使用されます。</span><span class="sxs-lookup"><span data-stu-id="ef676-179">All cmdlets use the credentials in this context for authentication.</span></span>
-- <span data-ttu-id="ef676-180">[Disconnect-AzAccount][remove-cred] - アカウントに関連付けられた資格情報とコンテキストをすべて削除します。</span><span class="sxs-lookup"><span data-stu-id="ef676-180">[Disconnect-AzAccount][remove-cred] - Remove all credentials and contexts associated with an account.</span></span>
-- <span data-ttu-id="ef676-181">[Remove-AzContext][remove-context] - 名前付きコンテキストを削除します。</span><span class="sxs-lookup"><span data-stu-id="ef676-181">[Remove-AzContext][remove-context] - Remove a named context.</span></span>
-- <span data-ttu-id="ef676-182">[Rename-AzContext][rename] - 既存のコンテキストの名前を変更します。</span><span class="sxs-lookup"><span data-stu-id="ef676-182">[Rename-AzContext][rename] - Rename an existing context.</span></span>
-- <span data-ttu-id="ef676-183">[Add-AzAccount][login] - サインインのスコープをプロセスまたは現在のユーザーにすることを許可します。</span><span class="sxs-lookup"><span data-stu-id="ef676-183">[Add-AzAccount][login] - Allow scoping of the sign-in to the process or the current user.</span></span>
-  <span data-ttu-id="ef676-184">認証後に既定のコンテキストに名前を付けることができます。</span><span class="sxs-lookup"><span data-stu-id="ef676-184">Allow naming the default context after authentication.</span></span>
-- <span data-ttu-id="ef676-185">[Import-AzContext][import] - サインインのスコープをプロセスまたは現在のユーザーにすることを許可します。</span><span class="sxs-lookup"><span data-stu-id="ef676-185">[Import-AzContext][import] - Allow scoping of the sign-in to the process or the current user.</span></span>
-- <span data-ttu-id="ef676-186">[Set-AzContext][set-context] - 既存の名前付きコンテキストの選択と、プロセスまたは現在のユーザーへのスコープの変更を許可します。</span><span class="sxs-lookup"><span data-stu-id="ef676-186">[Set-AzContext][set-context] - Allow selection of existing named contexts, and scope changes to the process or current user.</span></span>
-
-<!-- Hyperlinks -->
-[enable]: /powershell/module/az.accounts/Enable-AzureRmContextAutosave
-[disable]: /powershell/module/az.accounts/Disable-AzContextAutosave
-[select]: /powershell/module/az.accounts/Select-AzContext
-[remove-cred]: /powershell/module/az.accounts/Disconnect-AzAccount
-[remove-context]: /powershell/module/az.accounts/Remove-AzContext
-[rename]: /powershell/module/az.accounts/Rename-AzContext
-
-<!-- Updated cmdlets -->
-[login]: /powershell/module/az.accounts/Connect-AzAccount
-[import]:  /powershell/module/az.accounts/Import-AzContext
-[set-context]: /powershell/module/az.accounts/Set-AzContext
+* [<span data-ttu-id="0b27d-176">PowerShell ジョブで Azure PowerShell コマンドレットを実行する</span><span class="sxs-lookup"><span data-stu-id="0b27d-176">Run Azure PowerShell cmdlets in PowerShell Jobs</span></span>](using-psjobs.md)
+* [<span data-ttu-id="0b27d-177">Azure Active Directory 用語集</span><span class="sxs-lookup"><span data-stu-id="0b27d-177">Azure Active Directory Terminology</span></span>](/azure/active-directory/fundamentals/active-directory-whatis#terminology)
+* [<span data-ttu-id="0b27d-178">Az.Accounts リファレンス</span><span class="sxs-lookup"><span data-stu-id="0b27d-178">Az.Accounts reference</span></span>](/powershell/module/az.accounts)
