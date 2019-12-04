@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 83e6039153bcc2b8ccb7ceddfa91609f0d6c7b3f
-ms.sourcegitcommit: b4ee3fbaaa2a329ea28308bd1902ae83a34db698
+ms.openlocfilehash: 8c1369cdedf8848f3c62ca6b6bc4eb3d2d78be95
+ms.sourcegitcommit: f9445d1525eac8c165637e1a80fbc92b1ab005c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380196"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74656821"
 ---
 ## <a name="280---october-2019"></a>2.8.0 - 2019 年 10 月
 ### <a name="general"></a>全般
@@ -56,7 +56,7 @@ ms.locfileid: "72380196"
 * 軽微なバグの修正:Get-AzIothub が subscriptionId を返さない 
 
 #### <a name="azmonitor"></a>Az.Monitor
-* アクション グループに追加された新しいアクション グループ受信者: -ItsmReceiver、-VoiceReceiver、-ArmRoleReceiver、-AzureFunctionReceiver、-LogicAppReceiver、-AutomationRunbookReceiver、-AzureAppPushReceiver
+* New-AzActionGroupReceiver に新しいアクション グループ受信者が追加されました: -ItsmReceiver、-VoiceReceiver、-ArmRoleReceiver、-AzureFunctionReceiver、-LogicAppReceiver、-AutomationRunbookReceiver、-AzureAppPushReceiver
 * 受信側で有効になっている共通のアラート スキーマを使用します。 これは、SMS、Azure アプリのプッシュ、ITSM、および音声の受信側には適用されません
 * Webhook で Azure Active Directory 認証をサポートするようになりました。
 
@@ -64,8 +64,8 @@ ms.locfileid: "72380196"
 * サービス エンドポイント ポリシーに使用できる別名を取得するために呼び出すことができる新しいコマンドレット Get-AzAvailableServiceAlias を追加します。
 * Virtual Network ゲートウェイ接続にトラフィック セレクターを追加するためのサポートを追加しました
     - 追加された新しいコマンドレットは次のとおりです
-        - New-AzureRmTrafficSelectorPolicy
-    - 省略可能なパラメーターでコマンドレットが更新されました: -TrafficSelectorPolicies、-New-AzureRmVirtualNetworkGatewayConnection、-Set-AzureRmVirtualNetworkGatewayConnection
+        - New-AzIpsecTrafficSelectorPolicy
+    - 省略可能なパラメーターでコマンドレットが更新されました: -TrafficSelectorPolicies、-New-AzVirtualNetworkGatewayConnection、-Set-AzVirtualNetworkGatewayConnection
 * ネットワーク セキュリティ規則の構成で ESP および AH プロトコルのサポートを追加します
     - 更新されたコマンドレット:
         - Add-AzNetworkSecurityRuleConfig
@@ -220,7 +220,7 @@ ms.locfileid: "72380196"
     -  Remove-AzRmStorageShare
 
 #### <a name="azwebsites"></a>Az.Websites
-* アプリを新しい ASP に移行するときに webapp タグが削除される問題を修正します
+* アプリを新しい ASP に移行するときに webapp タグが削除されるという問題を修正しています
 * Linux と Windows にまたがって動作するように Publish-AzureWebapp を修正します
 * 'Get-AzWebAppPublishingProfile' リファレンス ドキュメントの例を更新します
 
