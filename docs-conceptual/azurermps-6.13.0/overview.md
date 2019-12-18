@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 12/20/2018
-ms.openlocfilehash: bdb63ce4bb614920582460ae707d8594977e8f71
-ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
+ms.openlocfilehash: a5c5504aa4c2932582df9e4a40b4950d5f999cbd
+ms.sourcegitcommit: f9445d1525eac8c165637e1a80fbc92b1ab005c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863580"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75035848"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
 
@@ -34,7 +34,7 @@ Azure PowerShell の基本的な使い方については、次のサンプルが
 
 PowerShell について初めて学ぶ場合は、PowerShell の概要に関するページからご覧ください。
 
-* [PowerShell のインストール](/powershell/scripting/setup/installing-windows-powershell)
+* [PowerShell のインストール](/powershell/scripting/install/installing-windows-powershell)
 * [PowerShell を使用したスクリプト](/powershell/scripting/powershell-scripting)
 
 次のビデオをご覧いただくこともできます。[PowerShell の基礎: (パート 1) PowerShell の概要](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)。
