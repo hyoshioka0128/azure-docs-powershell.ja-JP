@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 04c520a3171d0b06ceaaa96f1c77bda6b03952ae
-ms.sourcegitcommit: 020c69430358b13cbd99fedd5d56607c9b10047b
+ms.openlocfilehash: ea7593cf2b753b210ff2955b7bd450030ad83596
+ms.sourcegitcommit: f9445d1525eac8c165637e1a80fbc92b1ab005c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365729"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75035831"
 ---
 # <a name="breaking-changes-for-az-100"></a>Az 1.0.0 の破壊的変更
 
@@ -272,7 +272,7 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 
   次のように変更する必要があります。
   ```azurepowershell-interactive
-  New-AzMMediaService -Tag @{TagName="TagValue"}
+  New-AzMediaService -Tag @{TagName="TagValue"}
   ```
 
 ### <a name="azmonitor-previously-azurerminsights"></a>Az.Monitor (以前の AzureRM.Insights)
@@ -292,7 +292,7 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 - `Get-AzServiceEndpointPolicyDefinition` コマンドレットから、非推奨の `ResourceId` パラメーターが削除されました。
 - `PSVirtualNetwork` オブジェクトから、非推奨の `EnableVmProtection` プロパティが削除されました。
 - 非推奨の `Set-AzVirtualNetworkGatewayVpnClientConfig` コマンドレットが削除されました。
-  
+
 スクリプトでは、これらのフィールドの値に基づいて処理を決定することはできなくなりました。
 
 ### <a name="azoperationalinsights-previously-azurermoperationalinsights"></a>Az.OperationalInsights (以前の AzureRM.OperationalInsights)

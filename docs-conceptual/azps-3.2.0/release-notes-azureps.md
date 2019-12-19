@@ -7,13 +7,358 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 98a24c805fbf43dd899119d43301b4261c1f60dc
-ms.sourcegitcommit: f9445d1525eac8c165637e1a80fbc92b1ab005c2
+ms.openlocfilehash: f77d901169b0d98b2425a2e50d33a1789150b770
+ms.sourcegitcommit: e598dc45a26ff5a71112383252b350d750144a47
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75035763"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75182555"
 ---
+## <a name="320---december-2019"></a>3.2.0 - 2019 年 12 月
+
+### <a name="general"></a>全般
+* すべてのモジュールで相対パスを使用するように、.psd1 の参照を更新します
+
+#### <a name="azaccounts"></a>Az.Accounts
+* Az 4.0 プレビューのクライアント側テレメトリに適切な UserAgent を設定します
+* Az 4.0 プレビューでコンテキストが null の場合にユーザー フレンドリなエラー メッセージを表示します
+
+#### <a name="azbatch"></a>Az.Batch
+* 問題 [#10602](https://github.com/Azure/azure-powershell/issues/10602) を修正します。これは、**New-AzBatchPool** で 'VirtualMachineConfiguration.ContainerConfiguration' または 'VirtualMachineConfiguration.DataDisks' が適切にサーバーに送信されていなかったというものです。
+
+#### <a name="azdatafactory"></a>Az.DataFactory
+* ADF .Net SDK のバージョンを 4.5.0 に更新します
+
+#### <a name="azfrontdoor"></a>Az.FrontDoor
+* WAF マネージド規則の除外サポートを追加しました
+* SocketAddr をオートコンプリートに追加します
+
+#### <a name="azhealthcareapis"></a>Az.HealthcareApis
+* 例外処理
+
+#### <a name="azkeyvault"></a>Az.KeyVault
+* 設定されていない可能性のある値へのアクセス エラーを修正します
+* 楕円曲線暗号証明書の管理
+    - 証明書ポリシーの曲線を指定するためのサポートを追加しました
+
+#### <a name="azmonitor"></a>Az.Monitor
+* [診断設定を追加する] コマンドに省略可能な引数を追加しています。 存在する場合は Log Analytics へのエクスポートが固定スキーマ ( 専用、データ型) 宛でなければならないことを示す切り替え引数
+
+#### <a name="aznetwork"></a>Az.Network
+* AzureFirewall アプリケーション、NAT、およびネットワーク規則での IpGroups のサポート。
+
+#### <a name="azresources"></a>Az.Resources
+* テンプレートの名前が組み込みパラメーター名と競合している場合、テンプレートのデプロイでテンプレート パラメーターの読み取りに失敗する問題を修正しました。
+* ポリシー セット定義内でのグループ化サポートを導入する新しい API バージョン 2019-09-01 を使用するようにポリシーのコマンドレットを更新しました。
+
+#### <a name="azsql"></a>Az.Sql
+* 脆弱性評価の自動有効化でのストレージ作成を StorageV2 にアップグレードしました
+
+#### <a name="azstorage"></a>Az.Storage
+* OAuth 認証に基づくストレージ コンテキストでの BLOB/コンテナー ID ベースの SAS トークン生成をサポートします
+    - New-AzStorageContainerSASToken
+    - New-AzStorageBlobSASToken
+* ストレージ アカウントのユーザー委任キーの取り消しをサポートします。これにより、すべての ID SAS トークンが取り消されます
+    - Revoke-AzStorageAccountUserDelegationKeys
+* 新しい API バージョン 2019-06-01 をサポートするために、Microsoft.Azure.Management.Storage 14.2.0 にアップグレードしました。
+* 管理プレーンのファイル共有コマンドレットで 5120 を超える QuotaGiB の共有をサポートし、パラメーター別名 'Quota' をパラメーター 'QuotaGiB' に追加します 
+    - New-AzRmStorageShare
+    - Update-AzRmStorageShare
+* パラメーター別名 'QuotaGiB' をパラメーター 'Quota' に追加します
+    - Set-AzStorageShareQuota
+* Set-AzStorageContainerAcl で保存されているアクセス ポリシーをクリーンアップできる問題を修正します
+    - Set-AzStorageContainerAcl
+
+## <a name="310---november-2019"></a>3.1.0 - 2019 年 11 月
+### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
+* Az.DataBoxEdge 1.0.0 がリリースされました
+* Az.SqlVirtualMachine 1.0.0 がリリースされました
+
+#### <a name="azcompute"></a>Az.Compute
+* VM の再適用機能
+    - Set-AzVM コマンドレットに Reapply パラメーターを追加します
+* VM スケール セットの AutomaticRepairs 機能:
+    - 次のコマンドレットに、EnableAutomaticRepair、AutomaticRepairGracePeriod、および AutomaticRepairMaxInstanceRepairsPercent パラメーターを追加します。 New-AzVmssConfig   Update-AzVmss
+* New-AzVM でのテナント間のギャラリー イメージ サポート
+* New-AzVM、New-AzVMConfig、および New-AzVmss コマンドレットの Priority パラメーターの引数の入力候補に "Spot" を追加します
+* Add-AzVmssDataDisk コマンドレットに DiskIOPSReadWrite および DiskMBpsReadWrite パラメーターを追加します
+* New-AzGalleryImageVersion コマンドレットの SourceImageId パラメーターを省略可能に変更します
+* New-AzGalleryImageVersion コマンドレットに OSDiskImage および DataDiskImage パラメーターを追加します
+* New-AzGalleryImageDefinition コマンドレットに HyperVGeneration パラメーターを追加します
+* New-AzVmss、New-AzVmssConfi および Update-AzVmss コマンドレットに SkipExtensionsOnOverprovisionedVMs パラメーターを追加します
+
+#### <a name="azdataboxedge"></a>Az.DataBoxEdge
+* コマンドレット `Get-AzDataBoxEdgeOrder` を追加しました
+    - 注文を取得します
+* コマンドレット `New-AzDataBoxEdgeOrder` を追加しました
+    - 新しい注文を作成します
+* コマンドレット `Remove-AzDataBoxEdgeOrder` を追加しました
+    - 注文を削除します
+* コマンドレット `New-AzDataBoxEdgeShare` の変更
+    - ローカル共有を作成するようになります
+* コマンドレット `Set-AzDataBoxEdgeRole` を追加しました
+    - IotRole を共有にマップできるようになりました
+* コマンドレット `Invoke-AzDataBoxEdgeDevice` を追加しました
+    - デバイスで更新プログラムのスキャン、更新プログラムのダウンロード、更新プログラムのインストールを呼び出します
+* コマンドレット `Get-AzDataBoxEdgeTrigger` を追加しました
+    - トリガーに関する情報を取得します
+* コマンドレット `New-AzDataBoxEdgeTrigger` を追加しました
+    - 新しいトリガーを作成します
+* コマンドレット `Remove-AzDataBoxEdgeTrigger` を追加しました
+    - トリガーを削除します
+
+#### <a name="azdatafactory"></a>Az.DataFactory
+* ADF .Net SDK のバージョンを 4.4.0 に更新します
+* カスタム セットアップ スクリプトなしでセットアップ構成およびサードパーティ コンポーネントを有効にするために、"Set-AzureRmDataFactoryV2IntegrationRuntime" コマンドにパラメーター "ExpressCustomSetup" を追加します。
+
+#### <a name="azdatalakestore"></a>Az.DataLakeStore
+* Get-AzDataLakeStoreDeletedItem および Restore-AzDataLakeStoreDeletedItem のドキュメントを更新します
+
+#### <a name="azeventhub"></a>Az.EventHub
+* 問題 10301 を修正:SAS トークンの日付形式を修正します
+
+#### <a name="azfrontdoor"></a>Az.FrontDoor
+* Enable-AzFrontDoorCustomDomainHttps および New-AzFrontDoorFrontendEndpointObject に MinimumTlsVersion パラメーターを追加します
+* New-AzFrontDoorHealthProbeSettingObject に HealthProbeMethod および EnabledState パラメーターを追加します
+* Front Door の作成/更新に渡される BackendPoolsSettings オブジェクトを作成するための新しいコマンドレットを追加します
+    - New-AzFrontDoorBackendPoolsSettingObject
+
+#### <a name="aznetwork"></a>Az.Network
+* "Start-AzVirtualNetworkGatewayConnectionPacketCapture.md" と "Start-AzVirtualnetworkGatewayPacketCapture.md" の FilterData オプションの例を変更します。
+
+#### <a name="azprivatedns"></a>Az.PrivateDns
+* PrivateDns .net sdk をバージョン 1.0.0 に更新しました
+
+#### <a name="azrecoveryservices"></a>Az.RecoveryServices
+* 保護の有効時にディスクの種類を選択するための Azure Site Recovery のサポート。
+* 復旧計画アクション編集のための Azure Site Recovery のバグ修正。
+* filestream DB を受け入れるための Azure Backup での SQL 復元のサポート。
+
+#### <a name="azrediscache"></a>Az.RedisCache
+* "New-AzRedisCache" および "Set-AzRedisCache" コマンドレットに "MinimumTlsVersion" パラメーターを追加しました。 また、"Get-AzRedisCache" コマンドレットの出力に "MinimumTlsVersion" を追加しました。
+* "Set-AzRedisCache" および "New-AzRedisCache" コマンドレットの "-Size" パラメーターに対する検証を追加しました
+
+#### <a name="azresources"></a>Az.Resources
+- ポリシー割り当てに新しい EnforcementMode プロパティを持つ新しい API バージョン 2019-06-01 を使用するように、ポリシー コマンドレットを更新しました。
+- ポリシー定義作成のヘルプの例を更新しました
+- サービス プリンシパル名が見つからない場合に Remove-AZADServicePrincipal -ServicePrincipalName が null 参照をスローするバグを修正します。
+- テナントにサブスクリプションがない場合に New-AZADServicePrincipal が null 参照をスローするバグを修正します。
+- 関連付けられたアプリケーションのみに資格情報を追加するように New-AzAdServicePrincipal を変更します。
+
+#### <a name="azsql"></a>Az.Sql
+* データベース ReadReplicaCount のサポートを追加しました。
+* ゾーン冗長性が設定されていない場合の Set-AzSqlDatabase を修正しました
+
+## <a name="300---november-2019"></a>3.0.0 - 2019 年 11 月
+### <a name="general"></a>全般
+* Az.PrivateDns 1.0.0 がリリースされました
+
+#### <a name="azaccounts"></a>Az.Accounts
+* 'Resolve-Error' エイリアスの非推奨メッセージを追加します。
+
+#### <a name="azadvisor"></a>Az.Advisor
+* Get-AzAdvisorRecommendation コマンドレットに新しいカテゴリ 'Operational Excellence' が追加されました。
+
+#### <a name="azbatch"></a>Az.Batch
+* `BatchAccountContext` の `CoreQuota` を `DedicatedCoreQuota` に変更しました。 新しい `LowPriorityCoreQuota` もあります。
+  - これにより、**Get-AzBatchAccount** が影響をうけます。
+* **New-AzBatchTask** の `-ResourceFile` パラメーターは `PSResourceFile` オブジェクトのコレクションを取るようになりました。これは新しい **New-AzBatchResourceFile** コマンドレットを使用して作成できます。
+* 新しい **New-AzBatchResourceFile** コマンドレットにより `PSResourceFile` オブジェクトの作成が簡単になります。 これらは、`-ResourceFile` パラメーターで **New-AzBatchTask** に指定できます。
+  - これにより、既存の `HttpUrl` の方法に加えて、2 つの新しい種類のリソース ファイルがサポートされます。
+    - `AutoStorageContainerName` ベースのリソース ファイルでは、自動ストレージ コンテナー全体が Batch ノードにダウンロードされます。
+    - `StorageContainerUrl` ベースのリソース ファイルでは、URL で指定されたコンテナーが Batch ノードにダウンロードされます。
+* **Get-AzBatchApplication** によって返される `PSApplication` の `ApplicationPackages` プロパティを削除しました。
+  - アプリケーション内の特定のパッケージは **Get-AzBatchApplicationPackage** を使用して取得できます。 (例: `Get-AzBatchApplication -AccountName myaccount -ResourceGroupName myresourcegroup -ApplicationId myapplication`)。
+* **Get-AzBatchApplicationPackage**、**New-AzBatchApplicationPackage**、**Remove-AzBatchApplicationPackage**、**Get-AzBatchApplication**、**New-AzBatchApplication**、**Remove-AzBatchApplication**、および **Set-AzBatchApplication** の `ApplicationId` を `ApplicationName` に変更しました。
+  - `ApplicationId` は `ApplicationName` の別名になりました。
+* 新しい `PSWindowsUserConfiguration` プロパティが `PSUserAccount` に追加されました。
+* `PSApplicationPackage` の `Version` が `Name` に変更されました。
+* `PSResourceFile` の `BlobSource` が `HttpUrl` に変更されました。
+* `PSVirtualMachineConfiguration` から `OSDisk` プロパティを削除しました。
+* **Set-AzBatchPoolOSVersion** を削除しました。 この操作は現在サポートされていません。
+* `PSCloudServiceConfiguration` から `TargetOSVersion` を削除しました。
+* `PSCloudServiceConfiguration` の `CurrentOSVersion` が `OSVersion` に変更されました。
+* `PSPoolUsageMetrics` から `DataEgressGiB` および `DataIngressGiB` を削除しました。
+* **Get-AzBatchNodeAgentSku** を削除し、**Get-AzBatchSupportedImage** に置き換えました。 
+  - **Get-AzBatchSupportedImage** は、**Get-AzBatchNodeAgentSku** と同じデータを返しますが、よりわかりやすい形式で返します。
+  - 新しく検証されていないイメージも返されるようになりました。 各イメージの `Capabilities` と `BatchSupportEndOfLife` に関する追加情報も含まれています。
+* **New-AzBatchPool** の新しい `MountConfiguration` パラメーターを使用して、プールの各ノードにリモート ファイル システムをマウントする機能を追加しました。
+* トラフィックのソース ポートに基づいてプールへのネットワーク アクセスをブロックするネットワーク セキュリティ規則がサポートされるようになりました。 これを行うには、`PSNetworkSecurityGroupRule` の `SourcePortRanges` プロパティを使用します。
+* コンテナーを実行するときに、Batch でコンテナーの作業ディレクトリまたは Batch タスクの作業ディレクトリでのタスクの実行がサポートされるようになりました。 これは `PSTaskContainerSettings` の `WorkingDirectory` プロパティで制御されます。
+* 新しい `PublicIPs` プロパティを使用して `PSNetworkConfiguration` でパブリック IP のコレクションを指定する機能が追加されました。 これにより、プール内のノードは、ユーザーが指定した IP アドレスの一覧から IP を持つことが保証されます。
+* 指定しない場合、`PSSTartTask` の `WaitForSuccess` の既定値は `$True` になります (以前は `$False` でした)。
+* 指定しない場合、`PSAutoUserSpecification` の `Scope` の既定値は `Pool` になります (以前は Windows では `Task`、Linux では `Pool` でした)。
+
+#### <a name="azcdn"></a>Az.Cdn
+* UrlRewriteAction と CacheKeyQueryStringAction を RulesEngine に導入しました。
+* New-AzDeliveryRuleCondition コマンドレットで 'Selector' 入力が見つからないなどのいくつかのバグを修正しました。
+
+#### <a name="azcompute"></a>Az.Compute
+* ディスク暗号化の設定機能
+    - 新しいコマンドレット: New-AzDiskEncryptionSetConfig、New-AzDiskEncryptionSet、Get-AzDiskEncryptionSet、Remove-AzDiskEncryptionSet
+    - DiskEncryptionSetId パラメーターが、次のコマンドレットに追加されます。Set-AzImageOSDisk、Set-AzVMOSDisk、Set-AzVmssStorageProfile        
+        Add-AzImageDataDisk、New-AzVMDataDisk、Set-AzVMDataDisk、Add-AzVMDataDisk、Add-AzVmssDataDisk、Add-AzVmssVMDataDisk
+    - DiskEncryptionSetId と EncryptionType パラメーターが、次のコマンドレットに追加されます。 New-AzDiskConfig、New-AzSnapshotConfig
+* PublicIPAddressVersion パラメーターを New-AzVmssIPConfig に追加します
+* カスタム スクリプト拡張機能の FileUris をパブリック設定から保護された設定に移動します
+* ScaleInPolicy を New-AzVmss、New-AzVmssConfig、および Update-AzVmss コマンドレットに追加します
+* 重大な変更
+    - CreateOption が Upload のときに、New-AzDiskConfig に対して DiskSizeGB ではなく UploadSizeInBytes パラメーターが使用されます
+    - PublishingProfile.Source.ManagedImage.Id は、GalleryImageVersion オブジェクトの StorageProfile.Source.Id に置き換えられます
+
+#### <a name="azdatafactory"></a>Az.DataFactory
+* ADF .Net SDK のバージョンを 4.3.0 に更新します
+
+#### <a name="azdatalakestore"></a>Az.DataLakeStore
+* ADLS SDK バージョン (https://github.com/Azure/azure-data-lake-store-net/blob/preview-alpha/CHANGELOG.md#version-123-alpha) を更新し、次の修正を行います。
+* ごみ箱またはディレクトリ エントリの creationtime を逆シリアル化できない場合に例外をスローしないようにします。
+* adlsclient で要求タイムアウトごとに設定を公開します
+* badoffset 復旧のための元の syncflag の受け渡しを修正します
+* 応答が確認された後に継続トークンを取得するように EnumerateDirectory を修正します
+* Concat のバグを修正します
+
+#### <a name="azfrontdoor"></a>Az.FrontDoor
+* モジュール全体でさまざまな入力ミスを修正しました
+
+#### <a name="azhdinsight"></a>Az.HDInsight
+* Get-AzHDInsightCluster を使用して ADLSGen1 ストレージのクラスターを取得するときに、ユーザーが「有効な Base-64 文字列ではありません」というエラーを受け取るバグを修正しました。
+* AzHDInsightClusterIdentity、AzHDInsightClusterConfig、AzHDInsightCluster の 3 つのコマンドレットに 'ApplicationId' という名前のパラメーターを追加して、顧客が Azure Data Lake にアクセスするためのサービス プリンシパル アプリケーション ID を指定できるようにします。
+* Microsoft.Azure.Management.HDInsight を 2.1.0 から 5.1.0 に変更しました
+* 5 つのコマンドレットを削除しました。
+    - Get-AzHDInsightOMS
+    - Enable-AzHDInsightOMS
+    - Disable-AzHDInsightOMS
+    - Grant-AzHDInsightRdpServicesAccess
+    - Revoke-AzHDInsightRdpServicesAccess
+* 3 つのコマンドレットを追加しました。
+    - Get-AzHDInsightOMS を Get-AzHDInsightMonitoring に置き換えます。
+    - Enable-AzHDInsightOMS を Enable-AzHDInsightMonitoring に置き換えます。
+    - Disable-AzHDInsightOMS を Disable-AzHDInsightMonitoring に置き換えます。
+* 特定の場所からの機能情報の取得をサポートするために、コマンドレット Get-AzHDInsightProperties を修正しました。
+* Add-AzHDInsightConfigValue からパラメーターセット ('Spark1'、'Spark2') を削除しました。
+* コマンドレット Add-AzHDInsightSecurityProfile のヘルプ ドキュメントに例を追加します。
+* 次のコマンドレットの出力の型を変更しました:
+*  - Get-AzHDInsightProperties の出力の型を CapabilitiesResponse から AzureHDInsightCapabilities に変更しました。
+*  - Remove-AzHDInsightCluster の出力の型を ClusterGetResponse からブール値に変更しました。
+*  - Set-AzHDInsightGatewaySettings HttpConnectivitySettings の出力の型を GatewaySettings に変更しました。
+* いくつかのシナリオ テスト ケースを追加しました。
+* 次の別名を削除します。'Add-AzHDInsightConfigValues'、'Get-AzHDInsightProperties'。
+
+#### <a name="aziothub"></a>Az.IotHub
+* 破壊的変更:
+    - コマンドレット 'Add-AzIotHubEventHubConsumerGroup' でパラメーター 'EventHubEndpointName' がサポートされなくなり、元のパラメーター名の別名は見つかりませんでした。
+    - コマンドレット 'Add-AzIotHubEventHubConsumerGroup' のパラメーター セット '__AllParameterSets' が削除されました。
+    - コマンドレット 'Get-AzIotHubEventHubConsumerGroup' でパラメーター 'EventHubEndpointName' がサポートされなくなり、元のパラメーター名の別名は見つかりませんでした。
+    - コマンドレット 'Get-AzIotHubEventHubConsumerGroup' のパラメーター セット '__AllParameterSets' が削除されました。
+    - 'Microsoft.Azure.Commands.Management.IotHub.Models.PSIotHubProperties' 型のプロパティ 'OperationsMonitoringProperties' が削除されました。
+    - 'Microsoft.Azure.Commands.Management.IotHub.Models.PSIotHubInputProperties' 型のプロパティ 'OperationsMonitoringProperties' が削除されました。
+    - コマンドレット 'New-AzIotHubExportDevice' では、別名 'New-AzIotHubExportDevices' がサポートされなくなりました。
+    - コマンドレット 'New-AzIotHubImportDevice' では、別名 'New-AzIotHubImportDevices' がサポートされなくなりました。
+    - コマンドレット 'Removet-AzIotHubEventHubConsumerGroup' でパラメーター 'EventHubEndpointName' がサポートされなくなり、元のパラメーター名の別名は見つかりませんでした。
+    - コマンドレット 'Remove-AzIotHubEventHubConsumerGroup' のパラメーター セット '__AllParameterSets' が削除されました。
+    - コマンドレット 'Set-AzIotHub' でパラメーター 'OperationsMonitoringProperties' がサポートされなくなり、元のパラメーター名の別名は見つかりませんでした。
+    - コマンドレット 'Set-AzIotHub' のパラメーター セット 'UpdateOperationsMonitoringProperties' が削除されました。
+
+#### <a name="azrecoveryservices"></a>Az.RecoveryServices
+* Azure Site Recovery は、Azure から Azure での NSG、パブリック IP、内部ロード バランサーなどのネットワーク リソースの構成をサポートします。
+* Azure Site Recovery は VMWare から Azure でのマネージド ディスクへの書き込みをサポートします。
+* Azure Site Recovery は VMWare から Azure での NIC 削減をサポートします。
+* Azure Site Recovery は Azure から Azure での高速ネットワークをサポートします。
+* Azure Site Recovery は Azure から Azure でのエージェント自動更新をサポートします。
+* Azure Site Recovery は Azure から Azure での Standard SSD をサポートします。
+* Azure Site Recovery は Azure から Azure での Azure Disk Encryption の 2 パスをサポートします。
+* Azure Site Recovery は Azure から Azure で新しく追加されたディスクの保護をサポートします。
+* VM の SoftDelete 機能を追加し、softdelete のテストを追加しました
+
+#### <a name="azresources"></a>Az.Resources
+* 依存関係アセンブリ Microsoft.Extensions.Caching.Memory を 1.1.1 から 2.2 に更新します
+
+#### <a name="aznetwork"></a>Az.Network
+* 汎用サービス プロバイダーをサポートするために、PrivateEndpointConnection のすべてのコマンドレットを変更します。
+    - 更新されたコマンドレット:
+        - Approve-AzPrivateEndpointConnection
+        - Deny-AzPrivateEndpointConnection
+        - Get-AzPrivateEndpointConnection
+        - Remove-AzPrivateEndpointConnection
+        - Set-AzPrivateEndpointConnection
+* PrivateLinkResource の新しいコマンドレットを追加し、これも汎用サービス プロバイダーをサポートします。
+    - 新しいコマンドレット:
+        - Get-AzPrivateLinkResource
+* 機能 Proxy Protocol V2 の新しいフィールドとパラメーターを追加します。
+    - PrivateLinkService にプロパティ EnableProxyProtocol を追加します
+    - PrivateEndpointConnection にプロパティ LinkIdentifier を追加します
+    - 新しい省略可能なパラメーター EnableProxyProtocol を追加するように New-AzPrivateLinkService を更新しました。
+* 'New-AzApplicationGatewaySku' のリファレンス ドキュメントで間違ったパラメーターの説明を修正します
+* Azure ファイアウォール ポリシーをサポートするための新しいコマンドレット
+* VirtualHub の子リソース RouteTables のサポートを追加します
+    - 追加された新しいコマンドレットは次のとおりです
+        - Add-AzVirtualHubRoute
+        - Add-AzVirtualHubRouteTable
+        - Get-AzVirtualHubRouteTable
+        - Remove-AzVirtualHubRouteTable
+        - Set-AzVirtualHub
+* VirtualHub の Sku と VirtualWANType の VirtualHub という新しいプロパティのサポートを追加します
+    - 省略可能なパラメーターを持つように更新されたコマンドレットは次のとおりです。
+        - New-AzVirtualHub: パラメーター Sku を追加しました
+        - Update-AzVirtualHub: パラメーター Sku を追加しました
+        - New-AzVirtualWan: パラメーター VirtualWANType を追加しました
+        - Update-AzVirtualWan: パラメーター VirtualWANType を追加しました
+* HubVnetConnection、VpnConnection、および ExpressRouteConnection の EnableInternetSecurity プロパティのサポートを追加します
+    - 追加された新しいコマンドレットは次のとおりです
+        - Update-AzureRmVirtualHubVnetConnection
+    - 省略可能なパラメーターを持つように更新されたコマンドレットは次のとおりです。
+        - New-AzureRmVirtualHubVnetConnection: パラメーター EnableInternetSecurity を追加しました
+        - New-AzureRmVpnConnection: パラメーター EnableInternetSecurity を追加しました
+        - Update-AzureRmVpnConnection: パラメーター EnableInternetSecurity を追加しました
+        - New-AzureRmExpressRouteConnection: パラメーター EnableInternetSecurity を追加しました
+        - Set-AzureRmExpressRouteConnection: パラメーター EnableInternetSecurity を追加しました
+* TopLevel WebApplicationFirewall ポリシーを構成するためのサポートを追加します
+    - 追加された新しいコマンドレットは次のとおりです
+        - New-AzApplicationGatewayFirewallPolicySetting
+        - New-AzApplicationGatewayFirewallPolicyExclusion
+        - New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride
+        - New-AzApplicationGatewayFirewallPolicyManagedRuleOverride
+        - New-AzApplicationGatewayFirewallPolicyManagedRule
+        - New-AzApplicationGatewayFirewallPolicyManagedRuleSet
+    - 省略可能なパラメーターを持つように更新されたコマンドレットは次のとおりです。
+        - New-AzApplicationGatewayFirewallPolicy: パラメーター PolicySetting、ManagedRule を追加しました
+* CustomRule での Geo-Match 演算子のサポートを追加しました
+    - FirewallCondition の演算子に GeoMatch を追加しました
+* perListener および perSite ファイアウォール ポリシーのサポートを追加しました
+    - 省略可能なパラメーターを持つように更新されたコマンドレットは次のとおりです。
+        - New-AzApplicationGatewayHttpListener: パラメーター FirewallPolicy、FirewallPolicyId を追加しました
+        - New-AzApplicationGatewayPathRuleConfig: パラメーター FirewallPolicy、FirewallPolicyId を追加しました
+* 'PSBastion' で AzureBastionSubnet という名前の必須サブネットの大文字と小文字が区別されないように修正します
+* Azure Firewall のネットワーク規則における宛先 FQDN と NAT 規則における変換された FQDN のサポート
+* IpGroup の最上位リソース RouteTables のサポートを追加します
+    - 追加された新しいコマンドレットは次のとおりです
+        - New-AzIpGroup
+        - Remove-AzIpGroup
+        - Get-AzIpGroup
+        - Set-AzIpGroup
+
+#### <a name="azservicefabric"></a>Az.ServiceFabric
+* Add-AzServiceFabricApplicationCertificate コマンドレットを削除します。このシナリオは、Add-AzVmssSecret のよってカバーされています。
+
+#### <a name="azsql"></a>Az.Sql
+* Managed Instance での削除されたデータベースの復元のサポートを追加しました。
+* 古い監査コマンドレットをコードから非推奨にしました。
+* 非推奨の別名を削除しました。
+* Get-AzSqlDatabaseIndexRecommendations (代わりに Get-AzSqlDatabaseIndexRecommendation を使用します)
+* Get-AzSqlDatabaseRestorePoints (代わりに Get-AzSqlDatabaseRestorePoint を使用します)
+* Get-AzSqlDatabaseSecureConnectionPolicy コマンドレットを削除します
+* 非推奨の脆弱性評価の設定コマンドレットの別名を削除します
+* 高度な脅威検出の設定コマンドレットを非推奨にします 
+* データベースの列に対する機密性の推奨を無効および有効にするコマンドレットを追加します。
+
+#### <a name="azstorage"></a>Az.Storage
+* Storage アカウントの作成または更新時に大容量ファイル共有の有効化をサポートします
+    -  New-AzStorageAccount
+    -  Set-AzStorageAccount
+* ファイル ハンドルを閉じる/取得するときに、入力パスがファイル ディレクトリまたはファイルであることの確認をスキップして、DeletePending ステータスのオブジェクトでのエラーを回避します
+    -  Get-AzStorageFileHandle
+    -  Close-AzStorageFileHandle
+    
 ## <a name="280---october-2019"></a>2.8.0 - 2019 年 10 月
 ### <a name="general"></a>全般
 * Az. HealthcareApis 1.0.0 リリース
@@ -56,7 +401,7 @@ ms.locfileid: "75035763"
 * 軽微なバグの修正:Get-AzIothub が subscriptionId を返さない 
 
 #### <a name="azmonitor"></a>Az.Monitor
-* New-AzActionGroupReceiver に新しいアクション グループ受信者が追加されました: -ItsmReceiver、-VoiceReceiver、-ArmRoleReceiver、-AzureFunctionReceiver、-LogicAppReceiver、-AutomationRunbookReceiver、-AzureAppPushReceiver
+* アクション グループに追加された新しいアクション グループ受信者: -ItsmReceiver、-VoiceReceiver、-ArmRoleReceiver、-AzureFunctionReceiver、-LogicAppReceiver、-AutomationRunbookReceiver、-AzureAppPushReceiver
 * 受信側で有効になっている共通のアラート スキーマを使用します。 これは、SMS、Azure アプリのプッシュ、ITSM、および音声の受信側には適用されません
 * Webhook で Azure Active Directory 認証をサポートするようになりました。
 
@@ -64,10 +409,8 @@ ms.locfileid: "75035763"
 * サービス エンドポイント ポリシーに使用できる別名を取得するために呼び出すことができる新しいコマンドレット Get-AzAvailableServiceAlias を追加します。
 * Virtual Network ゲートウェイ接続にトラフィック セレクターを追加するためのサポートを追加しました
     - 追加された新しいコマンドレットは次のとおりです
-        - New-AzIpsecTrafficSelectorPolicy
-    - 省略可能なパラメーター -TrafficSelectorPolicies を持つように更新されたコマンドレット
-        - New-AzVirtualNetworkGatewayConnection
-        - Set-AzVirtualNetworkGatewayConnection
+        - New-AzureRmTrafficSelectorPolicy
+    - 省略可能なパラメーターでコマンドレットが更新されました: -TrafficSelectorPolicies、-New-AzureRmVirtualNetworkGatewayConnection、-Set-AzureRmVirtualNetworkGatewayConnection
 * ネットワーク セキュリティ規則の構成で ESP および AH プロトコルのサポートを追加します
     - 更新されたコマンドレット:
         - Add-AzNetworkSecurityRuleConfig
@@ -222,7 +565,7 @@ ms.locfileid: "75035763"
     -  Remove-AzRmStorageShare
 
 #### <a name="azwebsites"></a>Az.Websites
-* アプリを新しい ASP に移行するときに webapp タグが削除されるという問題を修正しています
+* アプリを新しい ASP に移行するときに webapp タグが削除される問題を修正します
 * Linux と Windows にまたがって動作するように Publish-AzureWebapp を修正します
 * 'Get-AzWebAppPublishingProfile' リファレンス ドキュメントの例を更新します
 
