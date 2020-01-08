@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: ff50c676d42cad515aea74ea960105ed76f418a6
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.openlocfilehash: 5a4ccd67433fe3716df42075a4e2fd035a12af2b
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863302"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722443"
 ---
 # <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet を使用した Windows への Azure PowerShell のインストール
 
@@ -56,7 +56,7 @@ PowerShellGet がインストールされていない場合は、お使いのシ
 |---|---|
 |Windows 10<br/>Windows Server 2016|OS 標準の Windows Management Framework (WMF) 5.0 に組み込まれています。|
 |PowerShell 5 にアップグレードする| <ol><li>[最新バージョンの WMF をインストール](https://www.microsoft.com/download/details.aspx?id=54616)します。</li><li>次のコマンドを実行します。<br/>```Install-Module PowerShellGet -Force```</li></ol>|
-|PowerShell 3 または PowerShell 4 がインストールされている Windows|<ol><il>[PackageManagement モジュールを入手します。](http://go.microsoft.com/fwlink/?LinkID=746217)</il><li>次のコマンドを実行します。<br/>```Install-Module PowerShellGet -Force```</li></ol>|
+|PowerShell 3 または PowerShell 4 がインストールされている Windows|<ol><il>[PackageManagement モジュールを入手します。](https://go.microsoft.com/fwlink/?LinkID=746217)</il><li>次のコマンドを実行します。<br/>```Install-Module PowerShellGet -Force```</li></ol>|
 
 > [!NOTE]
 > PowerShellGet を使用するには、実行ポリシーでスクリプトの実行が許可されている必要があります。 PowerShell の実行ポリシーについて詳しくは、「[About Execution Policies (実行ポリシーについて)](/powershell/module/microsoft.powershell.core/about/about_execution_policies)」をご覧ください。

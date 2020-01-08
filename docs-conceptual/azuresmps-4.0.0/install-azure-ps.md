@@ -7,18 +7,18 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: 1f859dcbaca88e28ebc0814513b7f4ee35610dc2
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.openlocfilehash: a4911e72f687c07b31805c07fd23263a6b7f33b4
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863215"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718799"
 ---
 # <a name="installing-the-azure-powershell-service-management-module"></a>Azure PowerShell Service Management モジュールのインストール
 
 Azure PowerShell は、[PowerShell ギャラリー](https://www.powershellgallery.com/)からインストールすることをお勧めします。
 
-## <a name="step-1-install-powershellget"></a>手順 1: PowerShellGet をインストールする
+## <a name="step-1-install-powershellget"></a>手順 1:PowerShellGet をインストールする
 
 PowerShell ギャラリーからソフトウェアをインストールするには、PowerShellGet モジュールが必要です。 PowerShellGet のバージョンが適切であるかなど、システム要件を満たしていることを確認してください。 ご使用のシステムに PowerShellGet がインストールされているかどうかを確認するには、次のコマンドを実行します。
 
@@ -36,7 +36,7 @@ PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1
 
 PowerShellGet がインストールされていない場合は、「[PowerShellGet の入手方法](#how-to-get-powershellget)」をご覧ください。
 
-## <a name="step-2-install-azure-powershell"></a>手順 2: Azure PowerShell をインストールする
+## <a name="step-2-install-azure-powershell"></a>手順 2:Azure PowerShell をインストールする
 
 Windows PowerShell コンソールから管理者として次のコマンドを実行します。
 
@@ -74,7 +74,7 @@ Azure PowerShell モジュールは頻繁に更新されます。 コマンド�
 
 Azure における定型的なタスクを自動化する際に利用できるサンプル スクリプトについては、[Microsoft Azure スクリプト センター](http://www.windowsazure.com/documentation/scripts/)をご覧ください。
 
-Windows PowerShell のインストール、学習、使用、カスタマイズ全般については、「[Windows PowerShell を使用したスクリプト](http://go.microsoft.com/fwlink/p/?linkid=320210)」を参照してください。
+Windows PowerShell のインストール、学習、使用、カスタマイズ全般については、「[Windows PowerShell を使用したスクリプト](https://go.microsoft.com/fwlink/p/?linkid=320210)」を参照してください。
 
 ### <a name="how-to-get-powershellget"></a>PowerShellGet の入手方法
 
@@ -82,7 +82,7 @@ Windows PowerShell のインストール、学習、使用、カスタマイズ�
 |---|---|
 |Windows 10 または Windows Server 2016 を所有している|OS 標準の Windows Management Framework (WMF) 5.0 に組み込まれています。|
 |PowerShell 5 にアップグレードしたい|[最新バージョンの WMF をインストール](https://www.microsoft.com/download/details.aspx?id=54616)します。|
-|PowerShell 3 または PowerShell 4 が付属するバージョンの Windows を使っている|[PackageManagement モジュールを入手](http://go.microsoft.com/fwlink/?LinkID=746217)します。|
+|PowerShell 3 または PowerShell 4 が付属するバージョンの Windows を使っている|[PackageManagement モジュールを入手](https://go.microsoft.com/fwlink/?LinkID=746217)します。|
 
 <div id="helpmechoose"/>
 

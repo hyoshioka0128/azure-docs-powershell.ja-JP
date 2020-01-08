@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: dc11af0fff84899ca1b3ad3abf8760dd8c59e6f6
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.openlocfilehash: 7b099fead7cb985fc8f7e6fed55b8c1107caa0d9
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863265"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720380"
 ---
 # <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet を使用した Windows への Azure PowerShell のインストール
 
@@ -59,7 +59,7 @@ PowerShellGet がインストールされていない場合は、この記事の
 > [!IMPORTANT]
 > このドキュメントで説明するモジュール AzureRM では、.NET Framework を使用します。 そのため、.NET Core を使用する PowerShell 6.0 とは互換性がなくなります。 PowerShell 6.0 を使用している場合は、[macOS および Linux のインストール手順](install-azurermps-maclinux.md)に従います。
 
-## <a name="step-2-install-azure-powershell"></a>手順 2: Azure PowerShell をインストールする
+## <a name="step-2-install-azure-powershell"></a>手順 2:Azure PowerShell をインストールする
 
 Azure PowerShell を PowerShell ギャラリーからインストールするためには、昇格された特権が必要です。 管理者特権の PowerShell セッションから次のコマンドを実行します。
 
@@ -89,7 +89,7 @@ AzureRM モジュールは、Azure Resource Manager コマンドレットのロ�
 
 以前のバージョンの Azure PowerShell がインストールされている場合、エラーが発生する可能性があります。 この問題を解決するには、この記事の「[新しいバージョンの Azure PowerShell に更新する](#update-azps)」を参照してください。
 
-## <a name="step-3-load-the-azurerm-module"></a>手順 3: AzureRM モジュールを読み込む
+## <a name="step-3-load-the-azurerm-module"></a>手順 3:AzureRM モジュールを読み込む
 
 モジュールは、インストール後、PowerShell セッションに読み込む必要があります。 これは通常の (管理者特権ではない) PowerShell セッションで実行する必要があります。 モジュールを読み込むには、次のように `Import-Module` コマンドレットを使います。
 
@@ -115,7 +115,7 @@ Azure PowerShell の使用について詳しくは、次の記事をご覧くだ
 |---|---|
 |Windows 10 または Windows Server 2016 を所有している|OS 標準の Windows Management Framework (WMF) 5.0 に組み込まれています。|
 |PowerShell 5 にアップグレードしたい|[最新バージョンの WMF をインストール](https://www.microsoft.com/download/details.aspx?id=54616)します。|
-|PowerShell 3 または PowerShell 4 が付属するバージョンの Windows を使っている|[PackageManagement モジュールを入手](http://go.microsoft.com/fwlink/?LinkID=746217)します。|
+|PowerShell 3 または PowerShell 4 が付属するバージョンの Windows を使っている|[PackageManagement モジュールを入手](https://go.microsoft.com/fwlink/?LinkID=746217)します。|
 
 ### <a name="div-idhelpmechoosechecking-the-version-of-azure-powershell"></a><div id="helpmechoose"/>Azure PowerShell のバージョン確認
 

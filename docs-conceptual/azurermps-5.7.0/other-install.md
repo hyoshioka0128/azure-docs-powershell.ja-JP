@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.openlocfilehash: fe35fccd7994d7c3c3587096263a50af598e8651
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: aaba0ce38129b96e3d691f1a9d9cfdc929188ffd
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535039"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722409"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi-or-web-platform-installer"></a>MSI または Web Platform Installer を使用した Windows への Azure PowerShell のインストール
 
@@ -42,7 +42,7 @@ Azure サインインをセッション間で維持する方法については�
 
 ## <a name="install-or-update-on-windows-using-the-web-platform-installer"></a>Web Platform Installer を使って Windows でインストールまたは更新する
 
-[Azure PowerShell WebPI パッケージ](http://aka.ms/webpi-azps)をダウンロードしてインストールを開始してください。 MSI または WebPI を使用して以前のバージョンの Azure モジュールがインストールされている場合、それらのモジュールはインストーラーによって自動的に削除されます。 モジュールは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にインストールされます。 `AzureRM` モジュールと `Azure` モジュールの両方がインストールされます。
+[Azure PowerShell WebPI パッケージ](https://aka.ms/webpi-azps)をダウンロードしてインストールを開始してください。 MSI または WebPI を使用して以前のバージョンの Azure モジュールがインストールされている場合、それらのモジュールはインストーラーによって自動的に削除されます。 モジュールは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にインストールされます。 `AzureRM` モジュールと `Azure` モジュールの両方がインストールされます。
 
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、`Azure` モジュールのみを使用してください。

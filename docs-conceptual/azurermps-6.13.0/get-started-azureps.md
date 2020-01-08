@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.openlocfilehash: a6256bf17d9f94cf362138275c577e74a1210e99
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 61d6d19336dd0e1885570c3a4e8874a849317fa3
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534946"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722426"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
@@ -50,7 +50,7 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 対話操作でサインオンするには:
 
-1. 「 `Connect-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-Environment" オプションを使用すると、Azure China または Azure Germany を認証できます。
+1. 「`Connect-AzureRmAccount`. Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-Environment" オプションを使用すると、Azure China または Azure Germany を認証できます。
 
    例: Connect-AzureRmAccount -Environment AzureChinaCloud
 
@@ -151,7 +151,7 @@ Id        :
 
 前の例では、簡略化された構文と既定のパラメーター値を使用して、Windows 仮想マシンを作成しました。 この例では、仮想マシンのすべてのオプションの値を指定します。
 
-### <a name="create-a-resource-group"></a>リソース グループの作成
+### <a name="create-a-resource-group"></a>リソース グループを作成する
 
 この例では、リソース グループを作成します。 Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。 たとえばアプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシンやデータベース、CDN サービスをそこに追加することができます。
 
@@ -367,12 +367,12 @@ Are you sure you want to remove resource group 'myResourceGroup'
 
 Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Windows VM](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) 用の一般的なスクリプトが用意されているので、そちらをご覧ください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Azure PowerShell を使用してサインインする](authenticate-azureps.md)
 * [Azure PowerShell による Azure サブスクリプションの管理](manage-subscriptions-azureps.md)
 * [Azure PowerShell を使って Azure にサービス プリンシパルを作成する](create-azure-service-principal-azureps.md)
 * 以前のリリースからの移行については、リリース ノート ([https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。
 * コミュニティに質問する:
-  * [MSDN の Azure フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=320212)
-  * [stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+  * [MSDN の Azure フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=320212)
+  * [stackoverflow](https://go.microsoft.com/fwlink/?LinkId=320213)

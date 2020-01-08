@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
-ms.openlocfilehash: d41e7ce2faac6a82b63ed173b5b64b85b56577c0
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: c0ac4f6cfb803519b8dd711d3cca0d4a4f7e6f8b
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535084"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722460"
 ---
 # <a name="other-installation-methods"></a>その他のインストール方法
 
@@ -23,7 +23,7 @@ Azure PowerShell には、複数のインストール方法があります。 �
 ## <a name="install-on-windows-using-the-web-platform-installer"></a>Web Platform Installer を使って Windows にインストールする
 
 WebPI から最新の Azure PowerShell をインストールする方法は、以前のバージョンと同じです。
-[Azure PowerShell WebPI パッケージ](http://aka.ms/webpi-azps)をダウンロードしてインストールを開始してください。
+[Azure PowerShell WebPI パッケージ](https://aka.ms/webpi-azps)をダウンロードしてインストールを開始してください。
 
 > [!NOTE]
 > 以前に PowerShell ギャラリーから Azure モジュールをインストールしている場合は、これらのモジュールは自動的に削除されます。 これによって、インストールされる Azure PowerShell のバージョンが 1 つに限定されるため、環境の複雑化を防ぐことができます。 ただし場合によっては、同時に複数のバージョンをインストールしなければならないケースもあります。
@@ -56,7 +56,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-このエラーは、コンピューターを再起動するか、完全修飾パスを使ってモジュールをインポートすることで修正できます。 例:
+このエラーは、コンピューターを再起動するか、完全修飾パスを使ってモジュールをインポートすることで修正できます。 次に例を示します。
 
 ```powershell-interactive
 Import-Module "$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\AzureRM.psd1"

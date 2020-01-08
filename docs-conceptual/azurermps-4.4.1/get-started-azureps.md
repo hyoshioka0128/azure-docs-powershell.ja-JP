@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 77a66b3d218bbbfb230ed993b2a34eb3e845b1f1
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 564a3e70e3f6d1803cdff9976bace119f6e20f48
+ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534895"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720397"
 ---
 # <a name="getting-started-with-azure-powershell"></a>Azure PowerShell を使ってみる
 
@@ -20,7 +20,7 @@ ms.locfileid: "65534895"
 
 Azure PowerShell は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりできるように設計されています。 これは、[Azure Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで使用することも、ローカル コンピューターにインストールして PowerShell セッションで使用することもできます。 この記事では、その基本的な使い方と核となる概念について説明します。
 
-## <a name="connect"></a>接続
+## <a name="connect"></a>接続する
 
 最も簡単に始められるのは、[Cloud Shell を起動](/azure/cloud-shell/quickstart)する方法です。
 
@@ -50,7 +50,7 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 対話操作でサインオンするには:
 
-1. 「 `Login-AzureRmAccount`」と入力します。 Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-EnvironmentName" オプションを使用すると、Azure China または Azure Germany を認証できます。
+1. 「`Login-AzureRmAccount`. Azure の資格情報の入力を求めるダイアログ ボックスが表示されます。 "-EnvironmentName" オプションを使用すると、Azure China または Azure Germany を認証できます。
 
    例: Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
@@ -58,7 +58,7 @@ Azure PowerShell をインストールし、ローカルの PowerShell セッシ
 
 Azure アカウントへのサインイン後、Azure PowerShell のコマンドレットを使って自分のサブスクリプションのリソースにアクセスし、管理することができます。
 
-## <a name="create-a-resource-group"></a>リソース グループの作成
+## <a name="create-a-resource-group"></a>リソース グループを作成する
 
 必要な設定がすべて整ったら、Azure PowerShell を使って Azure にリソースを作成してみましょう。
 
@@ -362,12 +362,12 @@ Are you sure you want to remove resource group 'myResourceGroup'
 
 Azure PowerShell の使用方法について詳しくは、[Linux VM](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Windows VM](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json)、[SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) 用の一般的なスクリプトが用意されているので、そちらをご覧ください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Azure PowerShell を使用してサインインする](authenticate-azureps.md)
 * [Azure PowerShell による Azure サブスクリプションの管理](manage-subscriptions-azureps.md)
 * [Azure PowerShell を使って Azure にサービス プリンシパルを作成する](create-azure-service-principal-azureps.md)
-* 以前のリリースからの移行については、リリース ノート ([ https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。
+* 以前のリリースからの移行については、リリース ノート ([https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes)) を参照してください。
 * コミュニティに質問する:
-  * [MSDN の Azure フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=320212)
-  * [stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+  * [MSDN の Azure フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=320212)
+  * [stackoverflow](https://go.microsoft.com/fwlink/?LinkId=320213)
