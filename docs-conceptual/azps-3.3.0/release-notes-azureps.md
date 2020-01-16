@@ -6,13 +6,13 @@ ms.author: sttramer
 manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: fb934ed0f8bef5e2aff715debe5d406d54abf24f
-ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
+ms.date: 01/09/2020
+ms.openlocfilehash: 3806a1c609a71c53c0bddc5bafd51d845c0c296e
+ms.sourcegitcommit: 16904e0a72c55fb81248e0252769defb86c50f36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718986"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75831646"
 ---
 # <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
 
@@ -21,7 +21,7 @@ ms.locfileid: "75718986"
 * AzureAttestationServiceEndpointResourceId および AzureAttestationServiceEndpointSuffix パラメーターを受け入れるように、Add-AzEnvironment と Set-AzEnvironment を更新しました
 
 #### <a name="azcdn"></a>Az.Cdn
-* New-AzCdnEndpoint コマンドレットのエラー応答の詳細が表示されます
+* New-AzCdnEndpoint コマンドレットのエラー応答の詳細を表示します
 
 #### <a name="azcompute"></a>Az.Compute
 * OS プロファイルのないマネージド OD ディスクを使用する VM 用の Set-AzVMCustomScriptExtension コマンドレットを修正します。
