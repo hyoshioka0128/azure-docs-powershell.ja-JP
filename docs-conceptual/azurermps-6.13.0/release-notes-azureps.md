@@ -141,7 +141,7 @@ ms.locfileid: "65534449"
 * Recovery Services で Azure ファイル共有のサポートを追加しました。
 
 #### <a name="azurermresources"></a>AzureRM.Resources
-* [https://github.com/Azure/azure-powershell/issues/7402](https://github.com/Azure/azure-powershell/issues/7402 ) を修正しました
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
     - "Get-AzureRmResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました
 
 #### <a name="azurermservicebus"></a>AzureRM.ServiceBus
