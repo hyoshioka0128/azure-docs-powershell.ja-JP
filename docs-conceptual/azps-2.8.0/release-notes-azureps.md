@@ -661,7 +661,7 @@ ms.locfileid: "75035763"
 * API バージョン 2019-04-15 に基づいて rulesEngine 機能をサポートするようにコマンドレットを更新しました。
 
 #### <a name="azcompute"></a>Az.Compute
-* 操作を開始し、操作が完了する前にすぐに返す、`NoWait` パラメーターを追加しました。
+* 操作を開始し、操作が完了する前にすぐに戻す、`NoWait` パラメーターを追加しました。
     - 更新されたコマンドレット: Export-AzLogAnalyticRequestRateByInterval   Export-AzLogAnalyticThrottledRequest   Remove-AzVM   Remove-AzVMAccessExtension   Remove-AzVMAEMExtension   Remove-AzVMChefExtension   Remove-AzVMCustomScriptExtension   Remove-AzVMDiagnosticsExtension   Remove-AzVMDiskEncryptionExtension   Remove-AzVMDscExtension   Remove-AzVMSqlServerExtension   Restart-AzVM   Set-AzVM   Set-AzVMAccessExtension   Set-AzVMADDomainExtension   Set-AzVMAEMExtension   Set-AzVMBginfoExtension   Set-AzVMChefExtension   Set-AzVMCustomScriptExtension   Set-AzVMDiagnosticsExtension   Set-AzVMDscExtension   Set-AzVMExtension   Start-AzVM   Stop-AzVM   Update-AzVM
 
 #### <a name="azeventhub"></a>Az.EventHub
@@ -683,7 +683,7 @@ ms.locfileid: "75035763"
 
 #### <a name="azservicefabric"></a>Az.ServiceFabric
 * 'Update-AzServiceFabricReliability' に対するエラー メッセージの誤りを修正しました
-* Service Fabric のコマンドラインの文字の不足を修正しました
+* Service Fabric のコマンドラインの文字の欠落を修正しました
 
 #### <a name="azsql"></a>Az.Sql
 * Managed Instance で AutoDr をサポートするために、New-AzureSqlInstance コマンドレットに DnsZonePartner パラメーターを追加しました。
@@ -705,7 +705,7 @@ ms.locfileid: "75035763"
     - **Remove-AzApiManagementDiagnostic** - グローバルまたは API スコープで診断エンティティを削除します
     - **Set-AzApiManagementDiagnostic** - グローバルまたは API スコープで診断エンティティを更新します
 * ApiManagement サービスのキャッシュを管理するための新しいコマンドレットを作成しました
-    - **Get-AzApiManagementCache** -識別子で指定されたキャッシュ、またはすべてのキャッシュの詳細を取得します
+    - **Get-AzApiManagementCache** - 識別子で指定されたキャッシュ、またはすべてのキャッシュの詳細を取得します
     - **New-AzApiManagementCache** - 新しい 'default' のキャッシュ、または Azure の特定の 'region' にキャッシュを作成します
     - **Remove-AzApiManagementCache** - キャッシュを削除します
     - **Update-AzApiManagementCache** - キャッシュを更新します
@@ -723,7 +723,7 @@ ms.locfileid: "75035763"
     - 'Consumption' SKU 用に 'EnableClientCertificate' フラグをオンにするサポートを追加しました
     - 新しいコマンドレット **New-AzApiManagementSslSetting** により 'Backend' と 'Frontend' に 'TLS/SSL' 設定を構成できます。 これを使用して、ApiManagement サービスの 'Frontend' に '3DES' のような 'Ciphers' と 'Http2' のような 'ServerProtocols' を構成することもできます。
     - ApiManagement サービスに 'DeveloperPortal' ホスト名を構成するためのサポートを追加しました。
-* 'PsApiManagement' オブジェクトを入力として取得するためにコマンドレット **Get-AzApiManagementSsoToken** を更新しました
+* 'PsApiManagement' オブジェクトを入力としてとるようにコマンドレット **Get-AzApiManagementSsoToken** を更新しました
 * エラー メッセージをインラインで表示するコマンドレットを更新しました 
      > PS D:\github\azure-powershell> Set-AzApiManagementPolicy -Context  -PolicyFilePath C:\wrongpolicy.xml -ApiId httpbin Set-AzApiManagementPolicy :Error Code:ValidationError Error Message:One or more fields contain incorrect values:Error Details:    [Code=ValidationError, Message=Error in element 'log-to-eventhub' on line 3, column 10:Logger not found, Target=log-to-eventhub]
 * API を 'OpenApi 3.0' 形式でエクスポートするためにコマンドレット **Export-AzApiManagementApi** を更新しました
