@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 9bb2a0d611c4cc39172fc6c51d375a1b47f834ed
-ms.sourcegitcommit: a321ef9d134c684fa24ababcbd898f86b00d9364
+ms.openlocfilehash: 9f161d6a2bbe696bca5d2a63d39ab734cfc25cb8
+ms.sourcegitcommit: a6f2fc500242de6248224278d743fd09aac2fafd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77477286"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78264368"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi"></a>MSI を使用した Windows への Azure PowerShell のインストール
 
@@ -34,7 +34,7 @@ PowerShell 5.1 で Azure PowerShell を使用するには、次の手順に従�
 
 ## <a name="install-or-update-on-windows-using-the-msi-package"></a>MSI パッケージを使って Windows でインストールまたは更新する
 
-Windows 用の Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releases/tag/v3.3.0-January2020) で入手できる MSI ファイルを使用してインストールされます。 以前のバージョンの Azure モジュールが MSI としてインストールされている場合、それらはインストーラーによって自動的に削除されます。 MSI パッケージでは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にモジュールがインストールされます。
+Windows 用の Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020) で入手できる MSI ファイルを使用してインストールされます。 以前のバージョンの Azure モジュールが MSI としてインストールされている場合、それらはインストーラーによって自動的に削除されます。 MSI パッケージでは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にモジュールがインストールされます。
 
 Azure PowerShell を使用して作業を開始するには、Azure の資格情報を使用してサインインします。
 
