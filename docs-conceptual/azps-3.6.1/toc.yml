@@ -5,7 +5,7 @@
   displayName: 'intro, introduction, azurerm'
 - name: インストール
   items:
-    - name: PowerShell Get を使用したインストール
+    - name: PowerShellGet を使用したインストール
       href: install-az-ps.md
     - name: MSI を使用したインストール
       href: install-az-ps-msi.md
@@ -24,6 +24,8 @@
   displayName: 'sign in, signin, log in, login, find, feedback, intro, introduction'
 - name: Cloud Shell
   href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
+- name: Docker での Azure PowerShell
+  href: azureps-in-docker.md
 - name: サインイン
   items:
     - name: 認証方法
