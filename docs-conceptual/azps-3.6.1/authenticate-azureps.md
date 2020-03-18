@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 21d87bd35da74f09b70976e7b395e7b987fbd3f5
+ms.openlocfilehash: 0de487cc34593ceac05aa2077358d692470dc23e
 ms.sourcegitcommit: fb95591c45bb5f12b98e0690938d18f2ec611897
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2020
-ms.locfileid: "79402784"
+ms.locfileid: "79402750"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell を使用してサインインする
 
@@ -70,11 +70,12 @@ Connect-AzAccount -ServicePrincipal -Credential $pscredential -Tenant $tenantId
 ### <a name="certificate-based-authentication"></a>証明書ベースの認証
 
 証明書ベースの認証では、Azure PowerShell で、証明書の拇印に基づいてローカル証明書ストアから情報を取得できる必要があります。
+
 ```azurepowershell-interactive
 Connect-AzAccount -ApplicationId $appId -Tenant $tenantId -CertificateThumbprint <thumbprint>
 ```
 
-登録されたアプリケーションではなくサービス プリンシパルを使用する場合は、`-ServicePrincipal` 引数を追加し、`-ApplicationId` パラメーターの値としてサービス プリンシパルの ID を指定します。
+登録されたアプリケーションではなくサービス プリンシパルを使用する場合は、`-ServicePrincipal` 引数を追加し、`-ApplicationId` パラメーターの値としてサービス プリンシパルのアプリケーション ID を指定します。
 
 ```azurepowershell-interactive
 Connect-AzAccount -ServicePrincipal -ApplicationId $servicePrincipalId -Tenant $tenantId -CertificateThumbprint <thumbprint>
@@ -110,7 +111,11 @@ $store.Close()
 
 マネージド ID は Azure Active Directory の機能です。 マネージド ID は、Azure で実行されるリソースに割り当てられたサービス プリンシパルです。 サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。 マネージド ID は、Azure クラウドで実行されているリソースでのみ使用できます。
 
-Azure リソースのマネージド ID の詳細については、「[Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)」を参照してください。
+このコマンドは、ホスト環境のマネージド ID を使用して接続します。 たとえば、割り当てられたマネージド サービス ID を使用して VirtualMachine で実行した場合、コードはその割り当てられた ID を使用してサインインできます。
+
+```azurepowershell-interactive
+ Connect-AzAccount -Identity 
+```
 
 ## <a name="sign-in-with-a-non-default-tenant-or-as-a-cloud-solution-provider-csp"></a>既定ではないテナントで、あるいはクラウド ソリューション プロバイダー (CSP) としてサインインする
 
