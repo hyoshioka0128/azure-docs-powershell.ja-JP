@@ -3,13 +3,13 @@ title: Docker での Azure PowerShell の使用
 description: Docker イメージにプレインストールされている Azure PowerShell の使用方法
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: a5746b71cfc41f7c6283b0e95b0940ca4b594ec7
-ms.sourcegitcommit: fb95591c45bb5f12b98e0690938d18f2ec611897
+ms.date: 03/20/2020
+ms.openlocfilehash: b5ad201abcabbdc1a88db241b028d88f05054a14
+ms.sourcegitcommit: 104c90600e0c5eeb841b5a596ba7ebe60cc7f4fa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "79402682"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79990535"
 ---
 # <a name="using-azure-powershell-in-docker"></a>Docker での Azure PowerShell の使用
 
@@ -19,13 +19,13 @@ Azure PowerShell がプレインストールされた Docker イメージが公�
 
 リリースされたイメージには、Docker 17.05 以降が必要です。 また、`sudo` またはローカル管理者権限なしで Docker を実行できる必要もあります。 `docker` を正しくインストールするには、Docker の公式な[手順][install]に従ってください。
 
-リリースされたコンテナーは、公式の PowerShell コンテナーから構築され、Az モジュールがレイヤーとして追加されています。
+最新のコンテナー イメージには、最新バージョンの PowerShell と、Az モジュールでサポートされている最新の Azure PowerShell モジュールが含まれています。
 
-最新の安定バージョンは以下のとおりです。
+Az モジュールの新しいリリースごとに、次のオペレーティング システム用のイメージをリリースします。
 
-- Ubuntu 18.04
-- PowerShell バージョン 6.2.4
-- Azure PowerShell の最新の Az モジュール
+- Ubuntu 18.04 (既定)
+- Debian 9
+- CentOs 7
 
 使用可能なイメージの完全な一覧については、[Docker イメージ][az image]に関するページを参照してください。
 
@@ -44,6 +44,8 @@ Azure PowerShell がプレインストールされた Docker イメージが公�
    ```console
    docker run -it mcr.microsoft.com/azure-powershell pwsh
    ```
+
+Windows Docker ホストの場合、Windows 上のローカル ドライブを Linux コンテナーと共有できるようにするには、Docker ファイル共有を有効にする必要があります。 詳細については、「[Docker for Windows を使用する][file-sharing]」を参照してください。
 
 ### <a name="run-the-azure-powershell-container-interactively-using-host-authentication"></a>ホスト認証を使用して対話形式で azure-powershell コンテナーを実行する
 
@@ -71,3 +73,4 @@ Azure PowerShell のモジュールとその機能の詳細については、「
 [install]: https://docs.docker.com/engine/installation/
 [powershell image]: https://hub.docker.com/_/microsoft-powershell
 [az image]: https://hub.docker.com/_/microsoft-azure-powershell
+[file-sharing]: https://docs.docker.com/docker-for-windows/#file-sharing
