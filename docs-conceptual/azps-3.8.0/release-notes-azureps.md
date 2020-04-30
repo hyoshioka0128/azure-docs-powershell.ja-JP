@@ -4,14 +4,19 @@ description: Azure PowerShell モジュールの最新の更新プログラム�
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: bee24af99da4b36e89cff9852c77214e2e09a542
-ms.sourcegitcommit: 6a91b4c545350d316d3cf8c62f384478e3f3ba24
+ms.openlocfilehash: a9c5394a5fac8a8a3de96925b3563776783ea9fe
+ms.sourcegitcommit: de813e8a4e3629a6fee6e87a0208c1f0362a16ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81740543"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82080200"
 ---
+# <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
+
 ## <a name="380---april-2020"></a>3.8.0 - 2020 年 4 月
+### <a name="highlights-since-the-last-release"></a>前回のリリース以降のハイライト
+* Az.Storage でサポートされる PowerShell のバージョンは次のとおりです。Windows PowerShell 5.1、PowerShell Core 6.2.4+、PowerShell 7
+
 #### <a name="azaccounts"></a>Az.Accounts
 * 'Resolve-AzError' の Azure PowerShell アンケートの URL を更新しました [#11507]
 
@@ -23,7 +28,7 @@ ms.locfileid: "81740543"
 * ChinaCDN 関連の価格 SKU の表示を修正しました
 
 #### <a name="azcognitiveservices"></a>Az.CognitiveServices
-* ID、暗号化、UserOwnedStorage をサポートします 
+* ID、暗号化、UserOwnedStorage をサポートします
 
 #### <a name="azcompute"></a>Az.Compute
 * 'Set-AzVmssOrchestrationServiceState' コマンドレットを追加しました。
@@ -97,7 +102,7 @@ ms.locfileid: "81740543"
 * ストレージ アカウントの作成/更新時に新しい SkuName StandardGZRS、StandardRAGZRS をサポートします
     - 'New-AzStorageAccount'
     - 'Set-AzStorageAccount'
-* Supported DataLake Gen2 
+* Supported DataLake Gen2
     - 'New-AzDataLakeGen2Item'
     - 'Get-AzDataLakeGen2Item'
     - 'Get-AzDataLakeGen2ChildItem'
@@ -107,13 +112,31 @@ ms.locfileid: "81740543"
     - 'Get-AzDataLakeGen2ItemContent'
     - 'Remove-AzDataLakeGen2Item'
 
-# <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
+## <a name="0100-preview---april-2020"></a>0.10.0-preview - 2020 年 4 月
+### <a name="general"></a>全般
+* Az モジュールが Azure Stack Hub のプレビューで使用できるようになりました。 これにより、Linux および macOS とのクロスプラットフォームの互換性が確保されます。 Azure Stack Hub で、Az モジュールを使用した PowerShell Core がサポートされるようになりました。詳細については、[こちら](https://aka.ms/az4AzureStack)を参照してください
+* Az モジュールでプロファイル 2019-03-01-hybrid がサポートされます。
+  - Az.Billing
+  - Az.Compute
+  - Az.DataBoxEdge
+  - Az.EventHub
+  - Az.IotHub
+  - Az.KeyVault
+  - Az.Monitor
+  - Az.Network
+  - Az.Resources
+  - Az.Storage
+  - Az.Websites
+* Azure Stack Hubで動作する、Az 用の 3 つの新しい PowerShell モジュール (Az.Databox、Az.IotHub、Az.EventHu) が導入されました
+* コマンドは比較的同じままですが、AzureRM を Az に変更するなどの軽微な変更が加えられています
+* Azure Stack Hub の PowerShell ドキュメントへのリンクを更新しました。[こちら](https://aka.ms/InstallASHPowerShell)で確認できます
+
 ## <a name="370---march-2020"></a>3.7.0 - 2020 年 3 月
 #### <a name="azaccounts"></a>Az.Accounts
 * ログインしていない場合に、'Get-AzTenant'/'Get-AzDefault'/'Set-AzDefault' が NullReferenceException をスローする問題を修正しました [#10292]
 
 #### <a name="azcompute"></a>Az.Compute
-* 'New-AzDiskConfig' コマンドレットに次のパラメーターを追加しました。 
+* 'New-AzDiskConfig' コマンドレットに次のパラメーターを追加しました。
     - DiskIOPSReadOnly、DiskMBpsReadOnly、MaxSharesCount、GalleryImageReference
 * 'New-AzGalleryImageVersion' コマンドレットの Target パラメーターで Encryption プロパティを使用できるようになりました。
 * 'Set-AzVmss' の -Reimage と 'Invoke-AzVMReimage' コマンドレットの tempDisk の問題を修正しました。 [#11354]
@@ -766,7 +789,7 @@ DatabaseName の存在の代わりに PartnerDatabaseName の存在を確認す�
         - Remove-AzPrivateEndpointConnection
         - Set-AzPrivateEndpointConnection
 * PrivateLinkResource の新しいコマンドレットを追加し、これも汎用サービス プロバイダーをサポートします。
-    - 新しいコマンドレット:
+    - 新しいコマンドレット: 
         - Get-AzPrivateLinkResource
 * 機能 Proxy Protocol V2 の新しいフィールドとパラメーターを追加します。
     - PrivateLinkService にプロパティ EnableProxyProtocol を追加します
@@ -2363,7 +2386,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azresources"></a>Az.Resources
 
-* https://github.com/Azure/azure-powershell/issues/7679 を修正しました
+* https://github.com/Azure/azure-powershell/issues/7679 を修正しました 
     - 従来の管理者を要求するときにサブスクリプションのスコープを指定する場合、サブスクリプションのスコープを使用するように Get-AzureRmRoleAssignment を更新しました。
 
 ### <a name="azsql"></a>Az.Sql
@@ -2500,7 +2523,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 * ポリシー修復コマンドレットを追加しました
 
 #### <a name="azresources"></a>Az.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
     - "Get-AzResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました。
 
 #### <a name="azservicebus"></a>Az.ServiceBus
