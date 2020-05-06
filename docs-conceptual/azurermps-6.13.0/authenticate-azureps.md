@@ -8,84 +8,84 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
 ms.openlocfilehash: 464d7efa640f1d1ffd1c34bfbe6cf13cbe5202b6
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "68863235"
 ---
-# <a name="sign-in-with-azure-powershell"></a><span data-ttu-id="c0a23-103">Azure PowerShell を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="c0a23-103">Sign in with Azure PowerShell</span></span>
+# <a name="sign-in-with-azure-powershell"></a><span data-ttu-id="442b0-103">Azure PowerShell を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="442b0-103">Sign in with Azure PowerShell</span></span>
 
 [!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
-<span data-ttu-id="c0a23-104">Azure PowerShell では、複数の認証方法がサポートされています。</span><span class="sxs-lookup"><span data-stu-id="c0a23-104">Azure PowerShell supports several authentication methods.</span></span> <span data-ttu-id="c0a23-105">最も簡単に始められるのは、コマンド ラインから対話形式でサインインする方法です。</span><span class="sxs-lookup"><span data-stu-id="c0a23-105">The simplest way to get started is to sign in interactively at the command line.</span></span>
+<span data-ttu-id="442b0-104">Azure PowerShell では、複数の認証方法がサポートされています。</span><span class="sxs-lookup"><span data-stu-id="442b0-104">Azure PowerShell supports several authentication methods.</span></span> <span data-ttu-id="442b0-105">最も簡単に始められるのは、コマンド ラインから対話形式でサインインする方法です。</span><span class="sxs-lookup"><span data-stu-id="442b0-105">The simplest way to get started is to sign in interactively at the command line.</span></span>
 
-## <a name="sign-in-interactively"></a><span data-ttu-id="c0a23-106">対話操作でサインインする</span><span class="sxs-lookup"><span data-stu-id="c0a23-106">Sign in interactively</span></span>
+## <a name="sign-in-interactively"></a><span data-ttu-id="442b0-106">対話操作でサインインする</span><span class="sxs-lookup"><span data-stu-id="442b0-106">Sign in interactively</span></span>
 
-<span data-ttu-id="c0a23-107">対話操作でサインインするには、[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-107">To sign in interactively, use the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.</span></span>
+<span data-ttu-id="442b0-107">対話操作でサインインするには、[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="442b0-107">To sign in interactively, use the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.</span></span>
 
 ```azurepowershell-interactive
 Connect-AzureRmAccount
 ```
 
-<span data-ttu-id="c0a23-108">このコマンドレットを実行すると、ダイアログ ボックスが表示され、Azure アカウントに関連付けられている電子メール アドレスとパスワードを入力するように求められます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-108">When run, this cmdlet will bring up a dialog box prompting you for your email address and password associated with your Azure account.</span></span> <span data-ttu-id="c0a23-109">この認証は、現在の PowerShell セッションが終了するまで有効です。</span><span class="sxs-lookup"><span data-stu-id="c0a23-109">This authentication lasts for the current PowerShell session.</span></span>
+<span data-ttu-id="442b0-108">このコマンドレットを実行すると、ダイアログ ボックスが表示され、Azure アカウントに関連付けられている電子メール アドレスとパスワードを入力するように求められます。</span><span class="sxs-lookup"><span data-stu-id="442b0-108">When run, this cmdlet will bring up a dialog box prompting you for your email address and password associated with your Azure account.</span></span> <span data-ttu-id="442b0-109">この認証は、現在の PowerShell セッションが終了するまで有効です。</span><span class="sxs-lookup"><span data-stu-id="442b0-109">This authentication lasts for the current PowerShell session.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="c0a23-110">Azure PowerShell 6.3.0 の時点で、Windows にサインインしたままである限り、資格情報は複数の PowerShell セッション間で共有されます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-110">As of Azure PowerShell 6.3.0, your credentials are shared among multiple PowerShell sessions as long as you remain signed in to Windows.</span></span> <span data-ttu-id="c0a23-111">詳細については、[永続的な資格情報](context-persistence.md)に関する記事を参照してください。</span><span class="sxs-lookup"><span data-stu-id="c0a23-111">For more information, see the article on [Persistent Credentials](context-persistence.md).</span></span>
+> <span data-ttu-id="442b0-110">Azure PowerShell 6.3.0 の時点で、Windows にサインインしたままである限り、資格情報は複数の PowerShell セッション間で共有されます。</span><span class="sxs-lookup"><span data-stu-id="442b0-110">As of Azure PowerShell 6.3.0, your credentials are shared among multiple PowerShell sessions as long as you remain signed in to Windows.</span></span> <span data-ttu-id="442b0-111">詳細については、[永続的な資格情報](context-persistence.md)に関する記事を参照してください。</span><span class="sxs-lookup"><span data-stu-id="442b0-111">For more information, see the article on [Persistent Credentials](context-persistence.md).</span></span>
 
-## <a name="sign-in-with-a-service-principal"></a><span data-ttu-id="c0a23-112">サービス プリンシパルを使ってサインインする</span><span class="sxs-lookup"><span data-stu-id="c0a23-112">Sign in with a service principal</span></span>
+## <a name="sign-in-with-a-service-principal"></a><span data-ttu-id="442b0-112">サービス プリンシパルを使ってサインインする</span><span class="sxs-lookup"><span data-stu-id="442b0-112">Sign in with a service principal</span></span>
 
-<span data-ttu-id="c0a23-113">サービス プリンシパルは、非対話型の Azure アカウントです。</span><span class="sxs-lookup"><span data-stu-id="c0a23-113">Service principals are non-interactive Azure accounts.</span></span> <span data-ttu-id="c0a23-114">他のユーザー アカウントと同様、そのアクセス許可は Azure Active Directory で管理されます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-114">Like other user accounts, their permissions are managed with Azure Active Directory.</span></span> <span data-ttu-id="c0a23-115">サービス プリンシパルに、必要なアクセス許可のみを付与することで、自動化スクリプトのセキュリティが維持されます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-115">By granting a service principal only the permissions it needs, your automation scripts stay secure.</span></span>
+<span data-ttu-id="442b0-113">サービス プリンシパルは、非対話型の Azure アカウントです。</span><span class="sxs-lookup"><span data-stu-id="442b0-113">Service principals are non-interactive Azure accounts.</span></span> <span data-ttu-id="442b0-114">他のユーザー アカウントと同様、そのアクセス許可は Azure Active Directory で管理されます。</span><span class="sxs-lookup"><span data-stu-id="442b0-114">Like other user accounts, their permissions are managed with Azure Active Directory.</span></span> <span data-ttu-id="442b0-115">サービス プリンシパルに、必要なアクセス許可のみを付与することで、自動化スクリプトのセキュリティが維持されます。</span><span class="sxs-lookup"><span data-stu-id="442b0-115">By granting a service principal only the permissions it needs, your automation scripts stay secure.</span></span>
 
-<span data-ttu-id="c0a23-116">Azure PowerShell で使用するサービス プリンシパルを作成する方法については、「[Azure PowerShell で Azure サービス プリンシパルを作成する](create-azure-service-principal-azureps.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="c0a23-116">To learn how to create a service principal for use with Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](create-azure-service-principal-azureps.md).</span></span>
+<span data-ttu-id="442b0-116">Azure PowerShell で使用するサービス プリンシパルを作成する方法については、「[Azure PowerShell で Azure サービス プリンシパルを作成する](create-azure-service-principal-azureps.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="442b0-116">To learn how to create a service principal for use with Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](create-azure-service-principal-azureps.md).</span></span>
 
-<span data-ttu-id="c0a23-117">サービス プリンシパルを使用してサインインするには、`Connect-AzureRmAccount` コマンドレットで `-ServicePrincipal` 引数を使用します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-117">To sign in with a service principal, use the `-ServicePrincipal` argument with the `Connect-AzureRmAccount` cmdlet.</span></span> <span data-ttu-id="c0a23-118">サービス プリンシパルのサインイン資格情報、およびサービス プリンシパルに関連付けられたテナント ID も必要です。</span><span class="sxs-lookup"><span data-stu-id="c0a23-118">You'll also need the service principal's sign-in credentials and the tenant ID associated with the service principal.</span></span> <span data-ttu-id="c0a23-119">サービス プリンシパルの資格情報を適切なオブジェクトとして取得するには、[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-119">To get the service principal's credentials as the appropriate object, use the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.</span></span> <span data-ttu-id="c0a23-120">このコマンドレットにより、サービス プリンシパル ユーザー ID とパスワードを入力するダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-120">This cmdlet will display a dialog box to enter the service principal user ID and password into.</span></span>
+<span data-ttu-id="442b0-117">サービス プリンシパルを使用してサインインするには、`-ServicePrincipal` コマンドレットで `Connect-AzureRmAccount` 引数を使用します。</span><span class="sxs-lookup"><span data-stu-id="442b0-117">To sign in with a service principal, use the `-ServicePrincipal` argument with the `Connect-AzureRmAccount` cmdlet.</span></span> <span data-ttu-id="442b0-118">サービス プリンシパルのサインイン資格情報、およびサービス プリンシパルに関連付けられたテナント ID も必要です。</span><span class="sxs-lookup"><span data-stu-id="442b0-118">You'll also need the service principal's sign-in credentials and the tenant ID associated with the service principal.</span></span> <span data-ttu-id="442b0-119">サービス プリンシパルの資格情報を適切なオブジェクトとして取得するには、[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="442b0-119">To get the service principal's credentials as the appropriate object, use the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.</span></span> <span data-ttu-id="442b0-120">このコマンドレットにより、サービス プリンシパル ユーザー ID とパスワードを入力するダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="442b0-120">This cmdlet will display a dialog box to enter the service principal user ID and password into.</span></span>
 
 ```azurepowershell-interactive
 $pscredential = Get-Credential
 Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId $tenantid
 ```
 
-## <a name="sign-in-using-an-azure-managed-service-identity"></a><span data-ttu-id="c0a23-121">Azure マネージド サービス ID を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="c0a23-121">Sign in using an Azure Managed Service Identity</span></span>
+## <a name="sign-in-using-an-azure-managed-service-identity"></a><span data-ttu-id="442b0-121">Azure マネージド サービス ID を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="442b0-121">Sign in using an Azure Managed Service Identity</span></span>
 
-<span data-ttu-id="c0a23-122">Azure リソースのマネージドID は、Azure Active Directory の機能です。</span><span class="sxs-lookup"><span data-stu-id="c0a23-122">Managed identities for Azure resources is a feature of Azure Active Directory.</span></span> <span data-ttu-id="c0a23-123">サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-123">You can use a managed identity service principal for sign-in, and acquire an app-only access token to access other resources.</span></span> <span data-ttu-id="c0a23-124">マネージド ID は、Azure クラウドで実行されている仮想マシンでのみ使用できます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-124">Managed identities are only available on virtual machines running in an Azure cloud.</span></span>
+<span data-ttu-id="442b0-122">Azure リソースのマネージドID は、Azure Active Directory の機能です。</span><span class="sxs-lookup"><span data-stu-id="442b0-122">Managed identities for Azure resources is a feature of Azure Active Directory.</span></span> <span data-ttu-id="442b0-123">サインインにマネージド ID サービス プリンシパルを使用し、その他のリソースにアクセスするためにアプリ専用のアクセス トークンを取得できます。</span><span class="sxs-lookup"><span data-stu-id="442b0-123">You can use a managed identity service principal for sign-in, and acquire an app-only access token to access other resources.</span></span> <span data-ttu-id="442b0-124">マネージド ID は、Azure クラウドで実行されている仮想マシンでのみ使用できます。</span><span class="sxs-lookup"><span data-stu-id="442b0-124">Managed identities are only available on virtual machines running in an Azure cloud.</span></span>
 
-<span data-ttu-id="c0a23-125">Azure リソースのマネージド ID の詳細については、「[How to use managed identities for Azure resources on an Azure VM to acquire an access token (Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法)](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="c0a23-125">For more information about managed identities for Azure resources, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).</span></span>
+<span data-ttu-id="442b0-125">Azure リソースのマネージド ID の詳細については、「[How to use managed identities for Azure resources on an Azure VM to acquire an access token (Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法)](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="442b0-125">For more information about managed identities for Azure resources, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).</span></span>
 
-## <a name="sign-in-as-a-cloud-solution-provider-csp"></a><span data-ttu-id="c0a23-126">クラウド ソリューション プロバイダー (CSP) としてサインインする</span><span class="sxs-lookup"><span data-stu-id="c0a23-126">Sign in as a Cloud Solution Provider (CSP)</span></span>
+## <a name="sign-in-as-a-cloud-solution-provider-csp"></a><span data-ttu-id="442b0-126">クラウド ソリューション プロバイダー (CSP) としてサインインする</span><span class="sxs-lookup"><span data-stu-id="442b0-126">Sign in as a Cloud Solution Provider (CSP)</span></span>
 
-<span data-ttu-id="c0a23-127">[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) のサインインには、`-TenantId` を使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="c0a23-127">A [Cloud Solution Provider (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) sign-in requires the use of `-TenantId`.</span></span> <span data-ttu-id="c0a23-128">通常は、このパラメーターにはテナント ID またはドメイン名を指定できます。</span><span class="sxs-lookup"><span data-stu-id="c0a23-128">Normally, this parameter can be provided as either a tenant ID or a domain name.</span></span> <span data-ttu-id="c0a23-129">しかし、CSP のサインインの場合、**テナント ID** を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="c0a23-129">However, for CSP sign-in, it must be provided a **tenant ID**.</span></span>
+<span data-ttu-id="442b0-127">[クラウド ソリューション プロバイダー (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) のサインインには、`-TenantId` を使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="442b0-127">A [Cloud Solution Provider (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) sign-in requires the use of `-TenantId`.</span></span> <span data-ttu-id="442b0-128">通常は、このパラメーターにはテナント ID またはドメイン名を指定できます。</span><span class="sxs-lookup"><span data-stu-id="442b0-128">Normally, this parameter can be provided as either a tenant ID or a domain name.</span></span> <span data-ttu-id="442b0-129">しかし、CSP のサインインの場合、**テナント ID** を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="442b0-129">However, for CSP sign-in, it must be provided a **tenant ID**.</span></span>
 
 ```azurepowershell-interactive
 Connect-AzureRmAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'
 ```
 
-## <a name="sign-in-to-another-cloud"></a><span data-ttu-id="c0a23-130">別のクラウドにサインインする</span><span class="sxs-lookup"><span data-stu-id="c0a23-130">Sign in to another Cloud</span></span>
+## <a name="sign-in-to-another-cloud"></a><span data-ttu-id="442b0-130">別のクラウドにサインインする</span><span class="sxs-lookup"><span data-stu-id="442b0-130">Sign in to another Cloud</span></span>
 
-<span data-ttu-id="c0a23-131">Azure クラウド サービスでは、リージョンのデータ処理規制に準拠した環境を提供します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-131">Azure cloud services offer environments compliant with regional data-handling regulations.</span></span>
-<span data-ttu-id="c0a23-132">リージョン クラウド内のアカウントの場合は、サインインするときに `-Environment` 引数で環境を設定します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-132">For accounts in a regional cloud, set the environment when you sign in with the `-Environment` argument.</span></span>
-<span data-ttu-id="c0a23-133">たとえば、ご自身のアカウントが中国のクラウドにある場合は、次のように指定します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-133">For example, if your account is in the China cloud:</span></span>
+<span data-ttu-id="442b0-131">Azure クラウド サービスでは、リージョンのデータ処理規制に準拠した環境を提供します。</span><span class="sxs-lookup"><span data-stu-id="442b0-131">Azure cloud services offer environments compliant with regional data-handling regulations.</span></span>
+<span data-ttu-id="442b0-132">リージョン クラウド内のアカウントの場合は、サインインするときに `-Environment` 引数で環境を設定します。</span><span class="sxs-lookup"><span data-stu-id="442b0-132">For accounts in a regional cloud, set the environment when you sign in with the `-Environment` argument.</span></span>
+<span data-ttu-id="442b0-133">たとえば、ご自身のアカウントが中国のクラウドにある場合は、次のように指定します。</span><span class="sxs-lookup"><span data-stu-id="442b0-133">For example, if your account is in the China cloud:</span></span>
 
 ```azurepowershell-interactive
 Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
-<span data-ttu-id="c0a23-134">次のコマンドでは、使用可能な環境の一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="c0a23-134">The following command gets a list of available environments:</span></span>
+<span data-ttu-id="442b0-134">次のコマンドでは、使用可能な環境の一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="442b0-134">The following command gets a list of available environments:</span></span>
 
 ```azurepowershell-interactive
 Get-AzureRmEnvironment | Select-Object Name
 ```
 
-## <a name="learn-more-about-managing-azure-role-based-access"></a><span data-ttu-id="c0a23-135">Azure ロールベース アクセスの管理についての詳細情報</span><span class="sxs-lookup"><span data-stu-id="c0a23-135">Learn more about managing Azure role-based access</span></span>
+## <a name="learn-more-about-managing-azure-role-based-access"></a><span data-ttu-id="442b0-135">Azure ロールベース アクセスの管理についての詳細情報</span><span class="sxs-lookup"><span data-stu-id="442b0-135">Learn more about managing Azure role-based access</span></span>
 
-<span data-ttu-id="c0a23-136">Azure での認証とサブスクリプション管理の詳細については、[アカウント、サブスクリプション、管理者ロールの管理](/azure/active-directory/role-based-access-control-configure)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="c0a23-136">For more information about authentication and subscription management in Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](/azure/active-directory/role-based-access-control-configure).</span></span>
+<span data-ttu-id="442b0-136">Azure での認証とサブスクリプション管理の詳細については、[アカウント、サブスクリプション、管理者ロールの管理](/azure/active-directory/role-based-access-control-configure)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="442b0-136">For more information about authentication and subscription management in Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](/azure/active-directory/role-based-access-control-configure).</span></span>
 
-<span data-ttu-id="c0a23-137">ロール管理を目的とした Azure PowerShell のコマンドレット:</span><span class="sxs-lookup"><span data-stu-id="c0a23-137">Azure PowerShell cmdlets for role management:</span></span>
+<span data-ttu-id="442b0-137">ロール管理を目的とした Azure PowerShell のコマンドレット:</span><span class="sxs-lookup"><span data-stu-id="442b0-137">Azure PowerShell cmdlets for role management:</span></span>
 
-* [<span data-ttu-id="c0a23-138">Get-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="c0a23-138">Get-AzureRmRoleAssignment</span></span>](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)
-* [<span data-ttu-id="c0a23-139">Get-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="c0a23-139">Get-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/Get-AzureRmRoleDefinition)
-* [<span data-ttu-id="c0a23-140">New-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="c0a23-140">New-AzureRmRoleAssignment</span></span>](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)
-* [<span data-ttu-id="c0a23-141">New-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="c0a23-141">New-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/New-AzureRmRoleDefinition)
-* [<span data-ttu-id="c0a23-142">Remove-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="c0a23-142">Remove-AzureRmRoleAssignment</span></span>](/powershell/module/AzureRM.Resources/Remove-AzureRmRoleAssignment)
-* [<span data-ttu-id="c0a23-143">Remove-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="c0a23-143">Remove-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/Remove-AzureRmRoleDefinition)
-* [<span data-ttu-id="c0a23-144">Set-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="c0a23-144">Set-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/Set-AzureRmRoleDefinition)
+* [<span data-ttu-id="442b0-138">Get-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="442b0-138">Get-AzureRmRoleAssignment</span></span>](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)
+* [<span data-ttu-id="442b0-139">Get-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="442b0-139">Get-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/Get-AzureRmRoleDefinition)
+* [<span data-ttu-id="442b0-140">New-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="442b0-140">New-AzureRmRoleAssignment</span></span>](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)
+* [<span data-ttu-id="442b0-141">New-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="442b0-141">New-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/New-AzureRmRoleDefinition)
+* [<span data-ttu-id="442b0-142">Remove-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="442b0-142">Remove-AzureRmRoleAssignment</span></span>](/powershell/module/AzureRM.Resources/Remove-AzureRmRoleAssignment)
+* [<span data-ttu-id="442b0-143">Remove-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="442b0-143">Remove-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/Remove-AzureRmRoleDefinition)
+* [<span data-ttu-id="442b0-144">Set-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="442b0-144">Set-AzureRmRoleDefinition</span></span>](/powershell/module/AzureRM.Resources/Set-AzureRmRoleDefinition)

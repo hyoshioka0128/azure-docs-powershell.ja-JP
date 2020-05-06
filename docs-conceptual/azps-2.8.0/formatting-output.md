@@ -8,28 +8,28 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.openlocfilehash: e5c9a9df830f6d866d171107472ff94166442be9
-ms.sourcegitcommit: 0b94b9566124331d0b15eb7f5a811305c254172e
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "72370371"
 ---
-# <a name="format-azure-powershell-cmdlet-output"></a><span data-ttu-id="af83b-103">Azure PowerShell コマンドレット出力の書式設定</span><span class="sxs-lookup"><span data-stu-id="af83b-103">Format Azure PowerShell cmdlet output</span></span>
+# <a name="format-azure-powershell-cmdlet-output"></a><span data-ttu-id="ea586-103">Azure PowerShell コマンドレット出力の書式設定</span><span class="sxs-lookup"><span data-stu-id="ea586-103">Format Azure PowerShell cmdlet output</span></span>
 
-<span data-ttu-id="af83b-104">既定では、いずれの Azure PowerShell コマンドレットでも、読みやすいように出力が書式設定されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-104">By default each Azure PowerShell cmdlet formats output to be easy to read.</span></span> <span data-ttu-id="af83b-105">PowerShell では、次のコマンドレットの 1 つにパイプ処理することでコマンドレット出力を変換または書式設定できます。</span><span class="sxs-lookup"><span data-stu-id="af83b-105">PowerShell allows you to convert or format cmdlet output by piping to one of the following cmdlets:</span></span>
+<span data-ttu-id="ea586-104">既定では、いずれの Azure PowerShell コマンドレットでも、読みやすいように出力が書式設定されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-104">By default each Azure PowerShell cmdlet formats output to be easy to read.</span></span> <span data-ttu-id="ea586-105">PowerShell では、次のコマンドレットの 1 つにパイプ処理することでコマンドレット出力を変換または書式設定できます。</span><span class="sxs-lookup"><span data-stu-id="ea586-105">PowerShell allows you to convert or format cmdlet output by piping to one of the following cmdlets:</span></span>
 
-| <span data-ttu-id="af83b-106">書式設定</span><span class="sxs-lookup"><span data-stu-id="af83b-106">Formatting</span></span>      | <span data-ttu-id="af83b-107">Conversion</span><span class="sxs-lookup"><span data-stu-id="af83b-107">Conversion</span></span>       |
+| <span data-ttu-id="ea586-106">書式設定</span><span class="sxs-lookup"><span data-stu-id="ea586-106">Formatting</span></span>      | <span data-ttu-id="ea586-107">変換</span><span class="sxs-lookup"><span data-stu-id="ea586-107">Conversion</span></span>       |
 |-----------------|------------------|
-| [<span data-ttu-id="af83b-108">Format-Custom</span><span class="sxs-lookup"><span data-stu-id="af83b-108">Format-Custom</span></span>](/powershell/module/microsoft.powershell.utility/format-custom) | [<span data-ttu-id="af83b-109">ConvertTo-Csv</span><span class="sxs-lookup"><span data-stu-id="af83b-109">ConvertTo-Csv</span></span>](/powershell/module/microsoft.powershell.utility/convertto-csv)  |
-| [<span data-ttu-id="af83b-110">Format-List</span><span class="sxs-lookup"><span data-stu-id="af83b-110">Format-List</span></span>](/powershell/module/microsoft.powershell.utility/format-list)   | [<span data-ttu-id="af83b-111">ConvertTo-Html</span><span class="sxs-lookup"><span data-stu-id="af83b-111">ConvertTo-Html</span></span>](/powershell/module/microsoft.powershell.utility/convertto-html) |
-| [<span data-ttu-id="af83b-112">Format-Table</span><span class="sxs-lookup"><span data-stu-id="af83b-112">Format-Table</span></span>](/powershell/module/microsoft.powershell.utility/format-table)  | [<span data-ttu-id="af83b-113">ConvertTo-Json</span><span class="sxs-lookup"><span data-stu-id="af83b-113">ConvertTo-Json</span></span>](/powershell/module/microsoft.powershell.utility/convertto-json) |
-| [<span data-ttu-id="af83b-114">Format-Wide</span><span class="sxs-lookup"><span data-stu-id="af83b-114">Format-Wide</span></span>](/powershell/module/microsoft.powershell.utility/format-wide)   | [<span data-ttu-id="af83b-115">ConvertTo-Xml</span><span class="sxs-lookup"><span data-stu-id="af83b-115">ConvertTo-Xml</span></span>](/powershell/module/microsoft.powershell.utility/convertto-xml)  |
+| [<span data-ttu-id="ea586-108">Format-Custom</span><span class="sxs-lookup"><span data-stu-id="ea586-108">Format-Custom</span></span>](/powershell/module/microsoft.powershell.utility/format-custom) | [<span data-ttu-id="ea586-109">ConvertTo-Csv</span><span class="sxs-lookup"><span data-stu-id="ea586-109">ConvertTo-Csv</span></span>](/powershell/module/microsoft.powershell.utility/convertto-csv)  |
+| [<span data-ttu-id="ea586-110">Format-List</span><span class="sxs-lookup"><span data-stu-id="ea586-110">Format-List</span></span>](/powershell/module/microsoft.powershell.utility/format-list)   | [<span data-ttu-id="ea586-111">ConvertTo-Html</span><span class="sxs-lookup"><span data-stu-id="ea586-111">ConvertTo-Html</span></span>](/powershell/module/microsoft.powershell.utility/convertto-html) |
+| [<span data-ttu-id="ea586-112">Format-Table</span><span class="sxs-lookup"><span data-stu-id="ea586-112">Format-Table</span></span>](/powershell/module/microsoft.powershell.utility/format-table)  | [<span data-ttu-id="ea586-113">ConvertTo-Json</span><span class="sxs-lookup"><span data-stu-id="ea586-113">ConvertTo-Json</span></span>](/powershell/module/microsoft.powershell.utility/convertto-json) |
+| [<span data-ttu-id="ea586-114">Format-Wide</span><span class="sxs-lookup"><span data-stu-id="ea586-114">Format-Wide</span></span>](/powershell/module/microsoft.powershell.utility/format-wide)   | [<span data-ttu-id="ea586-115">ConvertTo-Xml</span><span class="sxs-lookup"><span data-stu-id="ea586-115">ConvertTo-Xml</span></span>](/powershell/module/microsoft.powershell.utility/convertto-xml)  |
 
-<span data-ttu-id="af83b-116">PowerShell ターミナルに表示するために使用されるのが書式設定で、他のスクリプトまたはプログラムで使用するためのデータ生成に使用されるのが変換です。</span><span class="sxs-lookup"><span data-stu-id="af83b-116">Formatting is used for display in a PowerShell terminal, and conversion is used for generating data to be consumed by other scripts or programs.</span></span>
+<span data-ttu-id="ea586-116">PowerShell ターミナルに表示するために使用されるのが書式設定で、他のスクリプトまたはプログラムで使用するためのデータ生成に使用されるのが変換です。</span><span class="sxs-lookup"><span data-stu-id="ea586-116">Formatting is used for display in a PowerShell terminal, and conversion is used for generating data to be consumed by other scripts or programs.</span></span>
 
-## <a name="table-output-format"></a><span data-ttu-id="af83b-117">テーブル出力形式</span><span class="sxs-lookup"><span data-stu-id="af83b-117">Table output format</span></span>
+## <a name="table-output-format"></a><span data-ttu-id="ea586-117">テーブル出力形式</span><span class="sxs-lookup"><span data-stu-id="ea586-117">Table output format</span></span>
 
-<span data-ttu-id="af83b-118">Azure PowerShell コマンドレットの出力形式は既定で表形式となります。</span><span class="sxs-lookup"><span data-stu-id="af83b-118">By default, Azure PowerShell cmdlets output in the table format.</span></span> <span data-ttu-id="af83b-119">この形式の場合、要求したリソースの情報が一部表示されません。</span><span class="sxs-lookup"><span data-stu-id="af83b-119">This format doesn't display all information of the requested resource:</span></span>
+<span data-ttu-id="ea586-118">Azure PowerShell コマンドレットの出力形式は既定で表形式となります。</span><span class="sxs-lookup"><span data-stu-id="ea586-118">By default, Azure PowerShell cmdlets output in the table format.</span></span> <span data-ttu-id="ea586-119">この形式の場合、要求したリソースの情報が一部表示されません。</span><span class="sxs-lookup"><span data-stu-id="ea586-119">This format doesn't display all information of the requested resource:</span></span>
 
 ```powershell-interactive
 Get-AzVM
@@ -43,7 +43,7 @@ QueryExample         RHELExample  westus2  Standard_D2_v3   Linux    rhelexample
 QueryExample        WinExampleVM  westus2 Standard_DS1_v2 Windows   winexamplevm268         Succeeded
 ```
 
-<span data-ttu-id="af83b-120">`Format-Table` によって表示されるデータの量は、PowerShell セッションのウィンドウ幅によって決められることがあります。</span><span class="sxs-lookup"><span data-stu-id="af83b-120">The amount of data displayed by `Format-Table` can be affected by the width of your PowerShell session window.</span></span> <span data-ttu-id="af83b-121">特定のプロパティに出力を制限したり、プロパティを並べ替えたりする目的で、プロパティ名を引数として `Format-Table` に指定できます。</span><span class="sxs-lookup"><span data-stu-id="af83b-121">To restrict the output to specific properties and order them, property names can be provided as arguments to `Format-Table`:</span></span>
+<span data-ttu-id="ea586-120">`Format-Table` によって表示されるデータの量は、PowerShell セッションのウィンドウ幅によって決められることがあります。</span><span class="sxs-lookup"><span data-stu-id="ea586-120">The amount of data displayed by `Format-Table` can be affected by the width of your PowerShell session window.</span></span> <span data-ttu-id="ea586-121">特定のプロパティに出力を制限したり、プロパティを並べ替えたりする目的で、プロパティ名を引数として `Format-Table` に指定できます。</span><span class="sxs-lookup"><span data-stu-id="ea586-121">To restrict the output to specific properties and order them, property names can be provided as arguments to `Format-Table`:</span></span>
 
 ```powershell-interactive
 Get-AzVM -ResourceGroupName QueryExample | Format-Table Name,ResourceGroupName,Location
@@ -57,15 +57,15 @@ RHELExample    QueryExample      westus2
 WinExampleVM   QueryExample      westus2
 ```
 
-## <a name="list-output-format"></a><span data-ttu-id="af83b-122">一覧出力の形式</span><span class="sxs-lookup"><span data-stu-id="af83b-122">List output format</span></span>
+## <a name="list-output-format"></a><span data-ttu-id="ea586-122">一覧出力の形式</span><span class="sxs-lookup"><span data-stu-id="ea586-122">List output format</span></span>
 
-<span data-ttu-id="af83b-123">一覧で出力する形式では、2 列が生成され、プロパティ名に値が続きます。</span><span class="sxs-lookup"><span data-stu-id="af83b-123">List output format produces two columns, property names followed by the value.</span></span> <span data-ttu-id="af83b-124">複雑なオブジェクトの場合、オブジェクトの種類が代わりに表示されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-124">For complex objects, the type of the object is displayed instead.</span></span>
+<span data-ttu-id="ea586-123">一覧で出力する形式では、2 列が生成され、プロパティ名に値が続きます。</span><span class="sxs-lookup"><span data-stu-id="ea586-123">List output format produces two columns, property names followed by the value.</span></span> <span data-ttu-id="ea586-124">複雑なオブジェクトの場合、オブジェクトの種類が代わりに表示されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-124">For complex objects, the type of the object is displayed instead.</span></span>
 
 ```powershell-interactive
 Get-AzVM | Format-List
 ```
 
-<span data-ttu-id="af83b-125">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="af83b-125">The following output has some fields removed.</span></span>
+<span data-ttu-id="ea586-125">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="ea586-125">The following output has some fields removed.</span></span>
 
 ```output
 ResourceGroupName        : QueryExample
@@ -91,7 +91,7 @@ Location                 : westus2
 ...
 ```
 
-<span data-ttu-id="af83b-126">`Format-Table` と同様に、出力を並べ替えたり、制限したりする目的でプロパティ名を指定できます。</span><span class="sxs-lookup"><span data-stu-id="af83b-126">Like `Format-Table`, property names can be provided to order and restrict the output:</span></span>
+<span data-ttu-id="ea586-126">`Format-Table` と同様に、出力を並べ替えたり、制限したりする目的でプロパティ名を指定できます。</span><span class="sxs-lookup"><span data-stu-id="ea586-126">Like `Format-Table`, property names can be provided to order and restrict the output:</span></span>
 
 ```powershell-interactive
 Get-AzVM | Format-List ResourceGroupName,Name,Location
@@ -111,9 +111,9 @@ Name              : WinExampleVM
 Location          : westus2
 ```
 
-## <a name="wide-output-format"></a><span data-ttu-id="af83b-127">ワイド出力の形式</span><span class="sxs-lookup"><span data-stu-id="af83b-127">Wide output format</span></span>
+## <a name="wide-output-format"></a><span data-ttu-id="ea586-127">ワイド出力の形式</span><span class="sxs-lookup"><span data-stu-id="ea586-127">Wide output format</span></span>
 
-<span data-ttu-id="af83b-128">形式がワイド出力の場合、クエリごとにプロパティが 1 つだけ生成されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-128">Wide output format produces only one property name per query.</span></span> <span data-ttu-id="af83b-129">表示されるプロパティは、引数としてプロパティを指定することで制御できます。</span><span class="sxs-lookup"><span data-stu-id="af83b-129">Which property is displayed can be controlled by giving a property as an argument.</span></span>
+<span data-ttu-id="ea586-128">形式がワイド出力の場合、クエリごとにプロパティが 1 つだけ生成されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-128">Wide output format produces only one property name per query.</span></span> <span data-ttu-id="ea586-129">表示されるプロパティは、引数としてプロパティを指定することで制御できます。</span><span class="sxs-lookup"><span data-stu-id="ea586-129">Which property is displayed can be controlled by giving a property as an argument.</span></span>
 
 ```powershell-interactive
 Get-AzVM | Format-Wide
@@ -133,15 +133,15 @@ QueryExample                                    QueryExample
 QueryExample
 ```
 
-## <a name="custom-output-format"></a><span data-ttu-id="af83b-130">カスタム出力の形式</span><span class="sxs-lookup"><span data-stu-id="af83b-130">Custom output format</span></span>
+## <a name="custom-output-format"></a><span data-ttu-id="ea586-130">カスタム出力の形式</span><span class="sxs-lookup"><span data-stu-id="ea586-130">Custom output format</span></span>
 
-<span data-ttu-id="af83b-131">出力の種類が `Custom-Format` の場合、カスタム オブジェクトの書式設定向けとなります。</span><span class="sxs-lookup"><span data-stu-id="af83b-131">The `Custom-Format` output type is meant for formatting custom objects.</span></span> <span data-ttu-id="af83b-132">引数がない場合、`Format-List` と同様に動作しますが、カスタム クラスのプロパティ名が表示されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-132">Without any arguments, it behaves like `Format-List` but displays the property names of custom classes.</span></span>
+<span data-ttu-id="ea586-131">出力の種類が `Custom-Format` の場合、カスタム オブジェクトの書式設定向けとなります。</span><span class="sxs-lookup"><span data-stu-id="ea586-131">The `Custom-Format` output type is meant for formatting custom objects.</span></span> <span data-ttu-id="ea586-132">引数がない場合、`Format-List` と同様に動作しますが、カスタム クラスのプロパティ名が表示されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-132">Without any arguments, it behaves like `Format-List` but displays the property names of custom classes.</span></span>
 
 ```powershell-interactive
 Get-AzVM | Format-Custom
 ```
 
-<span data-ttu-id="af83b-133">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="af83b-133">The following output has some fields removed.</span></span>
+<span data-ttu-id="ea586-133">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="ea586-133">The following output has some fields removed.</span></span>
 
 ```output
 ResourceGroupName : QueryExample
@@ -160,13 +160,13 @@ StorageProfile    : {ImageReference, OsDisk, DataDisks}
 ...
 ```
 
-<span data-ttu-id="af83b-134">引数としてプロパティ名を `Custom-Format` に指定すると、値として設定されているカスタム オブジェクトのプロパティ/値のペアが表示されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-134">Giving property names as arguments to `Custom-Format` displays the property/value pairs for custom objects set as values:</span></span>
+<span data-ttu-id="ea586-134">引数としてプロパティ名を `Custom-Format` に指定すると、値として設定されているカスタム オブジェクトのプロパティ/値のペアが表示されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-134">Giving property names as arguments to `Custom-Format` displays the property/value pairs for custom objects set as values:</span></span>
 
 ```powershell-interactive
 Get-AzVM | Format-Custom Name,ResourceGroupName,Location,OSProfile
 ```
 
-<span data-ttu-id="af83b-135">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="af83b-135">The following output has some fields removed.</span></span>
+<span data-ttu-id="ea586-135">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="ea586-135">The following output has some fields removed.</span></span>
 
 ```output
 class PSVirtualMachineList
@@ -230,11 +230,11 @@ class PSVirtualMachineList
 }
 ```
 
-## <a name="conversion-to-other-data-formats"></a><span data-ttu-id="af83b-136">他のデータ形式に変換する</span><span class="sxs-lookup"><span data-stu-id="af83b-136">Conversion to other data formats</span></span>
+## <a name="conversion-to-other-data-formats"></a><span data-ttu-id="ea586-136">他のデータ形式に変換する</span><span class="sxs-lookup"><span data-stu-id="ea586-136">Conversion to other data formats</span></span>
 
-<span data-ttu-id="af83b-137">`ConvertTo-*` 群のコマンドレットの場合、Azure PowerShell コマンドレットの結果が機械で読める形式に変換できます。</span><span class="sxs-lookup"><span data-stu-id="af83b-137">The `ConvertTo-*` family of cmdlets allows for converting the results of Azure PowerShell cmdlets to machine-readable formats.</span></span> <span data-ttu-id="af83b-138">Azure PowerShell の結果から一部のプロパティのみを取得するには、変換の前にパイプで `Select-Object` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="af83b-138">To get only some properties from the Azure PowerShell results, use the `Select-Object` command in a pipe before performing the conversion.</span></span> <span data-ttu-id="af83b-139">次の例では、各変換によってさまざまな種類の出力が生成されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-139">The following examples demonstrate the different kinds of output that each conversion produces.</span></span>
+<span data-ttu-id="ea586-137">`ConvertTo-*` 群のコマンドレットの場合、Azure PowerShell コマンドレットの結果が機械で読める形式に変換できます。</span><span class="sxs-lookup"><span data-stu-id="ea586-137">The `ConvertTo-*` family of cmdlets allows for converting the results of Azure PowerShell cmdlets to machine-readable formats.</span></span> <span data-ttu-id="ea586-138">Azure PowerShell の結果から一部のプロパティのみを取得するには、変換の前にパイプで `Select-Object` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="ea586-138">To get only some properties from the Azure PowerShell results, use the `Select-Object` command in a pipe before performing the conversion.</span></span> <span data-ttu-id="ea586-139">次の例では、各変換によってさまざまな種類の出力が生成されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-139">The following examples demonstrate the different kinds of output that each conversion produces.</span></span>
 
-### <a name="conversion-to-csv"></a><span data-ttu-id="af83b-140">CSV に変換</span><span class="sxs-lookup"><span data-stu-id="af83b-140">Conversion to CSV</span></span>
+### <a name="conversion-to-csv"></a><span data-ttu-id="ea586-140">CSV に変換</span><span class="sxs-lookup"><span data-stu-id="ea586-140">Conversion to CSV</span></span>
 
 ```azurepowershell-interactive
 Get-AzVM | ConvertTo-CSV
@@ -248,15 +248,15 @@ Get-AzVM | ConvertTo-CSV
 "QUERYEXAMPLE","/subscriptions/.../resourceGroups/QUERYEXAMPLE/providers/Microsoft.Compute/virtualMachines/WinExampleVM","...","WinExampleVM","Microsoft.Compute/virtualMachines","westus2",,"System.Collections.Generic.Dictionary`2[System.String,System.String]",,,"System.Collections.Generic.List`1[Microsoft.Azure.Management.Compute.Models.VirtualMachineExtension]","Microsoft.Azure.Management.Compute.Models.HardwareProfile",,"Microsoft.Azure.Management.Compute.Models.NetworkProfile","Microsoft.Azure.Management.Compute.Models.OSProfile",,"Succeeded","Microsoft.Azure.Management.Compute.Models.StorageProfile","Compact",,"System.Collections.Generic.List`1[System.String]",,,"...","OK"
 ```
 
-### <a name="conversion-to-json"></a><span data-ttu-id="af83b-141">JSON に変換</span><span class="sxs-lookup"><span data-stu-id="af83b-141">Conversion to JSON</span></span>
+### <a name="conversion-to-json"></a><span data-ttu-id="ea586-141">JSON に変換</span><span class="sxs-lookup"><span data-stu-id="ea586-141">Conversion to JSON</span></span>
 
-<span data-ttu-id="af83b-142">JSON 出力の場合、既定では一部のプロパティが展開されません。</span><span class="sxs-lookup"><span data-stu-id="af83b-142">JSON output doesn't expand all properties by default.</span></span> <span data-ttu-id="af83b-143">展開されるプロパティの深さを変更するには、`-Depth` 引数を使用します。</span><span class="sxs-lookup"><span data-stu-id="af83b-143">To change the depth of properties expanded, use the `-Depth` argument.</span></span> <span data-ttu-id="af83b-144">既定では、展開の深さは `2` です。</span><span class="sxs-lookup"><span data-stu-id="af83b-144">By default, the expansion depth is `2`.</span></span>
+<span data-ttu-id="ea586-142">JSON 出力の場合、既定では一部のプロパティが展開されません。</span><span class="sxs-lookup"><span data-stu-id="ea586-142">JSON output doesn't expand all properties by default.</span></span> <span data-ttu-id="ea586-143">展開されるプロパティの深さを変更するには、`-Depth` 引数を使用します。</span><span class="sxs-lookup"><span data-stu-id="ea586-143">To change the depth of properties expanded, use the `-Depth` argument.</span></span> <span data-ttu-id="ea586-144">既定では、展開の深さは `2` です。</span><span class="sxs-lookup"><span data-stu-id="ea586-144">By default, the expansion depth is `2`.</span></span>
 
 ```azurepowershell-interactive
 Get-AzVM|ConvertTo-JSON
 ```
 
-<span data-ttu-id="af83b-145">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="af83b-145">The following output has some fields removed.</span></span>
+<span data-ttu-id="ea586-145">次の出力では、一部のフィールドが削除されています。</span><span class="sxs-lookup"><span data-stu-id="ea586-145">The following output has some fields removed.</span></span>
 
 ```output
 [
@@ -299,9 +299,9 @@ Get-AzVM|ConvertTo-JSON
 ]
 ```
 
-### <a name="conversion-to-xml"></a><span data-ttu-id="af83b-146">XML に変換</span><span class="sxs-lookup"><span data-stu-id="af83b-146">Conversion to XML</span></span>
+### <a name="conversion-to-xml"></a><span data-ttu-id="ea586-146">XML に変換</span><span class="sxs-lookup"><span data-stu-id="ea586-146">Conversion to XML</span></span>
 
-<span data-ttu-id="af83b-147">`ConvertTo-XML` コマンドレットでは、Azure PowerShell 応答オブジェクトが純粋な XML オブジェクトに変換されます。この XML オブジェクトは PowerShell 内で他の XML オブジェクトと同様に処理できます。</span><span class="sxs-lookup"><span data-stu-id="af83b-147">The `ConvertTo-XML` cmdlet converts the Azure PowerShell response object into a pure XML object, which can be handled like any other XML object within PowerShell.</span></span> 
+<span data-ttu-id="ea586-147">`ConvertTo-XML` コマンドレットでは、Azure PowerShell 応答オブジェクトが純粋な XML オブジェクトに変換されます。この XML オブジェクトは PowerShell 内で他の XML オブジェクトと同様に処理できます。</span><span class="sxs-lookup"><span data-stu-id="ea586-147">The `ConvertTo-XML` cmdlet converts the Azure PowerShell response object into a pure XML object, which can be handled like any other XML object within PowerShell.</span></span> 
 
 ```azurepowershell-interactive
 Get-AzVM | ConvertTo-XML
@@ -313,10 +313,10 @@ xml                            Objects
 version="1.0" encoding="utf-8" Objects
 ```
 
-### <a name="conversion-to-html"></a><span data-ttu-id="af83b-148">HTML に変換</span><span class="sxs-lookup"><span data-stu-id="af83b-148">Conversion to HTML</span></span>
+### <a name="conversion-to-html"></a><span data-ttu-id="ea586-148">HTML に変換</span><span class="sxs-lookup"><span data-stu-id="ea586-148">Conversion to HTML</span></span>
 
-<span data-ttu-id="af83b-149">オブジェクトを HTML に変換すると、HTML テーブルとしてレンダリングされる出力が生成されます。</span><span class="sxs-lookup"><span data-stu-id="af83b-149">Converting an object to HTML produces output that will be rendered as an HTML table.</span></span> <span data-ttu-id="af83b-150">HTML のレンダリングは、幅情報を含まないテーブルをレンダリングするためのブラウザー動作に依存します。</span><span class="sxs-lookup"><span data-stu-id="af83b-150">Rendering of the HTML will depend on your browser behavior for rendering tables which contain no width information.</span></span>
-<span data-ttu-id="af83b-151">カスタム クラス オブジェクトは展開されません。</span><span class="sxs-lookup"><span data-stu-id="af83b-151">No custom class objects are expanded.</span></span>
+<span data-ttu-id="ea586-149">オブジェクトを HTML に変換すると、HTML テーブルとしてレンダリングされる出力が生成されます。</span><span class="sxs-lookup"><span data-stu-id="ea586-149">Converting an object to HTML produces output that will be rendered as an HTML table.</span></span> <span data-ttu-id="ea586-150">HTML のレンダリングは、幅情報を含まないテーブルをレンダリングするためのブラウザー動作に依存します。</span><span class="sxs-lookup"><span data-stu-id="ea586-150">Rendering of the HTML will depend on your browser behavior for rendering tables which contain no width information.</span></span>
+<span data-ttu-id="ea586-151">カスタム クラス オブジェクトは展開されません。</span><span class="sxs-lookup"><span data-stu-id="ea586-151">No custom class objects are expanded.</span></span>
 
 ```azurepowershell-interactive
 Get-AzVM | ConvertTo-HTML

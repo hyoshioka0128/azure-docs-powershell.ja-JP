@@ -1,12 +1,12 @@
 - name: Azure PowerShell
   href: overview.md
-- name: Install
+- name: インストール
   items:
     - name: PowerShellGet を使用したインストール
       href: install-azurerm-ps.md
     - name: MSI または WebPI を使用したインストール
       href: other-install.md
-- name: 作業開始
+- name: はじめに
   href: get-started-azureps.md
 - name: Cloud Shell
   href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
@@ -24,7 +24,7 @@
   href: formatting-output.md
 - name: サブスクリプションの管理
   href: manage-subscriptions-azureps.md
-- name: デプロイ
+- name: 配置
   items:
     - name: Resource Manager テンプレートのデプロイ
       href: /azure/azure-resource-manager/resource-group-template-deploy
