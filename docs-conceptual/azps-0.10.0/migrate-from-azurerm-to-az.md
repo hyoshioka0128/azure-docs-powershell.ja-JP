@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 02b39653ebb4aa0f74d2340a7be7b35e08d5e44d
-ms.sourcegitcommit: 4c61442a2df1cee633ce93cad9f6bc793803baa2
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "81446038"
 ---
 # <a name="migrate-azure-powershell-from-azurerm-to-az"></a>AzureRM から Az への Azure PowerShell の移行
@@ -62,7 +62,7 @@ Enable-AzureRmAlias -Scope CurrentUser
 ```
 
 別名を使用することによって、Az モジュールがインストールされた状態で、古いコマンドレット名を使用できるようになります。 これらのエイリアスは、選択したスコープのプロファイルに書き込まれます。 プロファイルが存在しない場合は、作成されます。
-`CurrentUser` よりも範囲が広い `-Scope` を使用する場合は、対応するプロファイル ファイルを作成または更新するための適切な権限が必要です。
+`-Scope` よりも範囲が広い `CurrentUser` を使用する場合は、対応するプロファイル ファイルを作成または更新するための適切な権限が必要です。
 
 > [!IMPORTANT]
 > エイリアス化されるのはコマンドレット名__のみ__で、モジュール名はエイリアス化されません。 `#Requires`、`Import-Module`、`.psd1` の依存関係の一覧、またはコマンドレットの完全修飾名を使用している場合は、モジュール名に関連する[重大な変更の一覧](migrate-az-1.0.0.md)に記載されている手順に従って、必ずこの時点で移行してください。
@@ -87,4 +87,4 @@ Enable-AzureRmAlias -Scope CurrentUser
 移行が完了し、エイリアスの動作に依存しなくなったら、エイリアスを無効にすることをお勧めします。 これは [Disable-AzureRmAlias](/powershell/module/az.accounts/disable-azurermalias) コマンドレットを使用して行います。
 
 > [!IMPORTANT]
-> このコマンドレットを実行するときは、__必ず__、`Enable-AzureRmAlias` を呼び出した `-Scope` ごとに呼び出してください。そうしないと、システム上のスクリプトが引き続きエイリアスの動作に依存する可能性があります。
+> このコマンドレットを実行するときは、__必ず__、`-Scope` を呼び出した `Enable-AzureRmAlias` ごとに呼び出してください。そうしないと、システム上のスクリプトが引き続きエイリアスの動作に依存する可能性があります。

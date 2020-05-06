@@ -5,10 +5,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.openlocfilehash: b5ad201abcabbdc1a88db241b028d88f05054a14
-ms.sourcegitcommit: 4c61442a2df1cee633ce93cad9f6bc793803baa2
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "81445817"
 ---
 # <a name="using-azure-powershell-in-docker"></a>Docker での Azure PowerShell の使用
@@ -17,7 +17,7 @@ Azure PowerShell がプレインストールされた Docker イメージが公�
 
 ## <a name="finding-available-images"></a>使用可能なイメージの検索
 
-リリースされたイメージには、Docker 17.05 以降が必要です。 また、`sudo` またはローカル管理者権限なしで Docker を実行できる必要もあります。 `docker` を正しくインストールするには、Docker の公式な[手順][install]に従ってください。
+リリースされたイメージには、Docker 17.05 以降が必要です。 また、`sudo` またはローカル管理者権限なしで Docker を実行できる必要もあります。 [ を正しくインストールするには、Docker の公式な][install]手順`docker`に従ってください。
 
 最新のコンテナー イメージには、最新バージョンの PowerShell と、Az モジュールでサポートされている最新の Azure PowerShell モジュールが含まれています。
 

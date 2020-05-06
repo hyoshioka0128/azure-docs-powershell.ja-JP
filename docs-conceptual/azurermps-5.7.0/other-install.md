@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.openlocfilehash: aaba0ce38129b96e3d691f1a9d9cfdc929188ffd
-ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "75722409"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi-or-web-platform-installer"></a>MSI または Web Platform Installer を使用した Windows への Azure PowerShell のインストール
@@ -28,7 +28,7 @@ Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releas
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、`Azure` モジュールのみを使用してください。
 
-Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、現在の PowerShell セッションに `AzureRM` を読み込み、Azure の資格情報でサインインする必要があります。
+Azure PowerShell の操作を開始するには、`AzureRM`Import-Module[ コマンドレットを使用して、現在の PowerShell セッションに ](/powershell/module/Microsoft.PowerShell.Core/Import-Module) を読み込み、Azure の資格情報でサインインする必要があります。
 
 ```powershell-interactive
 # Import the module into the PowerShell session
@@ -47,7 +47,7 @@ Azure サインインをセッション間で維持する方法については�
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、`Azure` モジュールのみを使用してください。
 
-Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、現在の PowerShell セッションに `AzureRM` を読み込み、Azure の資格情報でサインインする必要があります。
+Azure PowerShell の操作を開始するには、`AzureRM`Import-Module[ コマンドレットを使用して、現在の PowerShell セッションに ](/powershell/module/Microsoft.PowerShell.Core/Import-Module) を読み込み、Azure の資格情報でサインインする必要があります。
 
 ```powershell-interactive
 # Import the module into the PowerShell session

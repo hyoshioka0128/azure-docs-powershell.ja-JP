@@ -8,17 +8,17 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.openlocfilehash: e5c9a9df830f6d866d171107472ff94166442be9
-ms.sourcegitcommit: 5bdedc77b27b66998387486761ec67ed9326f169
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "67345332"
 ---
 # <a name="format-azure-powershell-cmdlet-output"></a>Azure PowerShell コマンドレット出力の書式設定
 
 既定では、いずれの Azure PowerShell コマンドレットでも、読みやすいように出力が書式設定されます。 PowerShell では、次のコマンドレットの 1 つにパイプ処理することでコマンドレット出力を変換または書式設定できます。
 
-| 書式設定      | Conversion       |
+| 書式設定      | 変換       |
 |-----------------|------------------|
 | [Format-Custom](/powershell/module/microsoft.powershell.utility/format-custom) | [ConvertTo-Csv](/powershell/module/microsoft.powershell.utility/convertto-csv)  |
 | [Format-List](/powershell/module/microsoft.powershell.utility/format-list)   | [ConvertTo-Html](/powershell/module/microsoft.powershell.utility/convertto-html) |

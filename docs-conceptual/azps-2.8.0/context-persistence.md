@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 72d1b07bb2c66f80ea6f5d37ef7012d0d0a5bbbc
-ms.sourcegitcommit: 1cdff856d1d559b978aac6bc034dd2f99ac04afe
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "72791470"
 ---
 # <a name="azure-powershell-context-objects"></a>Azure PowerShell コンテキスト オブジェクト
@@ -24,7 +24,7 @@ Azure PowerShell は、_Azure PowerShell コンテキスト オブジェクト_ 
 
 Azure コンテキストは、コマンドの実行対象のアクティブなサブスクリプションと、Azure クラウドに接続するために必要な認証情報を表す PowerShell オブジェクトです。 Azure コンテキストを使用すると、サブスクリプションを切り替えるたびに、Azure PowerShell でアカウントを再認証する必要はありません。 Azure コンテキストは、次のもので構成されます。
 
-* [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) を使用して Azure にサインインするために使用された_アカウント_。 Azure コンテキストでは、アカウントの観点からは、ユーザー、アプリケーション ID、およびサービス プリンシパルが同じものとして扱われます。
+* _Connect-AzAccount_ を使用して Azure にサインインするために使用された[アカウント](/powershell/module/az.accounts/connect-azaccount)。 Azure コンテキストでは、アカウントの観点からは、ユーザー、アプリケーション ID、およびサービス プリンシパルが同じものとして扱われます。
 * _テナント_に関連付けられたアクティブな_サブスクリプション_ (Azure リソースを作成および実行するための Microsoft とのサービス契約)。 多くの場合、テナントは、ドキュメント内で、または Active Directory を使用する場合に_組織_と呼ばれます。
 * _トークン キャッシュ_ (Azure クラウドへアクセスするための格納された認証トークン) への参照。 このトークンの格納場所と保持期間は[コンテキスト自動保存設定](#save-azure-contexts-across-powershell-sessions)によって決定されます。
 
@@ -98,7 +98,7 @@ Azure PowerShell コマンドレットでのコンテキストのもう 1 つの
 
 既定では、Azure コンテキストは、PowerShell セッション間で使用するために保存されます。 この動作は、次の方法で変更します。
 
-* `Connect-AzAccount` で `-Scope Process` を使用してサインインします。
+* `-Scope Process` で `Connect-AzAccount` を使用してサインインします。
 
   ```azurepowershell
   Connect-AzAccount -Scope Process
@@ -154,7 +154,7 @@ Azure コンテキストと資格情報をクリアするには、次のよう�
 
   アクティブなコンテキストを削除すると、Azure から切断され、`Connect-AzAccount` で再認証する必要があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 * [PowerShell ジョブで Azure PowerShell コマンドレットを実行する](using-psjobs.md)
 * [Azure Active Directory 用語集](/azure/active-directory/fundamentals/active-directory-whatis#terminology)

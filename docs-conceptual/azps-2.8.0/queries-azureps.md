@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: 9141f5640467722608cb7748f425ce3942668fb8
-ms.sourcegitcommit: 0b94b9566124331d0b15eb7f5a811305c254172e
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "72370246"
 ---
 # <a name="query-output-of-azure-powershell"></a>Azure PowerShell の出力に対してクエリを実行する 
@@ -73,7 +73,7 @@ TestVM 711d8ed1-b888-4c52-8ab9-66f07b87eb6b Succeeded
 
 ## <a name="select-nested-properties"></a>入れ子になったプロパティの選択
 
-Azure PowerShell コマンドレットの出力の一部のプロパティでは、入れ子になったオブジェクトが使用されます (`Get-AzVM` 出力の `StorageProfile` プロパティなど)。 入れ子になったプロパティから値を取得するには、`Select-Object` のディクショナリの引数の一部として検査する値に表示名と完全なパスを提供します。
+Azure PowerShell コマンドレットの出力の一部のプロパティでは、入れ子になったオブジェクトが使用されます (`StorageProfile` 出力の `Get-AzVM` プロパティなど)。 入れ子になったプロパティから値を取得するには、`Select-Object` のディクショナリの引数の一部として検査する値に表示名と完全なパスを提供します。
 
 ```azurepowershell-interactive
 Get-AzVM -ResourceGroupName TestGroup | `

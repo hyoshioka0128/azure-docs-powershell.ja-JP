@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 7f22a420068db87fa2c3c007bd36f515384162fb
-ms.sourcegitcommit: ad7677d703a8512d371d3123dc7e541156b95cb8
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "72814371"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
@@ -73,7 +73,7 @@ Az モジュールは、Azure PowerShell コマンドレットのロールアッ
 環境によっては、PowerShell ギャラリーに接続できない場合があります。 そのような場合でも、次のいずれかの方法を使用してオフラインでインストールできます。
 
 * モジュールを別の場所にダウンロードし、それをネットワーク上のインストール ソースとして使用します。 これは複雑なプロセスになることがありますが、1 台のサーバーまたはファイル共有に PowerShell モジュールをキャッシュして、任意の接続されていないシステムに PowerShellGet でデプロイすることができます。 ローカル リポジトリを設定して、切断されたシステムにインストールする方法については、「[ローカルの PowerShellGet リポジトリの操作](/powershell/scripting/gallery/how-to/working-with-local-psrepositories)」で説明されています。
-* ネットワークに接続されているコンピューターに [Azure PowerShell MSI をダウンロード](install-az-ps-msi.md)し、PowerShell ギャラリーにアクセスできないシステムにインストーラーをコピーします。 MSI インストーラーは、Windows 上の PowerShell 5.1 についてのみ動作することに注意してください。
+* ネットワークに接続されているコンピューターに [Azure PowerShell MSI をダウンロード](install-az-ps-msi.md)し、PowerShell ギャラリーにアクセスできないシステムにインストーラーをコピーします。 MSI インストーラーは、Windows 上の PowerShell 5.1 でのみ動作することに注意してください。
 * モジュールを [Save-Module](/powershell/module/PowershellGet/Save-Module) を使用してファイル共有に保存するか、別のソースに保存して他のコンピューターに手動でコピーします。
   
   ```powershell-interactive

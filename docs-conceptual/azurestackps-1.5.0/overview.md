@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
 ms.openlocfilehash: afa83a6258e57e961576b328e67fad634704dddf
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153905"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "63053360"
 ---
 # <a name="azure-stack-module-150"></a>Azure Stack Module 1.5.0
 
 ## <a name="requirements"></a>要件:
 サポートされている Azure Stack の最小バージョンは 1808 です。
 
-注:以前のバージョンを使用している場合は、バージョン 1.4.0 をインストールしてください
+注: 以前のバージョンを使用している場合は、バージョン 1.4.0 をインストールしてください
 
 ## <a name="known-issues"></a>既知の問題:
 
 - New-AzsOffer では、状態が "パブリック" のオファーを作成することはできません。 状態を変更するには、後で Set-AzsOffer コマンドレットを呼び出す必要があります。
 - 再デプロイせずに IP プールを削除することはできません。
 
-## <a name="install"></a>Install
+## <a name="install"></a>インストール
 ```
 # Remove previous versions of AzureStack modules
 Uninstall-Module -Name AzureStack -Force 
@@ -108,7 +108,7 @@ Network 管理者モジュールのプレビュー リリース。このモジ�
 - 割り当て済みのネットワーク リソース (パブリック IP アドレス、仮想ネットワーク、ロード バランサーなど) の表示
 - 管理者の概要を表示するコマンドレットの提供
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 Azure Stack Storage 管理者モジュールのプレビュー リリース。  このリリースには、次の機能が用意されています。
 - ストレージ クォータの管理
 - 削除されたストレージ リソースのガベージ コレクションの実行
@@ -127,7 +127,7 @@ Azure Stack Subscription 管理者モジュールのプレビュー リリース
 Azure Stack Subscription モジュールのプレビュー リリース。  このモジュールは、ユーザー向けの次の機能を提供します。
 - サブスクリプションの作成、削除、更新
 
-### <a name="update"></a>アップデート
+### <a name="update"></a>更新
 Azure Stack Update 管理者モジュールのプレビュー リリース。  このモジュールでは、管理者は以下を行うことができます。
 - 使用可能な更新プログラムの表示とインストール
 - 中断された更新の再開

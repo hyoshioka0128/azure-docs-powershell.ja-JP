@@ -22,7 +22,7 @@ landingContent:
             url: 'https://shell.azure.com'
       - linkListType: get-started
         links:
-          - text: 作業開始
+          - text: はじめに
             url: get-started-azureps.md
           - text: PowerShell の概念について
             url: /powershell/scripting/overview

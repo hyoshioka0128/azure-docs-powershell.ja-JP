@@ -8,17 +8,17 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/06/2017
 ms.openlocfilehash: a4911e72f687c07b31805c07fd23263a6b7f33b4
-ms.sourcegitcommit: 2d0c3ffaa5246f680784fa7e15b0d2536c27ff80
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "75718799"
 ---
 # <a name="installing-the-azure-powershell-service-management-module"></a>Azure PowerShell Service Management モジュールのインストール
 
 Azure PowerShell は、[PowerShell ギャラリー](https://www.powershellgallery.com/)からインストールすることをお勧めします。
 
-## <a name="step-1-install-powershellget"></a>手順 1:PowerShellGet をインストールする
+## <a name="step-1-install-powershellget"></a>手順 1: PowerShellGet をインストールする
 
 PowerShell ギャラリーからソフトウェアをインストールするには、PowerShellGet モジュールが必要です。 PowerShellGet のバージョンが適切であるかなど、システム要件を満たしていることを確認してください。 ご使用のシステムに PowerShellGet がインストールされているかどうかを確認するには、次のコマンドを実行します。
 
@@ -36,7 +36,7 @@ PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1
 
 PowerShellGet がインストールされていない場合は、「[PowerShellGet の入手方法](#how-to-get-powershellget)」をご覧ください。
 
-## <a name="step-2-install-azure-powershell"></a>手順 2:Azure PowerShell をインストールする
+## <a name="step-2-install-azure-powershell"></a>手順 2: Azure PowerShell をインストールする
 
 Windows PowerShell コンソールから管理者として次のコマンドを実行します。
 

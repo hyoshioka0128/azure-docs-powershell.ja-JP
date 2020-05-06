@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 08/31/2017
 ms.openlocfilehash: b260abb91de26dadac31340f17f97ff378813fac
-ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "67863200"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell の概要
@@ -25,7 +25,7 @@ Azure PowerShell は、[Cloud Shell](/azure/cloud-shell/overview) を使用し�
 
 Azure PowerShell の基本的な使い方については、次のサンプルが参考になります。
 
-* [Linux virtual machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
+* [Linux Virtual Machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
 * [Windows Virtual Machines](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/powershell/azure/toc.json)
 * [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
 * [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
@@ -37,7 +37,7 @@ PowerShell についてまだよく知らない方は、PowerShell の概要に�
 * [PowerShell のインストール](/powershell/scripting/installing-windows-powershell)
 * [PowerShell を使用したスクリプト](/powershell/scripting/scripting-with-windows-powershell)
 
-次のビデオをご覧いただくこともできます。[PowerShell の基礎: (パート 1) PowerShell の概要](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)。
+また、「[PowerShell Basics: (Part 1) Getting Started with PowerShell (PowerShell の基礎: (パート 1) PowerShell の基本)](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)」のビデオもご覧ください。
 
 ## <a name="other-azure-powershell-modules"></a>その他の Azure PowerShell モジュール
 

@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.openlocfilehash: 11847ca2fe09ebeb48f962eab6dac2be06bd8805
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "65534347"
 ---
 # <a name="use-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
@@ -69,7 +69,7 @@ Install-Module AzureRM.Websites.Experiments
 
 - 名前の短縮 - コマンドレット名 (例: `New-AzureRmVM` => `New-AzVm`) とパラメーター名 (例: `-ResourceGroupName` => `-Rg`) が対象です。 "以前の" コマンドレットとの互換性を確保するには、エイリアスを使用します。 "_下位互換性を備えた_" パラメーター セットを提供します。
 
-- スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 例:
+- スマートな既定値 - "必須の" 情報を入力するためのスマートな既定値を作成します。 次に例を示します。
   - リソース グループ
   - Location
   - 依存リソース

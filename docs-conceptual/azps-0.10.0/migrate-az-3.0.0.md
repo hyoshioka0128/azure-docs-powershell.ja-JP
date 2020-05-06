@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e88752e0c997efc4f49161e358072803cb63450a
-ms.sourcegitcommit: 4c61442a2df1cee633ce93cad9f6bc793803baa2
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "81445528"
 ---
 # <a name="migration-guide-for-az-300"></a>Az 3.0.0 の移行ガイド
@@ -113,7 +113,7 @@ Get-AzBatchSupportedImage -BatchContext $Context
 ## <a name="compute"></a>Compute
 
 ### `New-AzDiskConfig`
-`New-AzDiskConfig`で CreateOption が Upload の場合、`DiskSizeGB` の代わりに `UploadSizeInBytes` パラメーターが使用されます
+`UploadSizeInBytes`で CreateOption が Upload の場合、`DiskSizeGB` の代わりに `New-AzDiskConfig` パラメーターが使用されます
 
 #### <a name="before"></a>[指定日付より前]
 ```powershell

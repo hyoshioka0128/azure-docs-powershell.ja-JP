@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: ''
 ms.date: 07/26/2017
 ms.openlocfilehash: 1491f3f23deb767b754a98b3fab616356daa71f3
-ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "67863761"
 ---
 # <a name="release-notes"></a>リリース ノート
@@ -39,23 +39,23 @@ ms.locfileid: "67863761"
   * Get-AzureRmCognitiveServicesAccount がページングを正しくサポートできるようになりました。
 * Compute
   * run コマンドの機能:
-    - 新しいコマンドレット: "Invoke-AzureRmVMRunCommand" では、VM で run コマンドを呼び出すことができます
-    - 新しいコマンドレット: "Get-AzureRmVMRunCommandDocument" では、run コマンドに関して利用可能なドキュメントを表示できます
+    - 新しいコマンドレット 'Invoke-AzureRmVMRunCommand' では、VM で run コマンドを呼び出すことができます
+    - 新しいコマンドレット 'Get-AzureRmVMRunCommandDocument' では、run コマンドに関して利用可能なドキュメントを表示できます
   * Set-AzureRmDataDisk に 'StorageAccountType' パラメーターを追加しました
   * 仮想マシン、VM スケール セット、ディスクで可用性ゾーンがサポートされるようになりました
-    - 新しいパラメーター: New-AzureRmVM、New-AzureRmVMConfig、New-AzureRmVmssConfig、New-AzureRmDiskConfig に "Zone" を追加しました
+    - New-AzureRmVM、New-AzureRmVMConfig、New-AzureRmVmssConfig、New-AzureRmDiskConfig に新しいパラメーター 'Zone' を追加しました
   * VM スケール セットのローリング アップグレード機能:
-    - 新しいコマンドレット: "Start-AzureRmVmssRollingOSUpgrade" では、VM スケール セットの OS のローリング アップグレードを呼び出すことができます
-    - 新しいコマンドレット: "Set-AzureRmVmssRollingUpgradePolicy" では、VM スケール セットのローリング アップグレードに関するアップグレード ポリシーを設定できます。
-    - 新しいコマンドレット: "Stop-AzureRmVmssRollingUpgrade" では、VM スケール セットのローリング アップグレードを取り消すことができます
-    - 新しいコマンドレット: "Get-AzureRmVmssRollingUpgrade" では、VM スケール セットのローリング アップグレードの状態を表示できます。
+    - 新しいコマンドレット 'Start-AzureRmVmssRollingOSUpgrade' では、VM スケール セットの OS のローリング アップグレードを呼び出すことができます
+    - 新しいコマンドレット 'Set-AzureRmVmssRollingUpgradePolicy' では、VM スケール セットのローリング アップグレードに関するアップグレード ポリシーを設定できます。
+    - 新しいコマンドレット 'Stop-AzureRmVmssRollingUpgrade' では、VM スケール セットのローリング アップグレードを取り消すことができます
+    - 新しいコマンドレット 'Get-AzureRmVmssRollingUpgrade' では、VM スケール セットのローリング アップグレードの状態を表示できます。
   * システムにより割り当てられる ID に AssignIdentity スイッチ パラメーターを導入しました。
-    - 新しいパラメーター: New-AzureRmVMConfig、New-AzureRmVmssConfig、Update-AzureRmVM に "AssignIdentity" を追加しました
+    - New-AzureRmVMConfig、New-AzureRmVmssConfig、Update-AzureRmVM に新しいパラメーター 'AssignIdentity' を追加しました
   * VMSS のディスク暗号化機能:
-    - 新しいコマンドレット: "Set-AzureRmVmssDiskEncryptionExtension" では、VM スケール セットのディスク暗号化を有効にできます
-    - 新しいコマンドレット: "Disable-AzureRmVmssDiskEncryption" では、VM スケール セットのディスク暗号化を無効にできます
-    - 新しいコマンドレット: "Get-AzureRmVmssDiskEncryptionStatus" では、VM スケール セットのディスク暗号化の状態を表示できます
-    - 新しいコマンドレット:"Get-AzureRmVmssVMDiskEncryptionStatus" では、VM スケール セット内の VM のディスク暗号化の状態を表示できます
+    - 新しいコマンドレット 'Set-AzureRmVmssDiskEncryptionExtension' では、VM スケール セットのディスク暗号化を有効にできます
+    - 新しいコマンドレット 'Disable-AzureRmVmssDiskEncryption' では、VM スケール セットのディスク暗号化を無効にできます
+    - 新しいコマンドレット 'Get-AzureRmVmssDiskEncryptionStatus' では、VM スケール セットのディスク暗号化の状態を表示できます
+    - 新しいコマンドレット 'Get-AzureRmVmssVMDiskEncryptionStatus' では、VM スケール セット内の VM のディスク暗号化の状態を表示できます
 * ContainerInstance
   * Azure コンテナー インスタンスの PowerShell コマンドレットを追加しました
     - New-AzureRmContainerGroup
@@ -96,9 +96,9 @@ ms.locfileid: "67863761"
     * Undo-AzureKeyVaultCertificateRemoval
 * ネットワーク
   * Virtual Network のサブネットに対するエンドポイント サービスのサポートを追加しました
-    - Add-AzureRmVirtualSubnetConfig の更新: 省略可能なパラメーター -ServiceEndpoint を追加しました
-    - New-AzureRmVirtualSubnetConfig の更新: 省略可能なパラメーター -ServiceEndpoint を追加しました
-    - Set-AzureRmVirtualSubnetConfig の更新: 省略可能なパラメーター -ServiceEndpoint を追加しました
+    - Add-AzureRmVirtualSubnetConfig の更新: オプション パラメーター -ServiceEndpoint を追加しました
+    - New-AzureRmVirtualSubnetConfig の更新: オプション パラメーター -ServiceEndpoint を追加しました
+    - Set-AzureRmVirtualSubnetConfig の更新: オプション パラメーター -ServiceEndpoint を追加しました
   * その場所で利用できるエンドポイント サービスを一覧表示するコマンドレットを追加しました
     - Get-AzureRmVirtualNetworkAvailableEndpointService
   * 以下のコマンドレットに対して RADIUS ベースの外部 P2S 認証を構成できる機能を追加しました
@@ -109,15 +109,15 @@ ms.locfileid: "67863761"
     - New-AzureRmVpnClientConfiguration
     - Get-AzureRmVpnClientConfiguration
   * Public IP Addresses とロード バランサーに SKU パラメーターのサポートを追加しました
-    - New-AzureRMLoadBalancer の更新: 省略可能なパラメーター -Sku を追加しました
-    - New-AzureRMPublicIpAddress の更新: 省略可能なパラメーター -Sku を追加しました
+    - New-AzureRMLoadBalancer の更新: オプション パラメーター -Sku を追加しました
+    - New-AzureRMPublicIpAddress の更新: オプション パラメーター -Sku を追加しました
   * ロード バランサーの規則に DisableOutboundSNAT のサポートを追加しました
-    - New-AzureRMLoadBalancerRuleConfig の更新: 省略可能なパラメーター -DisableOutboundSNAT を追加しました
-    - Add-AzureRMLoadBalancerRuleConfig の更新: 省略可能なパラメーター -DisableOutboundSNAT を追加しました
-    - Set-AzureRMLoadBalancerRuleConfig の更新: 省略可能なパラメーター -DisableOutboundSNAT を追加しました
+    - New-AzureRMLoadBalancerRuleConfig の更新: オプション パラメーター DisableOutboundSNAT を追加しました
+    - Add-AzureRMLoadBalancerRuleConfig の更新: オプション パラメーター DisableOutboundSNAT を追加しました
+    - Set-AzureRMLoadBalancerRuleConfig の更新: オプション パラメーター DisableOutboundSNAT を追加しました
   * IkeV2 P2S のサポートを追加しました
-    - New-AzureRmVirtualNetworkGateway の更新: 省略可能なパラメーター -VpnClientProtocol を追加しました (既定値は [ "SSTP", "IkeV2" ])
-    - Set-AzureRmVirtualNetworkGateway の更新: 省略可能なパラメーター -VpnClientProtocol を追加しました
+    - New-AzureRmVirtualNetworkGateway の更新: オプション パラメーター -VpnClientProtocol を追加しました (既定値は [ "SSTP", "IkeV2" ])
+    - Set-AzureRmVirtualNetworkGateway の更新: オプション パラメーター -VpnClientProtocol を追加しました
   * ネットワーク セキュリティ規則と有効なネットワーク セキュリティ規則に MultiValued 規則のサポートを追加しました
     - Add-AzureRmNetworkSecurityRuleConfig の更新: 文字列の一覧を受け取れるようにパラメーター SourcePortRange、DestinationPortRange、SourceAddressPrefix を更新しました
     - New-AzureRmNetworkSecurityRuleConfig の更新: 文字列の一覧を受け取れるようにパラメーター SourcePortRange、DestinationPortRange、SourceAddressPrefix を更新しました
@@ -137,13 +137,13 @@ ms.locfileid: "67863761"
     - New-AzureRmApplicationSecurityGroup を追加しました
     - Get-AzureRmApplicationSecurityGroup を追加しました
     - Remove-AzureRmApplicationSecurityGroup を追加しました
-    - New-AzureRmNetworkInterface の更新: 省略可能なパラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
-    - New-AzureRmNetworkInterfaceIpConfig の更新: 省略可能なパラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
-    - Add-AzureRmNetworkInterfaceIpConfig の更新: 省略可能なパラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
-    - Set-AzureRmNetworkInterfaceIpConfig の更新: 省略可能なパラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
-    - New-AzureRmNetworkSecurityRuleConfig の更新: 省略可能なパラメーター SourceApplicationSecurityGroup、SourceApplicationSecurityGroupId、DestinationApplicationSecurityGroup、DestinationApplicationSecurityGroupId を追加しました
-    - Add-AzureRmNetworkSecurityRuleConfig の更新: 省略可能なパラメーター SourceApplicationSecurityGroup、SourceApplicationSecurityGroupId、DestinationApplicationSecurityGroup、DestinationApplicationSecurityGroupId を追加しました
-    - Set-AzureRmNetworkSecurityRuleConfig の更新: 省略可能なパラメーター SourceApplicationSecurityGroup、SourceApplicationSecurityGroupId、DestinationApplicationSecurityGroup、DestinationApplicationSecurityGroupId を追加しました
+    - New-AzureRmNetworkInterface の更新: オプション パラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
+    - New-AzureRmNetworkInterfaceIpConfig の更新: オプション パラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
+    - Add-AzureRmNetworkInterfaceIpConfig の更新: オプション パラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
+    - Set-AzureRmNetworkInterfaceIpConfig の更新: オプション パラメーター ApplicationSecurityGroup と ApplicationSecurityGroupId を追加しました
+    - New-AzureRmNetworkSecurityRuleConfig の更新: オプション パラメーター SourceApplicationSecurityGroup、SourceApplicationSecurityGroupId、DestinationApplicationSecurityGroup、DestinationApplicationSecurityGroupId を追加しました
+    - Add-AzureRmNetworkSecurityRuleConfig の更新: オプション パラメーター SourceApplicationSecurityGroup、SourceApplicationSecurityGroupId、DestinationApplicationSecurityGroup、DestinationApplicationSecurityGroupId を追加しました
+    - Set-AzureRmNetworkSecurityRuleConfig の更新: オプション パラメーター SourceApplicationSecurityGroup、SourceApplicationSecurityGroupId、DestinationApplicationSecurityGroup、DestinationApplicationSecurityGroupId を追加しました
   * VpnDeviceConfiguration スクリプトに新しいコマンドを追加しました
     - Get-AzureRmVirtualNetworkGatewaySupportedVpnDevices
     - Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript
@@ -184,7 +184,7 @@ ms.locfileid: "67863761"
     - Get-AzureRmManagedApplicationDefinition コマンドレットでは、特定のリソース グループの管理対象アプリケーションの定義をすべて表示したり、特定の管理対象アプリケーションの定義を取得したりできます
     - Remove-AzureRmManagedApplicationDefinition コマンドレットでは、管理対象アプリケーションの定義を削除できます
     - Set-AzureRmManagedApplicationDefinition コマンドレットでは、既存の管理対象アプリケーションの定義を更新できます
-* SQL
+* Sql
   * 仮想ネットワーク規則のサポートを追加しました
     - Get-AzureRmSqlServerVirtualNetworkRule コマンドレットを追加しました。このコマンドレットでは、特定の規則名を基準に仮想ネットワーク規則を取得したり、Azure SQL サーバーに存在する仮想ネットワーク規則の一覧を取得したりできます。
     - Set-AzureRmSqlServerVirtualNetworkRule コマンドレットを追加しました。このコマンドレットでは、規則の対象となる仮想ネットワークを変更できます。
@@ -222,7 +222,7 @@ ms.locfileid: "67863761"
   * 既存の問題のバグ修正 - エイリアスの問題 #3775 について、runOn エイリアスと HybridWorkers のサポートを修正。
 * Compute
   * Set-AzureRmVMAEMExtension: 新しい Premium ディスク サイズのサポートを追加
-  * Set-AzureRmVMAEMExtension: M シリーズのサポートの追加
+  * Set-AzureRmVMAEMExtension: M シリーズのサポートを追加
   * Add-AzureRmVmssExtension に ForceUpdateTag パラメーターを追加
   * New-AzureRmVmssIpConfig に Primary パラメーターを追加
   * Add-AzureRmVmssNetworkInterfaceConfig に EnableAcceleratedNetworking パラメーターを追加
@@ -244,8 +244,8 @@ ms.locfileid: "67863761"
 * ネットワーク
     * IPv6 サポートと新しい省略可能なパラメーター -PeerAddressType を追加
       * New-AzureRmExpressRouteCircuitPeeringConfig:
-      * Set-AzureRmExpressRouteCircuitPeeringConfig: IPv6 のサポートを追加しました。 新しい省略可能なパラメーターを追加しました。
-      * Remove-AzureRmExpressRouteCircuitPeeringConfig: IPv6 のサポートを追加しました。 新しい省略可能なパラメーターを追加しました。
+      * Set-AzureRmExpressRouteCircuitPeeringConfig: IPv6 サポートを追加しました。 新しい省略可能なパラメーターを追加しました。
+      * Remove-AzureRmExpressRouteCircuitPeeringConfig: IPv6 サポートを追加しました。 新しい省略可能なパラメーターを追加しました。
     * パラメーター -ProbeEnabled を非推奨としてマーク
       - Add-AzureRmApplicationGatewayBackendHttpSettings
       - New-AzureRmApplicationGatewayBackendHttpSettings
@@ -273,7 +273,7 @@ ms.locfileid: "67863761"
     - Remove-AzureRmServiceBusNamespaceAuthorizationRule - Servicebus NameSpace/Queue/Topic の既存の AuthorizationRule のプロパティを削除します。
   * NamespceAttributes にリソース グループのプロパティを追加しました
 
-* SQL
+* Sql
     * 暗号化の保護の種類が AzureKeyVault に設定されている場合に警告を表示して確認を要求するよう、Set-AzureRmSqlServerTransparentDataEncryptionProtector を更新
     * 監査設定に対する新しい更新コマンドレットを追加
       - Azure SQL データベースの監査設定を取得する Get-AzureRmSqlDatabaseAuditing コマンドレットを追加
@@ -289,7 +289,7 @@ ms.locfileid: "67863761"
       - Remove-AzureRmSqlDatabaseAuditing
       - Remove-AzureRmSqlServerAuditing
     * Update-AzureRmSqlSyncGroup のスキーマ ファイルの解析で大文字と小文字が区別されなくなりました。
-* Storage
+* ストレージ
     * リソース モード ストレージ アカウント コマンドレットに NeworkRule のサポートを追加
       - New-AzureRmStorageAccount
       - Set-AzureRmStorageAccount
@@ -324,7 +324,7 @@ ms.locfileid: "67863761"
 * CognitiveServices
     * Cognitive Services Management SDK バージョン 1.0.0 と統合します。
     * アカウント名の長さチェックのバグを修正します。
-* コンピューティング
+* Compute
     * イメージ ディスクでのストレージ アカウントの種類のサポート:
         - 'StorageAccountType' パラメーターが Set-AzureRmImageOsDisk および Add-AzureRmImageDataDisk に追加されました
     * Vmss Ip 構成での PrivateIP および PublicIP 機能:
@@ -385,15 +385,15 @@ ms.locfileid: "67863761"
 * 洞察
     * 問題 #4215 (変更要求) により、Get-AzureRmLog コマンドレットの時間枠の 15 日間という制限が削除されます。 また、単体テスト名がわずかに変更されます。
     * 問題 #3957: Get-AzureRmLog の問題が修正されました。
-        - 問題 1: バックエンドが、200 レコードごとのページでレコードを返し、継続トークンによって次ページにリンクされる。 それ以上のレコードがあるはずのところ、コマンドレットで 200 レコードしか返されませんでした。 これは、MaxEvents に設定した値に関係なく発生していました (その値が 200 未満である場合を除く)。
-        - 問題 2: ドキュメントにこのコマンドレットに関する正しくないデータが含まれていた (既定の時間枠が 1 時間など)。
-        - 1 の修正: このコマンドレットは、MaxEvents またはセットの末尾に到達するまで、バックエンドによって返される継続トークンに従うようになりました。<br>MaxEvents の既定値は 1000 で、その最大値は 100000 です。 MaxEvents の 1 未満の値はすべて無視され、代わりに既定値が使用されます。 これらの値と動作は以前と同じですが、これらを正確に文書化しました。<br>MaxEvents の別名、MaxRecords が追加されました。コマンドレットの名前はイベントを示さなくなり、ログのみを示すようになりました。
-        - 2 の修正: ドキュメント内の情報が正確かつより詳細になりました (新しい別名、正確な時間枠、正確な既定値、最小値、および最大値)。
+        - 問題 #1: バックエンドが、継続トークンによって次ページにリンクされ、200 レコードごとのページでレコードを返す。 それ以上のレコードがあるはずのところ、コマンドレットで 200 レコードしか返されませんでした。 これは、MaxEvents に設定した値に関係なく発生していました (その値が 200 未満である場合を除く)。
+        - 問題 #2: ドキュメントにこのコマンドレットに関する正しくないデータが含まれていた (既定の時間枠が 1 時間など)。
+        - #1 の修正: コマンドレットは、MaxEvents またはセットの末尾に到達するまで、バックエンドによって返された継続トークンに続くようになりました。<br>MaxEvents の既定値は 1000 で、その最大値は 100000 です。 MaxEvents の 1 未満の値はすべて無視され、代わりに既定値が使用されます。 これらの値と動作は以前と同じですが、これらを正確に文書化しました。<br>MaxEvents の別名、MaxRecords が追加されました。コマンドレットの名前はイベントを示さなくなり、ログのみを示すようになりました。
+        - #2 の修正: ドキュメント内の情報が正確かつより詳細になりました (新しい別名、正確な時間枠、正確な既定値、最小値、および最大値)。
 * KeyVault
     * -UserPrincipalName が Set-AzureRMKeyVaultAccessPolicy および Remove-AzureRMKeyVaultAccessPolicy コマンドレットに指定されているときにディレクトリ クエリからメール アドレスを削除します。
       - いずれのコマンドレットも -EmailAddress パラメーターを指定するようになりました。このパラメーターは、メール アドレスのクエリ実行時に -UserPrincipalName パラメーターの代わりに使用できます。  ディレクトリに一致するメール アドレスが複数ある場合、コマンドレットは失敗します。
 * ネットワーク
-    * New-AzureRmIpsecPolicy: SALifeTimeSeconds および SADataSizeKilobytes は必須のパラメーターではなくなりました
+    * New-AzureRmIpsecPolicy: SALifeTimeSeconds および SADataSizeKilobytes は必須のパラメーターではなくなりました。
         - SALifeTimeSeconds の既定値は 27000 秒です。
         - SADataSizeKilobytes の既定値は 102400000 KB です。
     * ssl ポリシーを使用し、Application Gateway のすべての ssl オプション api を一覧表示するカスタム暗号スイートの構成のサポートを追加しました。
@@ -401,8 +401,8 @@ ms.locfileid: "67863761"
             - Add-AzureRmApplicationGatewaySslPolicy
             - New-AzureRmApplicationGatewaySslPolicy
             - Set-AzureRmApplicationGatewaySslPolicy
-        - Get-AzureRmApplicationGatewayAvailableSslOptions (別名: List-AzureRmApplicationGatewayAvailableSslOptions) を追加しました
-        - Get-AzureRmApplicationGatewaySslPredefinedPolicy (別名: List-AzureRmApplicationGatewaySslPredefinedPolicy) を追加しました
+        - Get-AzureRmApplicationGatewayAvailableSslOptions (別名: List-AzureRmApplicationGatewayAvailableSslOptions) を追加しました。
+        - Get-AzureRmApplicationGatewaySslPredefinedPolicy (別名: List-AzureRmApplicationGatewaySslPredefinedPolicy) を追加しました。
     * Application Gateway でのリダイレクト サポートを追加しました。
         - Add-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
         - Get-AzureRmApplicationGatewayRedirectConfiguration を追加しました。
@@ -443,7 +443,7 @@ ms.locfileid: "67863761"
 * RecoveryServices.SiteRecovery
     * Azure Site Recovery 操作用の新しいモジュールを導入します。
         - すべてのコマンドレットが AzureRmRecoveryServicesAsr* で始まります。
-* SQL
+* Sql
     * データ同期 PowerShell コマンドレットを AzureRM.Sql に追加します。
     * サーバーの作成時にタイムアウトを回避する新しい REST API バージョンを使用するように AzureRmSqlServer コマンドレットを更新しました。
     * サーバーの旧バージョン (2.0) がなくなったため、サーバーのアップグレード コマンドレットは非推奨になりました。
@@ -452,11 +452,11 @@ ms.locfileid: "67863761"
         - 詳細については、 https://github.com/Azure/azure-powershell/issues/635 をご覧ください。
 * ServiceManagement   ExpressRoute の場合:
     * New-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
-        - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを作成できます
+        - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを作成できます。
     * Set-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
-        - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを更新できます
+        - PeerAddressType: "IPv4" または "IPv6" の値を指定して、対応するアドレス ファミリの種類の BGP ピアリングを更新できます。
     * Remove-AzureBgpPeering コマンドレットに次の新しいオプションが追加されました。
-        - PeerAddressType: "IPv4"、"IPv6"、または "すべて" の値を指定して、対応するアドレス ファミリの種類またはこれらすべての BGP ピアリングを削除できます
+        - PeerAddressType: "IPv4"、"IPv6"、または "すべて" の値を指定して、対応するアドレス ファミリの種類またはこれらすべての BGP ピアリングを削除できます。
 
 ## <a name="20170607---version-410"></a>2017.06.07 - バージョン 4.1.0
 * AnalysisServices
@@ -464,17 +464,17 @@ ms.locfileid: "67863761"
     * スケールアップ/スケールダウンのサポートが追加されました。
 * CognitiveServices
     * Cognitive Services リソースの作成時のライセンス契約の詳細表示が更新されます。
-* コンピューティング
+* Compute
     * 複数のマネージド ディスクを使用した仮想マシン用の Test-AzureRmVMAEMExtension が修正されます。
-    * Set-AzureRmVMAEMExtension の更新: Premium マネージド ディスクのキャッシュ情報が追加されます
+    * Set-AzureRmVMAEMExtension を更新しました。Premium マネージド ディスクのキャッシュ情報が追加されます。
     * Add-AzureRmVhd: vhd のサイズ制限が 4TB に増えます。
-    * Stop-AzureRmVM: STayProvisioned パラメーターのドキュメントをわかりやすくします
+    * Stop-AzureRmVM: STayProvisioned パラメーターのドキュメントをわかりやすくします。
     * New-AzureRmDiskUpdateConfig
       * パラメーター CreateOption、StorageAccountId、ImageReference、SourceUri、SourceResourceId は非推奨になりました。
-    * Set-AzureRmDiskUpdateImageReference: 非推奨のコマンドレット
+    * Set-AzureRmDiskUpdateImageReference: コマンドレットが非推奨になりました。
     * New-AzureRmSnapshotUpdateConfig
       * パラメーター CreateOption、StorageAccountId、ImageReference、SourceUri、SourceResourceId は非推奨になりました。
-    * Set-AzureRmSnapshotUpdateImageReference: 非推奨のコマンドレット
+    * Set-AzureRmSnapshotUpdateImageReference: コマンドレットが非推奨になりました。
 * DataLakeStore
     * Enable-AzureRmDataLakeStoreKeyVault (Enable-AdlStoreKeyVault)
       * DataLake ストア用に KeyVault 管理型暗号化を有効にします。
@@ -510,9 +510,9 @@ ms.locfileid: "67863761"
 * リソース
     * roleassignments の数が 1000 を超えた場合に Get-AzureRMRoleAssignment が正しくない要求になる問題を修正しました。
         * 返される roleassignments の数が 1000 を超えた場合でも Get-AzureRMRoleAssignment を使用できるようになりました。
-* SQL
-    * Restore-AzureRmSqlDatabase: ドキュメントの例を更新しました
-* Storage
+* Sql
+    * Restore-AzureRmSqlDatabase: ドキュメントの例を更新しました。
+* ストレージ
     * リソース モード ストレージ アカウント コマンドレットに AssignIdentity 設定のサポートを追加します。
         * New-AzureRmStorageAccount
         * Set-AzureRmStorageAccount
@@ -525,7 +525,7 @@ ms.locfileid: "67863761"
     * 新しいモニター プロトコル 'TCP'
 * サービス管理
     * Add-AzureVhd: vhd のサイズ制限が 4TB に増えます。
-    * New-AzureBGPPeering: LegacyMode に対応しました
+    * New-AzureBGPPeering: LegacyMode に対応しました。
 * Azure.Storage
     * ワイルドカード文字を許可し、種類 StorageContext を更新するパラメーターのヘルプを更新します。
 
@@ -549,7 +549,7 @@ ms.locfileid: "67863761"
   - コマンドレット Get-AzureRmBillingInvoice を更新しました
   - 新しいプロパティ BillingPeriodNames
   - リスト ビューでの出力
-* 計算
+* Compute
   - Premium マネージド ディスクをサポートするように Set-AzureRmVMAEMExtension と Test-AzureRmVMAEMExtension の各コマンドレットが更新されました
   - IaaS VM の暗号化設定をバックアップし、障害時に復元を行います
   - ChefServiceInterval オプションの名前が ChefDaemonInterval に変更されました。 なお、以前のものは引き続き有効です。
@@ -560,7 +560,7 @@ ms.locfileid: "67863761"
     + `New-AzureVMSqlServerAutoBackupConfig` の名前が `New-AzureRmVMSqlServerAutoBackupConfig` に変更されました
     + `New-AzureVMSqlServerAutoPatchingConfig` の名前が `New-AzureRmVMSqlServerAutoPatchingConfig` に変更されました
     + `New-AzureVMSqlServerKeyVaultCredentialConfig` の名前が `New-AzureRmVMSqlServerKeyVaultCredentialConfig` に変更されました
-* 使用量
+* 従量課金
   - 新しいコマンドレット Get-AzureRmConsumptionUsageDetail
     + サブスクリプションの使用量の詳細を取得するコマンドレット。
 * ContainerRegistry
@@ -597,7 +597,7 @@ ms.locfileid: "67863761"
     + statusCode、requestId、および新しく作成または更新されたリソースを含む単一オブジェクトを返します (以前のようなリストではありません)。
     + 状態コードは、要求によって返される状態に従います。以前は常に OK でした。
   - New-AzureRmAutoscaleRule
-    + パラメーター ScaleActionType が拡張され、次の値を受け取るようになりました: ChangeCount、PercentChangeCount、ExactCount。
+    + パラメーター ScaleActionType が拡張され、ChangeCount、PercentChangeCount、ExactCount の各値を受け取るようになりました。
   - Remove-AzureRmAutoscaleSetting
     + 出力の statusCode は、要求によって返される statusCode に従います。 以前は常に OK でした。
   - Get-AzureRMLogProfile
@@ -684,7 +684,7 @@ ms.locfileid: "67863761"
     + Set-AzureRmServiceFabricUpgradeType       クラスターの ServiceFabric アップグレードの種類を変更します。
     + Update-AzureRmServiceFabricDurability       クラスターの持続性層を変更します。
     + Update-AzureRmServiceFabricReliability       クラスターの信頼性層を変更します。
-* SQL
+* Sql
   - New-AzureRmSqlDatabase に -SampleName パラメーターを追加しました。
   - フェールオーバー グループのコマンドレットを更新します。
   - "Tag" パラメーターを削除します。
@@ -697,10 +697,10 @@ ms.locfileid: "67863761"
   - 大きな値の猶予期間を使用した際の整数オーバーフローのバグが修正されます。
   - 猶予期間に小さい値が指定されている場合は、最小値の 1 時間に調整されます。
   - Set-AzureRmSqlDatabaseThreatDetectionPolicy コマンドレットと Set-AzureRmSqlServerThreatDetectionPolicy コマンドレットの "ExcludedDetectionType" パラメーターの有効な値から "Usage_Anomaly" を削除します。
-* Storage
+* ストレージ
   - SRP SDK が 6.3.0 にアップグレードされます。
   - New/Set-AzureRmStorageAccount: EnableHttpsTrafficOnly をサポートするように、新しいパラメーターを追加しました。
-  - New/Set/Get-AzureRmStorageAccount: 返されるストレージ アカウントに新しい EnableHttpsTrafficOnly 属性が含まれます
+  - New/Set/Get-AzureRmStorageAccount: 返されるストレージ アカウントに新しい EnableHttpsTrafficOnly 属性が含まれます。
 * Azure.Storage
   - Azure Storage クライアント ライブラリ 8.1.1 および Azure Storage データ移動ライブラリ 0.5.1 にアップグレードされます。
   - BLOB 増分コピー機能をサポートするように、新しいコマンドレットを追加しました。

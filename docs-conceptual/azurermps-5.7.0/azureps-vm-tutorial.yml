@@ -17,10 +17,10 @@ metadata:
   ms.service: virtual-machines
   clicktale: true
   ms.openlocfilehash: 08fb135343979a7d1a9723223a2e673641c0090f
-  ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
+  ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 07/13/2019
+  ms.lasthandoff: 05/05/2020
   ms.locfileid: "67863691"
 items:
 - durationInMinutes: 1
@@ -40,7 +40,7 @@ items:
 
     ご使用の端末に表示される手順に従って、サインイン プロセスを完了してください。
 - durationInMinutes: 1
-  title: リソース グループの作成
+  title: リソース グループを作成する
   content: >-
     Azure では、すべてのリソースがリソース管理グループに割り当てられます。 リソース グループではリソースを論理グループに分類できるため、コレクションとして操作しやすくなります。
 

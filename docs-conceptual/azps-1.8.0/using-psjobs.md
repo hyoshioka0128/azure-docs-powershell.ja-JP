@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: d74d3681794398534fe2c75a0c8fc314767ffa85
-ms.sourcegitcommit: 1cdff856d1d559b978aac6bc034dd2f99ac04afe
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "72791486"
 ---
 # <a name="run-azure-powershell-cmdlets-in-powershell-jobs"></a>PowerShell ジョブで Azure PowerShell コマンドレットを実行する
@@ -68,7 +68,7 @@ Get-Job $job
 Get-AzVM -Name $vmName
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 * [Azure PowerShell のコンテキスト](context-persistence.md)
 * [PowerShell ジョブについて](/powershell/module/microsoft.powershell.core/about/about_jobs)

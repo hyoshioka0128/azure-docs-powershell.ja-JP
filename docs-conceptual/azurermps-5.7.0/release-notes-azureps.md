@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
 ms.openlocfilehash: 61ab0f91c3d6fffdbffd336fa0d6ed9b0ab8f6ec
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "68863294"
 ---
 # <a name="release-notes"></a>リリース ノート
@@ -149,7 +149,7 @@ Update-Module -Name AzureRM
     - Update-AzureRmRecoveryServicesAsrProtectionDirection
 
 #### <a name="azurermstorage"></a>AzureRM.Storage
-* ストレージ アカウントの新規と設定の各コマンドレットについて、次のパラメーターを廃止しました。EnableEncryptionService および DisableEncryptionService (保存時の暗号化は既定で有効であり、無効にできないため)
+* 保存時の暗号化は既定で有効であり、無効にできないため、ストレージ アカウントの新規と設定の各コマンドレットのパラメーター EnableEncryptionService および DisableEncryptionService を廃止しました。
     - New-AzureRmStorageAccount
     - Set-AzureRmStorageAccount
 
@@ -185,8 +185,8 @@ Update-Module -Name AzureRM
 * "New-AzureRmVmss" では、パブリック IP アドレス、負荷分散規則、および受信 NAT 規則がサポートされます。
 * WriteAccelerator 機能
     - WriteAccelerator スイッチ パラメーターを次のコマンドレットを追加しました: Set-AzureRmVMOSDisk、Set-AzureRmVMDataDisk、Add-AzureRmVMDataDisk、Add-AzureRmVmssDataDisk
-    - OsDiskWriteAccelerator スイッチ パラメーターを次のコマンドレットを追加しました:    Set-AzureRmVmssStorageProfile。
-    - OsDiskWriteAccelerator ブール値パラメーターを次のコマンドレットを追加しました:    Update-AzureRmVM     Update-AzureRmVmss
+    - OsDiskWriteAccelerator スイッチ パラメーターを Set-AzureRmVmssStorageProfile コマンドレットに追加しました。
+    - OsDiskWriteAccelerator ブール値パラメーターを次のコマンドレットに追加しました: Update-AzureRmVM、Update-AzureRmVmss
 
 #### <a name="azurermdatafactories"></a>AzureRM.DataFactories
 * 一部の暗号化操作で無意味なエラーの原因になっていた、資格情報暗号化に関する問題を修正しました
@@ -275,7 +275,7 @@ Update-Module -Name AzureRM
     - Remove-AzureRmNetworkWatcherConnectionMonitor
 * Set-AzureRmApplicationGatewayBackendAddressPool のドキュメントを更新して非推奨の例を削除しました
 * EnableHttp2 フラグを Application Gateway に追加しました
-    - New-AzureRmApplicationGateway の更新: 省略可能なパラメーター -EnableHttp2 を追加しました
+    - New-AzureRmApplicationGateway の更新: 省略可能なパラメーター EnableHttp2 を追加しました
 * IpTag を PublicIpAddress に追加しました
     - New-AzureRmPublicIpAddress の更新: IpTag を追加しました
     - Iptag を追加する New-AzureRmPublicIpTag
@@ -286,7 +286,7 @@ Update-Module -Name AzureRM
 * Register-AzureRmResourceProvider: 不足している例をドキュメントに追加しました
 
 #### <a name="azurermstorage"></a>AzureRM.Storage
-* ストレージ アカウントの新規と設定の各コマンドレットについて、次のパラメーターを廃止しました。EnableEncryptionService および DisableEncryptionService (保存時の暗号化は既定で有効であり、無効にできないため)
+* 保存時の暗号化は既定で有効であり、無効にできないため、ストレージ アカウントの新規と設定の各コマンドレットのパラメーター EnableEncryptionService および DisableEncryptionService を廃止しました。
     - New-AzureRmStorageAccount
     - Set-AzureRmStorageAccount
 
@@ -296,27 +296,27 @@ Update-Module -Name AzureRM
 * PowerShell 3 および 4 の非推奨警告を追加しました
 * `Add-AzureRmAccount` を `Connect-AzureRmAccount` に名前変更しました。古いコマンドレット名に対して別名を追加し、他の別名 (`Login-AzAccount` および `Login-AzureRmAccount`) を新しいコマンドレット名にリダイレクトしました。
 * `Remove-AzureRmAccount` を `Disconnect-AzureRmAccount` に名前変更しました。古いコマンドレット名に対して別名を追加し、他の別名 (`Logout-AzAccount` および `Logout-AzureRmAccount`) を新しいコマンドレット名にリダイレクトしました。
-* `Login-AzureRmAccount` の代わりに `Connect-AzureRmAccount` を使用するようにリソース文字列を修正しました
-* `Add-AzureRmEnvironment` と `Set-AzureRmEnvironment`
+* `Connect-AzureRmAccount` の代わりに `Login-AzureRmAccount` を使用するようにリソース文字列を修正しました
+* `Add-AzureRmEnvironment` および `Set-AzureRmEnvironment`
   - OperationalInsights データ プレーン RP で使用するパラメーターとして `-AzureOperationalInsightsEndpoint` と `-AzureOperationalInsightsEndpointResourceId` を追加しました。
 
 ### <a name="azurermanalysisservices"></a>AzureRM.AnalysisServices
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermcompute"></a>AzureRM.Compute
-* `New-AzureRmVM` の簡素化したパラメーター セットに `-AvailabilitySetName` パラメーターを追加しました。
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `-AvailabilitySetName` の簡素化したパラメーター セットに `New-AzureRmVM` パラメーターを追加しました。
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
 * VM および VM スケール セットに対するユーザー割り当て ID のサポート
     - `-IdentityType` および `-IdentityId` パラメーターを `New-AzureRmVMConfig`、`New-AzureRmVmssConfig`、`Update-AzureRmVM`、および `Update-AzureRmVmss` に追加しました
 * `-EnableIPForwarding` パラメーターを `Add-AzureRmVmssNetworkInterfaceConfig` に追加しました
 * `-Priority` パラメーターを `New-AzureRmVmssConfig` に追加しました
 
 ### <a name="azurermdatalakeanalytics"></a>AzureRM.DataLakeAnalytics
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermdatalakestore"></a>AzureRM.DataLakeStore
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
-* `Login-AzureRmAccount` を使用してログインせずにこのコマンドレットを実行した場合の `Test-AzureRmDataLakeStoreAccount` のエラー メッセージを修正しました
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `Test-AzureRmDataLakeStoreAccount` を使用してログインせずにこのコマンドレットを実行した場合の `Login-AzureRmAccount` のエラー メッセージを修正しました
 
 ### <a name="azurermeventgrid"></a>AzureRM.EventGrid
 * 2018-01-01 API バージョンを使用するように更新しました。
@@ -339,10 +339,10 @@ Update-Module -Name AzureRM
     - `Test-AzureRmEventHubName`
 
 ### <a name="azurerminsights"></a>AzureRM.Insights
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermkeyvault"></a>AzureRM.KeyVault
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermnetwork"></a>AzureRM.Network
 * 上書きの確認メッセージ "リソースを上書きしますか" を修正しました
@@ -351,7 +351,7 @@ Update-Module -Name AzureRM
 * `Invoke-AzureRmOperationalInsightsQuery` を介した V2 API クエリ実行のサポートを追加しました。 新しい API の詳細については、[https://dev.loganalytics.io/](https://dev.loganalytics.io/) を参照してください。
 
 ### <a name="azurermresources"></a>AzureRM.Resources
-* `Get-AzureRmADServicePrincipal`:SPN パラメーター セットと冗長であるため、既定の空のパラメーター セットから `-ServicePrincipalName` を削除しました。
+* `Get-AzureRmADServicePrincipal`: SPN パラメーター セットと冗長であるため、既定の空のパラメーター セットから `-ServicePrincipalName` を削除しました。
 
 ### <a name="azurermservicebus"></a>AzureRM.ServiceBus
 
@@ -372,7 +372,7 @@ Update-Module -Name AzureRM
     - `Test-AzureRmServiceBusName`
 
 ### <a name="azurermusageaggregates"></a>AzureRM.UsageAggregates
-* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
 
 ## <a name="520---january-2018"></a>5.2.0 - 2018 年 1 月
 #### <a name="azurermprofile"></a>AzureRM.Profile
@@ -639,7 +639,7 @@ Update-Module -Name AzureRM
 * DataFactories
     - 資格情報の暗号化機能が、"リモート アクセス" 有効 (ネットワーク経由) と "リモート アクセス" 無効 (ローカル コンピューター) の両方で動作するようになりました。
 * DataFactoryV2
-  - 追加された 2 つの新しいコマンドレット: Update-AzureRmDataFactoryV2 および Stop-AzureRmDataFactoryV2PipelineRun
+  - 2 つのコマンドレットを新しく追加しました: Update-AzureRmDataFactoryV2 および Stop-AzureRmDataFactoryV2PipelineRun
 * DataLakeAnalytics
   - ScriptParameter というパラメーターを Submit-AzureRmDataLakeAnalyticsJob に追加しました
     - ScriptParameter に関する詳細情報を、Submit-AzureRmDataLakeAnalyticsJob で Get-Help を使用して確認できます
@@ -690,7 +690,7 @@ Update-Module -Name AzureRM
 * SiteRecovery
   - 次の重大な変更のリリースに備えて、このモジュールのすべてのコマンドレットに非推奨警告を追加しました。
     - AzureRM からコマンドレットを移行する方法の詳細については、今後の重大な変更ガイドを参照してください。
-* SQL
+* Sql
   - Set-AzureRmSqlDatabase を使用して、データベースの名前を変更する機能を追加しました
   - 修正された問題 https://github.com/Azure/azure-powershell/issues/4974
     - 監査コマンドレットに無効な AUDIT_CHANGED_GROUP 値を指定しても、エラーがスローされなくなりました。これは今後のリリースで削除される予定です。
@@ -723,7 +723,7 @@ Update-Module -Name AzureRM
   - AzureRM.StreamAnalytics
 
 ## <a name="2017118---version-500"></a>2017.11.8 - バージョン 5.0.0
-* 注:これは重大な変更のリリースです。 導入された重大な変更の完全な一覧については、移行ガイド (https://aka.ms/azps-migration-guide) ) を参照してください。
+* 注: これは重大な変更のリリースです。 導入された重大な変更の完全な一覧については、移行ガイド (https://aka.ms/azps-migration-guide) ) を参照してください。
 * AzureRM のコマンドレットはすべて、オンライン ヘルプをサポートするようになりました
   - -Online パラメーターを指定して Get-Help を実行すると、既定のインターネット ブラウザーでオンライン ヘルプが表示されます
 * AnalysisServices
@@ -752,11 +752,11 @@ Update-Module -Name AzureRM
     - Remove-AzureRmApplicationInsightsApiKey
 * AzureBatch
   * 新しいパラメーターを `New-AzureRmBatchAccount` に追加しました。
-    - `PoolAllocationMode`:Batch アカウントでプールを作成するために使用する割り当てモード。 ユーザーのサブスクリプションにプール ノードを割り当てる Batch アカウントを作成するには、これを `UserSubscription` に設定します。
-    - `KeyVaultId`:Batch アカウントに関連付けられている Azure キー コンテナーのリソース ID。
-    - `KeyVaultUrl`:Batch アカウントに関連付けられている Azure キー コンテナーの URL。
+    - `PoolAllocationMode`: Batch アカウントでプールを作成するために使用する割り当てモード。 ユーザーのサブスクリプションにプール ノードを割り当てる Batch アカウントを作成するには、これを `UserSubscription` に設定します。
+    - `KeyVaultId`: Batch アカウントに関連付けられている Azure Key Vault のリソース ID。
+    - `KeyVaultUrl`: Batch アカウントに関連付けられている Azure Key Vault の URL。
   * `New-AzureBatchTask` のパラメーターを更新しました。
-    - `RunElevated` スイッチを削除しました。 `RunElevated` の代わりに `UserIdentity` パラメーターを追加しました。以下のように `PSUserIdentity` を作成することにより同じ動作を行うことができます。
+    - `RunElevated` スイッチを削除しました。 `UserIdentity` の代わりに `RunElevated` パラメーターを追加しました。以下のように `PSUserIdentity` を作成することにより同じ動作を行うことができます。
       - $autoUser = New-Object Microsoft.Azure.Commands.Batch.Models.PSAutoUserSpecification -ArgumentList @("Task", "Admin")
       - $userIdentity = New-Object Microsoft.Azure.Commands.Batch.Models.PSUserIdentity $autoUser
     - `AuthenticationTokenSettings` パラメーターを追加しました。 このパラメーターを使用すると、タスクの実行時に認証トークンを提供するようバッチ サービスに要求でき、バッチ サービスに要求を出すためにバッチ アカウント キーをタスクに渡す必要がなくなります。
@@ -768,7 +768,7 @@ Update-Module -Name AzureRM
     - `UserAccounts` パラメーターを追加しました。
       - このパラメーターは、プール内の各ノードで作成されたユーザー アカウントを定義します。
     - `TargetLowPriorityComputeNodes` を追加し、`TargetDedicated` を `TargetDedicatedComputeNodes` に名前変更しました。
-      - `TargetDedicatedComputeNodes` パラメーター用に `TargetDedicated` の別名を作成しました。
+      - `TargetDedicated` パラメーター用に `TargetDedicatedComputeNodes` の別名を作成しました。
     - `NetworkConfiguration` パラメーターを追加しました。
       - このパラメーターを使用すると、プールのネットワーク設定を構成できます。
   * `New-AzureBatchCertificate` のパラメーターを更新しました。
@@ -777,13 +777,13 @@ Update-Module -Name AzureRM
     - `Password` パラメーターが `SecureString` になりました。
   * `Set-AzureBatchComputeNodeUser` のパラメーターを更新しました。
     - `Password` パラメーターが `SecureString` になりました。
-  * `Get-AzureBatchNodeFile`、`Get-AzureBatchNodeFileContent`、および `Remove-AzureBatchNodeFile` で、`Name` パラメーターを `Path` に名前変更しました。
-    - `Path` パラメーター用に `Name` の別名を作成しました。
+  * `Name`、`Path`、および `Get-AzureBatchNodeFile` で、`Get-AzureBatchNodeFileContent` パラメーターを `Remove-AzureBatchNodeFile` に名前変更しました。
+    - `Name` パラメーター用に `Path` の別名を作成しました。
   * オブジェクトに対する変更
     - 完全なリストについては、Batch 変更ログを参照してください
   * Azure Active Directory ベースの認証のサポートを追加しました。
-    - Azure Active Directory 認証を使用するには、`Get-AzureRmBatchAccount` コマンドレットを使用して `BatchAccountContext` オブジェクトを取得し、この `BatchAccountContext` を Batch サービス コマンドレットの `-BatchContext` パラメーターに指定します。 Azure Active Directory 認証は、`PoolAllocationMode = UserSubscription` のアカウントには必須です。
-    - 既存のアカウント、または `PoolAllocationMode = BatchService` で作成された新しいアカウントの場合、`Get-AzureRmBatchAccoutKeys` コマンドレットを使用して `BatchAccountContext` オブジェクトを取得することにより、共有キー認証の使用を継続できます。
+    - Azure Active Directory 認証を使用するには、`BatchAccountContext` コマンドレットを使用して `Get-AzureRmBatchAccount` オブジェクトを取得し、この `BatchAccountContext` を Batch サービス コマンドレットの `-BatchContext` パラメーターに指定します。 Azure Active Directory 認証は、`PoolAllocationMode = UserSubscription` のアカウントには必須です。
+    - 既存のアカウント、または `PoolAllocationMode = BatchService` で作成された新しいアカウントの場合、`BatchAccountContext` コマンドレットを使用して `Get-AzureRmBatchAccoutKeys` オブジェクトを取得することにより、共有キー認証の使用を継続できます。
 * Compute
   * Azure Disk Encryption 拡張コマンド
     - "Set-AzureRmVmDiskEncryptionExtension" の新しいパラメーター: "-EncryptFormatAll" はデータ ディスクを暗号化フォーマットします
@@ -862,7 +862,7 @@ Update-Module -Name AzureRM
     - Update-AzureRmRecoveryServicesAsrMobilityService
 * ServiceBus
   - ServiceBus の、このリリースでの重大な変更については、移行ガイドを参照してください
-* SQL
+* Sql
   * データベースに対する非同期 updateslo 操作の一覧表示およびキャンセルのサポートを追加
     - DB updateslo 操作状態を返すように既存の Get-AzureRmSqlDatabaseActivity コマンドレットを更新。
     - データベースに対する非同期 updateslo 操作をキャンセルする新しい Stop-AzureRmSqlDatabaseActivity コマンドレットを追加。

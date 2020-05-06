@@ -8,10 +8,10 @@ ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.openlocfilehash: 17197b77e26ccf0e41b5faf3cbbde34338b28167
-ms.sourcegitcommit: febbbd3f75c8dd1a296281d265289f015b6cb537
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "67037726"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell モジュールのアンインストール
@@ -119,7 +119,7 @@ Uninstalling Azure.AnalysisServices version 0.4.7
 ```
 
 > [!NOTE]
-> このスクリプトは、アンインストールするのと同じバージョンの依存関係を正確に突き合わせることができない場合、その依存関係の_どの_バージョンもアンインストールしません。 これは、これらの依存関係に依存する他のバージョンのターゲット モジュールがシステム上に存在する可能性があるためです。 この場合、依存関係の使用可能なバージョンが一覧表示されます。
+> このスクリプトは、アンインストールするのと同じバージョンの依存関係を正確に突き合わせることができない場合、その依存関係の "_どの_" バージョンもアンインストールしません。 これは、これらの依存関係に依存する他のバージョンのターゲット モジュールがシステム上に存在する可能性があるためです。 この場合、依存関係の使用可能なバージョンが一覧表示されます。
 > その後、`Uninstall-Module` を使用して任意の古いバージョンを手動で削除できます。
 
 

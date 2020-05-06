@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
 ms.openlocfilehash: 55f19ac5e6767df1312e0b531184e8621b60a011
-ms.sourcegitcommit: febbbd3f75c8dd1a296281d265289f015b6cb537
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "67038195"
 ---
 # <a name="azurerm-module-250"></a>AzureRM モジュール 2.5.0
@@ -20,10 +20,10 @@ ms.locfileid: "67038195"
 ## <a name="requirements"></a>要件:
 サポートされている Azure Stack の最小バージョンは 1904 です。
 
-注:以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください
+注: 以前のバージョンを使用している場合は、バージョン 1.2.11 をインストールしてください。
 
 
-## <a name="install"></a>Install
+## <a name="install"></a>インストール
 ```powershell-interactive
 # Remove previous versions of AzureStack modules
 Uninstall-Module -Name AzureStack -Force 
@@ -104,7 +104,7 @@ Network 管理者モジュールのプレビュー リリース。このモジ�
 - 割り当て済みのネットワーク リソース (パブリック IP アドレス、仮想ネットワーク、ロード バランサーなど) の表示
 - 管理者の概要を表示するコマンドレットの提供
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 Azure Stack Storage 管理者モジュールのプレビュー リリース。  このリリースには、次の機能が用意されています。
 - ストレージ クォータの管理
 - 削除されたストレージ リソースのガベージ コレクションの実行
@@ -123,7 +123,7 @@ Azure Stack Subscription 管理者モジュールのプレビュー リリース
 Azure Stack Subscription モジュールのプレビュー リリース。  このモジュールは、ユーザー向けの次の機能を提供します。
 - サブスクリプションの作成、削除、更新
 
-### <a name="update"></a>アップデート
+### <a name="update"></a>更新
 Azure Stack Update 管理者モジュールのプレビュー リリース。  このモジュールでは、管理者は以下を行うことができます。
 - 使用可能な更新プログラムの表示とインストール
 - 中断された更新の再開

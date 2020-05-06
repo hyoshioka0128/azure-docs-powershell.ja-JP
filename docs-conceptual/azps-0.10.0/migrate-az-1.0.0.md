@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: e5121d61b0f5f68ff3e1f33d774e3533adfeb64f
-ms.sourcegitcommit: 4c61442a2df1cee633ce93cad9f6bc793803baa2
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "81445545"
 ---
 # <a name="breaking-changes-for-az-100"></a>Az 1.0.0 の破壊的変更
@@ -72,7 +72,7 @@ Get-AzVM
 Get-AzKeyVaultSecret
 ```
 
-これらの新しいコマンドレット名に簡単に移行できるように、Az では [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias) と [Disable-AzureRmAlias](/powershell/module/az.accounts/disable-azurermalias) の 2 つの新しいコマンドレットが導入されています。  `Enable-AzureRmAlias` では、新しい Az コマンドレット名に対応する、AzureRM の古いコマンドレット名のエイリアスが作成されます。 `Enable-AzureRmAlias` で `-Scope` 引数を使用すると、エイリアスを有効にする場所を選択することができます。
+これらの新しいコマンドレット名に簡単に移行できるように、Az では [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias) と [Disable-AzureRmAlias](/powershell/module/az.accounts/disable-azurermalias) の 2 つの新しいコマンドレットが導入されています。  `Enable-AzureRmAlias` では、新しい Az コマンドレット名に対応する、AzureRM の古いコマンドレット名のエイリアスが作成されます。 `-Scope` で `Enable-AzureRmAlias` 引数を使用すると、エイリアスを有効にする場所を選択することができます。
 
 たとえば、AzureRM の次のスクリプトがあるとします。
 
@@ -212,31 +212,31 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
   - Import-AzureRmApiManagementHostnameCertificate
   - 代わりに、**Set-AzApiManagement** コマンドレットを使用してこれらのプロパティを設定します
 - 次のプロパティが削除されました。
-  - `PsApiManagementContext` から、`PsApiManagementHostnameConfiguration` 型の `PortalHostnameConfiguration`、`ProxyHostnameConfiguration`、`ManagementHostnameConfiguration`、`ScmHostnameConfiguration` の各プロパティが削除されました。 代わりに、`PsApiManagementCustomHostNameConfiguration` 型の `PortalCustomHostnameConfiguration`、`ProxyCustomHostnameConfiguration`、`ManagementCustomHostnameConfiguration`、`ScmCustomHostnameConfiguration` を使用します。
+  - `PortalHostnameConfiguration` から、`ProxyHostnameConfiguration` 型の `ManagementHostnameConfiguration`、`ScmHostnameConfiguration`、`PsApiManagementHostnameConfiguration`、`PsApiManagementContext` の各プロパティが削除されました。 代わりに、`PortalCustomHostnameConfiguration` 型の `ProxyCustomHostnameConfiguration`、`ManagementCustomHostnameConfiguration`、`ScmCustomHostnameConfiguration`、`PsApiManagementCustomHostNameConfiguration` を使用します。
   - PsApiManagementContext から `StaticIPs` プロパティが削除されました。 このプロパティは、`PublicIPAddresses` と `PrivateIPAddresses` に分割されました。
   - New-AzureApiManagementVirtualNetwork コマンドレットから、必須の `Location` プロパティが削除されました。
 
 ### <a name="azbilling-previously-azurermbilling-azurermconsumption-and-azurermusageaggregates"></a>Az.Billing (以前の AzureRM.Billing、AzureRM.Consumption、および AzureRM.UsageAggregates)
 
-- `Get-AzConsumptionUsageDetail` コマンドレットから、`InvoiceName` パラメーターが削除されました。  スクリプトでは、請求書に他の ID パラメーターを使用する必要があります。
+- `InvoiceName` コマンドレットから、`Get-AzConsumptionUsageDetail` パラメーターが削除されました。  スクリプトでは、請求書に他の ID パラメーターを使用する必要があります。
 
 ### <a name="azcognitiveservices-previously-azurermcognitiveservices"></a>Az.CognitiveServices (以前の AzureRM.CognitiveServices)
 
-- `Get-AzCognitiveServicesAccountSkus` コマンドレットから、`GetSkusWithAccountParamSetName` パラメーター セットが削除されました。  ResourceGroupName とアカウント名を使用するのではなく、アカウントの種類と場所で SKU を取得する必要があります。
+- `GetSkusWithAccountParamSetName` コマンドレットから、`Get-AzCognitiveServicesAccountSkus` パラメーター セットが削除されました。  ResourceGroupName とアカウント名を使用するのではなく、アカウントの種類と場所で SKU を取得する必要があります。
 
 ### <a name="azcompute-previously-azurermcompute"></a>Az.Compute (以前の AzureRM.Compute)
 
-- `PSVirtualMachine` および `PSVirtualMachineScaleSet` オブジェクトの `Identity` プロパティから `IdentityIds` が削除されました。スクリプトでは、このフィールドの値を使用して処理を決定することはできなくなりました。
-- `PSVirtualMachineScaleSetVM` オブジェクトの `InstanceView` プロパティの型が、`VirtualMachineInstanceView` から `VirtualMachineScaleSetVMInstanceView` に変更されました。
-- `UpgradePolicy` プロパティから、`AutoOSUpgradePolicy` および `AutomaticOSUpgrade` プロパティが削除されました。
-- `PSSnapshotUpdate` オブジェクトの `Sku` プロパティの型が、`DiskSku` から `SnapshotSku` に変更されました。
-- `Add-AzVMDataDisk` コマンドレットから、`VmScaleSetVMParameterSet` が削除されました。スケールセット VM にデータ ディスクを個別に追加することはできなくなりました。
+- `IdentityIds` および `Identity` オブジェクトの `PSVirtualMachine` プロパティから `PSVirtualMachineScaleSet` が削除されました。スクリプトでは、このフィールドの値を使用して処理を決定することはできなくなりました。
+- `InstanceView` オブジェクトの `PSVirtualMachineScaleSetVM` プロパティの型が、`VirtualMachineInstanceView` から `VirtualMachineScaleSetVMInstanceView` に変更されました。
+- `AutoOSUpgradePolicy` プロパティから、`AutomaticOSUpgrade` および `UpgradePolicy` プロパティが削除されました。
+- `Sku` オブジェクトの `PSSnapshotUpdate` プロパティの型が、`DiskSku` から `SnapshotSku` に変更されました。
+- `VmScaleSetVMParameterSet` コマンドレットから、`Add-AzVMDataDisk` が削除されました。スケールセット VM にデータ ディスクを個別に追加することはできなくなりました。
 
 ### <a name="azdatafactory-previously-azurermdatafactories-and-azurermdatafactoryv2"></a>Az.DataFactory (以前の AzureRM.DataFactories および AzureRM.DataFactoryV2)
 
-- `New-AzDataFactoryEncryptValue` コマンドレットで `GatewayName` パラメーターが必須になりました。
+- `GatewayName` コマンドレットで `New-AzDataFactoryEncryptValue` パラメーターが必須になりました。
 - `New-AzDataFactoryGatewayKey` コマンドレットが削除されました。
-- `Get-AzDataFactoryV2ActivityRun` コマンドレットから、`LinkedServiceName` パラメーターが削除されました。スクリプトでは、このフィールドの値を使用して処理を決定することはできなくなりました。
+- `LinkedServiceName` コマンドレットから、`Get-AzDataFactoryV2ActivityRun` パラメーターが削除されました。スクリプトでは、このフィールドの値を使用して処理を決定することはできなくなりました。
 
 ### <a name="azdatalakeanalytics-previously-azurermdatalakeanalytics"></a>Az.DataLakeAnalytics (以前の AzureRM.DataLakeAnalytics)
 
@@ -248,7 +248,7 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
   - New-AzureRmDataLakeStoreItem
   - Add-AzureRmDataLakeStoreItemContent
   - Get-AzureRmDataLakeStoreItemContent
-- `New-AzDataLakeStoreAccount` および `Set-AzDataLakeStoreAccount` コマンドレットから、非推奨の `Tags` プロパティのエイリアスが削除されました。
+- `Tags` および `New-AzDataLakeStoreAccount` コマンドレットから、非推奨の `Set-AzDataLakeStoreAccount` プロパティのエイリアスが削除されました。
 
   次のコマンドレットを使用するスクリプトは
   ```azurepowershell-interactive
@@ -260,15 +260,15 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
   New-AzDataLakeStoreAccount -Tag @{TagName="TagValue"}
   ```
 
-- `PSDataLakeStoreAccountBasic` オブジェクトから、非推奨の `Identity`、`EncryptionState`、`EncryptionProvisioningState`、`EncryptionConfig`、`FirewallState`、`FirewallRules`、`VirtualNetworkRules`、`TrustedIdProviderState`、`TrustedIdProviders`、`DefaultGroup`、`NewTier`、`CurrentTier`、`FirewallAllowAzureIps` の各プロパティが削除されました。  `Get-AzDataLakeStoreAccount` から返された `PSDatalakeStoreAccount` を使用するスクリプトでは、これらのプロパティを参照しないでください。
+- `Identity` オブジェクトから、非推奨の `EncryptionState`、`EncryptionProvisioningState`、`EncryptionConfig`、`FirewallState`、`FirewallRules`、`VirtualNetworkRules`、`TrustedIdProviderState`、`TrustedIdProviders`、`DefaultGroup`、`NewTier`、`CurrentTier`、`FirewallAllowAzureIps`、`PSDataLakeStoreAccountBasic` の各プロパティが削除されました。  `PSDatalakeStoreAccount` から返された `Get-AzDataLakeStoreAccount` を使用するスクリプトでは、これらのプロパティを参照しないでください。
 
 ### <a name="azkeyvault-previously-azurermkeyvault"></a>Az.KeyVault (以前の AzureRM.KeyVault)
 
-- `PSKeyVaultKeyAttributes`、`PSKeyVaultKeyIdentityItem`、`PSKeyVaultSecretAttributes` の各オブジェクトから、`PurgeDisabled` プロパティが削除されました。スクリプトでは、```PurgeDisabled``` プロパティを参照して処理を決定することはできなくなりました。
+- `PurgeDisabled`、`PSKeyVaultKeyAttributes`、`PSKeyVaultKeyIdentityItem` の各オブジェクトから、`PSKeyVaultSecretAttributes` プロパティが削除されました。スクリプトでは、```PurgeDisabled``` プロパティを参照して処理を決定することはできなくなりました。
 
 ### <a name="azmedia-previously-azurermmedia"></a>Az.Media (以前の AzureRM.Media)
 
-- `New-AzMediaService` コマンドレットから、非推奨の `Tags` プロパティのエイリアスが削除されました。次のコマンドレットを使用するスクリプトは
+- `Tags` コマンドレットから、非推奨の `New-AzMediaService` プロパティのエイリアスが削除されました。次のコマンドレットを使用するスクリプトは
   ```azurepowershell-interactive
   New-AzureRMMediaService -Tags @{TagName="TagValue"}
   ```
@@ -280,7 +280,7 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 
 ### <a name="azmonitor-previously-azurerminsights"></a>Az.Monitor (以前の AzureRM.Insights)
 
-- 単数形のパラメーター名を優先して、`Set-AzDiagnosticSetting` コマンドレットから複数形のパラメーター名 `Categories` と `Timegrains` が削除されました。次のコマンドレットを使用するスクリプトは
+- 単数形のパラメーター名を優先して、`Categories` コマンドレットから複数形のパラメーター名 `Timegrains` と `Set-AzDiagnosticSetting` が削除されました。次のコマンドレットを使用するスクリプトは
   ```azurepowershell-interactive
   Set-AzureRmDiagnosticSetting -Timegrains PT1M -Categories Category1, Category2
   ```
@@ -292,8 +292,8 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 
 ### <a name="aznetwork-previously-azurermnetwork"></a>Az.Network (以前の AzureRM.Network)
 
-- `Get-AzServiceEndpointPolicyDefinition` コマンドレットから、非推奨の `ResourceId` パラメーターが削除されました。
-- `PSVirtualNetwork` オブジェクトから、非推奨の `EnableVmProtection` プロパティが削除されました。
+- `ResourceId` コマンドレットから、非推奨の `Get-AzServiceEndpointPolicyDefinition` パラメーターが削除されました。
+- `EnableVmProtection` オブジェクトから、非推奨の `PSVirtualNetwork` プロパティが削除されました。
 - 非推奨の `Set-AzVirtualNetworkGatewayVpnClientConfig` コマンドレットが削除されました。
 
 スクリプトでは、これらのフィールドの値に基づいて処理を決定することはできなくなりました。
@@ -314,15 +314,15 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 
 ### <a name="azrecoveryservices-previously-azurermrecoveryservices-azurermrecoveryservicesbackup-and-azurermrecoveryservicessiterecovery"></a>Az.RecoveryServices (以前の AzureRM.RecoveryServices、AzureRM.RecoveryServices.Backup、および AzureRM.RecoveryServices.SiteRecovery)
 
-- `New/Set-AzRecoveryServicesAsrPolicy` コマンドレットから、`Encryption` パラメーターが削除されました。
-- `Restore-AzRecoveryServicesBackupItem` コマンドレットでのマネージド ディスクの復元に `TargetStorageAccountName` パラメーターが必須になりました。
-- `Restore-AzRecoveryServicesBackupItem` コマンドレットの `StorageAccountName` および `StorageAccountResourceGroupName` パラメーターが削除されました。
-- `Get-AzRecoveryServicesBackupContainer` コマンドレットの `Name` パラメーターが削除されました。
+- `Encryption` コマンドレットから、`New/Set-AzRecoveryServicesAsrPolicy` パラメーターが削除されました。
+- `TargetStorageAccountName` コマンドレットでのマネージド ディスクの復元に `Restore-AzRecoveryServicesBackupItem` パラメーターが必須になりました。
+- `StorageAccountName` コマンドレットの `StorageAccountResourceGroupName` および `Restore-AzRecoveryServicesBackupItem` パラメーターが削除されました。
+- `Name` コマンドレットの `Get-AzRecoveryServicesBackupContainer` パラメーターが削除されました。
 
 ### <a name="azresources-previously-azurermresources"></a>Az.Resources (以前の AzureRM.Resources)
 
-- `New/Set-AzPolicyAssignment` コマンドレットから、`Sku` パラメーターが削除されました。
-- `New-AzADServicePrincipal` および `New-AzADSpCredential` コマンドレットから、`Password` パラメーターが削除されました。パスワードは自動的に生成されます。次のようにパスワードを指定しているスクリプトは
+- `Sku` コマンドレットから、`New/Set-AzPolicyAssignment` パラメーターが削除されました。
+- `Password` および `New-AzADServicePrincipal` コマンドレットから、`New-AzADSpCredential` パラメーターが削除されました。パスワードは自動的に生成されます。次のようにパスワードを指定しているスクリプトは
 
   ```azurepowershell-interactive
   New-AzAdSpCredential -ObjectId 1f99cf81-0146-4f4e-beae-2007d0668476 -Password $secPassword
@@ -338,9 +338,9 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 ### <a name="azservicefabric-previously-azurermservicefabric"></a>Az.ServiceFabric (以前の AzureRM.ServiceFabric)
 
 - コマンドレットの次の戻り値の型が変更されました。
-  - `ApplicationHealthPolicy` 型の `ServiceTypeHealthPolicies` プロパティが削除されました。
-  - `ClusterUpgradeDeltaHealthPolicy` 型の `ApplicationHealthPolicies` プロパティが削除されました。
-  - `ClusterUpgradePolicy` 型の `OverrideUserUpgradePolicy` プロパティが削除されました。
+  - `ServiceTypeHealthPolicies` 型の `ApplicationHealthPolicy` プロパティが削除されました。
+  - `ApplicationHealthPolicies` 型の `ClusterUpgradeDeltaHealthPolicy` プロパティが削除されました。
+  - `OverrideUserUpgradePolicy` 型の `ClusterUpgradePolicy` プロパティが削除されました。
   - これらの変更は、次のコマンドレットに影響します。
     - Add-AzServiceFabricClientCertificate
     - Add-AzServiceFabricClusterCertificate
@@ -359,17 +359,17 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
 
 ### <a name="azsql-previously-azurermsql"></a>Az.Sql (以前の AzureRM.Sql)
 
-- `Set-AzSqlDatabaseBackupLongTermRetentionPolicy` コマンドレットから、`State` および `ResourceId` パラメーターが削除されました。
+- `State` コマンドレットから、`ResourceId` および `Set-AzSqlDatabaseBackupLongTermRetentionPolicy` パラメーターが削除されました。
 - 非推奨の `Get/Set-AzSqlServerBackupLongTermRetentionVault`、`Get/Start/Stop-AzSqlServerUpgrade`、`Get/Set-AzSqlDatabaseAuditingPolicy`、`Get/Set-AzSqlServerAuditingPolicy`、`Remove-AzSqlDatabaseAuditing`、`Remove-AzSqlServerAuditing` の各コマンドレットが削除されました。
-- `Get-AzSqlDatabaseBackupLongTermRetentionPolicy` コマンドレットから、非推奨の `Current` パラメーターが削除されました。
-- `Get-AzSqlServerServiceObjective` コマンドレットから、非推奨の `DatabaseName` パラメーターが削除されました。
-- `Set-AzSqlDatabaseDataMaskingPolicy` コマンドレットから、非推奨の `PrivilegedLogin` パラメーターが削除されました。
+- `Current` コマンドレットから、非推奨の `Get-AzSqlDatabaseBackupLongTermRetentionPolicy` パラメーターが削除されました。
+- `DatabaseName` コマンドレットから、非推奨の `Get-AzSqlServerServiceObjective` パラメーターが削除されました。
+- `PrivilegedLogin` コマンドレットから、非推奨の `Set-AzSqlDatabaseDataMaskingPolicy` パラメーターが削除されました。
 
 ### <a name="azstorage-previously-azurestorage-and-azurermstorage"></a>Az.Storage (以前の Azure.Storage and AzureRM.Storage)
 
 - ストレージ アカウント名のみを使用した Oauth ストレージ コンテキストの作成をサポートするために、既定のパラメーター セットが `OAuthParameterSet` に変更されました。
   - 例: `$ctx = New-AzureStorageContext -StorageAccountName $accountName`
-- `Get-AzStorageUsage` コマンドレットで `Location` パラメーターが必須になりました。
+- `Location` コマンドレットで `Get-AzStorageUsage` パラメーターが必須になりました。
 - Storage API のメソッドで、同期 API 呼び出しの代わりに、タスク ベースの非同期パターン (TAP) が使用されるようになりました。 次の例は、新しい非同期コマンドを示しています。
 
 #### <a name="blob-snapshot"></a>BLOB スナップショット
