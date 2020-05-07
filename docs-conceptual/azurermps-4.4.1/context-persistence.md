@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
 ms.openlocfilehash: 442dfed6175f2f5e2f386df3cb2bcea4871bcc01
-ms.sourcegitcommit: 0fdccb57a356b6e7c35a77b1f76e01fb96ef582b
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "65854180"
 ---
 # <a name="persisting-user-credentials-across-powershell-sessions"></a>PowerShell セッション間でのユーザーの資格情報の保持
@@ -83,7 +83,7 @@ PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso
 
 前の例では、現在の資格情報を使用して、"Contoso Subscription 1" を対象とした新しいコンテキストを追加します。 新しいコンテキストの名前は "Contoso1" です。 コンテキストに名前を指定しない場合は、アカウント ID とサブスクリプション ID を使用した既定の名前が使用されます。
 
-既存のコンテキストの名前を変更するには、`Rename-AzureRmContext` コマンドレットを使用します。 例:
+既存のコンテキストの名前を変更するには、`Rename-AzureRmContext` コマンドレットを使用します。 次に例を示します。
 
 ```azurepowershell-interactive
 PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso2'
@@ -91,7 +91,7 @@ PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Co
 
 この例では、自動的に `[user1@contoso.org; 123456-7890-1234-564321]` という名前の付いたコンテキストの名前を簡単な名前 "Contoso2" に変更します。 コンテキストを管理するコマンドレットではタブ補完も使用されているため、コンテキストをすばやく選択できます。
 
-最後に、コンテキストを削除するには、`Remove-AzureRmContext` コマンドレットを使用します。  例:
+最後に、コンテキストを削除するには、`Remove-AzureRmContext` コマンドレットを使用します。  次に例を示します。
 
 ```azurepowershell-interactive
 PS C:\> Remove-AzureRmContext Contoso2
