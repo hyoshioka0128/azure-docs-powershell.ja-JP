@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.openlocfilehash: 8a9a399f72ed9e3e9a3cbc09c8a4abaa91339c24
-ms.sourcegitcommit: f0f09eee03ef9dd7fe07432252a3dc8ca93e3a7b
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "71319304"
 ---
 ## <a name="180---april-2019"></a>1.8.0 - 2019 年 4 月
@@ -639,7 +639,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azresources"></a>Az.Resources
 
-* https://github.com/Azure/azure-powershell/issues/7679 を修正しました
+* https://github.com/Azure/azure-powershell/issues/7679 を修正しました 
     - 従来の管理者を要求するときにサブスクリプションのスコープを指定する場合、サブスクリプションのスコープを使用するように Get-AzureRmRoleAssignment を更新しました。
 
 ### <a name="azsql"></a>Az.Sql
@@ -776,7 +776,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 * ポリシー修復コマンドレットを追加しました
 
 #### <a name="azresources"></a>Az.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
     - "Get-AzResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました。
 
 #### <a name="azservicebus"></a>Az.ServiceBus

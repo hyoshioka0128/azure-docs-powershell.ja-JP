@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 02/06/2019
 ms.openlocfilehash: 1b3d707e862dd0c21e9e6b0a89f429ff21b1a99d
-ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "68861340"
 ---
 # <a name="azure-stack-module-172"></a>Azure Stack Module 1.7.2
@@ -23,7 +23,7 @@ ms.locfileid: "68861340"
 
 注:以前のバージョンの Azure Stack については、「[Azure Stack Powershell のインストール](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install#install-azure-stack-powershell)」を参照してください。
 
-## <a name="install"></a>Install
+## <a name="install"></a>インストール
 
 ```powershell
 # Remove previous versions of AzureStack and AzureRM modules

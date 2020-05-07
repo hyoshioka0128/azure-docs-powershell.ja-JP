@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.openlocfilehash: 1fbd24996da2fbc7d4e95c2a63f828aea6cb3145
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "65534938"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-600"></a>Microsoft Azure PowerShell 6.0.0 の重大な変更
@@ -41,7 +41,7 @@ ms.locfileid: "65534938"
 
 ## <a name="general-breaking-changes"></a>重大な変更 - 全般
 
-### <a name="minimum-powershell-version-required-bumped-to-50"></a>5.0 に引き上げられた PowerShell の必要最小バージョン
+### <a name="minimum-powershell-version-required-bumped-to-50"></a>5\.0 に引き上げられた PowerShell の必要最小バージョン
 
 以前は、Azure PowerShell でコマンドレットを実行するには、PowerShell のバージョン 3.0 "_以上_" が必要でした。 今後、この要件は PowerShell のバージョン 5.0 に引き上げられます。 PowerShell 5.0 へのアップグレードについては、[こちらの表](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)をご覧ください。
 
@@ -153,7 +153,7 @@ New-AzureRmAvailabilitySet -ResourceGroupName "MyRG" -Name "MyAvailabilitySet" -
 
 **Set-AzureRmVMAEMExtension**
 - `DisableWAD` パラメーターが削除されました。
-    -  Windows Azure 診断が既定で無効になっています。
+    -  Windows Azure Diagnostics が既定で無効になっています。
 
 **Set-AzureRmVMDataDisk**
 - `StorageAccountType` パラメーターに指定できる値が、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。
@@ -340,7 +340,7 @@ $sas=Set-AzureKeyVaultManagedStorageSasDefinition -AccountName $sa.StorageAccoun
     - `Stop-AzureKeyVaultCertificateOperation`
     - `Update-AzureKeyVaultManagedStorageAccountKey`
 
-- `IKeyVaultDataServiceClient` が更新されました。これにより、すべての証明書操作で、SDK の種類ではなく PSTypes が返されます。 次のトピックがあります。
+- `IKeyVaultDataServiceClient` が更新されました。これにより、すべての証明書操作で、SDK の種類ではなく PSTypes が返されます。 これには次のものが含まれます
     - `SetCertificateContacts`
     - `GetCertificateContacts`
     - `GetCertificate`

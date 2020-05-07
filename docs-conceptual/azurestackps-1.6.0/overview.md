@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 09/21/2018
 ms.openlocfilehash: b0e85bec82b9b7c876b2bbf337b603c8d68cf6a3
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153404"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "63053317"
 ---
 # <a name="azure-stack-module-160"></a>Azure Stack Module 1.6.0
 
@@ -22,7 +22,7 @@ ms.locfileid: "56153404"
 
 注:以前のバージョンを使用している場合は、バージョン 1.6.0 をインストールしてください
 
-## <a name="install"></a>Install
+## <a name="install"></a>インストール
 ```
 # Remove previous versions of AzureStack and AzureRM modules
 Uninstall-Module -Name AzureRM -Force

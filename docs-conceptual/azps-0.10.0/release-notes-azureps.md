@@ -5,10 +5,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: c02cfaa7f7f39393f21cec31c5115f009381b19c
-ms.sourcegitcommit: 4c61442a2df1cee633ce93cad9f6bc793803baa2
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 05/05/2020
 ms.locfileid: "81446055"
 ---
 # <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
@@ -693,7 +693,7 @@ DatabaseName の存在の代わりに PartnerDatabaseName の存在を確認す�
         - Remove-AzPrivateEndpointConnection
         - Set-AzPrivateEndpointConnection
 * PrivateLinkResource の新しいコマンドレットを追加し、これも汎用サービス プロバイダーをサポートします。
-    - 新しいコマンドレット:
+    - 新しいコマンドレット: 
         - Get-AzPrivateLinkResource
 * 機能 Proxy Protocol V2 の新しいフィールドとパラメーターを追加します。
     - PrivateLinkService にプロパティ EnableProxyProtocol を追加します
@@ -2290,7 +2290,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azresources"></a>Az.Resources
 
-* https://github.com/Azure/azure-powershell/issues/7679 を修正しました
+* https://github.com/Azure/azure-powershell/issues/7679 を修正しました 
     - 従来の管理者を要求するときにサブスクリプションのスコープを指定する場合、サブスクリプションのスコープを使用するように Get-AzureRmRoleAssignment を更新しました。
 
 ### <a name="azsql"></a>Az.Sql
@@ -2427,7 +2427,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 * ポリシー修復コマンドレットを追加しました
 
 #### <a name="azresources"></a>Az.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
     - "Get-AzResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました。
 
 #### <a name="azservicebus"></a>Az.ServiceBus
