@@ -73,7 +73,7 @@ TestVM 711d8ed1-b888-4c52-8ab9-66f07b87eb6b Succeeded
 
 ## <a name="select-nested-properties"></a>入れ子になったプロパティの選択
 
-Azure PowerShell コマンドレットの出力の一部のプロパティでは、入れ子になったオブジェクトが使用されます (`StorageProfile` 出力の `Get-AzVM` プロパティなど)。 入れ子になったプロパティから値を取得するには、`Select-Object` のディクショナリの引数の一部として検査する値に表示名と完全なパスを提供します。
+Azure PowerShell コマンドレットの出力の一部のプロパティでは、入れ子になったオブジェクトが使用されます (`Get-AzVM` 出力の `StorageProfile` プロパティなど)。 入れ子になったプロパティから値を取得するには、`Select-Object` のディクショナリの引数の一部として検査する値に表示名と完全なパスを提供します。
 
 ```azurepowershell-interactive
 Get-AzVM -ResourceGroupName TestGroup | `

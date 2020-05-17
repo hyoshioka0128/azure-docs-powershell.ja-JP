@@ -113,7 +113,7 @@ Get-AzBatchSupportedImage -BatchContext $Context
 ## <a name="compute"></a>Compute
 
 ### `New-AzDiskConfig`
-`UploadSizeInBytes`で CreateOption が Upload の場合、`DiskSizeGB` の代わりに `New-AzDiskConfig` パラメーターが使用されます
+`New-AzDiskConfig`で CreateOption が Upload の場合、`DiskSizeGB` の代わりに `UploadSizeInBytes` パラメーターが使用されます
 
 #### <a name="before"></a>[指定日付より前]
 ```powershell

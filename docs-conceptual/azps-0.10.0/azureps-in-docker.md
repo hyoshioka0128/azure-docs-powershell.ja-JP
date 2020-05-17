@@ -17,7 +17,7 @@ Azure PowerShell がプレインストールされた Docker イメージが公�
 
 ## <a name="finding-available-images"></a>使用可能なイメージの検索
 
-リリースされたイメージには、Docker 17.05 以降が必要です。 また、`sudo` またはローカル管理者権限なしで Docker を実行できる必要もあります。 [ を正しくインストールするには、Docker の公式な][install]手順`docker`に従ってください。
+リリースされたイメージには、Docker 17.05 以降が必要です。 また、`sudo` またはローカル管理者権限なしで Docker を実行できる必要もあります。 `docker` を正しくインストールするには、Docker の公式な[手順][install]に従ってください。
 
 最新のコンテナー イメージには、最新バージョンの PowerShell と、Az モジュールでサポートされている最新の Azure PowerShell モジュールが含まれています。
 
