@@ -145,7 +145,7 @@ MSI パッケージを使用して Azure PowerShell AzureRM モジュールを�
 
 ### <a name="uninstall-from-powershell"></a>PowerShell からのアンインストール
 
-PowerShellGet を使用して AzureRM をインストールした場合は、[ モジュールの一部として使用可能な ](/powershell/module/az.accounts/uninstall-azurerm)Uninstall-AzureRM`Az.Accounts` コマンドでモジュールを削除します。 これによって、"_すべて_" の AzureRM モジュールがコンピューターから削除されます。ただし、管理者特権が必要です。
+PowerShellGet を使用して AzureRM をインストールした場合は、`Az.Accounts` モジュールの一部として使用可能な [Uninstall-AzureRM](/powershell/module/az.accounts/uninstall-azurerm) コマンドでモジュールを削除します。 これによって、"_すべて_" の AzureRM モジュールがコンピューターから削除されます。ただし、管理者特権が必要です。
 
 ```powershell-interactive
 Uninstall-AzureRm

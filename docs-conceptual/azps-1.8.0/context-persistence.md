@@ -24,7 +24,7 @@ Azure PowerShell は、_Azure PowerShell コンテキスト オブジェクト_ 
 
 Azure コンテキストは、コマンドの実行対象のアクティブなサブスクリプションと、Azure クラウドに接続するために必要な認証情報を表す PowerShell オブジェクトです。 Azure コンテキストを使用すると、サブスクリプションを切り替えるたびに、Azure PowerShell でアカウントを再認証する必要はありません。 Azure コンテキストは、次のもので構成されます。
 
-* _Connect-AzAccount_ を使用して Azure にサインインするために使用された[アカウント](/powershell/module/az.accounts/connect-azaccount)。 Azure コンテキストでは、アカウントの観点からは、ユーザー、アプリケーション ID、およびサービス プリンシパルが同じものとして扱われます。
+* [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) を使用して Azure にサインインするために使用された_アカウント_。 Azure コンテキストでは、アカウントの観点からは、ユーザー、アプリケーション ID、およびサービス プリンシパルが同じものとして扱われます。
 * _テナント_に関連付けられたアクティブな_サブスクリプション_ (Azure リソースを作成および実行するための Microsoft とのサービス契約)。 多くの場合、テナントは、ドキュメント内で、または Active Directory を使用する場合に_組織_と呼ばれます。
 * _トークン キャッシュ_ (Azure クラウドへアクセスするための格納された認証トークン) への参照。 このトークンの格納場所と保持期間は[コンテキスト自動保存設定](#save-azure-contexts-across-powershell-sessions)によって決定されます。
 
@@ -98,7 +98,7 @@ Azure PowerShell コマンドレットでのコンテキストのもう 1 つの
 
 既定では、Azure コンテキストは、PowerShell セッション間で使用するために保存されます。 この動作は、次の方法で変更します。
 
-* `-Scope Process` で `Connect-AzAccount` を使用してサインインします。
+* `Connect-AzAccount` で `-Scope Process` を使用してサインインします。
 
   ```azurepowershell
   Connect-AzAccount -Scope Process

@@ -69,7 +69,7 @@ MyVm                 MyVm   eastus Standard_DS1_v2 Windows    MyVm          Crea
 
 > [!NOTE]
 > `Receive-Job` は、`-AsJob` フラグが存在しないように、コマンドレットから結果を返します。
-> たとえば、`Receive-Job` の `Do-Action -AsJob` 結果の種類は、`Do-Action` の結果と同じです。
+> たとえば、`Do-Action -AsJob` の `Receive-Job` 結果の種類は、`Do-Action` の結果と同じです。
 
 ```azurepowershell-interactive
 $vm = Receive-Job $job

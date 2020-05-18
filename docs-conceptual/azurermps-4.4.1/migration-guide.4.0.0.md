@@ -35,7 +35,7 @@ ms.locfileid: "67863548"
 このリリースで影響を受けた出力の型は次のとおりです。
 
 ### <a name="psvirtualmachine"></a>PSVirtualMachine
-- `DataDiskNames` オブジェクトの最上位レベルのプロパティ `NetworkInterfaceIDs` と `PSVirtualMachine` が出力の型から削除されました。 これらのプロパティは、`StorageProfile` オブジェクトの `NetworkProfile` プロパティと `PSVirtualMachine` プロパティで常に使用できましたが、今後はアクセスすることが必要になります。
+- `PSVirtualMachine` オブジェクトの最上位レベルのプロパティ `DataDiskNames` と `NetworkInterfaceIDs` が出力の型から削除されました。 これらのプロパティは、`PSVirtualMachine` オブジェクトの `StorageProfile` プロパティと `NetworkProfile` プロパティで常に使用できましたが、今後はアクセスすることが必要になります。
 - この変更は次のコマンドレットに影響します。
     - `Add-AzureRmVMDataDisk`
     - `Add-AzureRmVMNetworkInterface`
@@ -59,10 +59,10 @@ $vm.NetworkProfile.NetworkInterfaces | Select -Property Id
 このリリースで影響を受けたコマンドレットは次のとおりです。
 
 ### <a name="get-azurermeventhubnamespace"></a>Get-AzureRmEventHubNamespace
-- 出力の型 `ResourceGroupName` から `NamespaceAttributes` プロパティが削除されました。
+- 出力の型 `NamespaceAttributes` から `ResourceGroupName` プロパティが削除されました。
 
 ### <a name="new-azurermeventhubnamespace"></a>New-AzureRmEventHubNamespace
-- 出力の型 `ResourceGroupName` から `NamespaceAttributes` プロパティが削除されました。
+- 出力の型 `NamespaceAttributes` から `ResourceGroupName` プロパティが削除されました。
 
 ## <a name="breaking-changes-to-insights-cmdlets"></a>Insights コマンドレットの重大な変更
 
@@ -195,7 +195,7 @@ Update-AzureRmDiagnosticSettings
 このリリースで影響を受けたコマンドレットは次のとおりです。
 
 ### <a name="new-azurermvirtualnetworkgatewayconnection"></a>New-AzureRmVirtualNetworkGatewayConnection
-- `EnableBgp` パラメーターが、`boolean` ではなく `string` を受け取るように変更されました。
+- `EnableBgp` パラメーターが、`string` ではなく `boolean` を受け取るように変更されました。
 
 ```powershell-interactive
 # Old
@@ -210,11 +210,11 @@ New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName "RG" -name "conn1"
 このリリースで影響を受けたコマンドレットは次のとおりです。
 
 ### <a name="get-azurermservicebusnamespace"></a>Get-AzureRmServiceBusNamespace
-- 出力の型 `ResourceGroupName` から `NamespaceAttributes` プロパティが削除されました。
+- 出力の型 `NamespaceAttributes` から `ResourceGroupName` プロパティが削除されました。
 
 ### <a name="new-azurermservicebusnamespace"></a>New-AzureRmServiceBusNamespace
 
-- 出力の型 `ResourceGroupName` から `NamespaceAttributes` プロパティが削除されました。
+- 出力の型 `NamespaceAttributes` から `ResourceGroupName` プロパティが削除されました。
 
 ## <a name="breaking-changes-to-sql-cmdlets"></a>Sql コマンドレットの重大な変更
 
@@ -279,10 +279,10 @@ Remove-AzureRmSqlDatabaseFailoverGroup -ResourceGroupName rg -ServerName server1
 ```
 
 ### <a name="set-azurermsqldatabasethreatdetectionpolicy"></a>Set-AzureRmSqlDatabaseThreatDetectionPolicy
-- `Usage_Anomaly` パラメーターで値 `ExcludedDetectionType` が無効になりました。
+- `ExcludedDetectionType` パラメーターで値 `Usage_Anomaly` が無効になりました。
 
 ### <a name="set-azurermsqlserverthreatdetectionpolicy"></a>Set-AzureRmSqlServerThreatDetectionPolicy
-- `Usage_Anomaly` パラメーターで値 `ExcludedDetectionType` が無効になりました。
+- `ExcludedDetectionType` パラメーターで値 `Usage_Anomaly` が無効になりました。
 
 ## <a name="breaking-changes-to-storage-cmdlets"></a>Storage コマンドレットの重大な変更
 
@@ -391,7 +391,7 @@ Save-AzureRmContext -Path c:\mydir\myprofile.json
 ```
 ### <a name="breaking-changes-to-output-psazurecontext-type"></a>出力の PSAzureContext 型の重大な変更
 
-- ```TokenCache``` プロパティが、```IAzureTokenCache``` ではなく ```byte[]``` を実装する型に変更されました。
+- ```TokenCache``` プロパティが、```byte[]``` ではなく ```IAzureTokenCache``` を実装する型に変更されました。
 
 ```powershell-interactive
 # Old

@@ -296,27 +296,27 @@ Update-Module -Name AzureRM
 * PowerShell 3 および 4 の非推奨警告を追加しました
 * `Add-AzureRmAccount` を `Connect-AzureRmAccount` に名前変更しました。古いコマンドレット名に対して別名を追加し、他の別名 (`Login-AzAccount` および `Login-AzureRmAccount`) を新しいコマンドレット名にリダイレクトしました。
 * `Remove-AzureRmAccount` を `Disconnect-AzureRmAccount` に名前変更しました。古いコマンドレット名に対して別名を追加し、他の別名 (`Logout-AzAccount` および `Logout-AzureRmAccount`) を新しいコマンドレット名にリダイレクトしました。
-* `Connect-AzureRmAccount` の代わりに `Login-AzureRmAccount` を使用するようにリソース文字列を修正しました
+* `Login-AzureRmAccount` の代わりに `Connect-AzureRmAccount` を使用するようにリソース文字列を修正しました
 * `Add-AzureRmEnvironment` および `Set-AzureRmEnvironment`
   - OperationalInsights データ プレーン RP で使用するパラメーターとして `-AzureOperationalInsightsEndpoint` と `-AzureOperationalInsightsEndpointResourceId` を追加しました。
 
 ### <a name="azurermanalysisservices"></a>AzureRM.AnalysisServices
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermcompute"></a>AzureRM.Compute
-* `-AvailabilitySetName` の簡素化したパラメーター セットに `New-AzureRmVM` パラメーターを追加しました。
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `New-AzureRmVM` の簡素化したパラメーター セットに `-AvailabilitySetName` パラメーターを追加しました。
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
 * VM および VM スケール セットに対するユーザー割り当て ID のサポート
     - `-IdentityType` および `-IdentityId` パラメーターを `New-AzureRmVMConfig`、`New-AzureRmVmssConfig`、`Update-AzureRmVM`、および `Update-AzureRmVmss` に追加しました
 * `-EnableIPForwarding` パラメーターを `Add-AzureRmVmssNetworkInterfaceConfig` に追加しました
 * `-Priority` パラメーターを `New-AzureRmVmssConfig` に追加しました
 
 ### <a name="azurermdatalakeanalytics"></a>AzureRM.DataLakeAnalytics
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermdatalakestore"></a>AzureRM.DataLakeStore
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
-* `Test-AzureRmDataLakeStoreAccount` を使用してログインせずにこのコマンドレットを実行した場合の `Login-AzureRmAccount` のエラー メッセージを修正しました
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
+* `Login-AzureRmAccount` を使用してログインせずにこのコマンドレットを実行した場合の `Test-AzureRmDataLakeStoreAccount` のエラー メッセージを修正しました
 
 ### <a name="azurermeventgrid"></a>AzureRM.EventGrid
 * 2018-01-01 API バージョンを使用するように更新しました。
@@ -339,10 +339,10 @@ Update-Module -Name AzureRM
     - `Test-AzureRmEventHubName`
 
 ### <a name="azurerminsights"></a>AzureRM.Insights
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermkeyvault"></a>AzureRM.KeyVault
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
 
 ### <a name="azurermnetwork"></a>AzureRM.Network
 * 上書きの確認メッセージ "リソースを上書きしますか" を修正しました
@@ -372,7 +372,7 @@ Update-Module -Name AzureRM
     - `Test-AzureRmServiceBusName`
 
 ### <a name="azurermusageaggregates"></a>AzureRM.UsageAggregates
-* `Login-AzureRmAccount` を使用するように `Connect-AzureRmAccount` の使用方法を修正しました
+* `Connect-AzureRmAccount` を使用するように `Login-AzureRmAccount` の使用方法を修正しました
 
 ## <a name="520---january-2018"></a>5.2.0 - 2018 年 1 月
 #### <a name="azurermprofile"></a>AzureRM.Profile
@@ -756,7 +756,7 @@ Update-Module -Name AzureRM
     - `KeyVaultId`: Batch アカウントに関連付けられている Azure Key Vault のリソース ID。
     - `KeyVaultUrl`: Batch アカウントに関連付けられている Azure Key Vault の URL。
   * `New-AzureBatchTask` のパラメーターを更新しました。
-    - `RunElevated` スイッチを削除しました。 `UserIdentity` の代わりに `RunElevated` パラメーターを追加しました。以下のように `PSUserIdentity` を作成することにより同じ動作を行うことができます。
+    - `RunElevated` スイッチを削除しました。 `RunElevated` の代わりに `UserIdentity` パラメーターを追加しました。以下のように `PSUserIdentity` を作成することにより同じ動作を行うことができます。
       - $autoUser = New-Object Microsoft.Azure.Commands.Batch.Models.PSAutoUserSpecification -ArgumentList @("Task", "Admin")
       - $userIdentity = New-Object Microsoft.Azure.Commands.Batch.Models.PSUserIdentity $autoUser
     - `AuthenticationTokenSettings` パラメーターを追加しました。 このパラメーターを使用すると、タスクの実行時に認証トークンを提供するようバッチ サービスに要求でき、バッチ サービスに要求を出すためにバッチ アカウント キーをタスクに渡す必要がなくなります。
@@ -768,7 +768,7 @@ Update-Module -Name AzureRM
     - `UserAccounts` パラメーターを追加しました。
       - このパラメーターは、プール内の各ノードで作成されたユーザー アカウントを定義します。
     - `TargetLowPriorityComputeNodes` を追加し、`TargetDedicated` を `TargetDedicatedComputeNodes` に名前変更しました。
-      - `TargetDedicated` パラメーター用に `TargetDedicatedComputeNodes` の別名を作成しました。
+      - `TargetDedicatedComputeNodes` パラメーター用に `TargetDedicated` の別名を作成しました。
     - `NetworkConfiguration` パラメーターを追加しました。
       - このパラメーターを使用すると、プールのネットワーク設定を構成できます。
   * `New-AzureBatchCertificate` のパラメーターを更新しました。
@@ -777,13 +777,13 @@ Update-Module -Name AzureRM
     - `Password` パラメーターが `SecureString` になりました。
   * `Set-AzureBatchComputeNodeUser` のパラメーターを更新しました。
     - `Password` パラメーターが `SecureString` になりました。
-  * `Name`、`Path`、および `Get-AzureBatchNodeFile` で、`Get-AzureBatchNodeFileContent` パラメーターを `Remove-AzureBatchNodeFile` に名前変更しました。
-    - `Name` パラメーター用に `Path` の別名を作成しました。
+  * `Get-AzureBatchNodeFile`、`Get-AzureBatchNodeFileContent`、および `Remove-AzureBatchNodeFile` で、`Name` パラメーターを `Path` に名前変更しました。
+    - `Path` パラメーター用に `Name` の別名を作成しました。
   * オブジェクトに対する変更
     - 完全なリストについては、Batch 変更ログを参照してください
   * Azure Active Directory ベースの認証のサポートを追加しました。
-    - Azure Active Directory 認証を使用するには、`BatchAccountContext` コマンドレットを使用して `Get-AzureRmBatchAccount` オブジェクトを取得し、この `BatchAccountContext` を Batch サービス コマンドレットの `-BatchContext` パラメーターに指定します。 Azure Active Directory 認証は、`PoolAllocationMode = UserSubscription` のアカウントには必須です。
-    - 既存のアカウント、または `PoolAllocationMode = BatchService` で作成された新しいアカウントの場合、`BatchAccountContext` コマンドレットを使用して `Get-AzureRmBatchAccoutKeys` オブジェクトを取得することにより、共有キー認証の使用を継続できます。
+    - Azure Active Directory 認証を使用するには、`Get-AzureRmBatchAccount` コマンドレットを使用して `BatchAccountContext` オブジェクトを取得し、この `BatchAccountContext` を Batch サービス コマンドレットの `-BatchContext` パラメーターに指定します。 Azure Active Directory 認証は、`PoolAllocationMode = UserSubscription` のアカウントには必須です。
+    - 既存のアカウント、または `PoolAllocationMode = BatchService` で作成された新しいアカウントの場合、`Get-AzureRmBatchAccoutKeys` コマンドレットを使用して `BatchAccountContext` オブジェクトを取得することにより、共有キー認証の使用を継続できます。
 * Compute
   * Azure Disk Encryption 拡張コマンド
     - "Set-AzureRmVmDiskEncryptionExtension" の新しいパラメーター: "-EncryptFormatAll" はデータ ディスクを暗号化フォーマットします

@@ -30,7 +30,7 @@ WebPI から最新の Azure PowerShell をインストールする方法は、�
 >
 > PowerShell ギャラリー モジュールでは、`$env:ProgramFiles\WindowsPowerShell\Modules` にモジュールがインストールされます。 一方、WebPI インストーラーでは、Azure モジュールは `$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\` にインストールされます。
 >
-> インストール中にエラーが発生した場合は、\* フォルダーから Azure`$env:ProgramFiles\WindowsPowerShell\Modules` フォルダーを手動で削除したうえで、もう一度インストールを試みてください。
+> インストール中にエラーが発生した場合は、`$env:ProgramFiles\WindowsPowerShell\Modules` フォルダーから Azure\* フォルダーを手動で削除したうえで、もう一度インストールを試みてください。
 
 インストールが完了したら、Azure PowerShell コマンドレットを含むディレクトリが `$env:PSModulePath` の設定に含まれている必要があります。 Azure PowerShell が適切にインストールされているかどうかは、次のコマンドを使って確認できます。
 

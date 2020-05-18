@@ -28,7 +28,7 @@ Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releas
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、`Azure` モジュールのみを使用してください。
 
-Azure PowerShell の操作を開始するには、`AzureRM`Import-Module[ コマンドレットを使用して、現在の PowerShell セッションに ](/powershell/module/Microsoft.PowerShell.Core/Import-Module) を読み込み、Azure の資格情報でサインインする必要があります。
+Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、現在の PowerShell セッションに `AzureRM` を読み込み、Azure の資格情報でサインインする必要があります。
 
 ```powershell-interactive
 # Import the module into the PowerShell session
@@ -47,7 +47,7 @@ Azure サインインをセッション間で維持する方法については�
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、`Azure` モジュールのみを使用してください。
 
-Azure PowerShell の操作を開始するには、`AzureRM`Import-Module[ コマンドレットを使用して、現在の PowerShell セッションに ](/powershell/module/Microsoft.PowerShell.Core/Import-Module) を読み込み、Azure の資格情報でサインインする必要があります。
+Azure PowerShell の操作を開始するには、[Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module) コマンドレットを使用して、現在の PowerShell セッションに `AzureRM` を読み込み、Azure の資格情報でサインインする必要があります。
 
 ```powershell-interactive
 # Import the module into the PowerShell session
