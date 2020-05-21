@@ -279,7 +279,7 @@ ms.locfileid: "81446055"
 #### <a name="azapimanagement"></a><span data-ttu-id="734fc-334">Az.ApiManagement</span><span class="sxs-lookup"><span data-stu-id="734fc-334">Az.ApiManagement</span></span>
 * <span data-ttu-id="734fc-335">**Get-AzApiManagementApiSchema** API に関連付けられたOpen-Api スキーマの取得を修正しました https://github.com/Azure/azure-powershell/issues/10626</span><span class="sxs-lookup"><span data-stu-id="734fc-335">**Get-AzApiManagementApiSchema** Fixed getting Open-Api Schema associated with an API   https://github.com/Azure/azure-powershell/issues/10626</span></span>
 * <span data-ttu-id="734fc-336">**New-AzApiManagementProduct**\* および **Set-AzApiManagementProduct**</span><span class="sxs-lookup"><span data-stu-id="734fc-336">**New-AzApiManagementProduct**\* and **Set-AzApiManagementProduct**</span></span>
-  - <span data-ttu-id="734fc-337">https://github.com/Azure/azure-powershell/issues/10472 のドキュメントを修正します</span><span class="sxs-lookup"><span data-stu-id="734fc-337">Fix documentation for https://github.com/Azure/azure-powershell/issues/10472</span></span>
+  - <span data-ttu-id="734fc-337"> https://github.com/Azure/azure-powershell/issues/10472 のドキュメントを修正します</span><span class="sxs-lookup"><span data-stu-id="734fc-337">Fix documentation for https://github.com/Azure/azure-powershell/issues/10472</span></span>
 * <span data-ttu-id="734fc-338">**Set-AzApiManagementApi** コマンドレットを使用して ServiceUrl を更新する方法を示す例を追加しました</span><span class="sxs-lookup"><span data-stu-id="734fc-338">**Set-AzApiManagementApi** Added example to show how to update the ServiceUrl using the cmdlet</span></span>
 
 #### <a name="azcompute"></a><span data-ttu-id="734fc-339">Az.Compute</span><span class="sxs-lookup"><span data-stu-id="734fc-339">Az.Compute</span></span>
