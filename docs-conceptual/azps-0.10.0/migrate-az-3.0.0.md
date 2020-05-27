@@ -1,32 +1,29 @@
 ---
 title: Az 3.0.0 の移行ガイド
 description: この移行ガイドには、Az バージョン 3.0 リリースの Azure PowerShell で行われた破壊的変更が記載されています。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e88752e0c997efc4f49161e358072803cb63450a
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 06be35bc3573d00d90a8cf2d822ac051ab72f6bb
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "81445528"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83387668"
 ---
-# <a name="migration-guide-for-az-300"></a><span data-ttu-id="845be-103">Az 3.0.0 の移行ガイド</span><span class="sxs-lookup"><span data-stu-id="845be-103">Migration Guide for Az 3.0.0</span></span>
+# <a name="migration-guide-for-az-300"></a><span data-ttu-id="f0efb-103">Az 3.0.0 の移行ガイド</span><span class="sxs-lookup"><span data-stu-id="f0efb-103">Migration Guide for Az 3.0.0</span></span>
 
-<span data-ttu-id="845be-104">このドキュメントでは、Az のバージョン 2.0.0 と 3.0.0 の間での変更点について説明します</span><span class="sxs-lookup"><span data-stu-id="845be-104">This document describes the changes between the 2.0.0 and 3.0.0 versions of Az</span></span>
+<span data-ttu-id="f0efb-104">このドキュメントでは、Az のバージョン 2.0.0 と 3.0.0 の間での変更点について説明します</span><span class="sxs-lookup"><span data-stu-id="f0efb-104">This document describes the changes between the 2.0.0 and 3.0.0 versions of Az</span></span>
 
 <!-- TOC -->
 
-- [<span data-ttu-id="845be-105">Az 3.0.0 の移行ガイド</span><span class="sxs-lookup"><span data-stu-id="845be-105">Migration Guide for Az 3.0.0</span></span>](#migration-guide-for-az-300)
-  - [<span data-ttu-id="845be-106">Batch</span><span class="sxs-lookup"><span data-stu-id="845be-106">Batch</span></span>](#batch)
+- [<span data-ttu-id="f0efb-105">Az 3.0.0 の移行ガイド</span><span class="sxs-lookup"><span data-stu-id="f0efb-105">Migration Guide for Az 3.0.0</span></span>](#migration-guide-for-az-300)
+  - [<span data-ttu-id="f0efb-106">Batch</span><span class="sxs-lookup"><span data-stu-id="f0efb-106">Batch</span></span>](#batch)
     - [`Get-AzBatchNodeAgentSku`](#get-azbatchnodeagentsku)
-    - [<span data-ttu-id="845be-107">以前のバージョンの `Az.Resources` との非互換性</span><span class="sxs-lookup"><span data-stu-id="845be-107">Incompatibility with previous versions of `Az.Resources`</span></span>](#previous-version-incompatibility-with-azresources-module)
-  - [<span data-ttu-id="845be-108">Compute</span><span class="sxs-lookup"><span data-stu-id="845be-108">Compute</span></span>](#compute)
+    - [<span data-ttu-id="f0efb-107">以前のバージョンの `Az.Resources` との非互換性</span><span class="sxs-lookup"><span data-stu-id="f0efb-107">Incompatibility with previous versions of `Az.Resources`</span></span>](#previous-version-incompatibility-with-azresources-module)
+  - [<span data-ttu-id="f0efb-108">Compute</span><span class="sxs-lookup"><span data-stu-id="f0efb-108">Compute</span></span>](#compute)
     - [`New-AzDiskConfig`](#new-azdiskconfig)
-  - [<span data-ttu-id="845be-109">HDInsight</span><span class="sxs-lookup"><span data-stu-id="845be-109">HDInsight</span></span>](#hdinsight)
+  - [<span data-ttu-id="f0efb-109">HDInsight</span><span class="sxs-lookup"><span data-stu-id="f0efb-109">HDInsight</span></span>](#hdinsight)
     - [`Get-AzHDInsightJobOutput`](#get-azhdinsightjoboutput)
     - [`Add-AzHDInsightConfigValues`](#add-azhdinsightconfigvalues)
     - [`Disable-AzHDInsightMonitoring`](#disable-azhdinsightmonitoring)
@@ -37,22 +34,22 @@ ms.locfileid: "81445528"
     - [`Remove-AzHDInsightCluster`](#remove-azhdinsightcluster)
     - [`Revoke-AzHDInsightRdpServicesAccess`](#revoke-azhdinsightrdpservicesaccess)
     - [`Set-AzHDInsightGatewayCredential`](#set-azhdinsightgatewaycredential)
-  - [<span data-ttu-id="845be-110">IotHub</span><span class="sxs-lookup"><span data-stu-id="845be-110">IotHub</span></span>](#iothub)
+  - [<span data-ttu-id="f0efb-110">IotHub</span><span class="sxs-lookup"><span data-stu-id="f0efb-110">IotHub</span></span>](#iothub)
     - [`New-AzIotHubImportDevices`](#new-aziothubimportdevices)
     - [`New-AzIotHubExportDevices`](#new-aziothubexportdevices)
     - [`Add-AzIotHubEventHubConsumerGroup`](#add-aziothubeventhubconsumergroup)
     - [`Get-AzIotHubEventHubConsumerGroup`](#get-aziothubeventhubconsumergroup)
     - [`Remove-AzIotHubEventHubConsumerGroup`](#remove-aziothubeventhubconsumergroup)
     - [`Set-AzIotHub`](#set-aziothub)
-  - [<span data-ttu-id="845be-111">RecoveryServices</span><span class="sxs-lookup"><span data-stu-id="845be-111">RecoveryServices</span></span>](#recoveryservices)
+  - [<span data-ttu-id="f0efb-111">RecoveryServices</span><span class="sxs-lookup"><span data-stu-id="f0efb-111">RecoveryServices</span></span>](#recoveryservices)
     - [`Edit-AzRecoveryServicesAsrRecoveryPlan`](#edit-azrecoveryservicesasrrecoveryplan)
     - [`Get-AzRecoveryServicesAsrRecoveryPlan`](#get-azrecoveryservicesasrrecoveryplan)
     - [`New-AzRecoveryServicesAsrReplicationProtectedItem`](#new-azrecoveryservicesasrreplicationprotecteditem)
-  - [<span data-ttu-id="845be-112">リソース</span><span class="sxs-lookup"><span data-stu-id="845be-112">Resources</span></span>](#resources)
-    - [<span data-ttu-id="845be-113">以前のバージョンの `Az.Batch` との非互換性</span><span class="sxs-lookup"><span data-stu-id="845be-113">Incompatibility with previous versions of `Az.Batch`</span></span>](#previous-version-incompatibility-with-azbatch-module)
-  - [<span data-ttu-id="845be-114">ServiceFabric</span><span class="sxs-lookup"><span data-stu-id="845be-114">ServiceFabric</span></span>](#servicefabric)
+  - [<span data-ttu-id="f0efb-112">リソース</span><span class="sxs-lookup"><span data-stu-id="f0efb-112">Resources</span></span>](#resources)
+    - [<span data-ttu-id="f0efb-113">以前のバージョンの `Az.Batch` との非互換性</span><span class="sxs-lookup"><span data-stu-id="f0efb-113">Incompatibility with previous versions of `Az.Batch`</span></span>](#previous-version-incompatibility-with-azbatch-module)
+  - [<span data-ttu-id="f0efb-114">ServiceFabric</span><span class="sxs-lookup"><span data-stu-id="f0efb-114">ServiceFabric</span></span>](#servicefabric)
     - [`Add-ServiceFabricApplicationCertificate`](#add-servicefabricapplicationcertificate)
-  - [<span data-ttu-id="845be-115">Sql</span><span class="sxs-lookup"><span data-stu-id="845be-115">Sql</span></span>](#sql)
+  - [<span data-ttu-id="f0efb-115">Sql</span><span class="sxs-lookup"><span data-stu-id="f0efb-115">Sql</span></span>](#sql)
     - [`Get-AzSqlDatabaseSecureConnectionPolicy`](#get-azsqldatabasesecureconnectionpolicy)
     - [`Get-AzSqlDatabaseIndexRecommendations`](#get-azsqldatabaseindexrecommendations)
     - [`Get-AzSqlDatabaseRestorePoints`](#get-azsqldatabaserestorepoints)
@@ -89,78 +86,78 @@ ms.locfileid: "81445528"
 <!-- /TOC -->
 
 
-## <a name="batch"></a><span data-ttu-id="845be-116">Batch</span><span class="sxs-lookup"><span data-stu-id="845be-116">Batch</span></span>
+## <a name="batch"></a><span data-ttu-id="f0efb-116">Batch</span><span class="sxs-lookup"><span data-stu-id="f0efb-116">Batch</span></span>
 
 ### `Get-AzBatchNodeAgentSku`
-- <span data-ttu-id="845be-117">`Get-AzBatchNodeAgentSku` が削除され、`Get-AzBatchSupportedImage` に置き換えられました。</span><span class="sxs-lookup"><span data-stu-id="845be-117">Removed `Get-AzBatchNodeAgentSku` and replaced it with  `Get-AzBatchSupportedImage`.</span></span>
-- <span data-ttu-id="845be-118">`Get-AzBatchSupportedImage` は `Get-AzBatchNodeAgentSku` と同じデータを返しますが、よりわかりやすい形式にします。</span><span class="sxs-lookup"><span data-stu-id="845be-118">`Get-AzBatchSupportedImage` returns the same data as `Get-AzBatchNodeAgentSku` but in a more friendly format.</span></span>
-- <span data-ttu-id="845be-119">新しく検証されていないイメージも返されるようになりました。</span><span class="sxs-lookup"><span data-stu-id="845be-119">New non-verified images are also now returned.</span></span> <span data-ttu-id="845be-120">各イメージの `Capabilities` と `BatchSupportEndOfLife` に関する追加情報も含まれています。</span><span class="sxs-lookup"><span data-stu-id="845be-120">Additional information about `Capabilities` and `BatchSupportEndOfLife` for each image is also included.</span></span>
+- <span data-ttu-id="f0efb-117">`Get-AzBatchNodeAgentSku` が削除され、`Get-AzBatchSupportedImage` に置き換えられました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-117">Removed `Get-AzBatchNodeAgentSku` and replaced it with  `Get-AzBatchSupportedImage`.</span></span>
+- <span data-ttu-id="f0efb-118">`Get-AzBatchSupportedImage` は `Get-AzBatchNodeAgentSku` と同じデータを返しますが、よりわかりやすい形式にします。</span><span class="sxs-lookup"><span data-stu-id="f0efb-118">`Get-AzBatchSupportedImage` returns the same data as `Get-AzBatchNodeAgentSku` but in a more friendly format.</span></span>
+- <span data-ttu-id="f0efb-119">新しく検証されていないイメージも返されるようになりました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-119">New non-verified images are also now returned.</span></span> <span data-ttu-id="f0efb-120">各イメージの `Capabilities` と `BatchSupportEndOfLife` に関する追加情報も含まれています。</span><span class="sxs-lookup"><span data-stu-id="f0efb-120">Additional information about `Capabilities` and `BatchSupportEndOfLife` for each image is also included.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-121">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-121">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-121">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-121">Before</span></span>
 ```powershell
 $Context = Get-AzBatchAccountKeys -AccountName "ContosoBatchAccount"
 Get-AzBatchNodeAgentSku -BatchContext $Context
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-122">After</span><span class="sxs-lookup"><span data-stu-id="845be-122">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-122">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-122">After</span></span>
 ```powershell
 $Context = Get-AzBatchAccountKey -AccountName "ContosoBatchAccount"
 Get-AzBatchSupportedImage -BatchContext $Context
 ```
-### <a name="previous-version-incompatibility-with-azresources-module"></a><span data-ttu-id="845be-123">以前のバージョンと Az.Resources モジュールとの非互換性</span><span class="sxs-lookup"><span data-stu-id="845be-123">Previous Version Incompatibility with Az.Resources Module</span></span>
-<span data-ttu-id="845be-124">'Az.Batch' モジュールのバージョン 2.0.1 は、'Az.Resources' モジュールの以前のバージョン (バージョン 1.7.0 以前) と互換性がありません。</span><span class="sxs-lookup"><span data-stu-id="845be-124">Version 2.0.1 of the ‘Az.Batch’ module is incompatible with earlier versions (version 1.7.0 or earlier) of the ‘Az.Resources’ module.</span></span>  <span data-ttu-id="845be-125">これにより、'Az.Batch' モジュールのバージョン 2.0.1 がインポートされたときに、'Az.Resources' モジュールのバージョン 1.7.0 をインポートできなくなります。</span><span class="sxs-lookup"><span data-stu-id="845be-125">This will result in being unable to import  version 1.7.0 of the ‘Az.Resources’ module when version 2.0.1 of the ‘Az.Batch’ module is imported.</span></span>  <span data-ttu-id="845be-126">この問題を解決するには、'Az.Resources' モジュールをバージョン 1.7.1 以上に更新するか、'Az' モジュールの最新バージョンをインストールします。</span><span class="sxs-lookup"><span data-stu-id="845be-126">To fix this issue, simply update the ‘Az.Resources’ module to version 1.7.1 or greater, or simply install the latest version of the ‘Az’ module.</span></span>
+### <a name="previous-version-incompatibility-with-azresources-module"></a><span data-ttu-id="f0efb-123">以前のバージョンと Az.Resources モジュールとの非互換性</span><span class="sxs-lookup"><span data-stu-id="f0efb-123">Previous Version Incompatibility with Az.Resources Module</span></span>
+<span data-ttu-id="f0efb-124">'Az.Batch' モジュールのバージョン 2.0.1 は、'Az.Resources' モジュールの以前のバージョン (バージョン 1.7.0 以前) と互換性がありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-124">Version 2.0.1 of the ‘Az.Batch’ module is incompatible with earlier versions (version 1.7.0 or earlier) of the ‘Az.Resources’ module.</span></span>  <span data-ttu-id="f0efb-125">これにより、'Az.Batch' モジュールのバージョン 2.0.1 がインポートされたときに、'Az.Resources' モジュールのバージョン 1.7.0 をインポートできなくなります。</span><span class="sxs-lookup"><span data-stu-id="f0efb-125">This will result in being unable to import  version 1.7.0 of the ‘Az.Resources’ module when version 2.0.1 of the ‘Az.Batch’ module is imported.</span></span>  <span data-ttu-id="f0efb-126">この問題を解決するには、'Az.Resources' モジュールをバージョン 1.7.1 以上に更新するか、'Az' モジュールの最新バージョンをインストールします。</span><span class="sxs-lookup"><span data-stu-id="f0efb-126">To fix this issue, simply update the ‘Az.Resources’ module to version 1.7.1 or greater, or simply install the latest version of the ‘Az’ module.</span></span>
 
-## <a name="compute"></a><span data-ttu-id="845be-127">Compute</span><span class="sxs-lookup"><span data-stu-id="845be-127">Compute</span></span>
+## <a name="compute"></a><span data-ttu-id="f0efb-127">Compute</span><span class="sxs-lookup"><span data-stu-id="f0efb-127">Compute</span></span>
 
 ### `New-AzDiskConfig`
-<span data-ttu-id="845be-128">`New-AzDiskConfig`で CreateOption が Upload の場合、`DiskSizeGB` の代わりに `UploadSizeInBytes` パラメーターが使用されます</span><span class="sxs-lookup"><span data-stu-id="845be-128">`UploadSizeInBytes` parameter is used instead of `DiskSizeGB` for `New-AzDiskConfig` when CreateOption is Upload</span></span>
+<span data-ttu-id="f0efb-128">`New-AzDiskConfig`で CreateOption が Upload の場合、`DiskSizeGB` の代わりに `UploadSizeInBytes` パラメーターが使用されます</span><span class="sxs-lookup"><span data-stu-id="f0efb-128">`UploadSizeInBytes` parameter is used instead of `DiskSizeGB` for `New-AzDiskConfig` when CreateOption is Upload</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-129">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-129">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-129">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-129">Before</span></span>
 ```powershell
 $diskconfig = New-AzDiskConfig -Location 'Central US' -DiskSizeGB 1023 -SkuName Standard_LRS -OsType Windows -CreateOption Upload -DiskIOPSReadWrite 500 -DiskMBpsReadWrite 8
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-130">After</span><span class="sxs-lookup"><span data-stu-id="845be-130">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-130">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-130">After</span></span>
 ```powershell
 $diskconfig = New-AzDiskConfig -Location 'Central US' -UploadSizeInBytes 1023 * 1024 * 1024 * 1024 -SkuName Standard_LRS -OsType Windows -CreateOption Upload -DiskIOPSReadWrite 500 -DiskMBpsReadWrite 8
 ```
 
-## <a name="hdinsight"></a><span data-ttu-id="845be-131">HDInsight</span><span class="sxs-lookup"><span data-stu-id="845be-131">HDInsight</span></span>
+## <a name="hdinsight"></a><span data-ttu-id="f0efb-131">HDInsight</span><span class="sxs-lookup"><span data-stu-id="f0efb-131">HDInsight</span></span>
 
 ### `Get-AzHDInsightJobOutput`
-- <span data-ttu-id="845be-132">ストレージ キーに対するきめ細かいロールベースのアクセスをサポートするため、`Get-AzHDInsightJobOutput` コマンドレットを更新しました。</span><span class="sxs-lookup"><span data-stu-id="845be-132">Updated the `Get-AzHDInsightJobOutput` cmdlet to support granular role-based access to the storage key.</span></span>
-- <span data-ttu-id="845be-133">HDInsight クラスターのオペレーター、共同作成者、または所有者のロールを持つユーザーには影響を及ぼしません。</span><span class="sxs-lookup"><span data-stu-id="845be-133">Users with HDInsight Cluster Operator, Contributor, or Owner roles will not be affected.</span></span>
-- <span data-ttu-id="845be-134">閲覧者のロールのみを持つユーザーは、`DefaultStorageAccountKey` パラメーターを明示的に指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="845be-134">Users with only the Reader role will need to specify `DefaultStorageAccountKey` parameter explicitly.</span></span>
+- <span data-ttu-id="f0efb-132">ストレージ キーに対するきめ細かいロールベースのアクセスをサポートするため、`Get-AzHDInsightJobOutput` コマンドレットを更新しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-132">Updated the `Get-AzHDInsightJobOutput` cmdlet to support granular role-based access to the storage key.</span></span>
+- <span data-ttu-id="f0efb-133">HDInsight クラスターのオペレーター、共同作成者、または所有者のロールを持つユーザーには影響を及ぼしません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-133">Users with HDInsight Cluster Operator, Contributor, or Owner roles will not be affected.</span></span>
+- <span data-ttu-id="f0efb-134">閲覧者のロールのみを持つユーザーは、`DefaultStorageAccountKey` パラメーターを明示的に指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="f0efb-134">Users with only the Reader role will need to specify `DefaultStorageAccountKey` parameter explicitly.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-135">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-135">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-135">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-135">Before</span></span>
 ```powershell
 Get-AzHDInsightJobOutput  -ClusterName $clusterName -JobId $jobId
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-136">After</span><span class="sxs-lookup"><span data-stu-id="845be-136">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-136">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-136">After</span></span>
 ```powershell
 Get-AzHDInsightJobOutput -ClusterName $clusterName -JobId $jobId -DefaultStorageAccountKey $storageAccountKey
 ```
 
 ### `Add-AzHDInsightConfigValues`
-<span data-ttu-id="845be-137">コマンドレット `Add-AzHDInsightConfigValue` のエイリアス `Add-AzHDInsightConfigValues` を削除しました。</span><span class="sxs-lookup"><span data-stu-id="845be-137">Cmdlet `Add-AzHDInsightConfigValue` removed alias to `Add-AzHDInsightConfigValues`.</span></span>
+<span data-ttu-id="f0efb-137">コマンドレット `Add-AzHDInsightConfigValue` のエイリアス `Add-AzHDInsightConfigValues` を削除しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-137">Cmdlet `Add-AzHDInsightConfigValue` removed alias to `Add-AzHDInsightConfigValues`.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-138">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-138">Before</span></span>
-<span data-ttu-id="845be-139">非推奨のエイリアスを使用</span><span class="sxs-lookup"><span data-stu-id="845be-139">Using deprecated alias</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-138">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-138">Before</span></span>
+<span data-ttu-id="f0efb-139">非推奨のエイリアスを使用</span><span class="sxs-lookup"><span data-stu-id="f0efb-139">Using deprecated alias</span></span>
 ```powershell
 Add-AzHDInsightConfigValues
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-140">After</span><span class="sxs-lookup"><span data-stu-id="845be-140">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-140">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-140">After</span></span>
 ```powershell
 Add-AzHDInsightConfigValue
 ```
 
 
 ### `Disable-AzHDInsightMonitoring`
-<span data-ttu-id="845be-141">新しい `Disable-AzHDInsightMonitoring` コマンドレットを追加しました。</span><span class="sxs-lookup"><span data-stu-id="845be-141">Added a new `Disable-AzHDInsightMonitoring` cmdlet.</span></span> <span data-ttu-id="845be-142">このコマンドレットを使用して、HDInsight クラスターの監視を無効にします (`Disable-AzHDInsightOperationsManagementSuite` と `Disable-AzHDInsightOMS` を置き換えます)。</span><span class="sxs-lookup"><span data-stu-id="845be-142">Use this cmdlet to disable monitoring in a HDInsight cluster (replaces `Disable-AzHDInsightOperationsManagementSuite` and `Disable-AzHDInsightOMS`).</span></span>
+<span data-ttu-id="f0efb-141">新しい `Disable-AzHDInsightMonitoring` コマンドレットを追加しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-141">Added a new `Disable-AzHDInsightMonitoring` cmdlet.</span></span> <span data-ttu-id="f0efb-142">このコマンドレットを使用して、HDInsight クラスターの監視を無効にします (`Disable-AzHDInsightOperationsManagementSuite` と `Disable-AzHDInsightOMS` を置き換えます)。</span><span class="sxs-lookup"><span data-stu-id="f0efb-142">Use this cmdlet to disable monitoring in a HDInsight cluster (replaces `Disable-AzHDInsightOperationsManagementSuite` and `Disable-AzHDInsightOMS`).</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-143">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-143">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-143">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-143">Before</span></span>
 ```powershell
 Disable-AzHDInsightOMS -Name testcluster
 ```
@@ -168,16 +165,16 @@ Disable-AzHDInsightOMS -Name testcluster
 Disable-AzHDInsightOperationsManagementSuite -Name testcluster
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-144">After</span><span class="sxs-lookup"><span data-stu-id="845be-144">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-144">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-144">After</span></span>
 ```powershell
 Disable-AzHDInsightMonitoring -Name testcluster
 ```
 
 
 ### `Enable-AzHDInsightMonitoring`
-<span data-ttu-id="845be-145">新しい `Enable-AzHDInsightMonitoring` コマンドレットを追加しました。</span><span class="sxs-lookup"><span data-stu-id="845be-145">Added a new `Enable-AzHDInsightMonitoring` cmdlet.</span></span> <span data-ttu-id="845be-146">このコマンドレットを使用して、HDInsight クラスターの監視を有効にします (`Enable-AzHDInsightOperationsManagementSuite` と `Enable-AzHDInsightOMS` を置き換えます)。</span><span class="sxs-lookup"><span data-stu-id="845be-146">Use this cmdlet to enable monitoring in a HDInsight cluster (replaces `Enable-AzHDInsightOperationsManagementSuite` and `Enable-AzHDInsightOMS`).</span></span>
+<span data-ttu-id="f0efb-145">新しい `Enable-AzHDInsightMonitoring` コマンドレットを追加しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-145">Added a new `Enable-AzHDInsightMonitoring` cmdlet.</span></span> <span data-ttu-id="f0efb-146">このコマンドレットを使用して、HDInsight クラスターの監視を有効にします (`Enable-AzHDInsightOperationsManagementSuite` と `Enable-AzHDInsightOMS` を置き換えます)。</span><span class="sxs-lookup"><span data-stu-id="f0efb-146">Use this cmdlet to enable monitoring in a HDInsight cluster (replaces `Enable-AzHDInsightOperationsManagementSuite` and `Enable-AzHDInsightOMS`).</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-147">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-147">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-147">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-147">Before</span></span>
 ```powershell
 Enable-AzHDInsightOMS Enable-AzHDInsightMonitoring -Name testcluster -WorkspaceId 1d364e89-bb71-4503-aa3d-a23535aea7bd -PrimaryKey <key for workspace 1d364e89-bb71-4503-aa3d-a23535aea7bd>
 ```
@@ -185,15 +182,15 @@ Enable-AzHDInsightOMS Enable-AzHDInsightMonitoring -Name testcluster -WorkspaceI
 Enable-AzHDInsightOperationsManagementSuite Enable-AzHDInsightMonitoring -Name testcluster -WorkspaceId 1d364e89-bb71-4503-aa3d-a23535aea7bd -PrimaryKey <key for workspace 1d364e89-bb71-4503-aa3d-a23535aea7bd>
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-148">After</span><span class="sxs-lookup"><span data-stu-id="845be-148">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-148">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-148">After</span></span>
 ```powershell
 Enable-AzHDInsightMonitoring Enable-AzHDInsightMonitoring -Name testcluster -WorkspaceId 1d364e89-bb71-4503-aa3d-a23535aea7bd -PrimaryKey <key for workspace 1d364e89-bb71-4503-aa3d-a23535aea7bd>
 ```
 
 ### `Get-AzHDInsightMonitoring`
-<span data-ttu-id="845be-149">新しい `Get-AzHDInsightMonitoring` コマンドレットを追加しました。</span><span class="sxs-lookup"><span data-stu-id="845be-149">Added a new `Get-AzHDInsightMonitoring` cmdlet.</span></span> <span data-ttu-id="845be-150">このコマンドレットを使用して、Azure HDInsight クラスターでのインストールの監視状態を取得します (`Get-AzHDInsightOperationsManagementSuite` と `Get-AzHDInsightOMS` を置き換えます)。</span><span class="sxs-lookup"><span data-stu-id="845be-150">Use this cmdlet to get the status of monitoring installation in an Azure HDInsight cluster (replaces `Get-AzHDInsightOperationsManagementSuite` and `Get-AzHDInsightOMS`).</span></span>
+<span data-ttu-id="f0efb-149">新しい `Get-AzHDInsightMonitoring` コマンドレットを追加しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-149">Added a new `Get-AzHDInsightMonitoring` cmdlet.</span></span> <span data-ttu-id="f0efb-150">このコマンドレットを使用して、Azure HDInsight クラスターでのインストールの監視状態を取得します (`Get-AzHDInsightOperationsManagementSuite` と `Get-AzHDInsightOMS` を置き換えます)。</span><span class="sxs-lookup"><span data-stu-id="f0efb-150">Use this cmdlet to get the status of monitoring installation in an Azure HDInsight cluster (replaces `Get-AzHDInsightOperationsManagementSuite` and `Get-AzHDInsightOMS`).</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-151">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-151">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-151">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-151">Before</span></span>
 ```powershell
 Get-AzHDInsightOMS -Name testcluster
 ```
@@ -201,161 +198,161 @@ Get-AzHDInsightOMS -Name testcluster
 Get-AzHDInsightOperationsManagementSuite -Name testcluster
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-152">After</span><span class="sxs-lookup"><span data-stu-id="845be-152">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-152">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-152">After</span></span>
 ```powershell
 Get-AzHDInsightMonitoring -Name testcluster
 ```
 
 ### `Get-AzHDInsightProperty`
-<span data-ttu-id="845be-153">コマンドレット `Get-HDInsightProperty` のエイリアス `Get-AzHDInsightProperties` を削除しました。</span><span class="sxs-lookup"><span data-stu-id="845be-153">Cmdlet `Get-HDInsightProperty` removed alias to `Get-AzHDInsightProperties`.</span></span>
+<span data-ttu-id="f0efb-153">コマンドレット `Get-HDInsightProperty` のエイリアス `Get-AzHDInsightProperties` を削除しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-153">Cmdlet `Get-HDInsightProperty` removed alias to `Get-AzHDInsightProperties`.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-154">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-154">Before</span></span>
-<span data-ttu-id="845be-155">非推奨のエイリアスを使用</span><span class="sxs-lookup"><span data-stu-id="845be-155">Using deprecated alias</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-154">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-154">Before</span></span>
+<span data-ttu-id="f0efb-155">非推奨のエイリアスを使用</span><span class="sxs-lookup"><span data-stu-id="f0efb-155">Using deprecated alias</span></span>
 ```powershell
 Get-AzHDInsightProperties -Location "East US 2"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-156">After</span><span class="sxs-lookup"><span data-stu-id="845be-156">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-156">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-156">After</span></span>
 ```powershell
 Get-AzHDInsightProperty -Location "East US 2"
 ```
 
 ### `Grant-AzHDInsightRdpServicesAccess`
-<span data-ttu-id="845be-157">`Grant-AzHDInsightRdpServicesAccess` および `Revoke-AzHDInsightRdpServicesAccess` コマンドレットを削除しました。</span><span class="sxs-lookup"><span data-stu-id="845be-157">Removed the `Grant-AzHDInsightRdpServicesAccess` and `Revoke-AzHDInsightRdpServicesAccess` cmdlets.</span></span> <span data-ttu-id="845be-158">Windows OS の種類を使用するクラスターはサポートされていないため、これらは不要になりました。</span><span class="sxs-lookup"><span data-stu-id="845be-158">These are no longer necessary because clusters using Windows OS type are not supported.</span></span> <span data-ttu-id="845be-159">代わりに Linux OS の種類を使用してクラスターを作成してください。</span><span class="sxs-lookup"><span data-stu-id="845be-159">Please create a cluster using Linux OS type instead.</span></span>
+<span data-ttu-id="f0efb-157">`Grant-AzHDInsightRdpServicesAccess` および `Revoke-AzHDInsightRdpServicesAccess` コマンドレットを削除しました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-157">Removed the `Grant-AzHDInsightRdpServicesAccess` and `Revoke-AzHDInsightRdpServicesAccess` cmdlets.</span></span> <span data-ttu-id="f0efb-158">Windows OS の種類を使用するクラスターはサポートされていないため、これらは不要になりました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-158">These are no longer necessary because clusters using Windows OS type are not supported.</span></span> <span data-ttu-id="f0efb-159">代わりに Linux OS の種類を使用してクラスターを作成してください。</span><span class="sxs-lookup"><span data-stu-id="f0efb-159">Please create a cluster using Linux OS type instead.</span></span>
 
 ### `Remove-AzHDInsightCluster`
-<span data-ttu-id="845be-160">`Remove-AzHDInsightCluster` の出力型が `Microsoft.Azure.Management.HDInsight.Models.ClusterGetResponse` から `bool` に変更されました。</span><span class="sxs-lookup"><span data-stu-id="845be-160">The output type of `Remove-AzHDInsightCluster` changed from `Microsoft.Azure.Management.HDInsight.Models.ClusterGetResponse` to `bool`.</span></span>
+<span data-ttu-id="f0efb-160">`Remove-AzHDInsightCluster` の出力型が `Microsoft.Azure.Management.HDInsight.Models.ClusterGetResponse` から `bool` に変更されました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-160">The output type of `Remove-AzHDInsightCluster` changed from `Microsoft.Azure.Management.HDInsight.Models.ClusterGetResponse` to `bool`.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-161">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-161">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-161">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-161">Before</span></span>
 ```powershell
 $cluster = Remove-AzHDInsightCluster -ClusterName "your-hadoop-001"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-162">After</span><span class="sxs-lookup"><span data-stu-id="845be-162">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-162">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-162">After</span></span>
 ```powershell
 Remove-AzHDInsightCluster -ClusterName "your-hadoop-001" -PassThru
 True
 ```
 
 ### `Revoke-AzHDInsightRdpServicesAccess`
-<span data-ttu-id="845be-163">このコマンドレットは非推奨になります。</span><span class="sxs-lookup"><span data-stu-id="845be-163">The cmdlet is deprecated.</span></span> <span data-ttu-id="845be-164">これに代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="845be-164">There is no replacement for it.</span></span>
+<span data-ttu-id="f0efb-163">このコマンドレットは非推奨になります。</span><span class="sxs-lookup"><span data-stu-id="f0efb-163">The cmdlet is deprecated.</span></span> <span data-ttu-id="f0efb-164">これに代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-164">There is no replacement for it.</span></span>
 
 ### `Set-AzHDInsightGatewayCredential`
-<span data-ttu-id="845be-165">`Set-AzHDInsightGatewayCredential` の出力型が `HttpConnectivitySettings` から `AzureHDInsightGatewaySettings` に変更されました。</span><span class="sxs-lookup"><span data-stu-id="845be-165">The output type of `Set-AzHDInsightGatewayCredential` changed from `HttpConnectivitySettings` to `AzureHDInsightGatewaySettings`.</span></span>
+<span data-ttu-id="f0efb-165">`Set-AzHDInsightGatewayCredential` の出力型が `HttpConnectivitySettings` から `AzureHDInsightGatewaySettings` に変更されました。</span><span class="sxs-lookup"><span data-stu-id="f0efb-165">The output type of `Set-AzHDInsightGatewayCredential` changed from `HttpConnectivitySettings` to `AzureHDInsightGatewaySettings`.</span></span>
 
 
 
-## <a name="iothub"></a><span data-ttu-id="845be-166">IotHub</span><span class="sxs-lookup"><span data-stu-id="845be-166">IotHub</span></span>
+## <a name="iothub"></a><span data-ttu-id="f0efb-166">IotHub</span><span class="sxs-lookup"><span data-stu-id="f0efb-166">IotHub</span></span>
 
 ### `New-AzIotHubImportDevices`
-<span data-ttu-id="845be-167">このエイリアスは削除されました。代わりに `New-AzIotHubImportDevice` を使用してください。</span><span class="sxs-lookup"><span data-stu-id="845be-167">This alias is removed, please use `New-AzIotHubImportDevice` instead.</span></span>
+<span data-ttu-id="f0efb-167">このエイリアスは削除されました。代わりに `New-AzIotHubImportDevice` を使用してください。</span><span class="sxs-lookup"><span data-stu-id="f0efb-167">This alias is removed, please use `New-AzIotHubImportDevice` instead.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-168">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-168">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-168">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-168">Before</span></span>
 ```powershell
 New-AzIotHubImportDevices -ResourceGroupName "myresourcegroup" -Name "myiothub" -InputBlobContainerUri "https://mystorageaccount.blob.core.windows.net/mystoragecontainer?sv=2015-04-05&ss=bfqt&sr=c&srt=sco&sp=rwdl&se=2016-10-27T04:01:48Z&st=2016-10-26T20:01:48Z&spr=https&sig=QqpIhHsIMF8hNuFO%3D" -OutputBlobContainerUri "https://mystorageaccount.blob.core.windows.net/?sv=2015-04-05&ss=bfqt&sr=c&srt=sco&sp=rwdl&se=2016-10-27T04:01:48Z&st=2016-10-26T20:01:48Z&spr=https&sig=QqpIhHsIMF8hNuFO%3D"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-169">After</span><span class="sxs-lookup"><span data-stu-id="845be-169">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-169">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-169">After</span></span>
 ```powershell
 New-AzIotHubImportDevice -ResourceGroupName "myresourcegroup" -Name "myiothub" -InputBlobContainerUri "https://mystorageaccount.blob.core.windows.net/mystoragecontainer?sv=2015-04-05&ss=bfqt&sr=c&srt=sco&sp=rwdl&se=2016-10-27T04:01:48Z&st=2016-10-26T20:01:48Z&spr=https&sig=QqpIhHsIMF8hNuFO%3D" -OutputBlobContainerUri "https://mystorageaccount.blob.core.windows.net/?sv=2015-04-05&ss=bfqt&sr=c&srt=sco&sp=rwdl&se=2016-10-27T04:01:48Z&st=2016-10-26T20:01:48Z&spr=https&sig=QqpIhHsIMF8hNuFO%3D"
 ```
 
 ### `New-AzIotHubExportDevices`
-<span data-ttu-id="845be-170">このエイリアスは削除されました。代わりに `New-AzIotHubExportDevice` を使用してください。</span><span class="sxs-lookup"><span data-stu-id="845be-170">This alias is removed, please use `New-AzIotHubExportDevice` instead.</span></span>
+<span data-ttu-id="f0efb-170">このエイリアスは削除されました。代わりに `New-AzIotHubExportDevice` を使用してください。</span><span class="sxs-lookup"><span data-stu-id="f0efb-170">This alias is removed, please use `New-AzIotHubExportDevice` instead.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-171">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-171">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-171">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-171">Before</span></span>
 ```powershell
 New-AzIotHubExportDevices -ResourceGroupName "myresourcegroup" -Name "myiothub" -ExportBlobContainerUri "https://mystorageaccount.blob.core.windows.net/mystoragecontainer?sv=2015-04-05&ss=bfqt&sr=c&srt=sco&sp=rwdl&se=2016-10-27T04:01:48Z&st=2016-10-26T20:01:48Z&spr=https&sig=QqpIhHsIMF8hNuFO%3D" -ExcludeKeys
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-172">After</span><span class="sxs-lookup"><span data-stu-id="845be-172">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-172">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-172">After</span></span>
 ```powershell
 New-AzIotHubExportDevice -ResourceGroupName "myresourcegroup" -Name "myiothub" -ExportBlobContainerUri "https://mystorageaccount.blob.core.windows.net/mystoragecontainer?sv=2015-04-05&ss=bfqt&sr=c&srt=sco&sp=rwdl&se=2016-10-27T04:01:48Z&st=2016-10-26T20:01:48Z&spr=https&sig=QqpIhHsIMF8hNuFO%3D" -ExcludeKeys
 ```
 
 ### `Add-AzIotHubEventHubConsumerGroup`
-<span data-ttu-id="845be-173">IotHub には、システムおよびデバイスのメッセージを処理できる組み込みエンドポイント ("events") が 1 つしかないため、パラメーター `EventHubEndPointName` は非推奨になり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="845be-173">Parameter `EventHubEndPointName` is deprecated without being replaced as IotHub comes with only one built-in endpoint("events") which could handle system and device messages.</span></span>
+<span data-ttu-id="f0efb-173">IotHub には、システムおよびデバイスのメッセージを処理できる組み込みエンドポイント ("events") が 1 つしかないため、パラメーター `EventHubEndPointName` は非推奨になり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-173">Parameter `EventHubEndPointName` is deprecated without being replaced as IotHub comes with only one built-in endpoint("events") which could handle system and device messages.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-174">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-174">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-174">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-174">Before</span></span>
 ```powershell
 Add-AzIotHubEventHubConsumerGroup -ResourceGroupName "myresourcegroup" -Name "myiothub" -EventHubConsumerGroupName "myconsumergroup" -EventHubEndpointName "/EventHubEndpointName"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-175">After</span><span class="sxs-lookup"><span data-stu-id="845be-175">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-175">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-175">After</span></span>
 ```powershell
 Add-AzIotHubEventHubConsumerGroup -ResourceGroupName "myresourcegroup" -Name "myiothub" -EventHubConsumerGroupName "myconsumergroup"
 ```
 
 ### `Get-AzIotHubEventHubConsumerGroup`
-<span data-ttu-id="845be-176">IotHub には、システムおよびデバイスのメッセージを処理できる組み込みエンドポイント ("events") が 1 つしかないため、パラメーター `EventHubEndPointName` は非推奨になり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="845be-176">Parameter `EventHubEndPointName` is deprecated without being replaced as IotHub comes with only one built-in endpoint("events") which could handle system and device messages.</span></span>
+<span data-ttu-id="f0efb-176">IotHub には、システムおよびデバイスのメッセージを処理できる組み込みエンドポイント ("events") が 1 つしかないため、パラメーター `EventHubEndPointName` は非推奨になり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-176">Parameter `EventHubEndPointName` is deprecated without being replaced as IotHub comes with only one built-in endpoint("events") which could handle system and device messages.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-177">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-177">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-177">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-177">Before</span></span>
 ```powershell
 Get-AzIotHubEventHubConsumerGroup -ResourceGroupName "myresourcegroup" -Name "myiothub" -EventHubEndpointName "/EventHubEndpointName"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-178">After</span><span class="sxs-lookup"><span data-stu-id="845be-178">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-178">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-178">After</span></span>
 ```powershell
 Get-AzIotHubEventHubConsumerGroup -ResourceGroupName "myresourcegroup" -Name "myiothub"
 ```
 
 ### `Remove-AzIotHubEventHubConsumerGroup`
-<span data-ttu-id="845be-179">IotHub には、システムおよびデバイスのメッセージを処理できる組み込みエンドポイント ("events") が 1 つしかないため、パラメーター `EventHubEndPointName` は非推奨になり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="845be-179">Parameter `EventHubEndPointName` is deprecated without being replaced as IotHub comes with only one built-in endpoint("events") which could handle system and device messages.</span></span>
+<span data-ttu-id="f0efb-179">IotHub には、システムおよびデバイスのメッセージを処理できる組み込みエンドポイント ("events") が 1 つしかないため、パラメーター `EventHubEndPointName` は非推奨になり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-179">Parameter `EventHubEndPointName` is deprecated without being replaced as IotHub comes with only one built-in endpoint("events") which could handle system and device messages.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-180">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-180">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-180">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-180">Before</span></span>
 ```powershell
 Remove-AzIotHubEventHubConsumerGroup -ResourceGroupName "myresourcegroup" -Name "myiothub" -EventHubConsumerGroupName myconsumergroup -EventHubEndpointName "/EventHubEndpointName"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-181">After</span><span class="sxs-lookup"><span data-stu-id="845be-181">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-181">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-181">After</span></span>
 ```powershell
 Remove-AzIotHubEventHubConsumerGroup -ResourceGroupName "myresourcegroup" -Name "myiothub" -EventHubConsumerGroupName myconsumergroup
 ```
 
 ### `Set-AzIotHub`
-<span data-ttu-id="845be-182">IotHub が組み込みのエンドポイント ("operationsMonitoringEvents") を使用しなくなったため、パラメーター `OperationsMonitoringProperties` は非推奨となり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="845be-182">Parameter `OperationsMonitoringProperties` is deprecated without being replaced as IotHub is no longer using built-in endpoint("operationsMonitoringEvents").</span></span>
+<span data-ttu-id="f0efb-182">IotHub が組み込みのエンドポイント ("operationsMonitoringEvents") を使用しなくなったため、パラメーター `OperationsMonitoringProperties` は非推奨となり、代わるものはありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-182">Parameter `OperationsMonitoringProperties` is deprecated without being replaced as IotHub is no longer using built-in endpoint("operationsMonitoringEvents").</span></span>
 
 
 
-## <a name="recoveryservices"></a><span data-ttu-id="845be-183">RecoveryServices</span><span class="sxs-lookup"><span data-stu-id="845be-183">RecoveryServices</span></span>
+## <a name="recoveryservices"></a><span data-ttu-id="f0efb-183">RecoveryServices</span><span class="sxs-lookup"><span data-stu-id="f0efb-183">RecoveryServices</span></span>
 
 ### `Edit-AzRecoveryServicesAsrRecoveryPlan`
-<span data-ttu-id="845be-184">出力から `ASRRecoveryPlanGroup.ReplicationProtectedItems`、`ASRRecoveryPlanGroup.StartGroupActions`、および `ASRRecoveryPlanGroup.EndGroupActions` が削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-184">`ASRRecoveryPlanGroup.ReplicationProtectedItems`, `ASRRecoveryPlanGroup.StartGroupActions` and `ASRRecoveryPlanGroup.EndGroupActions` is removed from output.</span></span>
+<span data-ttu-id="f0efb-184">出力から `ASRRecoveryPlanGroup.ReplicationProtectedItems`、`ASRRecoveryPlanGroup.StartGroupActions`、および `ASRRecoveryPlanGroup.EndGroupActions` が削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-184">`ASRRecoveryPlanGroup.ReplicationProtectedItems`, `ASRRecoveryPlanGroup.StartGroupActions` and `ASRRecoveryPlanGroup.EndGroupActions` is removed from output.</span></span>
 
 ### `Get-AzRecoveryServicesAsrRecoveryPlan`
-<span data-ttu-id="845be-185">出力から `ASRRecoveryPlanGroup.ReplicationProtectedItems`、`ASRRecoveryPlanGroup.StartGroupActions`、および `ASRRecoveryPlanGroup.EndGroupActions` が削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-185">`ASRRecoveryPlanGroup.ReplicationProtectedItems`, `ASRRecoveryPlanGroup.StartGroupActions` and `ASRRecoveryPlanGroup.EndGroupActions` is removed from output.</span></span>
+<span data-ttu-id="f0efb-185">出力から `ASRRecoveryPlanGroup.ReplicationProtectedItems`、`ASRRecoveryPlanGroup.StartGroupActions`、および `ASRRecoveryPlanGroup.EndGroupActions` が削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-185">`ASRRecoveryPlanGroup.ReplicationProtectedItems`, `ASRRecoveryPlanGroup.StartGroupActions` and `ASRRecoveryPlanGroup.EndGroupActions` is removed from output.</span></span>
 
 ### `New-AzRecoveryServicesAsrReplicationProtectedItem`
-<span data-ttu-id="845be-186">パラメーター IncludeDiskId は、Azure Site Recovery でマネージド ディスクへの直接書き込みをサポートするように変更されています。</span><span class="sxs-lookup"><span data-stu-id="845be-186">Parameter IncludeDiskId is changed to support directly writing to a managed disk in Azure Site Recovery.</span></span>
+<span data-ttu-id="f0efb-186">パラメーター IncludeDiskId は、Azure Site Recovery でマネージド ディスクへの直接書き込みをサポートするように変更されています。</span><span class="sxs-lookup"><span data-stu-id="f0efb-186">Parameter IncludeDiskId is changed to support directly writing to a managed disk in Azure Site Recovery.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-187">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-187">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-187">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-187">Before</span></span>
 ```powershell
 $job = New-AzRecoveryServicesAsrReplicationProtectedItem -RecoveryAzureStorageAccountId $recoveryAzureStorageAccountId -IncludeDiskId $includeDiskId -VMwareToAzure -Account $fabric.FabricSpecificDetails.RunAsAccounts[0] -RecoveryResourceGroupId $RecoveryResourceGroupId -RecoveryAzureNetworkId $RecoveryAzureNetworkId -name $name -ProcessServer $fabric.FabricSpecificDetails.ProcessServers[0] -ProtectableItem $protectableItem -ProtectionContainerMapping $pcm -RecoveryAzureSubnetName $RecoveryAzureSubnetName -RecoveryVmName $RecoveryVmName -LogStorageAccountId $LogStorageAccountId
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-188">After</span><span class="sxs-lookup"><span data-stu-id="845be-188">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-188">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-188">After</span></span>
 ```powershell
 $disk1 = New-AzRecoveryServicesAsrInMageAzureV2DiskInput -DiskId $diskId -LogStorageAccountId $logStorageAccountId -DiskType $diskType
 $disk2 = New-AzRecoveryServicesAsrInMageAzureV2DiskInput -DiskId $diskId2 -LogStorageAccountId $logStorageAccountId -DiskType $diskType2
 $job = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -Account $fabric.FabricSpecificDetails.RunAsAccounts[0] -RecoveryResourceGroupId $RecoveryResourceGroupId -RecoveryAzureNetworkId $RecoveryAzureNetworkId -name $name -ProcessServer $fabric.FabricSpecificDetails.ProcessServers[0] -ProtectableItem $protectableItem -ProtectionContainerMapping $pcm -RecoveryAzureSubnetName $RecoveryAzureSubnetName -RecoveryVmName $RecoveryVmName -LogStorageAccountId $LogStorageAccountId -InMageAzureV2DiskInput $disk1,$disk2
 ```
 
-## <a name="resources"></a><span data-ttu-id="845be-189">リソース</span><span class="sxs-lookup"><span data-stu-id="845be-189">Resources</span></span>
+## <a name="resources"></a><span data-ttu-id="f0efb-189">リソース</span><span class="sxs-lookup"><span data-stu-id="f0efb-189">Resources</span></span>
 
-### <a name="previous-version-incompatibility-with-azbatch-module"></a><span data-ttu-id="845be-190">以前のバージョンと Az.Batch モジュールとの非互換性</span><span class="sxs-lookup"><span data-stu-id="845be-190">Previous Version Incompatibility with Az.Batch Module</span></span>
-<span data-ttu-id="845be-191">'Az.Resources' モジュールのバージョン 1.7.1 は、'Az.Batch' モジュールの以前のバージョン (バージョン 1.1.2 以前) と互換性がありません。</span><span class="sxs-lookup"><span data-stu-id="845be-191">Version 1.7.1 of the ‘Az.Resources’ module is incompatible with earlier versions (version 1.1.2 or earlier) of the ‘Az.Batch’ module.</span></span>  <span data-ttu-id="845be-192">これにより、'Az.Resources' モジュールのバージョン 1.7.1 がインポートされたときに、'Az.Batch' モジュールのバージョン 1.1.2 をインポートできなくなります。</span><span class="sxs-lookup"><span data-stu-id="845be-192">This will result in being unable to import  version 1.1.2 of the ‘Az.Batch’ module when version 1.7.1 of the ‘Az.Resources’ module is imported.</span></span>  <span data-ttu-id="845be-193">この問題を解決するには、'Az.Batch' モジュールをバージョン 2.0.1 以上に更新するか、'Az' モジュールの最新バージョンをインストールします。</span><span class="sxs-lookup"><span data-stu-id="845be-193">To fix this issue, update the ‘Az.Batch’ module to version 2.0.1 or greater, or simply install the latest version of the ‘Az’ module.</span></span>
+### <a name="previous-version-incompatibility-with-azbatch-module"></a><span data-ttu-id="f0efb-190">以前のバージョンと Az.Batch モジュールとの非互換性</span><span class="sxs-lookup"><span data-stu-id="f0efb-190">Previous Version Incompatibility with Az.Batch Module</span></span>
+<span data-ttu-id="f0efb-191">'Az.Resources' モジュールのバージョン 1.7.1 は、'Az.Batch' モジュールの以前のバージョン (バージョン 1.1.2 以前) と互換性がありません。</span><span class="sxs-lookup"><span data-stu-id="f0efb-191">Version 1.7.1 of the ‘Az.Resources’ module is incompatible with earlier versions (version 1.1.2 or earlier) of the ‘Az.Batch’ module.</span></span>  <span data-ttu-id="f0efb-192">これにより、'Az.Resources' モジュールのバージョン 1.7.1 がインポートされたときに、'Az.Batch' モジュールのバージョン 1.1.2 をインポートできなくなります。</span><span class="sxs-lookup"><span data-stu-id="f0efb-192">This will result in being unable to import  version 1.1.2 of the ‘Az.Batch’ module when version 1.7.1 of the ‘Az.Resources’ module is imported.</span></span>  <span data-ttu-id="f0efb-193">この問題を解決するには、'Az.Batch' モジュールをバージョン 2.0.1 以上に更新するか、'Az' モジュールの最新バージョンをインストールします。</span><span class="sxs-lookup"><span data-stu-id="f0efb-193">To fix this issue, update the ‘Az.Batch’ module to version 2.0.1 or greater, or simply install the latest version of the ‘Az’ module.</span></span>
 
-## <a name="servicefabric"></a><span data-ttu-id="845be-194">ServiceFabric</span><span class="sxs-lookup"><span data-stu-id="845be-194">ServiceFabric</span></span>
+## <a name="servicefabric"></a><span data-ttu-id="f0efb-194">ServiceFabric</span><span class="sxs-lookup"><span data-stu-id="f0efb-194">ServiceFabric</span></span>
 
 ### `Add-ServiceFabricApplicationCertificate`
-<span data-ttu-id="845be-195">`Add-ServiceFabricApplicationCertificate` を削除しました。このシナリオは `Add-AzVmssSecret` によりカバーされます。</span><span class="sxs-lookup"><span data-stu-id="845be-195">Removed `Add-ServiceFabricApplicationCertificate` as this scenario is covered by `Add-AzVmssSecret`.</span></span>
+<span data-ttu-id="f0efb-195">`Add-ServiceFabricApplicationCertificate` を削除しました。このシナリオは `Add-AzVmssSecret` によりカバーされます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-195">Removed `Add-ServiceFabricApplicationCertificate` as this scenario is covered by `Add-AzVmssSecret`.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-196">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-196">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-196">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-196">Before</span></span>
 ```powershell
 Add-AzServiceFabricApplicationCertificate -ResourceGroupName "Group1" -Name "Contoso01SFCluster" -SecretIdentifier "http://keyVaultName.vault.contoso.net/secrets/secretName/secretVersion"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-197">After</span><span class="sxs-lookup"><span data-stu-id="845be-197">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-197">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-197">After</span></span>
 ```powershell
 $Vault = Get-AzKeyVault -VaultName "ContosoVault"
 $CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl "http://keyVaultName.vault.contoso.net/secrets/secretName/secretVersion" -CertificateStore "Certificates"
@@ -364,22 +361,22 @@ Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId $Vault.ResourceId 
 ```
 
 
-## <a name="sql"></a><span data-ttu-id="845be-198">Sql</span><span class="sxs-lookup"><span data-stu-id="845be-198">Sql</span></span>
+## <a name="sql"></a><span data-ttu-id="f0efb-198">Sql</span><span class="sxs-lookup"><span data-stu-id="f0efb-198">Sql</span></span>
 
 ### `Get-AzSqlDatabaseSecureConnectionPolicy`
-<span data-ttu-id="845be-199">セキュリティで保護された接続は非推奨となるため、コマンドは削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-199">Note that secure connection is deprecated and so command is removed.</span></span> <span data-ttu-id="845be-200">接続文字列を表示するには、Azure portal の [SQL データベース] ブレードを使用してください</span><span class="sxs-lookup"><span data-stu-id="845be-200">Please use the SQL database blade in the Azure portal to view the connection strings</span></span>
+<span data-ttu-id="f0efb-199">セキュリティで保護された接続は非推奨となるため、コマンドは削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-199">Note that secure connection is deprecated and so command is removed.</span></span> <span data-ttu-id="f0efb-200">接続文字列を表示するには、Azure portal の [SQL データベース] ブレードを使用してください</span><span class="sxs-lookup"><span data-stu-id="f0efb-200">Please use the SQL database blade in the Azure portal to view the connection strings</span></span>
 
 ### `Get-AzSqlDatabaseIndexRecommendations`
-<span data-ttu-id="845be-201">`Get-AzSqlDatabaseIndexRecommendations` エイリアスが削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-201">`Get-AzSqlDatabaseIndexRecommendations` alias is removed.</span></span> <span data-ttu-id="845be-202">代わりに `Get-AzSqlDatabaseIndexRecommendation` を使用してください</span><span class="sxs-lookup"><span data-stu-id="845be-202">Use `Get-AzSqlDatabaseIndexRecommendation` instead.</span></span>
+<span data-ttu-id="f0efb-201">`Get-AzSqlDatabaseIndexRecommendations` エイリアスが削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-201">`Get-AzSqlDatabaseIndexRecommendations` alias is removed.</span></span> <span data-ttu-id="f0efb-202">代わりに `Get-AzSqlDatabaseIndexRecommendation` を使用してください</span><span class="sxs-lookup"><span data-stu-id="f0efb-202">Use `Get-AzSqlDatabaseIndexRecommendation` instead.</span></span>
 
 ### `Get-AzSqlDatabaseRestorePoints`
-<span data-ttu-id="845be-203">`Get-AzSqlDatabaseRestorePoints` エイリアスが削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-203">`Get-AzSqlDatabaseRestorePoints` alias is removed.</span></span> <span data-ttu-id="845be-204">代わりに `Get-AzSqlDatabaseRestorePoint` を使用してください</span><span class="sxs-lookup"><span data-stu-id="845be-204">Use `Get-AzSqlDatabaseRestorePoint` instead.</span></span>
+<span data-ttu-id="f0efb-203">`Get-AzSqlDatabaseRestorePoints` エイリアスが削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-203">`Get-AzSqlDatabaseRestorePoints` alias is removed.</span></span> <span data-ttu-id="f0efb-204">代わりに `Get-AzSqlDatabaseRestorePoint` を使用してください</span><span class="sxs-lookup"><span data-stu-id="f0efb-204">Use `Get-AzSqlDatabaseRestorePoint` instead.</span></span>
 
 ### `Get-AzSqlDatabaseAuditing`
-- <span data-ttu-id="845be-205">コマンドレット `Get-AzSqlDatabaseAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="845be-205">The cmdlet `Get-AzSqlDatabaseAudit` is replacing this cmdlet.</span></span>
-- <span data-ttu-id="845be-206">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseAuditingSettingsModel' に変更され、プロパティ `AuditState` および `StorageAccountName` は削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-206">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseAuditingSettingsModel', removing properties `AuditState` and `StorageAccountName`.</span></span> <span data-ttu-id="845be-207">と `StorageAccountSubscriptionId`の両方で使用できます。</span><span class="sxs-lookup"><span data-stu-id="845be-207">and `StorageAccountSubscriptionId`.</span></span>  <span data-ttu-id="845be-208">スクリプトでは、新しい `StorageAccountResourceId` プロパティからストレージ アカウント情報を取得できます。</span><span class="sxs-lookup"><span data-stu-id="845be-208">Scripts can retrieve storage account information from the new `StorageAccountResourceId` property.</span></span>
+- <span data-ttu-id="f0efb-205">コマンドレット `Get-AzSqlDatabaseAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-205">The cmdlet `Get-AzSqlDatabaseAudit` is replacing this cmdlet.</span></span>
+- <span data-ttu-id="f0efb-206">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseAuditingSettingsModel' に変更され、プロパティ `AuditState` および `StorageAccountName` は削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-206">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseAuditingSettingsModel', removing properties `AuditState` and `StorageAccountName`.</span></span> <span data-ttu-id="f0efb-207">と `StorageAccountSubscriptionId`の両方で使用できます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-207">and `StorageAccountSubscriptionId`.</span></span>  <span data-ttu-id="f0efb-208">スクリプトでは、新しい `StorageAccountResourceId` プロパティからストレージ アカウント情報を取得できます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-208">Scripts can retrieve storage account information from the new `StorageAccountResourceId` property.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-209">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-209">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-209">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-209">Before</span></span>
 ```powershell
 PS C:\> Get-AzSqlDatabaseAuditing -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01"
 DatabaseName                 : database01
@@ -396,7 +393,7 @@ StorageAccountSubscriptionId : 7fe3301d-31d3-4668-af5e-211a890ba6e3
 PredicateExpression          : statement <> 'select 1'
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-210">After</span><span class="sxs-lookup"><span data-stu-id="845be-210">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-210">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-210">After</span></span>
 ```powershell
 PS C:\> Get-AzSqlDatabaseAudit -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01"
 ServerName                          : server01
@@ -418,24 +415,24 @@ WorkspaceResourceId                 : "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2
 ```
 
 ### `Set-AzSqlDatabaseAuditing`
-- <span data-ttu-id="845be-211">コマンドレット `Set-AzSqlDatabaseAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="845be-211">The cmdlet `Set-AzSqlDatabaseAudit` is replacing this cmdlet.</span></span>
-- <span data-ttu-id="845be-212">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'bool' に変更されます</span><span class="sxs-lookup"><span data-stu-id="845be-212">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'bool'</span></span>
+- <span data-ttu-id="f0efb-211">コマンドレット `Set-AzSqlDatabaseAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-211">The cmdlet `Set-AzSqlDatabaseAudit` is replacing this cmdlet.</span></span>
+- <span data-ttu-id="f0efb-212">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'bool' に変更されます</span><span class="sxs-lookup"><span data-stu-id="f0efb-212">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'bool'</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-213">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-213">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-213">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-213">Before</span></span>
 ```powershell
 Set-AzSqlDatabaseAuditing -State Enabled -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -StorageAccountName "Storage22" -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-214">After</span><span class="sxs-lookup"><span data-stu-id="845be-214">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-214">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-214">After</span></span>
 ```powershell
 Set-AzSqlDatabaseAudit -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01" -BlobStorageTargetState Enabled -StorageAccountResourceId "/subscriptions/7fe3301d-31d3-4668-af5e-211a890ba6e3/resourceGroups/resourcegroup01/providers/Microsoft.Storage/storageAccounts/mystorage"
 ```
 
 ### `Get-AzSqlServerAuditing`
-- <span data-ttu-id="845be-215">コマンドレット `Get-AzSqlServerAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="845be-215">The cmdlet `Get-AzSqlServerAudit` is replacing this cmdlet.</span></span>
-- <span data-ttu-id="845be-216">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'Microsoft.Azure.Commands.Sql.Auditing.Model.ServerAuditingSettingsModel' に変更されます。</span><span class="sxs-lookup"><span data-stu-id="845be-216">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'Microsoft.Azure.Commands.Sql.Auditing.Model.ServerAuditingSettingsModel'.</span></span>  <span data-ttu-id="845be-217">プロパティ `AuditState`、`StorageAccountName`、および `StorageAccountSubscriptionId` は削除されます。</span><span class="sxs-lookup"><span data-stu-id="845be-217">Properties `AuditState`, `StorageAccountName`, and `StorageAccountSubscriptionId` are removed.</span></span>  <span data-ttu-id="845be-218">`StorageAccountName` および `StorageAccountSubscriptionId` プロパティを使用するスクリプトは、新しい `StorageAccountResourceId` プロパティからこの情報を取得できます。</span><span class="sxs-lookup"><span data-stu-id="845be-218">Scripts that use `StorageAccountName` and `StorageAccountSubscriptionId` proeprties can retrieve this information from the new `StorageAccountResourceId` property.</span></span>
+- <span data-ttu-id="f0efb-215">コマンドレット `Get-AzSqlServerAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-215">The cmdlet `Get-AzSqlServerAudit` is replacing this cmdlet.</span></span>
+- <span data-ttu-id="f0efb-216">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'Microsoft.Azure.Commands.Sql.Auditing.Model.ServerAuditingSettingsModel' に変更されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-216">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'Microsoft.Azure.Commands.Sql.Auditing.Model.ServerAuditingSettingsModel'.</span></span>  <span data-ttu-id="f0efb-217">プロパティ `AuditState`、`StorageAccountName`、および `StorageAccountSubscriptionId` は削除されます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-217">Properties `AuditState`, `StorageAccountName`, and `StorageAccountSubscriptionId` are removed.</span></span>  <span data-ttu-id="f0efb-218">`StorageAccountName` および `StorageAccountSubscriptionId` プロパティを使用するスクリプトは、新しい `StorageAccountResourceId` プロパティからこの情報を取得できます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-218">Scripts that use `StorageAccountName` and `StorageAccountSubscriptionId` proeprties can retrieve this information from the new `StorageAccountResourceId` property.</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-219">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-219">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-219">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-219">Before</span></span>
 ```powershell
 PS C:\> Get-AzSqlServerAuditing -ResourceGroupName "resourcegroup01" -ServerName "server01"
 AuditActionGroup             : {SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP, BATCH_COMPLETED_GROUP, ...}
@@ -449,7 +446,7 @@ StorageAccountSubscriptionId : 7fe3301d-31d3-4668-af5e-211a890ba6e3
 PredicateExpression          : statement <> 'select 1'
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-220">After</span><span class="sxs-lookup"><span data-stu-id="845be-220">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-220">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-220">After</span></span>
 ```powershell
 PS C:\> Get-AzSqlServerAudit -ResourceGroupName "resourcegroup01" -ServerName "server01"
 ServerName                          : server01
@@ -468,101 +465,101 @@ WorkspaceResourceId                 : "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2
 ```
 
 ### `Set-AzSqlServerAuditing`
-- <span data-ttu-id="845be-221">コマンドレット `Set-AzSqlServerAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="845be-221">The cmdlet `Set-AzSqlServerAudit` is replacing this cmdlet.</span></span>
-- <span data-ttu-id="845be-222">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'bool' に変更されます</span><span class="sxs-lookup"><span data-stu-id="845be-222">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'bool'</span></span>
+- <span data-ttu-id="f0efb-221">コマンドレット `Set-AzSqlServerAudit` がこのコマンドレットを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f0efb-221">The cmdlet `Set-AzSqlServerAudit` is replacing this cmdlet.</span></span>
+- <span data-ttu-id="f0efb-222">出力の型は、既存の型 'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' から新しい型 'bool' に変更されます</span><span class="sxs-lookup"><span data-stu-id="f0efb-222">The output type is changing from the existing type :'Microsoft.Azure.Commands.Sql.Auditing.Model.DatabaseBlobAuditingSettingsModel' to the new type :'bool'</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-223">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-223">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-223">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-223">Before</span></span>
 ```powershell
 Set-AzSqlServerAuditing -State Enabled -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -StorageAccountName "Storage22"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-224">After</span><span class="sxs-lookup"><span data-stu-id="845be-224">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-224">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-224">After</span></span>
 ```powershell
 PS C:\> Set-AzSqlServerAudit -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -BlobStorageTargetState Enabled -StorageAccountResourceId "/subscriptions/7fe3301d-31d3-4668-af5e-211a890ba6e3/resourceGroups/resourcegroup01/providers/Microsoft.Storage/storageAccounts/mystorage"
 ```
 
 ### `Get-AzSqlServerAdvancedThreatProtectionSettings`
-<span data-ttu-id="845be-225">コマンドレット `Get-AzSqlServerAdvancedThreatProtectionSettings` が `Get-AzSqlServerAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-225">Cmdlet `Get-AzSqlServerAdvancedThreatProtectionSettings` is replaced by `Get-AzSqlServerAdvancedThreatProtectionSetting`</span></span>
+<span data-ttu-id="f0efb-225">コマンドレット `Get-AzSqlServerAdvancedThreatProtectionSettings` が `Get-AzSqlServerAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-225">Cmdlet `Get-AzSqlServerAdvancedThreatProtectionSettings` is replaced by `Get-AzSqlServerAdvancedThreatProtectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-226">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-226">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-226">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-226">Before</span></span>
 ```powershell
 Get-AzSqlServerAdvancedThreatProtectionSettings -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-227">After</span><span class="sxs-lookup"><span data-stu-id="845be-227">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-227">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-227">After</span></span>
 ```powershell
 Get-AzSqlServerAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ```
 
 ### `Clear-AzSqlServerAdvancedThreatProtectionSettings`
-<span data-ttu-id="845be-228">コマンドレット `Clear-AzSqlServerAdvancedThreatProtectionSettings` が `Clear-AzSqlServerAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-228">Cmdlet `Clear-AzSqlServerAdvancedThreatProtectionSettings` is replaced by `Clear-AzSqlServerAdvancedThreatProtectionSetting`</span></span>
+<span data-ttu-id="f0efb-228">コマンドレット `Clear-AzSqlServerAdvancedThreatProtectionSettings` が `Clear-AzSqlServerAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-228">Cmdlet `Clear-AzSqlServerAdvancedThreatProtectionSettings` is replaced by `Clear-AzSqlServerAdvancedThreatProtectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-229">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-229">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-229">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-229">Before</span></span>
 ```powershell
 Clear-AzSqlServerAdvancedThreatProtectionSettings -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-230">After</span><span class="sxs-lookup"><span data-stu-id="845be-230">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-230">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-230">After</span></span>
 ```powershell
 Clear-AzSqlServerAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ```
 
 ### `Update-AzSqlServerAdvancedThreatProtectionSettings`
-<span data-ttu-id="845be-231">コマンドレット `Update-AzSqlServerAdvancedThreatProtectionSettings` が `Update-AzSqlServerAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-231">Cmdlet `Update-AzSqlServerAdvancedThreatProtectionSettings` is replaced by `Update-AzSqlServerAdvancedThreatProtectionSetting`</span></span>
+<span data-ttu-id="f0efb-231">コマンドレット `Update-AzSqlServerAdvancedThreatProtectionSettings` が `Update-AzSqlServerAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-231">Cmdlet `Update-AzSqlServerAdvancedThreatProtectionSettings` is replaced by `Update-AzSqlServerAdvancedThreatProtectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-232">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-232">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-232">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-232">Before</span></span>
 ```powershell
 Update-AzSqlServerAdvancedThreatProtectionSettings -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability","SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-233">After</span><span class="sxs-lookup"><span data-stu-id="845be-233">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-233">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-233">After</span></span>
 ```powershell
 Update-AzSqlServerAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability","SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
 ### `Get-AzSqlDatabaseAdvancedThreatProtectionSettings`
-<span data-ttu-id="845be-234">コマンドレット `Get-AzSqlDatabaseAdvancedThreatProtectionSettings` が `Get-AzSqlDatabaseAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-234">Cmdlet `Get-AzSqlDatabaseAdvancedThreatProtectionSettings` is replaced by `Get-AzSqlDatabaseAdvancedThreatProtectionSetting`</span></span>
+<span data-ttu-id="f0efb-234">コマンドレット `Get-AzSqlDatabaseAdvancedThreatProtectionSettings` が `Get-AzSqlDatabaseAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-234">Cmdlet `Get-AzSqlDatabaseAdvancedThreatProtectionSettings` is replaced by `Get-AzSqlDatabaseAdvancedThreatProtectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-235">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-235">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-235">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-235">Before</span></span>
 ```powershell
 Get-AzSqlDatabaseAdvancedThreatProtectionSettings -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-236">After</span><span class="sxs-lookup"><span data-stu-id="845be-236">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-236">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-236">After</span></span>
 ```powershell
 Get-AzSqlDatabaseAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01"
 ```
 
 ### `Update-AzSqlDatabaseAdvancedThreatProtectionSettings`
-<span data-ttu-id="845be-237">コマンドレット `Update-AzSqlDatabaseAdvancedThreatProtectionSettings` が `Update-AzSqlDatabaseAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-237">Cmdlet `Update-AzSqlDatabaseAdvancedThreatProtectionSettings` is repleaced by `Update-AzSqlDatabaseAdvancedThreatProtectionSetting`</span></span>
+<span data-ttu-id="f0efb-237">コマンドレット `Update-AzSqlDatabaseAdvancedThreatProtectionSettings` が `Update-AzSqlDatabaseAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-237">Cmdlet `Update-AzSqlDatabaseAdvancedThreatProtectionSettings` is repleaced by `Update-AzSqlDatabaseAdvancedThreatProtectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-238">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-238">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-238">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-238">Before</span></span>
 ```powershell
 Update-AzSqlDatabaseAdvancedThreatProtectionSettings -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability", "SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-239">After</span><span class="sxs-lookup"><span data-stu-id="845be-239">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-239">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-239">After</span></span>
 ```powershell
 Update-AzSqlDatabaseAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability", "SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
 ### `Clear-AzSqlDatabaseAdvancedThreatProtectionSettings`
-<span data-ttu-id="845be-240">コマンドレット `Clear-AzSqlDatabaseAdvancedThreatProtectionSettings` が `Clear-AzSqlDatabaseAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-240">Cmdlet `Clear-AzSqlDatabaseAdvancedThreatProtectionSettings` is repleaced by `Clear-AzSqlDatabaseAdvancedThreatProtectionSetting`</span></span>
+<span data-ttu-id="f0efb-240">コマンドレット `Clear-AzSqlDatabaseAdvancedThreatProtectionSettings` が `Clear-AzSqlDatabaseAdvancedThreatProtectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-240">Cmdlet `Clear-AzSqlDatabaseAdvancedThreatProtectionSettings` is repleaced by `Clear-AzSqlDatabaseAdvancedThreatProtectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-241">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-241">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-241">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-241">Before</span></span>
 ```powershell
 Clear-AzSqlDatabaseAdvancedThreatProtectionSettings -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-242">After</span><span class="sxs-lookup"><span data-stu-id="845be-242">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-242">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-242">After</span></span>
 ```powershell
 Clear-AzSqlDatabaseAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01"
 ```
 
 ### `Update-AzSqlDatabaseVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-243">コマンドレット `Update-AzSqlDatabaseVulnerabilityAssessmentSettings` が `Update-AzSqlDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-243">Cmdlet `Update-AzSqlDatabaseVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlDatabaseVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-243">コマンドレット `Update-AzSqlDatabaseVulnerabilityAssessmentSettings` が `Update-AzSqlDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-243">Cmdlet `Update-AzSqlDatabaseVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlDatabaseVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-244">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-244">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-244">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-244">Before</span></span>
 ```powershell
 Update-AzSqlDatabaseVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01"`
@@ -575,7 +572,7 @@ Update-AzSqlDatabaseVulnerabilityAssessmentSettings `
     -NotificationEmail @("mail1@mail.com" , "mail2@mail.com")
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-245">After</span><span class="sxs-lookup"><span data-stu-id="845be-245">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-245">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-245">After</span></span>
 ```powershell
 Update-AzSqlDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01"`
@@ -590,9 +587,9 @@ Update-AzSqlDatabaseVulnerabilityAssessmentSetting `
 
 
 ### `Get-AzSqlDatabaseVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-246">コマンドレット `Get-AzSqlDatabaseVulnerabilityAssessmentSettings` が `Get-AzSqlDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-246">Cmdlet `Get-AzSqlDatabaseVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlDatabaseVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-246">コマンドレット `Get-AzSqlDatabaseVulnerabilityAssessmentSettings` が `Get-AzSqlDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-246">Cmdlet `Get-AzSqlDatabaseVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlDatabaseVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-247">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-247">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-247">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-247">Before</span></span>
 ```powershell
 Get-AzSqlDatabaseVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -600,7 +597,7 @@ Get-AzSqlDatabaseVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-248">After</span><span class="sxs-lookup"><span data-stu-id="845be-248">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-248">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-248">After</span></span>
 ```powershell
 Get-AzSqlDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -609,9 +606,9 @@ Get-AzSqlDatabaseVulnerabilityAssessmentSetting `
 ```
 
 ### `Clear-AzSqlDatabaseVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-249">コマンドレット `Clear-AzSqlDatabaseVulnerabilityAssessmentSettings` が `Clear-AzSqlDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-249">Cmdlet `Clear-AzSqlDatabaseVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlDatabaseVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-249">コマンドレット `Clear-AzSqlDatabaseVulnerabilityAssessmentSettings` が `Clear-AzSqlDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-249">Cmdlet `Clear-AzSqlDatabaseVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlDatabaseVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-250">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-250">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-250">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-250">Before</span></span>
 ```powershell
 Clear-AzSqlDatabaseVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -619,7 +616,7 @@ Clear-AzSqlDatabaseVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-251">After</span><span class="sxs-lookup"><span data-stu-id="845be-251">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-251">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-251">After</span></span>
 ```powershell
 Clear-AzSqlDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -628,9 +625,9 @@ Clear-AzSqlDatabaseVulnerabilityAssessmentSetting `
 ```
 
 ### `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-252">コマンドレット `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` が `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-252">Cmdlet `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-252">コマンドレット `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` が `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-252">Cmdlet `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-253">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-253">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-253">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-253">Before</span></span>
 ```powershell
 Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -643,7 +640,7 @@ Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings `
     -NotificationEmail @("mail1@mail.com" , "mail2@mail.com")
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-254">After</span><span class="sxs-lookup"><span data-stu-id="845be-254">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-254">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-254">After</span></span>
 ```powershell
 Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -657,9 +654,9 @@ Update-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting `
 ```
 
 ### `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-255">コマンドレット `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` が `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-255">Cmdlet `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-255">コマンドレット `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` が `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-255">Cmdlet `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-256">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-256">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-256">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-256">Before</span></span>
 ```powershell
 Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -667,7 +664,7 @@ Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-257">After</span><span class="sxs-lookup"><span data-stu-id="845be-257">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-257">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-257">After</span></span>
 ```powershell
 Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -676,9 +673,9 @@ Get-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting `
 ```
 
 ### `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-258">コマンドレット `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` が `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-258">Cmdlet `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-258">コマンドレット `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` が `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-258">Cmdlet `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-259">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-259">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-259">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-259">Before</span></span>
 ```powershell
 Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -686,7 +683,7 @@ Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-260">After</span><span class="sxs-lookup"><span data-stu-id="845be-260">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-260">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-260">After</span></span>
 ```powershell
 Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -695,9 +692,9 @@ Clear-AzSqlInstanceDatabaseVulnerabilityAssessmentSetting `
 ```
 
 ### `Update-AzSqlInstanceVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-261">コマンドレット `Update-AzSqlInstanceVulnerabilityAssessmentSettings` が `Update-AzSqlInstanceVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-261">Cmdlet `Update-AzSqlInstanceVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlInstanceVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-261">コマンドレット `Update-AzSqlInstanceVulnerabilityAssessmentSettings` が `Update-AzSqlInstanceVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-261">Cmdlet `Update-AzSqlInstanceVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlInstanceVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-262">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-262">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-262">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-262">Before</span></span>
 ```powershell
 Update-AzSqlInstanceVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -709,7 +706,7 @@ Update-AzSqlInstanceVulnerabilityAssessmentSettings `
     -NotificationEmail @("mail1@mail.com" , "mail2@mail.com")
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-263">After</span><span class="sxs-lookup"><span data-stu-id="845be-263">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-263">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-263">After</span></span>
 ```powershell
 Update-AzSqlInstanceVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -722,9 +719,9 @@ Update-AzSqlInstanceVulnerabilityAssessmentSetting `
 ```
 
 ### `Get-AzSqlInstanceVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-264">コマンドレット `Get-AzSqlInstanceVulnerabilityAssessmentSettings` が `Get-AzSqlInstanceVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-264">Cmdlet `Get-AzSqlInstanceVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlInstanceVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-264">コマンドレット `Get-AzSqlInstanceVulnerabilityAssessmentSettings` が `Get-AzSqlInstanceVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-264">Cmdlet `Get-AzSqlInstanceVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlInstanceVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-265">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-265">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-265">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-265">Before</span></span>
 ```powershell
 Get-AzSqlInstanceVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -732,7 +729,7 @@ Get-AzSqlInstanceVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-266">After</span><span class="sxs-lookup"><span data-stu-id="845be-266">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-266">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-266">After</span></span>
 ```powershell
 Get-AzSqlInstanceVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -741,9 +738,9 @@ Get-AzSqlInstanceVulnerabilityAssessmentSetting `
 ```
 
 ### `Clear-AzSqlInstanceVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-267">コマンドレット `Clear-AzSqlInstanceVulnerabilityAssessmentSettings` が `Clear-AzSqlInstanceVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-267">Cmdlet `Clear-AzSqlInstanceVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlInstanceVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-267">コマンドレット `Clear-AzSqlInstanceVulnerabilityAssessmentSettings` が `Clear-AzSqlInstanceVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-267">Cmdlet `Clear-AzSqlInstanceVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlInstanceVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-268">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-268">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-268">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-268">Before</span></span>
 ```powershell
 Clear-AzSqlInstanceVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -751,7 +748,7 @@ Clear-AzSqlInstanceVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-269">After</span><span class="sxs-lookup"><span data-stu-id="845be-269">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-269">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-269">After</span></span>
 ```powershell
 Clear-AzSqlInstanceVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -760,9 +757,9 @@ Clear-AzSqlInstanceVulnerabilityAssessmentSetting `
 ```
 
 ### `Update-AzSqlServerVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-270">コマンドレット `Update-AzSqlServerVulnerabilityAssessmentSettings` が `Update-AzSqlServerVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-270">Cmdlet `Update-AzSqlServerVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlServerVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-270">コマンドレット `Update-AzSqlServerVulnerabilityAssessmentSettings` が `Update-AzSqlServerVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-270">Cmdlet `Update-AzSqlServerVulnerabilityAssessmentSettings` is repleaced by `Update-AzSqlServerVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-271">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-271">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-271">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-271">Before</span></span>
 ```powershell
 Update-AzSqlServerVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01"`
@@ -774,7 +771,7 @@ Update-AzSqlServerVulnerabilityAssessmentSettings `
     -NotificationEmail @("mail1@mail.com" , "mail2@mail.com")
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-272">After</span><span class="sxs-lookup"><span data-stu-id="845be-272">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-272">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-272">After</span></span>
 ```powershell
 Update-AzSqlServerVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01"`
@@ -787,9 +784,9 @@ Update-AzSqlServerVulnerabilityAssessmentSetting `
 ```
 
 ### `Get-AzSqlServerVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-273">コマンドレット `Get-AzSqlServerVulnerabilityAssessmentSettings` が `Get-AzSqlServerVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-273">Cmdlet `Get-AzSqlServerVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlServerVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-273">コマンドレット `Get-AzSqlServerVulnerabilityAssessmentSettings` が `Get-AzSqlServerVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-273">Cmdlet `Get-AzSqlServerVulnerabilityAssessmentSettings` is repleaced by `Get-AzSqlServerVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-274">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-274">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-274">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-274">Before</span></span>
 ```powershell
 Get-AzSqlServerVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -797,7 +794,7 @@ Get-AzSqlServerVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-275">After</span><span class="sxs-lookup"><span data-stu-id="845be-275">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-275">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-275">After</span></span>
 ```powershell
 Get-AzSqlServerVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -806,9 +803,9 @@ Get-AzSqlServerVulnerabilityAssessmentSetting `
 ```
 
 ### `Clear-AzSqlServerVulnerabilityAssessmentSettings`
-<span data-ttu-id="845be-276">コマンドレット `Clear-AzSqlServerVulnerabilityAssessmentSettings` が `Clear-AzSqlServerVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-276">Cmdlet `Clear-AzSqlServerVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlServerVulnerabilityAssessmentSetting`</span></span>
+<span data-ttu-id="f0efb-276">コマンドレット `Clear-AzSqlServerVulnerabilityAssessmentSettings` が `Clear-AzSqlServerVulnerabilityAssessmentSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-276">Cmdlet `Clear-AzSqlServerVulnerabilityAssessmentSettings` is repleaced by `Clear-AzSqlServerVulnerabilityAssessmentSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-277">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-277">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-277">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-277">Before</span></span>
 ```powershell
 Clear-AzSqlServerVulnerabilityAssessmentSettings `
     -ResourceGroupName "ResourceGroup01" `
@@ -816,7 +813,7 @@ Clear-AzSqlServerVulnerabilityAssessmentSettings `
     -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-278">After</span><span class="sxs-lookup"><span data-stu-id="845be-278">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-278">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-278">After</span></span>
 ```powershell
 Clear-AzSqlDatabaseVulnerabilityAssessmentSetting `
     -ResourceGroupName "ResourceGroup01" `
@@ -825,12 +822,12 @@ Clear-AzSqlDatabaseVulnerabilityAssessmentSetting `
 ```
 
 ### `Get-AzSqlServerAdvancedThreatProtectionPolicy`
-<span data-ttu-id="845be-279">コマンドレット `Get-AzSqlServerAdvancedThreatProtectionPolicy` が削除され、これに置き換わるコマンドレットはありません</span><span class="sxs-lookup"><span data-stu-id="845be-279">Cmdlet `Get-AzSqlServerAdvancedThreatProtectionPolicy` is deleted and no cmdlet is repleaced it</span></span>
+<span data-ttu-id="f0efb-279">コマンドレット `Get-AzSqlServerAdvancedThreatProtectionPolicy` が削除され、これに置き換わるコマンドレットはありません</span><span class="sxs-lookup"><span data-stu-id="f0efb-279">Cmdlet `Get-AzSqlServerAdvancedThreatProtectionPolicy` is deleted and no cmdlet is repleaced it</span></span>
 
 ### `Get-AzSqlServerThreatDetectionPolicy`
-<span data-ttu-id="845be-280">コマンドレット `Get-AzSqlServerThreatDetectionPolicy` が `Get-AzSqlServerThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-280">Cmdlet `Get-AzSqlServerThreatDetectionPolicy` is repleaced by `Get-AzSqlServerThreatDetectionSetting`</span></span>
+<span data-ttu-id="f0efb-280">コマンドレット `Get-AzSqlServerThreatDetectionPolicy` が `Get-AzSqlServerThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-280">Cmdlet `Get-AzSqlServerThreatDetectionPolicy` is repleaced by `Get-AzSqlServerThreatDetectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-281">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-281">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-281">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-281">Before</span></span>
 ```powershell
 PS C:\> Get-AzSqlServerThreatDetectionPolicy -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ResourceGroupName            : ResourceGroup11
@@ -843,7 +840,7 @@ ExcludedDetectionTypes       : {}
 RetentionInDays              : 0
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-282">After</span><span class="sxs-lookup"><span data-stu-id="845be-282">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-282">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-282">After</span></span>
 ```powershell
 PS C:\> Get-AzSqlServerAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ResourceGroupName            : ResourceGroup11
@@ -857,35 +854,35 @@ RetentionInDays              : 0
 ```
 
 ### `Remove-AzSqlServerThreatDetectionPolicy`
-<span data-ttu-id="845be-283">コマンドレット `Remove-AzSqlServerThreatDetectionPolicy` が `Clear-AzSqlServerThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-283">Cmdlet `Remove-AzSqlServerThreatDetectionPolicy` is repleaced by `Clear-AzSqlServerThreatDetectionSetting`</span></span>
+<span data-ttu-id="f0efb-283">コマンドレット `Remove-AzSqlServerThreatDetectionPolicy` が `Clear-AzSqlServerThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-283">Cmdlet `Remove-AzSqlServerThreatDetectionPolicy` is repleaced by `Clear-AzSqlServerThreatDetectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-284">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-284">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-284">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-284">Before</span></span>
 ```powershell
 Remove-AzSqlServerThreatDetectionPolicy -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-285">After</span><span class="sxs-lookup"><span data-stu-id="845be-285">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-285">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-285">After</span></span>
 ```powershell
 Clear-AzSqlServerAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01"
 ```
 
 ### `Set-AzSqlServerThreatDetectionPolicy`
-<span data-ttu-id="845be-286">コマンドレット `Set-AzSqlServerThreatDetectionPolicy` が `Update-AzSqlServerThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-286">Cmdlet `Set-AzSqlServerThreatDetectionPolicy` is repleaced by `Update-AzSqlServerThreatDetectionSetting`</span></span>
+<span data-ttu-id="f0efb-286">コマンドレット `Set-AzSqlServerThreatDetectionPolicy` が `Update-AzSqlServerThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-286">Cmdlet `Set-AzSqlServerThreatDetectionPolicy` is repleaced by `Update-AzSqlServerThreatDetectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-287">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-287">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-287">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-287">Before</span></span>
 ```powershell
 Set-AzSqlServerThreatDetectionPolicy -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability","SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-288">After</span><span class="sxs-lookup"><span data-stu-id="845be-288">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-288">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-288">After</span></span>
 ```powershell
 Update-AzSqlServerAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability","SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
 ### `Get-AzSqlDatabaseThreatDetectionPolicy`
-<span data-ttu-id="845be-289">コマンドレット `Get-AzSqlDatabaseThreatDetectionPolicy` が `Get-AzSqlDatabaseThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-289">Cmdlet `Get-AzSqlDatabaseThreatDetectionPolicy` is repleaced by `Get-AzSqlDatabaseThreatDetectionSetting`</span></span>
+<span data-ttu-id="f0efb-289">コマンドレット `Get-AzSqlDatabaseThreatDetectionPolicy` が `Get-AzSqlDatabaseThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-289">Cmdlet `Get-AzSqlDatabaseThreatDetectionPolicy` is repleaced by `Get-AzSqlDatabaseThreatDetectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-290">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-290">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-290">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-290">Before</span></span>
 ```powershell
 PS C:\> Get-AzSqlDatabaseThreatDetectionPolicy -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName   "Database01"
 DatabaseName                 : Database01
@@ -899,7 +896,7 @@ ExcludedDetectionTypes       : {}
 RetentionInDays              : 0
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-291">After</span><span class="sxs-lookup"><span data-stu-id="845be-291">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-291">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-291">After</span></span>
 ```powershell
 PS C:\> Get-AzSqlDatabaseAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01"   -DatabaseName "Database01"
 DatabaseName                 : Database01
@@ -914,27 +911,27 @@ RetentionInDays              : 0
 ```
 
 ### `Set-AzSqlDatabaseThreatDetectionPolicy`
-<span data-ttu-id="845be-292">コマンドレット `Set-AzSqlDatabaseThreatDetectionPolicy` が `Update-AzSqlDatabaseThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-292">Cmdlet `Set-AzSqlDatabaseThreatDetectionPolicy` is repleaced by `Update-AzSqlDatabaseThreatDetectionSetting`</span></span>
+<span data-ttu-id="f0efb-292">コマンドレット `Set-AzSqlDatabaseThreatDetectionPolicy` が `Update-AzSqlDatabaseThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-292">Cmdlet `Set-AzSqlDatabaseThreatDetectionPolicy` is repleaced by `Update-AzSqlDatabaseThreatDetectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-293">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-293">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-293">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-293">Before</span></span>
 ```powershell
 Set-AzSqlDatabaseThreatDetectionPolicy -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability", "SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-294">After</span><span class="sxs-lookup"><span data-stu-id="845be-294">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-294">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-294">After</span></span>
 ```powershell
 Update-AzSqlDatabaseAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01" -NotificationRecipientsEmails "admin01@contoso.com;secadmin@contoso.com" -EmailAdmins $False -ExcludedDetectionType "Sql_Injection_Vulnerability", "SQL_Injection" -StorageAccountName "mystorageAccount"
 ```
 
 ### `Remove-AzSqlDatabaseThreatDetectionPolicy`
-<span data-ttu-id="845be-295">コマンドレット `Remove-AzSqlDatabaseThreatDetectionPolicy` が `Clear-AzSqlDatabaseThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="845be-295">Cmdlet `Remove-AzSqlDatabaseThreatDetectionPolicy` is repleaced by `Clear-AzSqlDatabaseThreatDetectionSetting`</span></span>
+<span data-ttu-id="f0efb-295">コマンドレット `Remove-AzSqlDatabaseThreatDetectionPolicy` が `Clear-AzSqlDatabaseThreatDetectionSetting` に置き換えられました</span><span class="sxs-lookup"><span data-stu-id="f0efb-295">Cmdlet `Remove-AzSqlDatabaseThreatDetectionPolicy` is repleaced by `Clear-AzSqlDatabaseThreatDetectionSetting`</span></span>
 
-#### <a name="before"></a><span data-ttu-id="845be-296">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="845be-296">Before</span></span>
+#### <a name="before"></a><span data-ttu-id="f0efb-296">[指定日付より前]</span><span class="sxs-lookup"><span data-stu-id="f0efb-296">Before</span></span>
 ```powershell
 Remove-AzSqlDatabaseThreatDetectionPolicy -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01"
 ```
 
-#### <a name="after"></a><span data-ttu-id="845be-297">After</span><span class="sxs-lookup"><span data-stu-id="845be-297">After</span></span>
+#### <a name="after"></a><span data-ttu-id="f0efb-297">After</span><span class="sxs-lookup"><span data-stu-id="f0efb-297">After</span></span>
 ```powershell
 Clear-AzSqlDatabaseAdvancedThreatProtectionSetting -ResourceGroupName "ResourceGroup11" -ServerName "Server01" -DatabaseName "Database01"
 ```
