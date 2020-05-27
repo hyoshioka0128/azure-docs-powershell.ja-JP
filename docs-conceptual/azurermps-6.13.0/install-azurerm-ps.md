@@ -1,55 +1,52 @@
 ---
 title: PowerShellGet を使用した Windows への Azure PowerShell のインストール
 description: PowerShellGet を使用して Azure PowerShell をインストールする方法
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/16/2018
-ms.openlocfilehash: 5de386bde1b8be5a4455b85d4f5fcdf38e4fcea2
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 0d9eab453fe8c3a0a0e05c1056fbf58d4454ce24
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "65535016"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83387940"
 ---
-# <a name="install-azure-powershell-on-windows-with-powershellget"></a><span data-ttu-id="3cdcb-103">PowerShellGet を使用した Windows への Azure PowerShell のインストール</span><span class="sxs-lookup"><span data-stu-id="3cdcb-103">Install Azure PowerShell on Windows with PowerShellGet</span></span>
+# <a name="install-azure-powershell-on-windows-with-powershellget"></a><span data-ttu-id="0570b-103">PowerShellGet を使用した Windows への Azure PowerShell のインストール</span><span class="sxs-lookup"><span data-stu-id="0570b-103">Install Azure PowerShell on Windows with PowerShellGet</span></span>
 
 [!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
-<span data-ttu-id="3cdcb-104">この記事では、PowerShellGet を使用して、Windows 用 PowerShell 5.x の Azure PowerShell モジュールをインストールする手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-104">This article explains the steps to install the Azure PowerShell modules for PowerShell 5.x for Windows using PowerShellGet.</span></span> <span data-ttu-id="3cdcb-105">Azure PowerShell をインストールするときは、PowerShellGet およびモジュール管理を使用することをお勧めしますが、Web Platform Installer または MSI パッケージを使ってインストールすることもできます。方法については、[その他のインストール方法](other-install.md)に関する記事をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-105">PowerShellGet and module management is the preferred way to install Azure PowerShell but if you would rather install with the Web Platform Installer or MSI package, see [Other installation methods](other-install.md).</span></span>
+<span data-ttu-id="0570b-104">この記事では、PowerShellGet を使用して、Windows 用 PowerShell 5.x の Azure PowerShell モジュールをインストールする手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="0570b-104">This article explains the steps to install the Azure PowerShell modules for PowerShell 5.x for Windows using PowerShellGet.</span></span> <span data-ttu-id="0570b-105">Azure PowerShell をインストールするときは、PowerShellGet およびモジュール管理を使用することをお勧めしますが、Web Platform Installer または MSI パッケージを使ってインストールすることもできます。方法については、[その他のインストール方法](other-install.md)に関する記事をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="0570b-105">PowerShellGet and module management is the preferred way to install Azure PowerShell but if you would rather install with the Web Platform Installer or MSI package, see [Other installation methods](other-install.md).</span></span>
 
-<span data-ttu-id="3cdcb-106">このバージョンの Azure PowerShell では、Azure クラシック デプロイ モデルはサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-106">The Azure classic deployment model is not supported by this version of Azure PowerShell.</span></span> <span data-ttu-id="3cdcb-107">クラシック デプロイのサポートについては、「[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)」の手順に従ってください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-107">For support for classic deployments, follow the instructions in [Install the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).</span></span>
+<span data-ttu-id="0570b-106">このバージョンの Azure PowerShell では、Azure クラシック デプロイ モデルはサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="0570b-106">The Azure classic deployment model is not supported by this version of Azure PowerShell.</span></span> <span data-ttu-id="0570b-107">クラシック デプロイのサポートについては、「[Azure PowerShell Service Management モジュールのインストール](/powershell/azure/servicemanagement/install-azure-ps)」の手順に従ってください。</span><span class="sxs-lookup"><span data-stu-id="0570b-107">For support for classic deployments, follow the instructions in [Install the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="3cdcb-108">AzureRM モジュールは、macOS または Linux ではサポートされません。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-108">The AzureRM module is not supported for macOS or Linux.</span></span> <span data-ttu-id="3cdcb-109">これらのプラットフォームで Azure PowerShell コマンドレットを使用するには、[Az モジュールをインストール](/powershell/azure/install-az-ps)します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-109">To use Azure PowerShell cmdlets on these platforms, [Install the Az module](/powershell/azure/install-az-ps).</span></span>
+> <span data-ttu-id="0570b-108">AzureRM モジュールは、macOS または Linux ではサポートされません。</span><span class="sxs-lookup"><span data-stu-id="0570b-108">The AzureRM module is not supported for macOS or Linux.</span></span> <span data-ttu-id="0570b-109">これらのプラットフォームで Azure PowerShell コマンドレットを使用するには、[Az モジュールをインストール](/powershell/azure/install-az-ps)します。</span><span class="sxs-lookup"><span data-stu-id="0570b-109">To use Azure PowerShell cmdlets on these platforms, [Install the Az module](/powershell/azure/install-az-ps).</span></span>
 
-## <a name="requirements"></a><span data-ttu-id="3cdcb-110">必要条件</span><span class="sxs-lookup"><span data-stu-id="3cdcb-110">Requirements</span></span>
+## <a name="requirements"></a><span data-ttu-id="0570b-110">必要条件</span><span class="sxs-lookup"><span data-stu-id="0570b-110">Requirements</span></span>
 
-<span data-ttu-id="3cdcb-111">Azure PowerShell バージョン 6.0 以降、Azure PowerShell では PowerShell バージョン 5.0 が必要です。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-111">Starting with Azure PowerShell version 6.0, Azure PowerShell requires PowerShell version 5.0.</span></span> <span data-ttu-id="3cdcb-112">お使いのマシンで実行されている PowerShell のバージョンを確認するには、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-112">To check the version of PowerShell running on your machine, run the following command:</span></span>
+<span data-ttu-id="0570b-111">Azure PowerShell バージョン 6.0 以降、Azure PowerShell では PowerShell バージョン 5.0 が必要です。</span><span class="sxs-lookup"><span data-stu-id="0570b-111">Starting with Azure PowerShell version 6.0, Azure PowerShell requires PowerShell version 5.0.</span></span> <span data-ttu-id="0570b-112">お使いのマシンで実行されている PowerShell のバージョンを確認するには、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="0570b-112">To check the version of PowerShell running on your machine, run the following command:</span></span>
 
 ```powershell-interactive
 $PSVersionTable.PSVersion
 ```
 
-<span data-ttu-id="3cdcb-113">バージョンが古い場合は、「[既存の Windows PowerShell をアップグレードする](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-113">If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).</span></span>
+<span data-ttu-id="0570b-113">バージョンが古い場合は、「[既存の Windows PowerShell をアップグレードする](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="0570b-113">If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="3cdcb-114">このドキュメントで説明するモジュール AzureRM では、.NET Framework を使用します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-114">The module described in this document, AzureRM, uses .NET Framework.</span></span> <span data-ttu-id="3cdcb-115">そのため、.NET Core を使用する PowerShell 6.0 とは互換性がなくなります。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-115">This makes it incompatible with PowerShell 6.0, which uses .NET Core.</span></span> <span data-ttu-id="3cdcb-116">PowerShell 6.0 を使用している場合は、[macOS および Linux のインストール手順](install-azurermps-maclinux.md)に従います。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-116">If you are using PowerShell 6.0, follow the [installation instructions for macOS and Linux](install-azurermps-maclinux.md).</span></span>
+> <span data-ttu-id="0570b-114">このドキュメントで説明するモジュール AzureRM では、.NET Framework を使用します。</span><span class="sxs-lookup"><span data-stu-id="0570b-114">The module described in this document, AzureRM, uses .NET Framework.</span></span> <span data-ttu-id="0570b-115">そのため、.NET Core を使用する PowerShell 6.0 とは互換性がなくなります。</span><span class="sxs-lookup"><span data-stu-id="0570b-115">This makes it incompatible with PowerShell 6.0, which uses .NET Core.</span></span> <span data-ttu-id="0570b-116">PowerShell 6.0 を使用している場合は、[macOS および Linux のインストール手順](install-azurermps-maclinux.md)に従います。</span><span class="sxs-lookup"><span data-stu-id="0570b-116">If you are using PowerShell 6.0, follow the [installation instructions for macOS and Linux](install-azurermps-maclinux.md).</span></span>
 
-## <a name="install-the-azure-powershell-module"></a><span data-ttu-id="3cdcb-117">Azure PowerShell モジュールのインストール</span><span class="sxs-lookup"><span data-stu-id="3cdcb-117">Install the Azure PowerShell module</span></span>
+## <a name="install-the-azure-powershell-module"></a><span data-ttu-id="0570b-117">Azure PowerShell モジュールのインストール</span><span class="sxs-lookup"><span data-stu-id="0570b-117">Install the Azure PowerShell module</span></span>
 
-<span data-ttu-id="3cdcb-118">PowerShell ギャラリーからモジュールをインストールするには、昇格された特権が必要です。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-118">You need elevated privileges to install modules from the PowerShell Gallery.</span></span> <span data-ttu-id="3cdcb-119">Azure PowerShell をインストールするには、管理者特権のセッションで次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-119">To install Azure PowerShell, run the following command in an elevated session:</span></span>
+<span data-ttu-id="0570b-118">PowerShell ギャラリーからモジュールをインストールするには、昇格された特権が必要です。</span><span class="sxs-lookup"><span data-stu-id="0570b-118">You need elevated privileges to install modules from the PowerShell Gallery.</span></span> <span data-ttu-id="0570b-119">Azure PowerShell をインストールするには、管理者特権のセッションで次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="0570b-119">To install Azure PowerShell, run the following command in an elevated session:</span></span>
 
 ```powershell-interactive
 Install-Module -Name AzureRM -AllowClobber
 ```
 
 > [!NOTE]
-> <span data-ttu-id="3cdcb-120">ご利用の NuGet のバージョンが 2.8.5.201 未満である場合、最新バージョンの NuGet をダウンロードしてインストールするように求められます。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-120">If you have a version older than 2.8.5.201 of NuGet, you are prompted to download and install the latest version of NuGet.</span></span>
+> <span data-ttu-id="0570b-120">ご利用の NuGet のバージョンが 2.8.5.201 未満である場合、最新バージョンの NuGet をダウンロードしてインストールするように求められます。</span><span class="sxs-lookup"><span data-stu-id="0570b-120">If you have a version older than 2.8.5.201 of NuGet, you are prompted to download and install the latest version of NuGet.</span></span>
 
-<span data-ttu-id="3cdcb-121">既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとしては構成されません。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-121">By default, the PowerShell gallery isn't configured as a trusted repository for PowerShellGet.</span></span> <span data-ttu-id="3cdcb-122">PSGallery の初回使用時には、次のプロンプトが表示されます。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-122">The first time you use the PSGallery you see the following prompt:</span></span>
+<span data-ttu-id="0570b-121">既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとしては構成されません。</span><span class="sxs-lookup"><span data-stu-id="0570b-121">By default, the PowerShell gallery isn't configured as a trusted repository for PowerShellGet.</span></span> <span data-ttu-id="0570b-122">PSGallery の初回使用時には、次のプロンプトが表示されます。</span><span class="sxs-lookup"><span data-stu-id="0570b-122">The first time you use the PSGallery you see the following prompt:</span></span>
 
 ```output
 Untrusted repository
@@ -61,13 +58,13 @@ Are you sure you want to install the modules from 'PSGallery'?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 ```
 
-<span data-ttu-id="3cdcb-123">インストールを続行するには、`Yes` または `Yes to All` を選択します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-123">Answer `Yes` or `Yes to All` to continue with the installation.</span></span>
+<span data-ttu-id="0570b-123">インストールを続行するには、`Yes` または `Yes to All` を選択します。</span><span class="sxs-lookup"><span data-stu-id="0570b-123">Answer `Yes` or `Yes to All` to continue with the installation.</span></span>
 
-<span data-ttu-id="3cdcb-124">`AzureRM` モジュールは、Azure PowerShell コマンドレットのロールアップ モジュールです。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-124">The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets.</span></span> <span data-ttu-id="3cdcb-125">これをインストールすると、利用可能な Azure Resource Manager モジュールがすべてダウンロードされ、コマンドレットを使用できるようになります。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-125">Installing it downloads all of the available Azure Resource Manager modules, and makes their cmdlets available for use.</span></span>
+<span data-ttu-id="0570b-124">`AzureRM` モジュールは、Azure PowerShell コマンドレットのロールアップ モジュールです。</span><span class="sxs-lookup"><span data-stu-id="0570b-124">The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets.</span></span> <span data-ttu-id="0570b-125">これをインストールすると、利用可能な Azure Resource Manager モジュールがすべてダウンロードされ、コマンドレットを使用できるようになります。</span><span class="sxs-lookup"><span data-stu-id="0570b-125">Installing it downloads all of the available Azure Resource Manager modules, and makes their cmdlets available for use.</span></span>
 
-## <a name="sign-in"></a><span data-ttu-id="3cdcb-126">サインイン</span><span class="sxs-lookup"><span data-stu-id="3cdcb-126">Sign in</span></span>
+## <a name="sign-in"></a><span data-ttu-id="0570b-126">サインイン</span><span class="sxs-lookup"><span data-stu-id="0570b-126">Sign in</span></span>
 
-<span data-ttu-id="3cdcb-127">Azure PowerShell を使用して作業を開始するには、Azure の資格情報を使用してサインインします。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-127">To start working with Azure PowerShell, sign in with your Azure credentials.</span></span>
+<span data-ttu-id="0570b-127">Azure PowerShell を使用して作業を開始するには、Azure の資格情報を使用してサインインします。</span><span class="sxs-lookup"><span data-stu-id="0570b-127">To start working with Azure PowerShell, sign in with your Azure credentials.</span></span>
 
 ```powershell-interactive
 # Connect to Azure with an interactive dialog for sign-in
@@ -76,50 +73,50 @@ Connect-AzureRmAccount
 
 > [!NOTE]
 >
-> <span data-ttu-id="3cdcb-128">モジュールの自動読み込みを無効にしている場合は、`Import-Module AzureRM` を使用してモジュールを手動でインポートする必要があります。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-128">If you've disabled module autoloading, you need to manually import the module with `Import-Module AzureRM`.</span></span> <span data-ttu-id="3cdcb-129">モジュールが構造化されているため、これには数秒かかることがあります。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-129">Because of the way the module is structured, this can take a few seconds.</span></span>
+> <span data-ttu-id="0570b-128">モジュールの自動読み込みを無効にしている場合は、`Import-Module AzureRM` を使用してモジュールを手動でインポートする必要があります。</span><span class="sxs-lookup"><span data-stu-id="0570b-128">If you've disabled module autoloading, you need to manually import the module with `Import-Module AzureRM`.</span></span> <span data-ttu-id="0570b-129">モジュールが構造化されているため、これには数秒かかることがあります。</span><span class="sxs-lookup"><span data-stu-id="0570b-129">Because of the way the module is structured, this can take a few seconds.</span></span>
 
 
-<span data-ttu-id="3cdcb-130">新しい PowerShell セッションを開始するたびに、この手順を繰り返す必要があります。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-130">You'll need to repeat these steps for every new PowerShell session you start.</span></span> <span data-ttu-id="3cdcb-131">Azure サインインを PowerShell セッション間で維持する方法については、「[PowerShell セッション間でユーザーの資格情報を保持する](context-persistence.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-131">To learn how to persist your Azure sign-in across PowerShell sessions, see [Persist user credentials across PowerShell sessions](context-persistence.md).</span></span>
+<span data-ttu-id="0570b-130">新しい PowerShell セッションを開始するたびに、この手順を繰り返す必要があります。</span><span class="sxs-lookup"><span data-stu-id="0570b-130">You'll need to repeat these steps for every new PowerShell session you start.</span></span> <span data-ttu-id="0570b-131">Azure サインインを PowerShell セッション間で維持する方法については、「[PowerShell セッション間でユーザーの資格情報を保持する](context-persistence.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="0570b-131">To learn how to persist your Azure sign-in across PowerShell sessions, see [Persist user credentials across PowerShell sessions](context-persistence.md).</span></span>
 
-## <a name="update-the-azure-powershell-module"></a><span data-ttu-id="3cdcb-132">Azure PowerShell モジュールの更新</span><span class="sxs-lookup"><span data-stu-id="3cdcb-132">Update the Azure PowerShell module</span></span>
+## <a name="update-the-azure-powershell-module"></a><span data-ttu-id="0570b-132">Azure PowerShell モジュールの更新</span><span class="sxs-lookup"><span data-stu-id="0570b-132">Update the Azure PowerShell module</span></span>
 
-<span data-ttu-id="3cdcb-133">Azure PowerShell のインストールを更新するには、[Update-Module](/powershell/module/powershellget/update-module) を実行します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-133">You can update your Azure PowerShell installation by running [Update-Module](/powershell/module/powershellget/update-module).</span></span> <span data-ttu-id="3cdcb-134">このコマンドでは、以前のバージョンはアンインストール__されません__。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-134">This command does __not__ uninstall earlier versions.</span></span>
+<span data-ttu-id="0570b-133">Azure PowerShell のインストールを更新するには、[Update-Module](/powershell/module/powershellget/update-module) を実行します。</span><span class="sxs-lookup"><span data-stu-id="0570b-133">You can update your Azure PowerShell installation by running [Update-Module](/powershell/module/powershellget/update-module).</span></span> <span data-ttu-id="0570b-134">このコマンドでは、以前のバージョンはアンインストール__されません__。</span><span class="sxs-lookup"><span data-stu-id="0570b-134">This command does __not__ uninstall earlier versions.</span></span>
 
 ```powershell-interactive
 Update-Module -Name AzureRM
 ```
 
-<span data-ttu-id="3cdcb-135">古いバージョンの Azure PowerShell をシステムから削除する場合は、「[Uninstall the Azure PowerShell module (Azure PowerShell モジュールのアンインストール)](uninstall-azurerm-ps.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-135">If you want to remove older versions of Azure PowerShell from your system, see [Uninstall the Azure PowerShell module](uninstall-azurerm-ps.md).</span></span>
+<span data-ttu-id="0570b-135">古いバージョンの Azure PowerShell をシステムから削除する場合は、「[Uninstall the Azure PowerShell module (Azure PowerShell モジュールのアンインストール)](uninstall-azurerm-ps.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="0570b-135">If you want to remove older versions of Azure PowerShell from your system, see [Uninstall the Azure PowerShell module](uninstall-azurerm-ps.md).</span></span>
 
-## <a name="use-multiple-versions-of-azure-powershell"></a><span data-ttu-id="3cdcb-136">複数のバージョンの Azure PowerShell の使用</span><span class="sxs-lookup"><span data-stu-id="3cdcb-136">Use multiple versions of Azure PowerShell</span></span>
+## <a name="use-multiple-versions-of-azure-powershell"></a><span data-ttu-id="0570b-136">複数のバージョンの Azure PowerShell の使用</span><span class="sxs-lookup"><span data-stu-id="0570b-136">Use multiple versions of Azure PowerShell</span></span>
 
-<span data-ttu-id="3cdcb-137">複数のバージョンの Azure PowerShell をインストールできます。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-137">It's possible to install more than one version of Azure PowerShell.</span></span> <span data-ttu-id="3cdcb-138">複数のバージョンの Azure PowerShell がインストールされているかどうかを確認するには、次のコマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-138">To check if you have multiple versions of Azure PowerShell installed, use the following command:</span></span>
+<span data-ttu-id="0570b-137">複数のバージョンの Azure PowerShell をインストールできます。</span><span class="sxs-lookup"><span data-stu-id="0570b-137">It's possible to install more than one version of Azure PowerShell.</span></span> <span data-ttu-id="0570b-138">複数のバージョンの Azure PowerShell がインストールされているかどうかを確認するには、次のコマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="0570b-138">To check if you have multiple versions of Azure PowerShell installed, use the following command:</span></span>
 
 ```powershell-interactive
 Get-InstalledModule -Name AzureRM -AllVersions | select Name,Version
 ```
 
-<span data-ttu-id="3cdcb-139">Azure PowerShell のバージョンを削除するには、「[Azure PowerShell モジュールのアンインストール](uninstall-azurerm-ps.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-139">To remove a version of Azure PowerShell, see [Uninstall the Azure PowerShell module](uninstall-azurerm-ps.md).</span></span>
+<span data-ttu-id="0570b-139">Azure PowerShell のバージョンを削除するには、「[Azure PowerShell モジュールのアンインストール](uninstall-azurerm-ps.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="0570b-139">To remove a version of Azure PowerShell, see [Uninstall the Azure PowerShell module](uninstall-azurerm-ps.md).</span></span>
 
-<span data-ttu-id="3cdcb-140">オンプレミスの Azure Stack リソースを使用する場合、古いバージョンの Windows を実行している場合、または Azure クラシック デプロイ モデルを使用している場合は、複数のバージョンが必要になります。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-140">You might need more than one version if you work with on-premises Azure Stack resources, run an older version of Windows, or use the Azure classic deployment model.</span></span> <span data-ttu-id="3cdcb-141">古いバージョンをインストールするには、インストール時に `-RequiredVersion` 引数を指定します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-141">To install an older version, provide the `-RequiredVersion` argument when installing.</span></span>
+<span data-ttu-id="0570b-140">オンプレミスの Azure Stack リソースを使用する場合、古いバージョンの Windows を実行している場合、または Azure クラシック デプロイ モデルを使用している場合は、複数のバージョンが必要になります。</span><span class="sxs-lookup"><span data-stu-id="0570b-140">You might need more than one version if you work with on-premises Azure Stack resources, run an older version of Windows, or use the Azure classic deployment model.</span></span> <span data-ttu-id="0570b-141">古いバージョンをインストールするには、インストール時に `-RequiredVersion` 引数を指定します。</span><span class="sxs-lookup"><span data-stu-id="0570b-141">To install an older version, provide the `-RequiredVersion` argument when installing.</span></span>
 
 ```powershell-interactive
 # Install version 2.3.0 of Azure PowerShell
 Install-Module -Name AzureRM -RequiredVersion 2.3.0
 ```
 
-<span data-ttu-id="3cdcb-142">Azure PowerShell モジュールの読み込み時には、最新バージョンが既定で読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-142">When loading the Azure PowerShell module the latest version is loaded by default.</span></span> <span data-ttu-id="3cdcb-143">別のバージョンを読み込むには、`-RequiredVersion` 引数を指定します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-143">To load a different version, provide the `-RequiredVersion` argument.</span></span>
+<span data-ttu-id="0570b-142">Azure PowerShell モジュールの読み込み時には、最新バージョンが既定で読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="0570b-142">When loading the Azure PowerShell module the latest version is loaded by default.</span></span> <span data-ttu-id="0570b-143">別のバージョンを読み込むには、`-RequiredVersion` 引数を指定します。</span><span class="sxs-lookup"><span data-stu-id="0570b-143">To load a different version, provide the `-RequiredVersion` argument.</span></span>
 
 ```powershell-interactive
 # Load version 2.3.0 of Azure PowerShell
 Import-Module -Name AzureRM -RequiredVersion 2.3.0
 ```
 
-## <a name="provide-feedback"></a><span data-ttu-id="3cdcb-144">フィードバックの提供</span><span class="sxs-lookup"><span data-stu-id="3cdcb-144">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="0570b-144">フィードバックの提供</span><span class="sxs-lookup"><span data-stu-id="0570b-144">Provide feedback</span></span>
 
-<span data-ttu-id="3cdcb-145">Azure Powershell の使用時にバグが見つかった場合は、[GitHub で問題を報告](https://github.com/Azure/azure-powershell/issues)してください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-145">If you find a bug when using Azure Powershell, [file an issue on GitHub](https://github.com/Azure/azure-powershell/issues).</span></span>
-<span data-ttu-id="3cdcb-146">コマンド ラインからフィードバックを送るには、[Send-Feedback](/powershell/module/azurerm.profile/send-feedback) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-146">To provide feedback from the command line, use the [Send-Feedback](/powershell/module/azurerm.profile/send-feedback) cmdlet.</span></span>
+<span data-ttu-id="0570b-145">Azure Powershell の使用時にバグが見つかった場合は、[GitHub で問題を報告](https://github.com/Azure/azure-powershell/issues)してください。</span><span class="sxs-lookup"><span data-stu-id="0570b-145">If you find a bug when using Azure Powershell, [file an issue on GitHub](https://github.com/Azure/azure-powershell/issues).</span></span>
+<span data-ttu-id="0570b-146">コマンド ラインからフィードバックを送るには、[Send-Feedback](/powershell/module/azurerm.profile/send-feedback) コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="0570b-146">To provide feedback from the command line, use the [Send-Feedback](/powershell/module/azurerm.profile/send-feedback) cmdlet.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="3cdcb-147">次の手順</span><span class="sxs-lookup"><span data-stu-id="3cdcb-147">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="0570b-147">次の手順</span><span class="sxs-lookup"><span data-stu-id="0570b-147">Next Steps</span></span>
 
-<span data-ttu-id="3cdcb-148">Azure PowerShell を使い始める場合、モジュールとその機能の詳細については、「[Get started with Azure PowerShell (Azure PowerShell の概要)](get-started-azureps.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="3cdcb-148">To get started using Azure PowerShell, see [Get Started with Azure PowerShell](get-started-azureps.md) to learn more about the module and its features.</span></span>
+<span data-ttu-id="0570b-148">Azure PowerShell を使い始める場合、モジュールとその機能の詳細については、「[Get started with Azure PowerShell (Azure PowerShell の概要)](get-started-azureps.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="0570b-148">To get started using Azure PowerShell, see [Get Started with Azure PowerShell](get-started-azureps.md) to learn more about the module and its features.</span></span>
