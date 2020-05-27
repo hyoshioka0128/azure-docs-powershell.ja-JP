@@ -1,15 +1,18 @@
 ---
 title: Azure コンテキストとサインイン資格情報
 description: 複数の PowerShell セッション間で Azure の資格情報や他の情報を再利用する方法について説明します。
+author: sptramer
+ms.author: sttramer
+manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: f2f6de80168ab295f65fcce97da77e1c958ae7ae
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.openlocfilehash: 72d1b07bb2c66f80ea6f5d37ef7012d0d0a5bbbc
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83387549"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "72791470"
 ---
 # <a name="azure-powershell-context-objects"></a>Azure PowerShell コンテキスト オブジェクト
 

@@ -1,15 +1,18 @@
 ---
 title: 試験版 Azure PowerShell モジュールを使用する
 description: 試験版 Azure PowerShell モジュールの開発思想と使用方法を説明します。
+author: sptramer
+ms.author: sttramer
+manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: e3becd414b339eed46f97cf04854a4d019542fe1
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.openlocfilehash: 9cd88919b51f24d19579b865d9f3d5cc779b62d9
+ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83387243"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "65534795"
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>試験版 Azure PowerShell モジュールを使用する
 
