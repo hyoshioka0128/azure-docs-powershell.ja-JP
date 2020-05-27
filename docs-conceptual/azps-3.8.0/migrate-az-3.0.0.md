@@ -1,18 +1,15 @@
 ---
 title: Az 3.0.0 の移行ガイド
 description: この移行ガイドには、Az バージョン 3.0 リリースの Azure PowerShell で行われた破壊的変更が記載されています。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e88752e0c997efc4f49161e358072803cb63450a
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 06be35bc3573d00d90a8cf2d822ac051ab72f6bb
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "81740135"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83387413"
 ---
 # <a name="migration-guide-for-az-300"></a>Az 3.0.0 の移行ガイド
 

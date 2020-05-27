@@ -5,11 +5,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: c79d1d634d5b76b2c6ab6b6ab309c2d49f9f7678
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.sourcegitcommit: 10ec909100a70acec94d42f6084e7bf0342c6854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83386087"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83630930"
 ---
 # <a name="azure-powershell-context-objects"></a>Azure PowerShell コンテキスト オブジェクト
 
