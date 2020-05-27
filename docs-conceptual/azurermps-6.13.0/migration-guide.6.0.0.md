@@ -1,18 +1,15 @@
 ---
 title: Microsoft Azure PowerShell 6.0.0 の重大な変更
 description: この移行ガイドには、バージョン 6 リリースの Azure PowerShell で行われた重大な変更が記載されています。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 1fbd24996da2fbc7d4e95c2a63f828aea6cb3145
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 629cbb31f086c569d2b8961497d0255663602f54
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "65534938"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83387209"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-600"></a>Microsoft Azure PowerShell 6.0.0 の重大な変更
 

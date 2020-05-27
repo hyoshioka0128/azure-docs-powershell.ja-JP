@@ -1,18 +1,15 @@
 ---
 title: Microsoft Azure PowerShell 5.0.0 の重大な変更
 description: この移行ガイドには、バージョン 5 リリースの Azure PowerShell で行われた重大な変更が記載されています。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: f8dc413a91876e53e62d25cc38ac3b3ef6afda8e
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 375aadbf34a452b7fb6d4c1f69a03ec25a3b0e23
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "65534586"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83385014"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-500"></a>Microsoft Azure PowerShell 5.0.0 の重大な変更
 

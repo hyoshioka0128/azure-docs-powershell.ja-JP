@@ -1,18 +1,15 @@
 ---
 title: Azure PowerShell リリース ノート
 description: Azure PowerShell モジュールの最新の更新プログラムについて説明します。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 98a24c805fbf43dd899119d43301b4261c1f60dc
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 0fc897579e8caef999c337303428fd12740c3606
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "75035763"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83386104"
 ---
 ## <a name="280---october-2019"></a>2.8.0 - 2019 年 10 月
 ### <a name="general"></a>全般
@@ -1536,7 +1533,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azresources"></a>Az.Resources
 
-* https://github.com/Azure/azure-powershell/issues/7679 を修正しました 
+* https://github.com/Azure/azure-powershell/issues/7679 を修正しました
     - 従来の管理者を要求するときにサブスクリプションのスコープを指定する場合、サブスクリプションのスコープを使用するように Get-AzureRmRoleAssignment を更新しました。
 
 ### <a name="azsql"></a>Az.Sql
@@ -1673,7 +1670,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 * ポリシー修復コマンドレットを追加しました
 
 #### <a name="azresources"></a>Az.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
     - "Get-AzResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました。
 
 #### <a name="azservicebus"></a>Az.ServiceBus

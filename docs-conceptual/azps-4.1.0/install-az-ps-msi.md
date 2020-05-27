@@ -3,13 +3,13 @@ title: MSI を使用して Azure PowerShell をインストールする
 description: PowerShellGet を使用せずに MSI を使用して Azure PowerShell をインストールする方法
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 0c1576d669daa63becb0197c29e623a0a26960be
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.date: 03/10/2020
+ms.openlocfilehash: 1bd5bd1ae529a63c848b7aa835272d79b4011d32
+ms.sourcegitcommit: 10ec909100a70acec94d42f6084e7bf0342c6854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83386903"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83630743"
 ---
 # <a name="install-azure-powershell-on-windows-with-msi"></a>MSI を使用した Windows への Azure PowerShell のインストール
 
@@ -17,8 +17,7 @@ ms.locfileid: "83386903"
 
 ## <a name="requirements"></a>必要条件
 
-Azure PowerShell の MSI インストーラーは、Windows 上の PowerShell 5.1 について__のみ__動作します。 Windows 以外のプラットフォームまたはそれ以降のバージョンの PowerShell でのインストールの場合は、[PowerShellGet を使用してインストール](install-az-ps.md)してください。
-PowerShell のバージョンを確認するには、次のコマンドを実行します。
+Windows 上の MSI インストーラーは、PowerShell 5.1 のみを対象とした Azure PowerShell のインストール用に設計されています。 Windows 以外のプラットフォームまたはそれ以降のバージョンの PowerShell でのインストールの場合は、[PowerShellGet を使用してインストール](install-az-ps.md)してください。 PowerShell のバージョンを確認するには、次のコマンドを実行します。
 
 ```powershell-interactive
 $PSVersionTable.PSVersion
@@ -31,7 +30,7 @@ PowerShell 5.1 で Azure PowerShell を使用するには、次の手順に従�
 
 ## <a name="install-or-update-on-windows-using-the-msi-package"></a>MSI パッケージを使って Windows でインストールまたは更新する
 
-Windows 用の Azure PowerShell は、[GitHub](https://github.com/Azure/azure-powershell/releases/tag/v2.8.0-October2019) で入手できる MSI ファイルを使用してインストールされます。 以前のバージョンの Azure モジュールが MSI としてインストールされている場合、それらはインストーラーによって自動的に削除されます。 MSI パッケージでは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にモジュールがインストールされます。
+Azure PowerShell 用の MSI パッケージは [GitHub](https://github.com/Azure/azure-powershell/releases/latest) から入手できます。 MSI を使用して以前のバージョンの Azure PowerShell がインストールされている場合は、インストーラーによって自動的に削除されます。 MSI パッケージでは、`${env:ProgramFiles}\WindowsPowerShell\Modules` にモジュールがインストールされます。
 
 Azure PowerShell を使用して作業を開始するには、Azure の資格情報を使用してサインインします。
 
@@ -41,17 +40,14 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
->
 > モジュールの自動読み込みを無効にしている場合は、`Import-Module Az` を使用してモジュールを手動でインポートする必要があります。 モジュールが構造化されているため、これには最大 1 分かかることがあります。
 
 新しい PowerShell セッションを開始するたびに、この手順を繰り返す必要があります。 Azure サインインを PowerShell セッション間で維持する方法については、「[PowerShell セッション間でユーザーの資格情報を保持する](context-persistence.md)」をご覧ください。
 
 ## <a name="provide-feedback"></a>フィードバックの提供
 
-Azure Powershell にバグが見つかった場合は、[GitHub で問題を報告](https://github.com/Azure/azure-powershell/issues)してください。
-コマンド ラインからフィードバックを送るには、[Send-Feedback](/powershell/module/az.accounts/send-feedback) コマンドレットを使用します。
+Azure PowerShell にバグが見つかった場合は、[GitHub で問題を報告](https://github.com/Azure/azure-powershell/issues)してください。 コマンド ラインからフィードバックを送るには、[Send-Feedback](/powershell/module/az.accounts/send-feedback) コマンドレットを使用します。
 
 ## <a name="next-steps"></a>次の手順
 
-Azure PowerShell のモジュールとその機能の詳細については、「[Get started with Azure PowerShell (Azure PowerShell の概要)](get-started-azureps.md)」をご覧ください。
-Azure PowerShell に精通していて、AzureRM から移行する必要がある場合は、[AzureRM から Az への移行](migrate-from-azurerm-to-az.md)に関するページを参照してください。
+Azure PowerShell のモジュールとその機能の詳細については、「[Get started with Azure PowerShell (Azure PowerShell の概要)](get-started-azureps.md)」をご覧ください。 Azure PowerShell に精通していて、AzureRM から移行する必要がある場合は、[AzureRM から Az への移行](migrate-from-azurerm-to-az.md)に関するページを参照してください。

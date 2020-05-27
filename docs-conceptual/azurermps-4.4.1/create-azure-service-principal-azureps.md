@@ -2,18 +2,15 @@
 title: Azure PowerShell で Azure サービス プリンシパルを作成する
 description: Azure PowerShell でアプリまたはサービスのサービス プリンシパルを作成する方法について説明します。
 keywords: Azure PowerShell, Azure Active Directory, Azure Active Directory, AD, RBAC
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: a596e321d19cf157510418c150f51eb2532adb3c
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 8fc73b6268c01f9dbf76888e291843e035fae587
+ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "65535108"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83386784"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -117,7 +114,7 @@ CurrentStorageAccount :
 ## <a name="managing-roles"></a>ロールの管理
 
 > [!NOTE]
-> Azure のロールベースのアクセス制御 (RBAC) は、ユーザー プリンシパルとサービス プリンシパルのロールを定義して管理するためのモデルです。 ロールに関連付けられる一連のアクセス許可によって、プリンシパルが各種の操作 (読み取り、アクセス、書き込み、または管理) を実行できるリソースが決まります。 RBAC とロールについて詳しくは、[RBAC のための組み込みロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
+> Azure のロールベースのアクセス制御 (RBAC) は、ユーザー プリンシパルとサービス プリンシパルのロールを定義して管理するためのモデルです。 ロールに関連付けられる一連のアクセス許可によって、プリンシパルが各種の操作 (読み取り、アクセス、書き込み、または管理) を実行できるリソースが決まります。 RBAC とロールの詳細については、[RBAC: 組み込みのロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
 
 Azure PowerShell には、ロールの割り当て管理を目的とした次のコマンドレットが用意されています。
 

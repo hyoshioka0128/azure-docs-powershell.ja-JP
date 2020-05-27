@@ -1,18 +1,15 @@
 ---
 title: Azure PowerShell で Azure サービス プリンシパルを使用する
 description: Azure PowerShell でサービス プリンシパルを作成および使用する方法について説明します。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 4c47d2bac2c63f13ac0ebbccda3e2eed12cd658f
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 2da3d55c8afce97722b68d0753dd2bcac38b00d9
+ms.sourcegitcommit: 80c3188500fd174f5c5484302360ad87ace0fb9b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "81740016"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554576"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -45,8 +42,7 @@ $sp = New-AzADServicePrincipal -DisplayName ServicePrincipalName
 次のコードにより、シークレットをエクスポートできます。
 
 ```azurepowershell-interactive
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
-$UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+$UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
 ```
 
 ユーザー指定のパスワードの場合、`-PasswordCredential` 引数は `Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential` オブジェクトを受け取ります。 これらのオブジェクトは有効な `StartDate` と`EndDate` を持ち、プレーンテキストの `Password` を受け取ります。 パスワードを作成する際は、必ず [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従ってください。 脆弱なパスワードを使用したり、パスワードを再利用したりしないでください。
