@@ -4,12 +4,12 @@ description: Azure PowerShell モジュールの最新の更新プログラム�
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: c02cfaa7f7f39393f21cec31c5115f009381b19c
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: 9dd733865ba8235eed6dcef4637a63ad93999338
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "81446055"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121927"
 ---
 # <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
 ## <a name="0100-preview---april-2020"></a>0.10.0-preview - 2020 年 4 月
@@ -29,7 +29,7 @@ ms.locfileid: "81446055"
   - Az.Websites
 * Azure Stack Hubで動作する、Az 用の 3 つの新しい PowerShell モジュール (Az.Databox、Az.IotHub、Az.EventHu) が導入されました
 * コマンドは比較的同じままですが、AzureRM を Az に変更するなどの軽微な変更が加えられています
-* Azure Stack Hub の PowerShell ドキュメントへのリンクを更新しました。[こちら](aka.ms/InstallASHPowerShell)で確認できます
+* Azure Stack Hub の PowerShell ドキュメントへのリンクを更新しました。[こちら](https://aka.ms/InstallASHPowerShell)で確認できます
 
 #### <a name="azaccounts"></a>Az.Accounts
 * ADAL から MSAL へのアップグレード
@@ -40,7 +40,7 @@ ms.locfileid: "81446055"
 * ログインしていない場合に、'Get-AzTenant'/'Get-AzDefault'/'Set-AzDefault' が NullReferenceException をスローする問題を修正しました [#10292]
 
 #### <a name="azcompute"></a>Az.Compute
-* 'New-AzDiskConfig' コマンドレットに次のパラメーターを追加しました。 
+* 'New-AzDiskConfig' コマンドレットに次のパラメーターを追加しました。
     - DiskIOPSReadOnly、DiskMBpsReadOnly、MaxSharesCount、GalleryImageReference
 * 'New-AzGalleryImageVersion' コマンドレットの Target パラメーターで Encryption プロパティを使用できるようになりました。
 * 'Set-AzVmss' の -Reimage と 'Invoke-AzVMReimage' コマンドレットの tempDisk の問題を修正しました。 [#11354]
@@ -693,7 +693,7 @@ DatabaseName の存在の代わりに PartnerDatabaseName の存在を確認す�
         - Remove-AzPrivateEndpointConnection
         - Set-AzPrivateEndpointConnection
 * PrivateLinkResource の新しいコマンドレットを追加し、これも汎用サービス プロバイダーをサポートします。
-    - 新しいコマンドレット: 
+    - 新しいコマンドレット:
         - Get-AzPrivateLinkResource
 * 機能 Proxy Protocol V2 の新しいフィールドとパラメーターを追加します。
     - PrivateLinkService にプロパティ EnableProxyProtocol を追加します
@@ -2290,7 +2290,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azresources"></a>Az.Resources
 
-* https://github.com/Azure/azure-powershell/issues/7679 を修正しました 
+* https://github.com/Azure/azure-powershell/issues/7679 を修正しました
     - 従来の管理者を要求するときにサブスクリプションのスコープを指定する場合、サブスクリプションのスコープを使用するように Get-AzureRmRoleAssignment を更新しました。
 
 ### <a name="azsql"></a>Az.Sql
@@ -2427,7 +2427,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 * ポリシー修復コマンドレットを追加しました
 
 #### <a name="azresources"></a>Az.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 を修正しました 
+* https://github.com/Azure/azure-powershell/issues/7402 を修正しました
     - "Get-AzResource" の "-ResourceId" パラメーターを使用してリソースを一覧表示できるようになりました。
 
 #### <a name="azservicebus"></a>Az.ServiceBus

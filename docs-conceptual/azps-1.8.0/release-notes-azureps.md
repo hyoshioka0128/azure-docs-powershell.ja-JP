@@ -4,13 +4,14 @@ description: Azure PowerShell モジュールの最新の更新プログラム�
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: 287e9e1f066d0768e7f572ca7f5f2ee2b78931d9
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.openlocfilehash: 34b21292ccc47bb53b6609cd637ef18338a45cd3
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83386971"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121453"
 ---
+# <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
 ## <a name="180---april-2019"></a>1.8.0 - 2019 年 4 月
 ### <a name="highlights-since-the-last-major-release"></a>前回のメジャー リリース以降のハイライト
 * `Az` モジュールの一般提供
@@ -48,7 +49,7 @@ ms.locfileid: "83386971"
 * 作成/更新イベントのサブスクリプション コマンドレットを使用する前にリソースが作成される必要があることを示すようにエンドポイントのヘルプ テキストを更新しました。
 
 #### <a name="azeventhub"></a>Az.EventHub
-* 名前空間の NetworkRuleSet 用の新しいコマンドレットを追加しました 
+* 名前空間の NetworkRuleSet 用の新しいコマンドレットを追加しました
 
 #### <a name="azhdinsight"></a>Az.HDInsight
 * コマンドレットを複数形名詞から単数形に更新し、複数形名詞が非推奨になりました。
@@ -138,7 +139,7 @@ ms.locfileid: "83386971"
 
 #### <a name="azcompute"></a>Az.Compute
 * HyperVGeneration パラメーターを New-AzDiskConfig と New-AzSnapshotConfig に追加しました
-* 他のテナントのギャラリー イメージを使用して VM を作成できるようになりました。 
+* 他のテナントのギャラリー イメージを使用して VM を作成できるようになりました。
 
 #### <a name="azcontainerinstance"></a>Az.ContainerInstance
 * 末尾の空の引数に追加される、New-AzContainerGroup の -Command パラメーターに関する問題を修正しました
@@ -220,7 +221,7 @@ ms.locfileid: "83386971"
     - New-AzStorageAccountManagementPolicyRule
 
 #### <a name="azwebsites"></a>Az.Websites
-* 'New-AzWebApp -IncludeSourceWebAppSlots' を使用してすべてのスロットの複製を中断させる ARM テンプレート バグを修正 
+* 'New-AzWebApp -IncludeSourceWebAppSlots' を使用してすべてのスロットの複製を中断させる ARM テンプレート バグを修正
 
 ## <a name="150---march-2019"></a>1.5.0 - 2019 年 3 月
 #### <a name="azaccounts"></a>Az.Accounts
@@ -289,7 +290,7 @@ ms.locfileid: "83386971"
 * ADL で削除された項目を列挙して復元するコマンドレットを追加しました
 
 #### <a name="azeventhub"></a>Az.EventHub
-* EventHub の CaptureDescription クラス内で空のアーカイブをスキップするための新しいブール値プロパティ SkipEmptyArchives を追加しました 
+* EventHub の CaptureDescription クラス内で空のアーカイブをスキップするための新しいブール値プロパティ SkipEmptyArchives を追加しました
 
 #### <a name="azkeyvault"></a>Az.KeyVault
 * Set-AzKeyVaultSecret のタグ付けを修正しました
@@ -317,8 +318,8 @@ ms.locfileid: "83386971"
 
 #### <a name="azoperationalinsights"></a>Az.OperationalInsights
 * ApplicationInsights のデータ ソースを新規作成および取得するためのサポートを追加しました。
-    - 指定のワークスペースについて、特定またはすべての ApplicationInsights データ ソースを取得できるようにする、新しい "ApplicationInsights" の種類を追加しました。 
-    - ApplicationInsights のリソース パラメーター (サブスクリプション ID、resourceGroupName、および名前) を指定してデータ ソースを作成するための New-AzOperationalInsightsApplicationInsightsDataSource コマンドレットを追加しました。 
+    - 指定のワークスペースについて、特定またはすべての ApplicationInsights データ ソースを取得できるようにする、新しい "ApplicationInsights" の種類を追加しました。
+    - ApplicationInsights のリソース パラメーター (サブスクリプション ID、resourceGroupName、および名前) を指定してデータ ソースを作成するための New-AzOperationalInsightsApplicationInsightsDataSource コマンドレットを追加しました。
 
 #### <a name="azresources"></a>Az.Resources
 * 次の問題を修正: https://github.com/Azure/azure-powershell/issues/8166
@@ -349,9 +350,9 @@ Az.AnalysisServices モジュールを一般公開
 Az.RecoveryServices モジュールを一般公開
 
 #### <a name="azresources"></a>Az.Resources
-* リソース グループのタグ付けを修正 
+* リソース グループのタグ付けを修正
     - 詳細については、次を参照してください。 https://github.com/Azure/azure-powershell/issues/8166
-* `Get-AzureRmRoleAssignment` で -ErrorAction が考慮されない問題を修正 
+* `Get-AzureRmRoleAssignment` で -ErrorAction が考慮されない問題を修正
     - 詳細については、次を参照してください。 https://github.com/Azure/azure-powershell/issues/8235
 
 #### <a name="azsql"></a>Az.Sql
@@ -656,7 +657,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azwebsites"></a>Az.Websites
 
-* Set-AzureRmWebApp と Set-AzureRmWebAppSlot 
+* Set-AzureRmWebApp と Set-AzureRmWebAppSlot
     - Windows および Linux のコンテナー アプリでマウントされる Azure Storage のパスを指定するために、新しいパラメーター (-AzureStoragePath) を追加しました Azure Storage のパスを設定するために、パラメーターとして新しい New-AzureRmWebAppAzureStoragePath コマンドレットの出力を使用します
 
 ## <a name="061---november-2018"></a>0.6.1 - 2018 年 11 月
@@ -684,7 +685,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 ### <a name="aznetwork"></a>Az.Network
 * New-AzureRmApplicationGatewayCustomError、Add-AzureRmApplicationGatewayCustomError、Get-AzureRmApplicationGatewayCustomError、Set-AzureRmApplicationGatewayCustomError、Remove-AzureRmApplicationGatewayCustomError、Add-AzureRmApplicationGatewayHttpListenerCustomError、Get-AzureRmApplicationGatewayHttpListenerCustomError、Set-AzureRmApplicationGatewayHttpListenerCustomError、Remove-AzureRmApplicationGatewayHttpListenerCustomError の各コマンドレットを追加しました
 * サポートされている AzureFirewall ネットワーク プロトコルに ICMP を追加しました
-* Test-AzureRmNetworkWatcherConnectivity コマンドレットを更新し、宛先 ID、アドレス、およびポートの検証を追加しました 
+* Test-AzureRmNetworkWatcherConnectivity コマンドレットを更新し、宛先 ID、アドレス、およびポートの検証を追加しました
 * VirtualNetwork マップのメモリ使用量に関する問題を修正しました
 
 ### <a name="azrecoveryservicesbackup"></a>Az.RecoveryServices.Backup
@@ -816,7 +817,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
     - Start-AzureStorageFileCopy
 * 特定の場所におけるストレージ リソースの使用状況を取得できるるようになったため、グローバルなストレージ リソースの使用状況の取得が廃止されたことを通知する警告メッセージを追加しました。
     - Get-AzStorageUsage
-    
+
 #### <a name="azcognitiveservices"></a>Az.CognitiveServices
 * 既存のアカウントなしでの Get-AzCognitiveServicesAccountSkus がサポートされました。
 

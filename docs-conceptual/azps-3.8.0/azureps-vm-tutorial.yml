@@ -8,20 +8,20 @@ metadata:
   displayType: two-column
   interactive: azurepowershell
   ms.date: 12/13/2018
-  ms.author: sttramer
-  author: sptramer
-  manager: carmonm
+  ms.author: mirobb
+  author: mikefrobbins
+  manager: barbkess
   ms.devlang: azure-powershell
   ms.prod: powershell
   ms.technology: azure-powershell
   ms.topic: tutorial
   clicktale: true
-  ms.openlocfilehash: 71f250c0578e46888845f7a9a1ae4b74f7a38fab
-  ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+  ms.openlocfilehash: 92422fbee6e09123cd6e4f0cad722aa9f496759d
+  ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 05/05/2020
-  ms.locfileid: "81740458"
+  ms.lasthandoff: 05/28/2020
+  ms.locfileid: "84122125"
 items:
 - durationInMinutes: 1
   content: >-
@@ -31,7 +31,7 @@ items:
     これは、Azure Cloud Shell によって提供される対話型チュートリアルです。また、ローカルに [Azure PowerShell をインストール](install-az-ps.md)することもできます。
 
 
-    チュートリアルのテキストを Azure Cloud Shell に貼り付けるには、__Ctrl + Shift + V__ キー (macOS の場合は __cmd-v shift__) を使用します。
+    チュートリアルのテキストを Azure Cloud Shell に貼り付けるには、**Ctrl + Shift + V** キー (macOS の場合は **cmd-v shift**) を使用します。
 - durationInMinutes: 1
   title: サインイン
   content: >-
@@ -373,4 +373,4 @@ items:
     クリーンアップが完了したら、チュートリアルは終了です。 引き続き、ここで学習した内容を簡単に確認し、次のステップで役立つリソースへのリンクを紹介します。
 - durationInMinutes: 1
   title: まとめ
-  content: "\nお疲れさまでした。 ここでは、新規または既存のリソースを使用して VM を作成する方法を学習し、式とその他の Azure PowerShell コマンドを使用してデータを取得してシェル変数に格納しました。また、Azure VM 用に作成されたリソースをいくつか確認しました。\n\n次の作業は、Azure PowerShell の使用方法によって異なります。 このチュートリアルで説明した機能の詳細を説明した資料には、さまざまなものがあります。\n\n### <a name=\"in-depth-azure-powershell-documentation\"></a>詳細な Azure PowerShell のドキュメント\n\n時間をとって、一連の完全な [Azure PowerShell のドキュメント](overview.md)を確認できます。\n\nこのチュートリアルで使用されているコマンドの詳細については、次の記事をご覧ください。\n\n- [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup)\n- [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)\n- [New-AzVM](/powershell/module/Az.compute/new-Azvm)\n- [Select-Object](/powershell/module/microsoft.powershell.utility/select-object)\n- [Get-AzPublicIpAddress](/powershell/module/Az.network/get-AzPublicIpAddress)\n- [Remove-AzResourceGroup](/powershell/module/Az.resources/Remove-AzResourceGroup)\n- [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job)\n\n次の記事では、このチュートリアルで示した機能について詳しく説明します。\n\n- [PowerShell スプラッティング](/powershell/module/microsoft.powershell.core/about/about_splatting)\n- [クエリ](queries-azureps.md)\n- [書式設定](formatting-output.md)\n- [PowerShell ジョブの使用](using-psjobs.md)\n\n### <a name=\"sample-scripts\"></a>サンプルのスクリプト\n\n特定のタスクをすぐに開始する必要がある場合は、サンプル スクリプトを確認してください。\n\n- [Linux Virtual Machines](/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Windows Virtual Machines](/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Cosmos DB](/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json)\n\n### <a name=\"feedback\"></a>フィードバック\n\nフィードバック、ご提案、ご質問はさまざまな方法で送信できます。\n\n* `Send-Feedback` は Azure PowerShell の組み込みコマンドで、自由形式のフィードバックをチームに提供できます。\n* [Azure PowerShell リポジトリ](https://github.com/Azure/azure-powershell/issues)で、機能要求またはバグ レポートを提出できます。\n* [Azure PowerShell ドキュメント リポジトリ](https://github.com/MicrosoftDocs/azure-docs-powershell/issues)で問題を報告することで、ご質問や内容確認を行うことができます。\n\nAzure PowerShell をご利用いただけましたら幸いです。"
+  content: "\nお疲れさまでした。 ここでは、新規または既存のリソースを使用して VM を作成する方法を学習し、式とその他の Azure PowerShell コマンドを使用してデータを取得してシェル変数に格納しました。また、Azure VM 用に作成されたリソースをいくつか確認しました。\n\n次の作業は、Azure PowerShell の使用方法によって異なります。 このチュートリアルで説明した機能の詳細を説明した資料には、さまざまなものがあります。\n\n### <a name=\"in-depth-azure-powershell-documentation\"></a>詳細な Azure PowerShell のドキュメント\n\n時間をとって、一連の完全な [Azure PowerShell のドキュメント](/powershell/azure/new-azureps-module-az?view=azps-3.8.0)を確認できます。\n\nこのチュートリアルで使用されているコマンドの詳細については、次の記事をご覧ください。\n\n- [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup)\n- [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)\n- [New-AzVM](/powershell/module/Az.compute/new-Azvm)\n- [Select-Object](/powershell/module/microsoft.powershell.utility/select-object)\n- [Get-AzPublicIpAddress](/powershell/module/Az.network/get-AzPublicIpAddress)\n- [Remove-AzResourceGroup](/powershell/module/Az.resources/Remove-AzResourceGroup)\n- [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job)\n\n次の記事では、このチュートリアルで示した機能について詳しく説明します。\n\n- [PowerShell スプラッティング](/powershell/module/microsoft.powershell.core/about/about_splatting)\n- [クエリ](queries-azureps.md)\n- [書式設定](formatting-output.md)\n- [PowerShell ジョブの使用](using-psjobs.md)\n\n### <a name=\"sample-scripts\"></a>サンプルのスクリプト\n\n特定のタスクをすぐに開始する必要がある場合は、サンプル スクリプトを確認してください。\n\n- [Linux Virtual Machines](/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Windows Virtual Machines](/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Cosmos DB](/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json)\n\n### <a name=\"feedback\"></a>フィードバック\n\nフィードバック、ご提案、ご質問はさまざまな方法で送信できます。\n\n* `Send-Feedback` は Azure PowerShell の組み込みコマンドで、自由形式のフィードバックをチームに提供できます。\n* [Azure PowerShell リポジトリ](https://github.com/Azure/azure-powershell/issues)で、機能要求またはバグ レポートを提出できます。\n* [Azure PowerShell ドキュメント リポジトリ](https://github.com/MicrosoftDocs/azure-docs-powershell/issues)で問題を報告することで、ご質問や内容確認を行うことができます。\n\nAzure PowerShell をご利用いただけましたら幸いです。"

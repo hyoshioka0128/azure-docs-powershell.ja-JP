@@ -4,13 +4,14 @@ description: Azure PowerShell モジュールの最新の更新プログラム�
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 0fc897579e8caef999c337303428fd12740c3606
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.openlocfilehash: bcbb78809c2db63d665dc0c3d05e0614acce6045
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83386104"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84122153"
 ---
+# <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
 ## <a name="280---october-2019"></a>2.8.0 - 2019 年 10 月
 ### <a name="general"></a>全般
 * Az. HealthcareApis 1.0.0 リリース
@@ -23,7 +24,7 @@ ms.locfileid: "83386104"
     - 次の問題を修正: https://github.com/Azure/azure-powershell/issues/10068
 
 #### <a name="azautomation"></a>Az.Automation
-* Linux リブート設定パラメーターの New-AzureAutomationSoftwareUpdateConfiguration コマンドレットを修正しました。 
+* Linux リブート設定パラメーターの New-AzureAutomationSoftwareUpdateConfiguration コマンドレットを修正しました。
 
 #### <a name="azbatch"></a>Az.Batch
 * **Get-AzBatchNodeAgentSku** は非推奨となり、バージョン 2.0.0 で **Get-AzBatchSupportImage** に置き換えられます。
@@ -31,7 +32,7 @@ ms.locfileid: "83386104"
 #### <a name="azcompute"></a>Az.Compute
 * New-AzVM と New-AzVmss コマンドレットに Priority、EvictionPolicy、および MaxPrice パラメーターを追加します
 * Add-AzVMAdditionalUnattendContent および Add-AzVMSshPublicKey コマンドレットの警告メッセージとヘルプ ドキュメントを修正します
-* Set-AzVMDiskEncryptionExtension のマネージド ディスクを使用する Linux VM の -skipVmBackup 例外を修正します。 
+* Set-AzVMDiskEncryptionExtension のマネージド ディスクを使用する Linux VM の -skipVmBackup 例外を修正します。
 * Set-AzVMDiskEncryptionExtension の 2つのパス シナリオでの暗号化設定の更新のバグを修正します。
 
 #### <a name="azdatafactory"></a>Az.DataFactory
@@ -50,7 +51,7 @@ ms.locfileid: "83386104"
 
 #### <a name="aziothub"></a>Az.IotHub
 * 新しいルーティング ソースの追加:DigitalTwinChangeEvents
-* 軽微なバグの修正:Get-AzIothub が subscriptionId を返さない 
+* 軽微なバグの修正:Get-AzIothub が subscriptionId を返さない
 
 #### <a name="azmonitor"></a>Az.Monitor
 * New-AzActionGroupReceiver に新しいアクション グループ受信者が追加されました: -ItsmReceiver、-VoiceReceiver、-ArmRoleReceiver、-AzureFunctionReceiver、-LogicAppReceiver、-AutomationRunbookReceiver、-AzureAppPushReceiver
@@ -148,7 +149,7 @@ ms.locfileid: "83386104"
 * 'Set-AzActionRule' のスコープの種類を決定する際のバグを修正します
 
 #### <a name="aznetwork"></a>Az.Network
-* 'New-AzApplicationGateway' リファレンス ドキュメントの間違った例を修正します 
+* 'New-AzApplicationGateway' リファレンス ドキュメントの間違った例を修正します
 * 'Get-AzNetworkWatcherPacketCapture' のリファレンス ドキュメントに、パケット キャプチャのすべてのプロパティの取得に関する注を追加します
 * 'Test-AzNetworkWatcherIPFlow' リファレンス ドキュメントの例を修正し、NIC を正しく列挙しました
 * クラウド例外の解析を改善し、追加の詳細が存在する場合は表示するようにしました
@@ -284,7 +285,7 @@ ms.locfileid: "83386104"
     - "PublicIpAddress" パラメーターはサーバー側で使用されないため、非推奨にしました。
     - 現在の IP 構成がプライパリかどうかを示す省略可能なパラメーター "Primary" を追加しました。
 * SDK からの要求エラーの例外の処理を改良しました - 以前の SDK の例外が正しく処理されず、主なエラーの詳細が表示されないという問題を修正しました
-* 適切な IPv6 のプレフィックス長に合わせて IPv6 の IP プレフィックスの検証ロジックを調整しました 
+* 適切な IPv6 のプレフィックス長に合わせて IPv6 の IP プレフィックスの検証ロジックを調整しました
 * Get-AzVirtualNetworkSubnetConfig を更新しました: サブネット リソース ID によって取得するように設定されたパラメーターを追加しました。
 * AzNetworkServiceTag の Location パラメーターの説明を更新しました
 
@@ -307,7 +308,7 @@ ms.locfileid: "83386104"
 #### <a name="azservicebus"></a>Az.ServiceBus
 * 問題 #9658 を修正しました: Set-AzServiceBusNetworkRuleSet の VirtualNetworkRule パラメーターのタイプミス
 * 問題 #9786 を修正しました: リッスンのみの権限を持つルールを作成できません
-* キューとトピックに名前を使用できるかどうかを確認するために新しいコマンド "Test-AzServiceBusNameAvailability" を追加しました 
+* キューとトピックに名前を使用できるかどうかを確認するために新しいコマンド "Test-AzServiceBusNameAvailability" を追加しました
 
 #### <a name="azservicefabric"></a>Az.ServiceFabric
 * ノード タイプの追加のコマンドレットのバグを修正しました。
@@ -334,10 +335,10 @@ ms.locfileid: "83386104"
 * 最新バージョンの ClientRuntime を使用するように共通コードを更新しました。
 
 #### <a name="azapplicationinsights"></a>Az.ApplicationInsights
-* 「Remove-AzApplicationInsightsApiKey」ドキュメントの例の入力ミスを修正しました 
+* 「Remove-AzApplicationInsightsApiKey」ドキュメントの例の入力ミスを修正しました
 
 #### <a name="azautomation"></a>Az.Automation
-* リソース文字列の入力ミスを修正しました 
+* リソース文字列の入力ミスを修正しました
 
 #### <a name="azcognitiveservices"></a>Az.CognitiveServices
 * NetworkRuleSet のサポートを追加しました。
@@ -398,7 +399,7 @@ ms.locfileid: "83386104"
     - New-AzApplicationGatewayProbeConfig を更新しました。バックエンドサーバーのプローブに使用される省略可能なパラメーター Port を追加しました。 このパラメーターは、Standard_V2 および WAF_V2 SKU に適用されます。
 
 #### <a name="azoperationalinsights"></a>Az.OperationalInsights
-* 保存された検索条件の既定のバージョンを 1 に更新しました。 
+* 保存された検索条件の既定のバージョンを 1 に更新しました。
 * カスタム ログの null 正規表現の扱いを修正しました
 
 #### <a name="azrecoveryservices"></a>Az.RecoveryServices
@@ -552,7 +553,7 @@ ms.locfileid: "83386104"
     - New-AzureRmEventGridDomainTopic:
         - 新しい Azure Event Grid ドメイン トピックを作成します。
     - Get-AzureRmEventGridDomainTopic
-        - Event Grid ドメイン トピックの詳細を取得するか、現在の Azure 内の特定の Event Grid ドメイン下のすべての Event Grid ドメイン トピックの一覧を取得します。 
+        - Event Grid ドメイン トピックの詳細を取得するか、現在の Azure 内の特定の Event Grid ドメイン下のすべての Event Grid ドメイン トピックの一覧を取得します。
     - Remove-AzureRmEventGridDomainTopic:
         - 既存の Azure Event Grid ドメイン トピックを削除します。
 * 更新されたコマンドレット:
@@ -564,7 +565,7 @@ ms.locfileid: "83386104"
             - イベント サブスクリプションの有効期限の日付
             - 高度なフィルター パラメーター
         - 宛先として servicebusqueue の新しい列挙型を追加しました。
-        - -IncludedEventType オプションの "All" の使用を不許可にし、以下に置き換えました 
+        - -IncludedEventType オプションの "All" の使用を不許可にし、以下に置き換えました
     - Get-AzEventGridTopic、Get-AzEventGridDomain、Get-AzEventGridDomainTopic、Get-AzEventGridSubscription:
         - 結果の改ページ位置の自動修正とフィルター処理をサポートするために省略可能な新しいパラメーター (Top、ODataQuery、NextLink) を追加しました。
     - Remove-AzureRmEventGridSubscription
@@ -582,11 +583,11 @@ ms.locfileid: "83386104"
     - 新しいコマンドレット
         - Get-AzVirtualNetworkGatewayVpnClientConnectionHealth
 * AvailablePrivateEndpointType を追加しました
-    - 新しいコマンドレット 
+    - 新しいコマンドレット
         - Get-AzAvailablePrivateEndpointType
 * PrivatePrivateLinkService を追加しました
-    - 新しいコマンドレット 
-        - Get-AzPrivateLinkService 
+    - 新しいコマンドレット
+        - Get-AzPrivateLinkService
         - New-AzPrivateLinkService
         - Remove-AzPrivateLinkService
         - New-AzPrivateLinkServiceIpConfig
@@ -615,8 +616,8 @@ ms.locfileid: "83386104"
         - 1 つ以上のパブリック IP アドレス オブジェクトを受け入れるパラメーター -PublicIpAddress を追加しました
         - 仮想ネットワーク オブジェクトを受け入れるパラメーター -VirtualNetwork を追加しました
         - ファイアウォール オブジェクトにメソッド AddPublicIpAddress および RemovePublicIpAddress を追加しました (これらは入力としてパブリック IP アドレス オブジェクトを受け入れます)
-        - パラメーター -PublicIpName および -VirtualNetworkName が非推奨になりました 
-* 次の機能のために以下のコマンドを更新しました。仮想ネットワーク ゲートウェイ リソースに VpnClient AAD 認証オプションを設定しました。 
+        - パラメーター -PublicIpName および -VirtualNetworkName が非推奨になりました
+* 次の機能のために以下のコマンドを更新しました。仮想ネットワーク ゲートウェイ リソースに VpnClient AAD 認証オプションを設定しました。
     - New-AzVirtualNetworkGateway を更新しました。ゲートウェイ上で VpnClient AAD 認証オプションを設定するための省略可能なパラメーター AadTenantUri、AadAudienceId、および AadIssuerUri を追加しました。
     - Set-AzVirtualNetworkGateway を更新しました。ゲートウェイ上で VpnClient AAD 認証オプションを設定するための省略可能なパラメーター AadTenantUri、AadAudienceId、および AadIssuerUri を追加しました。
     - Set-AzVirtualNetworkGateway を更新しました。ゲートウェイから VpnClient AAD 認証オプションを削除するための省略可能なスイッチ パラメーター RemoveAadAuthentication を追加しました。
@@ -711,17 +712,17 @@ ms.locfileid: "83386104"
     - **Get-AzApiManagementSchema** - API で構成されたスキーマを取得します
     - **Remove-AzApiManagementSchema** - API で構成されたスキーマを削除します
     - **Set-AzApiManagementSchema** - API で構成されたスキーマを更新します
-* ユーザー トークンを生成するための新しいコマンドレットを作成しました。 
+* ユーザー トークンを生成するための新しいコマンドレットを作成しました。
     - **New-AzApiManagementUserToken** - 既定で 8 時間有効な新しいユーザー トークンを生成します。'GIT' ユーザーのトークンは、このコマンドレットを使用して生成できます。/
 * ネットワークの状態を取得する新しいコマンドレットを作成しました
     - **Get-AzApiManagementNetworkStatus** - API Management サービスが依存しているリソースのネットワークの状態の接続性を取得します。 これは、ApiManagement サービスを仮想ネットワークにデプロイし、依存関係のいずれかが壊れているかどうかを確認する場合に便利です。
-* ApiManagement サービスを管理するためにコマンドレット **New-AzApiManagement** を更新しました 
+* ApiManagement サービスを管理するためにコマンドレット **New-AzApiManagement** を更新しました
     - 新しい 'Consumption' SKU のサポートを追加しました
     - 'Consumption' SKU 用に 'EnableClientCertificate' フラグをオンにするサポートを追加しました
     - 新しいコマンドレット **New-AzApiManagementSslSetting** により 'Backend' と 'Frontend' に 'TLS/SSL' 設定を構成できます。 これを使用して、ApiManagement サービスの 'Frontend' に '3DES' のような 'Ciphers' と 'Http2' のような 'ServerProtocols' を構成することもできます。
     - ApiManagement サービスに 'DeveloperPortal' ホスト名を構成するためのサポートを追加しました。
 * 'PsApiManagement' オブジェクトを入力としてとるようにコマンドレット **Get-AzApiManagementSsoToken** を更新しました
-* エラー メッセージをインラインで表示するコマンドレットを更新しました 
+* エラー メッセージをインラインで表示するコマンドレットを更新しました
      > PS D:\github\azure-powershell> Set-AzApiManagementPolicy -Context  -PolicyFilePath C:\wrongpolicy.xml -ApiId httpbin Set-AzApiManagementPolicy :Error Code:ValidationError Error Message:One or more fields contain incorrect values:Error Details:    [Code=ValidationError, Message=Error in element 'log-to-eventhub' on line 3, column 10:Logger not found, Target=log-to-eventhub]
 * API を 'OpenApi 3.0' 形式でエクスポートするためにコマンドレット **Export-AzApiManagementApi** を更新しました
 * コマンドレット **Import-AzApiManagementApi** を次のように更新しました
@@ -730,15 +731,15 @@ ms.locfileid: "83386104"
     - 任意のドキュメントに指定された 'ServiceUrl' プロパティをオーバーライドする。
 * 'rawxml' を使用して xml 以外でエスケープされた 'format' でポリシーを返すために、コマンドレット **Get-AzApiManagementPolicy** を更新しました
 * 'rawxml' を使用して xml 以外でエスケープされた 'format' と 'xml' を使用して xml でエスケープされた形式でポリシーを受け入れるために、コマンドレット **Set-AzApiManagementPolicy** を更新しました
-* コマンドレット **New-AzApiManagementApi** を次のように更新しました 
+* コマンドレット **New-AzApiManagementApi** を次のように更新しました
     - 'OpenId' 承認サーバーで API を構成する。
     - 'ApiVersionSet' に API を作成する
     - 'SourceApiId' と 'SourceApiRevision' を使用して API を複製する。
-    - API スコープで 'SubscriptionRequired' を構成できるようになりました。 
+    - API スコープで 'SubscriptionRequired' を構成できるようになりました。
 * コマンドレット **Set-AzApiManagementApi** を次のように更新しました
     - 'OpenId' 承認サーバーで API を構成する。
-    - 'ApiVersionSet' に API を更新する    
-    - API スコープで 'SubscriptionRequired' を構成できるようになりました。 
+    - 'ApiVersionSet' に API を更新する
+    - API スコープで 'SubscriptionRequired' を構成できるようになりました。
 * コマンドレット **New-AzApiManagementRevision** を次のように更新しました
     - 'SourceApiRevision' を使用して既存のリビジョンを複製する (コピー タグ、製品、操作、およびポリシー)。 新しいリビジョンは親の 'ApiId' を前提としています。
     - 'ApiRevisionDescription' を入力する
@@ -764,7 +765,7 @@ ms.locfileid: "83386104"
     - 'Get-AzApiManagementAuthorizationServer'
     - 'Get-AzApiManagementBackend'
         > Get-AzApiManagementBackend -ResourceId /subscriptions/subid/resourceGroups/rgName/providers/Microsoft.ApiManagement/service/contoso/backends/servicefabric
-    - 'Get-AzApiManagementCertificate' 
+    - 'Get-AzApiManagementCertificate'
     - 'Remove-AzApiManagementApiVersionSet'
     - 'Remove-AzApiManagementSubscription'
 
@@ -812,7 +813,7 @@ ms.locfileid: "83386104"
     - 新しいパラメーター ProximityPlacementGroupId を次のコマンドレットに追加しました。 New-AzAvailabilitySet   New-AzVMConfig   New-AzVmssConfig
 * New-AzGalleryImageVersion に StorageAccountType パラメーターを追加しました。
 * New-AzGalleryImageVersion の TargetRegion に StorageAccountType を含めることができるようになりました。
-* Stop-AzVM と Stop-AzVmss に SkipShutdown スイッチ パラメーターを追加しました       
+* Stop-AzVM と Stop-AzVmss に SkipShutdown スイッチ パラメーターを追加しました
 * 重大な変更
     - Set-AzVMBootDiagnostics が Set-AzVMBootDiagnostic に変更されています。
     - Export-AzLogAnalyticThrottledRequests が Export-AzLogAnalyticThrottledRequests に変更されています。
@@ -847,7 +848,7 @@ ms.locfileid: "83386104"
     - hdinsight オペレーター ロールを持つユーザーは影響を受けません。
 
 #### <a name="azmonitor"></a>Az.Monitor
-* SQR API の新しいコマンドレット (スケジュール済みクエリ ルール)  
+* SQR API の新しいコマンドレット (スケジュール済みクエリ ルール)
     - New-AzScheduledQueryRuleAlertingAction
     - New-AzScheduledQueryRuleAznsActionGroup
     - New-AzScheduledQueryRuleLogMetricTrigger
@@ -945,7 +946,7 @@ ms.locfileid: "83386104"
 * 作成/更新イベントのサブスクリプション コマンドレットを使用する前にリソースが作成される必要があることを示すようにエンドポイントのヘルプ テキストを更新しました。
 
 #### <a name="azeventhub"></a>Az.EventHub
-* 名前空間の NetworkRuleSet 用の新しいコマンドレットを追加しました 
+* 名前空間の NetworkRuleSet 用の新しいコマンドレットを追加しました
 
 #### <a name="azhdinsight"></a>Az.HDInsight
 * コマンドレットを複数形名詞から単数形に更新し、複数形名詞が非推奨になりました。
@@ -1035,7 +1036,7 @@ ms.locfileid: "83386104"
 
 #### <a name="azcompute"></a>Az.Compute
 * HyperVGeneration パラメーターを New-AzDiskConfig と New-AzSnapshotConfig に追加しました
-* 他のテナントのギャラリー イメージを使用して VM を作成できるようになりました。 
+* 他のテナントのギャラリー イメージを使用して VM を作成できるようになりました。
 
 #### <a name="azcontainerinstance"></a>Az.ContainerInstance
 * 末尾の空の引数に追加される、New-AzContainerGroup の -Command パラメーターに関する問題を修正しました
@@ -1117,7 +1118,7 @@ ms.locfileid: "83386104"
     - New-AzStorageAccountManagementPolicyRule
 
 #### <a name="azwebsites"></a>Az.Websites
-* 'New-AzWebApp -IncludeSourceWebAppSlots' を使用してすべてのスロットの複製を中断させる ARM テンプレート バグを修正 
+* 'New-AzWebApp -IncludeSourceWebAppSlots' を使用してすべてのスロットの複製を中断させる ARM テンプレート バグを修正
 
 ## <a name="150---march-2019"></a>1.5.0 - 2019 年 3 月
 #### <a name="azaccounts"></a>Az.Accounts
@@ -1186,7 +1187,7 @@ ms.locfileid: "83386104"
 * ADL で削除された項目を列挙して復元するコマンドレットを追加しました
 
 #### <a name="azeventhub"></a>Az.EventHub
-* EventHub の CaptureDescription クラス内で空のアーカイブをスキップするための新しいブール値プロパティ SkipEmptyArchives を追加しました 
+* EventHub の CaptureDescription クラス内で空のアーカイブをスキップするための新しいブール値プロパティ SkipEmptyArchives を追加しました
 
 #### <a name="azkeyvault"></a>Az.KeyVault
 * Set-AzKeyVaultSecret のタグ付けを修正しました
@@ -1214,8 +1215,8 @@ ms.locfileid: "83386104"
 
 #### <a name="azoperationalinsights"></a>Az.OperationalInsights
 * ApplicationInsights のデータ ソースを新規作成および取得するためのサポートを追加しました。
-    - 指定のワークスペースについて、特定またはすべての ApplicationInsights データ ソースを取得できるようにする、新しい "ApplicationInsights" の種類を追加しました。 
-    - ApplicationInsights のリソース パラメーター (サブスクリプション ID、resourceGroupName、および名前) を指定してデータ ソースを作成するための New-AzOperationalInsightsApplicationInsightsDataSource コマンドレットを追加しました。 
+    - 指定のワークスペースについて、特定またはすべての ApplicationInsights データ ソースを取得できるようにする、新しい "ApplicationInsights" の種類を追加しました。
+    - ApplicationInsights のリソース パラメーター (サブスクリプション ID、resourceGroupName、および名前) を指定してデータ ソースを作成するための New-AzOperationalInsightsApplicationInsightsDataSource コマンドレットを追加しました。
 
 #### <a name="azresources"></a>Az.Resources
 * 次の問題を修正: https://github.com/Azure/azure-powershell/issues/8166
@@ -1246,9 +1247,9 @@ Az.AnalysisServices モジュールを一般公開
 Az.RecoveryServices モジュールを一般公開
 
 #### <a name="azresources"></a>Az.Resources
-* リソース グループのタグ付けを修正 
+* リソース グループのタグ付けを修正
     - 詳細については、次を参照してください。 https://github.com/Azure/azure-powershell/issues/8166
-* `Get-AzureRmRoleAssignment` で -ErrorAction が考慮されない問題を修正 
+* `Get-AzureRmRoleAssignment` で -ErrorAction が考慮されない問題を修正
     - 詳細については、次を参照してください。 https://github.com/Azure/azure-powershell/issues/8235
 
 #### <a name="azsql"></a>Az.Sql
@@ -1553,7 +1554,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 
 ### <a name="azwebsites"></a>Az.Websites
 
-* Set-AzureRmWebApp と Set-AzureRmWebAppSlot 
+* Set-AzureRmWebApp と Set-AzureRmWebAppSlot
     - Windows および Linux のコンテナー アプリでマウントされる Azure Storage のパスを指定するために、新しいパラメーター (-AzureStoragePath) を追加しました Azure Storage のパスを設定するために、パラメーターとして新しい New-AzureRmWebAppAzureStoragePath コマンドレットの出力を使用します
 
 ## <a name="061---november-2018"></a>0.6.1 - 2018 年 11 月
@@ -1581,7 +1582,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
 ### <a name="aznetwork"></a>Az.Network
 * New-AzureRmApplicationGatewayCustomError、Add-AzureRmApplicationGatewayCustomError、Get-AzureRmApplicationGatewayCustomError、Set-AzureRmApplicationGatewayCustomError、Remove-AzureRmApplicationGatewayCustomError、Add-AzureRmApplicationGatewayHttpListenerCustomError、Get-AzureRmApplicationGatewayHttpListenerCustomError、Set-AzureRmApplicationGatewayHttpListenerCustomError、Remove-AzureRmApplicationGatewayHttpListenerCustomError の各コマンドレットを追加しました
 * サポートされている AzureFirewall ネットワーク プロトコルに ICMP を追加しました
-* Test-AzureRmNetworkWatcherConnectivity コマンドレットを更新し、宛先 ID、アドレス、およびポートの検証を追加しました 
+* Test-AzureRmNetworkWatcherConnectivity コマンドレットを更新し、宛先 ID、アドレス、およびポートの検証を追加しました
 * VirtualNetwork マップのメモリ使用量に関する問題を修正しました
 
 ### <a name="azrecoveryservicesbackup"></a>Az.RecoveryServices.Backup
@@ -1713,7 +1714,7 @@ Application Gateway での RewriteRuleSets の構成のサポートを追加し�
     - Start-AzureStorageFileCopy
 * 特定の場所におけるストレージ リソースの使用状況を取得できるるようになったため、グローバルなストレージ リソースの使用状況の取得が廃止されたことを通知する警告メッセージを追加しました。
     - Get-AzStorageUsage
-    
+
 #### <a name="azcognitiveservices"></a>Az.CognitiveServices
 * 既存のアカウントなしでの Get-AzCognitiveServicesAccountSkus がサポートされました。
 
