@@ -4,12 +4,12 @@ description: この移行ガイドには、バージョン 6 リリースの Azu
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 629cbb31f086c569d2b8961497d0255663602f54
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.openlocfilehash: ab20dd07fb0c14d8066ad12185f8245be291e7ec
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83387209"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84122251"
 ---
 # <a name="breaking-changes-for-microsoft-azure-powershell-600"></a>Microsoft Azure PowerShell 6.0.0 の重大な変更
 
@@ -20,9 +20,9 @@ ms.locfileid: "83387209"
 ## <a name="table-of-contents"></a>目次
 
 - [重大な変更 - 全般](#general-breaking-changes)
-    - [5.0 に引き上げられた PowerShell の必要最小バージョン](#minimum-powershell-version-required-bumped-to-50)
-    - [既定で有効になっているコンテキスト自動保存](#context-autosave-enabled-by-default)
-    - [Tags エイリアスの削除](#removal-of-tags-alias)
+  - [5.0 に引き上げられた PowerShell の必要最小バージョン](#minimum-powershell-version-required-bumped-to-50)
+  - [既定で有効になっているコンテキスト自動保存](#context-autosave-enabled-by-default)
+  - [Tags エイリアスの削除](#removal-of-tags-alias)
 - [AzureRM.Compute コマンドレットの重大な変更](#breaking-changes-to-azurermcompute-cmdlets)
 - [AzureRM.DataLakeStore コマンドレットの重大な変更](#breaking-changes-to-azurermdatalakestore-cmdlets)
 - [AzureRM.Dns コマンドレットの重大な変更](#breaking-changes-to-azurermdns-cmdlets)
@@ -33,22 +33,23 @@ ms.locfileid: "83387209"
 - [AzureRM.Resources コマンドレットの重大な変更](#breaking-changes-to-azurermresources-cmdlets)
 - [AzureRM.Storage コマンドレットの重大な変更](#breaking-changes-to-azurermstorage-cmdlets)
 - [削除されたモジュール](#removed-modules)
-    - [`AzureRM.ServerManagement`](#azurermservermanagement)
-    - [`AzureRM.SiteRecovery`](#azurermsiterecovery)
+  - [`AzureRM.ServerManagement`](#azurermservermanagement)
+  - [`AzureRM.SiteRecovery`](#azurermsiterecovery)
 
 ## <a name="general-breaking-changes"></a>重大な変更 - 全般
 
 ### <a name="minimum-powershell-version-required-bumped-to-50"></a>5\.0 に引き上げられた PowerShell の必要最小バージョン
 
-以前は、Azure PowerShell でコマンドレットを実行するには、PowerShell のバージョン 3.0 "_以上_" が必要でした。 今後、この要件は PowerShell のバージョン 5.0 に引き上げられます。 PowerShell 5.0 へのアップグレードについては、[こちらの表](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)をご覧ください。
+以前は、Azure PowerShell でコマンドレットを実行するには、PowerShell のバージョン 3.0 "_以上_" が必要でした。 今後、この要件は PowerShell のバージョン 5.0 に引き上げられます。 PowerShell 5.0 へのアップグレードについては、[こちらの表](/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell)をご覧ください。
 
 ### <a name="context-autosave-enabled-by-default"></a>既定で有効になっているコンテキスト自動保存
 
-コンテキスト自動保存は、新しい PowerShell セッションと別の PowerShell セッション間で使用できる Azure サインイン情報のストレージです。 コンテキスト自動保存の詳細については、[こちらのドキュメント](https://docs.microsoft.com/powershell/azure/context-persistence)をご覧ください。
+コンテキスト自動保存は、新しい PowerShell セッションと別の PowerShell セッション間で使用できる Azure サインイン情報のストレージです。 コンテキスト自動保存の詳細については、[こちらのドキュメント](/powershell/azure/context-persistence)をご覧ください。
 
 以前は、既定でコンテキスト自動保存は無効になっていました。つまり、`Enable-AzureRmContextAutosave` コマンドレットを実行してコンテキストの永続化を有効にするまで、ユーザーの Azure 認証情報はセッション間で保存されませんでした。 今後は、コンテキスト自動保存が既定で有効になります。つまり、"_コンテキスト自動保存設定を保存していない_" ユーザーも、次回サインインしたときにコンテキストが保存されています。 ユーザーは `Disable-AzureRmContextAutosave` コマンドレットを使用して、この機能を無効にすることができます。
 
-_注_: これまでコンテキスト自動保存を無効にしていたユーザーまたは有効にしていたユーザーと既存のコンテキストはこの変更の影響を受けません。
+> [!NOTE]
+> これまでコンテキスト自動保存を無効にしていたユーザーまたは有効にしていたユーザーと既存のコンテキストはこの変更の影響を受けません。
 
 ### <a name="removal-of-tags-alias"></a>Tags エイリアスの削除
 
@@ -96,6 +97,7 @@ _注_: これまでコンテキスト自動保存を無効にしていたユー�
 ## <a name="breaking-changes-to-azurermcompute-cmdlets"></a>AzureRM.Compute コマンドレットの重大な変更
 
 **その他**
+
 - `PSDisk` 型と `PSSnapshot` 型に入れ子になった SKU 名プロパティが、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。
 
 ```powershell-interactive
@@ -114,12 +116,15 @@ $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType   # This will now
 ```
 
 **Add-AzureRmImageDataDisk**
+
 - `StorageAccountType` パラメーターに指定できる値が、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。
 
 **Add-AzureRmVMDataDisk**
+
 - `StorageAccountType` パラメーターに指定できる値が、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。
 
 **Add-AzureRmVmssDataDisk**
+
 - `StorageAccountType` パラメーターに指定できる値が、`StandardLRS`、`PremiumLRS` から `Standard_LRS`、`Premium_LRS` にそれぞれ変更されました。
 
 **New-AzureRmAvailabilitySet**
@@ -254,8 +259,9 @@ Remove-AzureRmDataLakeStoreItem -Account "ContosoADL" -path /myFolder -Recurse
 - このコマンドレットは、アクセス トークンを構成する個々のパラメーターを受け入れなくなりました。代わりに、`Service` や `Permissions` などの明示的なトークン パラメーターが、他の場所で定義されたサンプル アクセス トークン (Storage PowerShell コマンドレットを使用するか、Storage ドキュメントに従って手動で構成) に対応する汎用の `TemplateUri` パラメーターに置き換えられます。`ValidityPeriod` パラメーターは保持されます。
 
 Azure Storage の共有アクセス トークンの構成の詳細については、それぞれのドキュメント ページをご覧ください。
-- [Constructing a Service SAS (サービス SAS の構築)](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS)
-- [Constructing an Account SAS (アカウント SAS の構築)](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+
+- [Constructing a Service SAS (サービス SAS の構築)](/rest/api/storageservices/Constructing-a-Service-SAS)
+- [Constructing an Account SAS (アカウント SAS の構築)](/rest/api/storageservices/constructing-an-account-sas)
 
 ```powershell-interactive
 # Old
@@ -282,7 +288,7 @@ $sas=Set-AzureKeyVaultManagedStorageSasDefinition -AccountName $sa.StorageAccoun
 - `PermissionsToKeys`、`PermissionsToSecrets`、`PermissionsToCertificates` から、`all` アクセス許可が削除されました。
 
 **全般**
-- `InputObject` によるパイプ処理が有効になっているすべてのコマンドレットから、`ValueFromPipelineByPropertyName` プロパティが削除されました。  影響を受けるコマンドレットは次のとおりです。
+- `InputObject` によるパイプ処理が有効になっているすべてのコマンドレットから、`ValueFromPipelineByPropertyName` プロパティが削除されました。 影響を受けるコマンドレットは次のとおりです。
     - `Add-AzureKeyVaultCertificate`
     - `Add-AzureKeyVaultCertificateContact`
     - `Add-AzureKeyVaultKey`

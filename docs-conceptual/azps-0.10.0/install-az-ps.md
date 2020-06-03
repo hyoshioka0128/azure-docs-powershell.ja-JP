@@ -4,41 +4,50 @@ description: PowerShellGet を使用して Azure PowerShell をインストー�
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.openlocfilehash: 7a25270566f5e856ee44c4c191a47a3e7334508b
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: fa5b2d80b9caf216f218c85fe49ea4cc7f062404
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "81445698"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121984"
 ---
 # <a name="install-azure-powershell"></a>Azure PowerShell をインストールする
 
-この記事では、PowerShellGet を使用して Azure PowerShell モジュールをインストールする方法について説明します。 これらの手順は、Windows、macOS、および Linux プラットフォーム上で使用できます。
+この記事では、[PowerShellGet](/powershell/scripting/gallery/installing-psget) を使用して Azure PowerShell モジュールをインストールする方法について説明します。 これらの手順は、Windows、macOS、および Linux プラットフォーム上で使用できます。
 
-Azure PowerShell は Azure [Cloud Shell](/azure/cloud-shell/overview) でも利用でき、現在は [Docker イメージ](azureps-in-docker.md)にプレインストールされています。
+Azure PowerShell は、Azure [Cloud Shell](/azure/cloud-shell/overview) で利用することもできます。
 
 ## <a name="requirements"></a>必要条件
 
-Azure PowerShell は、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) をインストールする必要があります。 PowerShell Core 上で実行する場合、Azure PowerShell にその他の要件はありません。
+Azure PowerShell は、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell](/powershell/scripting/install/installing-powershell) をインストールする必要があります。 PowerShell 6.2.4 上で実行する場合、Azure PowerShell にその他の要件はありません。
 
 PowerShell のバージョンを確認するには、次のコマンドを実行します。
 
-```powershell-interactive
+```azurepowershell-interactive
 $PSVersionTable.PSVersion
 ```
 
 Windows 上の PowerShell 5.1 で Azure PowerShell を使用するには、次の手順に従います。
 
-1. 必要に応じて [Windows PowerShell 5.1](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) に更新します。 Windows 10 の場合は、あらかじめ PowerShell 5.1 がインストールされています。
+1. [Windows PowerShell 5.1](/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell) に更新します。
+   Windows 10 バージョン 1607 以降の場合は、あらかじめ PowerShell 5.1 がインストールされています。
 2. [.NET Framework 4.7.2 以降](/dotnet/framework/install)をインストールします。
-3. 最新バージョンの PowerShellGet がインストールされていることを確認します。 `Update-Module PowerShellGet -Force` を実行します。
+3. 最新バージョンの PowerShellGet がインストールされていることを確認します。 `Install-Module -Name PowerShellGet -Force` を実行します。
 
 ## <a name="install-the-azure-powershell-module"></a>Azure PowerShell モジュールのインストール
 
-推奨されるインストール方法は、PowerShellGet コマンドレットを使用することです。 この方法は、Windows、macOS、Linux プラットフォーム上で同じように利用できます。 PowerShell セッションから次のコマンドを実行します。
+> [!WARNING]
+> Windows では PowerShell 5.1 に対して AzureRM と Az の両方のモジュールを同時にインストールすることはサポートされていません。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell 6.2.4 以降用の Az モジュールをインストールします。
+
+推奨されるインストール方法は、PowerShellGet コマンドレットを使用することです。 Az モジュールは現在のユーザーのみを対象としてインストールします。 これが推奨されるインストール範囲です。 この方法は、Windows、macOS、Linux プラットフォーム上で同じように利用できます。 PowerShell セッションから次のコマンドを実行します。
 
 ```powershell-interactive
-Install-Module -Name Az -AllowClobber
+if (Get-Module -Name AzureRM -ListAvailable) {
+    Write-Warning -Message ('Az module not installed. Having both the AzureRM and ' +
+      'Az modules installed at the same time is not supported.')
+} else {
+    Install-Module -Name Az -AllowClobber -Scope CurrentUser
+}
 ```
 
 既定では、PowerShell ギャラリーは、PowerShellGet の信頼できるリポジトリとしては構成されません。 PSGallery の初回使用時には、次のプロンプトが表示されます。
@@ -55,31 +64,25 @@ Are you sure you want to install the modules from 'PSGallery'?
 
 インストールを続行するには、`Yes` または `Yes to All` を選択します。
 
-Az モジュールは、Azure PowerShell コマンドレットのロールアップ モジュールです。 これをインストールすると、利用可能な Azure Resource Manager モジュールがすべてダウンロードされ、コマンドレットを使用できるようになります。
-
-> [!WARNING]
-> Windows 用の PowerShell 5.1 に対して AzureRM と Az の両方のモジュールを同時にインストールすることはサポートされていません。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。
-
-まず、[PowerShell Core 6.x 以降をインストールします](/powershell/scripting/install/installing-powershell-core-on-windows)。
-
-次に、PowerShell Core セッションから、現在のユーザーに対してのみ Az モジュールをインストールします。 これが推奨されるインストール範囲です。
-
-```powershell-interactive
-Install-Module -Name Az -AllowClobber -Scope CurrentUser
-```
-
 システム上のすべてのユーザーに対してモジュールをインストールするには、管理者特権が必要です。 Windows で **[管理者として実行]** を使用するか、macOS または Linux 上で `sudo` コマンドを使用して、PowerShell セッションを開始します。
 
 ```powershell-interactive
-Install-Module -Name Az -AllowClobber -Scope AllUsers
+if (Get-Module -Name AzureRM -ListAvailable) {
+    Write-Warning -Message ('Az module not installed. Having both the AzureRM and ' +
+      'Az modules installed at the same time is not supported.')
+} else {
+    Install-Module -Name Az -AllowClobber -Scope AllUsers
+}
 ```
+
+Az モジュールは、Azure PowerShell コマンドレットのロールアップ モジュールです。 これをインストールすると、一般公開されている Az PowerShell モジュールがすべてダウンロードされ、そのコマンドレットを使用できるようになります。
 
 ## <a name="install-offline"></a>オフラインでインストールする
 
 環境によっては、PowerShell ギャラリーに接続できない場合があります。 そのような場合でも、次のいずれかの方法を使用してオフラインでインストールできます。
 
 * モジュールをネットワーク内の別の場所にダウンロードし、それをインストール ソースとして使用します。
-  これにより、1 台のサーバーまたはファイル共有に PowerShell モジュールをキャッシュして、任意の接続されていないシステムに PowerShellGet でデプロイすることができます。 ローカル リポジトリを設定して、切断されたシステムにインストールする方法については、「[ローカルの PowerShellGet リポジトリの操作](/powershell/scripting/gallery/how-to/working-with-local-psrepositories)」で説明されています。
+  この方法により、1 台のサーバーまたはファイル共有に PowerShell モジュールをキャッシュして、任意の接続されていないシステムに PowerShellGet でデプロイすることができます。 ローカル リポジトリを設定して、切断されたシステムにインストールする方法については、「[ローカルの PowerShellGet リポジトリの操作](/powershell/scripting/gallery/how-to/working-with-local-psrepositories)」で説明されています。
 * ネットワークに接続されているコンピューターに [Azure PowerShell MSI をダウンロード](install-az-ps-msi.md)し、PowerShell ギャラリーにアクセスできないシステムにインストーラーをコピーします。 MSI インストーラーは、Windows 上の PowerShell 5.1 でのみ動作することに注意してください。
 * モジュールを [Save-Module](/powershell/module/PowershellGet/Save-Module) を使用してファイル共有に保存するか、別のソースに保存して他のコンピューターに手動でコピーします。
 
@@ -118,9 +121,10 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> モジュールの自動読み込みを無効にしている場合は、`Import-Module Az` を使用してモジュールを手動でインポートします。 モジュールが構造化されているため、これには数秒かかることがあります。
+> モジュールの自動読み込みを無効にしている場合は、`Import-Module -Name Az` を使用してモジュールを手動でインポートします。
+> モジュールが構造化されているため、これには数秒かかることがあります。
 
-新しい PowerShell セッションを開始するたびに、この手順を繰り返す必要があります。 Azure サインインを PowerShell セッション間で維持する方法については、「[PowerShell セッション間でユーザーの資格情報を保持する](context-persistence.md)」をご覧ください。
+新しい PowerShell セッションを開始するたびに、この手順を繰り返す必要があります。 Azure サインインを PowerShell セッション間で維持する方法については、[PowerShell セッション間でのユーザー資格情報の保持](context-persistence.md)に関するページをご覧ください。
 
 ## <a name="update-the-azure-powershell-module"></a>Azure PowerShell モジュールの更新
 
@@ -129,7 +133,12 @@ PowerShell モジュールを更新するには、モジュールのインスト
 PowerShellGet コマンドレットは、MSI パッケージからインストールされたモジュールを更新できません。 MSI パッケージは、PowerShellGet を使用してインストールされたモジュールを更新しません。 PowershellGet を使用した更新で問題が発生した場合は、**更新**ではなく**再インストール**を行う必要があります。 再インストールはインストールと同じ方法で行いますが、`-Force` パラメーターを追加する必要があります。
 
 ```powershell
-Install-Module -Name Az -AllowClobber -Force
+if (Get-Module -Name AzureRM -ListAvailable) {
+    Write-Warning -Message ('Az module not installed. Having both the AzureRM and ' +
+      'Az modules installed at the same time is not supported.')
+} else {
+    Install-Module -Name Az -AllowClobber -Force
+}
 ```
 
 MSI ベースのインストールとは異なり、PowerShellGet を使用してインストールまたは更新を行っても、システム上に存在する古いバージョンは削除されません。 古いバージョンの Azure PowerShell をシステムから削除する方法については、「[Azure PowerShell モジュールのアンインストール](uninstall-az-ps.md)」を参照してください。 MSI ベースのインストールの詳細については、「[MSI を使用して Azure PowerShell をインストールする](install-az-ps-msi.md)」を参照してください。
@@ -139,7 +148,7 @@ MSI ベースのインストールとは異なり、PowerShellGet を使用し�
 複数のバージョンの Azure PowerShell をインストールできます。 複数のバージョンの Azure PowerShell がインストールされているかどうかを確認するには、次のコマンドを使用します。
 
 ```powershell-interactive
-Get-InstalledModule -Name Az -AllVersions | select Name,Version
+Get-InstalledModule -Name Az -AllVersions | Select-Object -Property Name, Version
 ```
 
 Azure PowerShell のバージョンを削除するには、「[Azure PowerShell モジュールのアンインストール](uninstall-az-ps.md)」を参照してください。

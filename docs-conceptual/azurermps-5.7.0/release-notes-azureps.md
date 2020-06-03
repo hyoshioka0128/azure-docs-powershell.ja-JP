@@ -1,21 +1,18 @@
 ---
-title: Azure PowerShell の変更履歴 | Microsoft Docs
+title: Azure PowerShell の変更履歴
 description: Azure PowerShell の最新リリースで行われた変更の履歴です。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
-ms.openlocfilehash: 61ab0f91c3d6fffdbffd336fa0d6ed9b0ab8f6ec
-ms.sourcegitcommit: d661f38bec34e65bf73913db59028e11fd78b131
+ms.openlocfilehash: cf8d1fc76feb07e075339255de63e09f59187dc6
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "68863294"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84122050"
 ---
-# <a name="release-notes"></a>リリース ノート
+# <a name="azure-powershell-release-notes"></a>Azure PowerShell リリース ノート
 
 [!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
@@ -23,7 +20,7 @@ ms.locfileid: "68863294"
 
 ---
 
-# <a name="azure-powershell-570"></a>Azure PowerShell 5.7.0
+## <a name="azure-powershell-570"></a>Azure PowerShell 5.7.0
 
 Azure PowerShell 5.7.0 インストーラー: [リンク](https://github.com/Azure/azure-powershell/releases/download/v5.7.0-April2018/azure-powershell.5.7.0.msi)
 
@@ -41,7 +38,7 @@ Install-Module -Name AzureRM -Repository PSGallery -Force
 Update-Module -Name AzureRM
 ```
 
-## <a name="changes-since-last-release"></a>前回のリリース以降の変更点
+### <a name="changes-since-last-release"></a>前回のリリース以降の変更点
 
 #### <a name="general"></a>全般
 * Azure ClientRuntime の最新バージョンに更新しました
@@ -149,7 +146,7 @@ Update-Module -Name AzureRM
     - Update-AzureRmRecoveryServicesAsrProtectionDirection
 
 #### <a name="azurermstorage"></a>AzureRM.Storage
-* 保存時の暗号化は既定で有効であり、無効にできないため、ストレージ アカウントの新規と設定の各コマンドレットのパラメーター EnableEncryptionService および DisableEncryptionService を廃止しました。
+* ストレージ アカウントの新規と設定の各コマンドレットについて、次のパラメーターを廃止しました。EnableEncryptionService および DisableEncryptionService (保存時の暗号化は既定で有効であり、無効にできないため)
     - New-AzureRmStorageAccount
     - Set-AzureRmStorageAccount
 
@@ -185,8 +182,8 @@ Update-Module -Name AzureRM
 * "New-AzureRmVmss" では、パブリック IP アドレス、負荷分散規則、および受信 NAT 規則がサポートされます。
 * WriteAccelerator 機能
     - WriteAccelerator スイッチ パラメーターを次のコマンドレットを追加しました: Set-AzureRmVMOSDisk、Set-AzureRmVMDataDisk、Add-AzureRmVMDataDisk、Add-AzureRmVmssDataDisk
-    - OsDiskWriteAccelerator スイッチ パラメーターを Set-AzureRmVmssStorageProfile コマンドレットに追加しました。
-    - OsDiskWriteAccelerator ブール値パラメーターを次のコマンドレットに追加しました: Update-AzureRmVM、Update-AzureRmVmss
+    - OsDiskWriteAccelerator スイッチ パラメーターを次のコマンドレットを追加しました:    Set-AzureRmVmssStorageProfile。
+    - OsDiskWriteAccelerator ブール値パラメーターを次のコマンドレットを追加しました:    Update-AzureRmVM     Update-AzureRmVmss
 
 #### <a name="azurermdatafactories"></a>AzureRM.DataFactories
 * 一部の暗号化操作で無意味なエラーの原因になっていた、資格情報暗号化に関する問題を修正しました
@@ -275,7 +272,7 @@ Update-Module -Name AzureRM
     - Remove-AzureRmNetworkWatcherConnectionMonitor
 * Set-AzureRmApplicationGatewayBackendAddressPool のドキュメントを更新して非推奨の例を削除しました
 * EnableHttp2 フラグを Application Gateway に追加しました
-    - New-AzureRmApplicationGateway の更新: 省略可能なパラメーター EnableHttp2 を追加しました
+    - New-AzureRmApplicationGateway の更新: 省略可能なパラメーター -EnableHttp2 を追加しました
 * IpTag を PublicIpAddress に追加しました
     - New-AzureRmPublicIpAddress の更新: IpTag を追加しました
     - Iptag を追加する New-AzureRmPublicIpTag
@@ -286,7 +283,7 @@ Update-Module -Name AzureRM
 * Register-AzureRmResourceProvider: 不足している例をドキュメントに追加しました
 
 #### <a name="azurermstorage"></a>AzureRM.Storage
-* 保存時の暗号化は既定で有効であり、無効にできないため、ストレージ アカウントの新規と設定の各コマンドレットのパラメーター EnableEncryptionService および DisableEncryptionService を廃止しました。
+* ストレージ アカウントの新規と設定の各コマンドレットについて、次のパラメーターを廃止しました。EnableEncryptionService および DisableEncryptionService (保存時の暗号化は既定で有効であり、無効にできないため)
     - New-AzureRmStorageAccount
     - Set-AzureRmStorageAccount
 
@@ -351,7 +348,7 @@ Update-Module -Name AzureRM
 * `Invoke-AzureRmOperationalInsightsQuery` を介した V2 API クエリ実行のサポートを追加しました。 新しい API の詳細については、[https://dev.loganalytics.io/](https://dev.loganalytics.io/) を参照してください。
 
 ### <a name="azurermresources"></a>AzureRM.Resources
-* `Get-AzureRmADServicePrincipal`: SPN パラメーター セットと冗長であるため、既定の空のパラメーター セットから `-ServicePrincipalName` を削除しました。
+* `Get-AzureRmADServicePrincipal`:SPN パラメーター セットと冗長であるため、既定の空のパラメーター セットから `-ServicePrincipalName` を削除しました。
 
 ### <a name="azurermservicebus"></a>AzureRM.ServiceBus
 
@@ -616,7 +613,7 @@ Update-Module -Name AzureRM
 ## <a name="2017128-version-511"></a>2017.12.8 バージョン 5.1.1
 * AnalysisServices
   - すべてのクラウドがサポートされるように、場所の検証セットを動的ルックアップに変更しました。
-* Automation
+* オートメーション
   - Import-AzureRMAutomationRunbook に更新しました
     - Python2 Runbook がサポートされるようになりました
 * Batch
@@ -639,7 +636,7 @@ Update-Module -Name AzureRM
 * DataFactories
     - 資格情報の暗号化機能が、"リモート アクセス" 有効 (ネットワーク経由) と "リモート アクセス" 無効 (ローカル コンピューター) の両方で動作するようになりました。
 * DataFactoryV2
-  - 2 つのコマンドレットを新しく追加しました: Update-AzureRmDataFactoryV2 および Stop-AzureRmDataFactoryV2PipelineRun
+  - 追加された 2 つの新しいコマンドレット: Update-AzureRmDataFactoryV2 および Stop-AzureRmDataFactoryV2PipelineRun
 * DataLakeAnalytics
   - ScriptParameter というパラメーターを Submit-AzureRmDataLakeAnalyticsJob に追加しました
     - ScriptParameter に関する詳細情報を、Submit-AzureRmDataLakeAnalyticsJob で Get-Help を使用して確認できます
@@ -723,7 +720,7 @@ Update-Module -Name AzureRM
   - AzureRM.StreamAnalytics
 
 ## <a name="2017118---version-500"></a>2017.11.8 - バージョン 5.0.0
-* 注: これは重大な変更のリリースです。 導入された重大な変更の完全な一覧については、移行ガイド (https://aka.ms/azps-migration-guide) ) を参照してください。
+* 注:これは重大な変更のリリースです。 導入された重大な変更の完全な一覧については、移行ガイド (https://aka.ms/azps-migration-guide) ) を参照してください。
 * AzureRM のコマンドレットはすべて、オンライン ヘルプをサポートするようになりました
   - -Online パラメーターを指定して Get-Help を実行すると、既定のインターネット ブラウザーでオンライン ヘルプが表示されます
 * AnalysisServices
@@ -752,9 +749,9 @@ Update-Module -Name AzureRM
     - Remove-AzureRmApplicationInsightsApiKey
 * AzureBatch
   * 新しいパラメーターを `New-AzureRmBatchAccount` に追加しました。
-    - `PoolAllocationMode`: Batch アカウントでプールを作成するために使用する割り当てモード。 ユーザーのサブスクリプションにプール ノードを割り当てる Batch アカウントを作成するには、これを `UserSubscription` に設定します。
-    - `KeyVaultId`: Batch アカウントに関連付けられている Azure Key Vault のリソース ID。
-    - `KeyVaultUrl`: Batch アカウントに関連付けられている Azure Key Vault の URL。
+    - `PoolAllocationMode`:Batch アカウントでプールを作成するために使用する割り当てモード。 ユーザーのサブスクリプションにプール ノードを割り当てる Batch アカウントを作成するには、これを `UserSubscription` に設定します。
+    - `KeyVaultId`:Batch アカウントに関連付けられている Azure キー コンテナーのリソース ID。
+    - `KeyVaultUrl`:Batch アカウントに関連付けられている Azure キー コンテナーの URL。
   * `New-AzureBatchTask` のパラメーターを更新しました。
     - `RunElevated` スイッチを削除しました。 `RunElevated` の代わりに `UserIdentity` パラメーターを追加しました。以下のように `PSUserIdentity` を作成することにより同じ動作を行うことができます。
       - $autoUser = New-Object Microsoft.Azure.Commands.Batch.Models.PSAutoUserSpecification -ArgumentList @("Task", "Admin")

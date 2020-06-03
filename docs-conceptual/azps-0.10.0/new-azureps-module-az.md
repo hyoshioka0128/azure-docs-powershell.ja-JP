@@ -4,12 +4,12 @@ description: AzureRM モジュールに代わる新しい Azure PowerShell Az �
 ms.date: 05/10/2019
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: a74b7fecdb108d45c09edb9939e9a8fa04a15bff
-ms.sourcegitcommit: 7839b82f47ef8dd522eff900081c22de0d089cfc
+ms.openlocfilehash: bef3ae8344a13e170a30889c1954fd2e9b29dcdf
+ms.sourcegitcommit: 9f5c7d231b069ad501729bf015a829f3fe89bc6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83387634"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121931"
 ---
 # <a name="introducing-the-new-azure-powershell-az-module"></a>新しい Azure PowerShell Az モジュールの概要
 
@@ -23,7 +23,7 @@ Az は新しいモジュールであるため、バージョンが 1.0.0 にリ�
 
 主要な更新プログラムの適用には手間取る可能性があります。そのため、PowerShell から Azure を操作するために、新しいコマンドレットと一緒に新しいモジュールのセットを導入することが決定された理由をお知らせすることは重要です。
 
-最大かつ最も重要な変更は、.NET Standard ライブラリに基づいた [PowerShell Core 6.x](/powershell/scripting/overview) の導入以来、PowerShell がクロスプラット フォーム対応製品だったことです。
+最大かつ最も重要な変更は、.NET Standard ライブラリに基づいた [PowerShell](/powershell/scripting/overview) の導入以来、PowerShell がクロスプラット フォーム対応製品であることです。
 Microsoft は すべてのプラットフォームに Azure サポートを導入することに取り組んでいます。これは、.NET Standard の使用と PowerShell Core との互換性のためには Azure PowerShell モジュールを更新する必要があることを意味します。 既存の AzureRM モジュールを取得し、複雑な変更を導入してこのサポートを追加する代わりに、Az モジュールが作成されました。
 
 新しいモジュールを作成することで、エンジニアが、コマンドレットとモジュールの設計と名前付けに一貫性を持たせることもできます。 すべてのモジュールの先頭は `Az.` プレフィックスになり、コマンドレットはすべて _動詞_-`Az`_名詞_ の形式を使用するようになりました。 以前は、コマンドレット名が長いだけでなく、コマンドレット名に一貫性がありませんでした。
@@ -36,15 +36,14 @@ Microsoft は すべてのプラットフォームに Azure サポートを導�
 
 PowerShell の Azure の最新機能に対応するには、できるだけ早く Az モジュールに移行する必要があります。 Az モジュールを AzureRM の代わりとしてインストールする準備ができていない場合は、Az を試してみるために使用できるいくつかのオプションがあります。
 
-* [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) で `PowerShell` 環境変数を使用します。
-  Azure Cloud Shell は、Az モジュールがインストールされていて、`Enable-AzureRM` と互換性のあるエイリアスが有効になっている、ブラウザー ベースのシェル環境です。
+* [Azure Cloud Shell](/azure/cloud-shell/overview) で `PowerShell` 環境変数を使用します。 Azure Cloud Shell は、Az モジュールがインストールされていて、`Enable-AzureRM` と互換性のあるエイリアスが有効になっている、ブラウザー ベースのシェル環境です。
 * AzureRM は Windows 用の PowerShell 5.1 と共にインストールしたままにして、PowerShell Core 6.x 以降の Az モジュールをインストールします。 Windows 用の PowerShell 5.1 と PowerShell Core は別個のモジュールのコレクションを使用します。 手順に従って [PowerShell Core をインストール](/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルから [Az モジュールをインストール](install-az-ps.md)してください。
 
 既存の AzureRM インストールからアップグレードするには、次の手順に従います。
 
 1. [Azure PowerShell AzureRM モジュールをアンインストールする](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
 2. [Azure PowerShell Az モジュールをインストールする](install-az-ps.md)
-3. __省略可能__:新しいコマンド セットについて理解を深めながら、[Enable-AzureRMAlias](/powershell/module/az.accounts/enable-azurermalias) を使用して AzureRM コマンドレットのエイリアスを互換モードで追加できるようにします。 詳細については、次のセクション、または [AzureRM から Az への移行の開始](migrate-from-azurerm-to-az.md)に関するページを参照してください。
+3. **省略可能**:新しいコマンド セットについて理解を深めながら、[Enable-AzureRMAlias](/powershell/module/az.accounts/enable-azurermalias) を使用して AzureRM コマンドレットのエイリアスを互換モードで追加できるようにします。 詳細については、次のセクション、または [AzureRM から Az への移行の開始](migrate-from-azurerm-to-az.md)に関するページを参照してください。
 
 ## <a name="migrate-existing-scripts-to-az"></a>Az に既存のスクリプトを移行する
 
