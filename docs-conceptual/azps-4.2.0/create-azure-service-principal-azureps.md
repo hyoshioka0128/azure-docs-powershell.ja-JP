@@ -5,11 +5,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: ebdc0783c43ccecbbeb315de5b5baebc9539b40e
-ms.sourcegitcommit: 285d14bff76ccc83b2eef7e142c7f62ded67f503
+ms.sourcegitcommit: 5523170e571fbd1dc93bd0fa4223aba3b324d3b0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85216367"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85363352"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell で Azure サービス プリンシパルを作成する
 
@@ -32,7 +32,7 @@ Azure サービス プリンシパルは、Azure リソースにアクセスす�
 ### <a name="password-based-authentication"></a>パスワードベースの認証
 
 > [!IMPORTANT]
-> パスワードベースの認証サービス プリンシパルの既定のロールは**共同作成者**です。 このロールには、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与されます。 ロールの割り当ての管理については、「[サービス プリンシパル ロールを管理する](#manage-service-principal-roles)」を参照してください。
+> パスワードベースの認証サービス プリンシパルの既定ロールは**共同作成者**です。 このロールには、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与されます。 ロールの割り当ての管理については、「[サービス プリンシパル ロールを管理する](#manage-service-principal-roles)」を参照してください。
 
 パスワード ベースの認証では、他の認証パラメーターは使用せず、自動的に作成されるランダム パスワードを使用します。 パスワード ベースの認証を使用する場合は、次の方法をお勧めします。
 
@@ -111,7 +111,7 @@ Azure PowerShell には、ロールの割り当てを管理するための、次
 - [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)
 - [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)
 
-パスワードベースの認証サービス プリンシパルの既定のロールは**共同作成者**です。 このロールには、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与されます。 **閲覧者**ロールは制限がより厳しく、読み取り専用アクセスが提供されます。 ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC の組み込みのロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
+パスワードベースの認証サービス プリンシパルの既定ロールは**共同作成者**です。 このロールには、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与されます。 **閲覧者**ロールは制限がより厳しく、読み取り専用アクセスが提供されます。 ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC の組み込みのロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
 
 この例では、**閲覧者**ロールを追加し、**共同作成者**ロールを削除します。
 
