@@ -14,7 +14,7 @@ ms.locfileid: "85268245"
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
 Azure PowerShell は、コマンド ラインから Azure リソースを管理できるように設計されています。
-Azure Resource Manager モデルを使用する自動化ツールをビルドする場合に Azure PowerShell を使用します。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで試してみるか、ローカル コンピューターにインストールします。
+Azure Resource Manager モデルを使用する自動化ツールをビルドする場合に Azure PowerShell を使用します。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで使ってみるか、ローカル コンピューターにインストールします。
 
 この記事では、Azure PowerShell の基本的な使い方と、主要な概念について説明します。
 
