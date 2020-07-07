@@ -14,13 +14,13 @@ ms.locfileid: "85268245"
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell の使用に関するページ
 
 Azure PowerShell は、コマンド ラインから Azure リソースを管理できるように設計されています。
-Azure Resource Manager モデルを使用する自動化ツールをビルドする場合に Azure PowerShell を使用します。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで試してみるか、ローカル コンピューターにインストールします。
+Azure Resource Manager モデルを使用する自動化ツールをビルドする場合に Azure PowerShell を使用します。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使ってブラウザーで使ってみるか、ローカル コンピューターにインストールします。
 
 この記事では、Azure PowerShell の基本的な使い方と、主要な概念について説明します。
 
 ## <a name="install-or-run-in-azure-cloud-shell"></a>Azure Cloud Shell でのインストールまたは実行
 
-Azure PowerShell の使用を開始する最も簡単な方法として、Azure Cloud Shell 環境でこれを試してみます。 Cloud Shell を起動して実行する方法については、「[Azure Cloud Shell の PowerShell のクイックスタート](/azure/cloud-shell/quickstart-powershell)」をご覧ください。 Cloud Shell では Linux コンテナー上で PowerShell が実行されるため、Windows 固有の機能は利用できません。
+Azure PowerShell の使用を開始する最も簡単な方法として、Azure Cloud Shell 環境でこれを使ってみます。 Cloud Shell を起動して実行する方法については、「[Azure Cloud Shell の PowerShell のクイックスタート](/azure/cloud-shell/quickstart-powershell)」をご覧ください。 Cloud Shell では Linux コンテナー上で PowerShell が実行されるため、Windows 固有の機能は利用できません。
 
 Azure PowerShell をローカル コンピューターにインストールする準備ができたら、「[Install the Azure PowerShell module (Azure PowerShell モジュールのインストール)](install-az-ps.md)」の手順に従います。
 
